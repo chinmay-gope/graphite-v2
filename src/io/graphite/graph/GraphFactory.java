@@ -1,6 +1,6 @@
-package io.graphite.algorithm.graph;
+package io.graphite.graph;
 
-import io.graphite.algorithm.generator.RandomGraphGenerator;
+import io.graphite.generator.RandomGraphGenerator;
 import io.graphite.builder.Graphs;
 
 public final class GraphFactory {

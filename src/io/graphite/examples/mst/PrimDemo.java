@@ -1,12 +1,12 @@
-package io.graphite.algorithm.examples.mst;
+package io.graphite.examples.mst;
 
-import io.graphite.algorithm.examples.util.GraphDemoPrinter;
 import io.graphite.algorithm.mst.MSTAlgorithm;
 import io.graphite.algorithm.mst.Prim;
+import io.graphite.builder.Graphs;
+import io.graphite.examples.util.GraphDemoPrinter;
 import io.graphite.exception.GraphException;
 import io.graphite.graph.Graph;
 import io.graphite.result.MSTResult;
-import io.graphite.builder.Graphs;
 import io.graphite.util.GraphPrinter;
 
 public class PrimDemo {

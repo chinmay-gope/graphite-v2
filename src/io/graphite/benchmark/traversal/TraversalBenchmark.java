@@ -1,13 +1,13 @@
-package io.graphite.algorithm.benchmark.traversal;
+package io.graphite.benchmark.traversal;
 
-import io.graphite.algorithm.benchmark.StressConfig;
-import io.graphite.algorithm.benchmark.StressRunner;
 import io.graphite.algorithm.traversal.BFS;
 import io.graphite.algorithm.traversal.DFS;
 import io.graphite.algorithm.traversal.TraversalAlgorithm;
+import io.graphite.benchmark.StressConfig;
+import io.graphite.benchmark.StressRunner;
 import io.graphite.graph.GraphFactory;
 
-import static io.graphite.algorithm.benchmark.StressRunner.randomSource;
+import static io.graphite.benchmark.StressRunner.randomSource;
 
 
 public class TraversalBenchmark {

@@ -1,8 +1,8 @@
 package io.graphite.algorithm.cycle;
 
 import io.graphite.algorithm.GraphAlgorithm;
-import io.graphite.algorithm.graph.IGraph;
-import io.graphite.algorithm.model.Edge;
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
 
 public class DirectedCycleDetector extends GraphAlgorithm implements CycleDetectionAlgorithm {
     @Override
@@ -22,10 +22,7 @@ public class DirectedCycleDetector extends GraphAlgorithm implements CycleDetect
         return false;
     }
 
-    private boolean hasCycle(IGraph graph,
-                             int current,
-                             boolean[] visited,
-                             boolean[] recursionStack) {
+    private boolean hasCycle(IGraph graph, int current, boolean[] visited, boolean[] recursionStack) {
         visited[current] = true;
         recursionStack[current] = true;
 

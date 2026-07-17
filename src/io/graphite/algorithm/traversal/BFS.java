@@ -1,9 +1,9 @@
 package io.graphite.algorithm.traversal;
 
 import io.graphite.algorithm.GraphAlgorithm;
-import io.graphite.algorithm.graph.IGraph;
-import io.graphite.algorithm.model.Edge;
-import io.graphite.algorithm.result.TraversalResult;
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
+import io.graphite.result.TraversalResult;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

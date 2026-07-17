@@ -1,9 +1,9 @@
-package io.graphite.algorithm.examples.util;
+package io.graphite.examples.util;
 
-import io.graphite.builder.Graphs;
-import io.graphite.graph.IGraph;
 import io.graphite.algorithm.traversal.BFS;
 import io.graphite.algorithm.traversal.DFS;
+import io.graphite.builder.Graphs;
+import io.graphite.graph.IGraph;
 
 public final class TraversalDemo {
 

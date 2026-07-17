@@ -1,10 +1,10 @@
 package io.graphite.algorithm.topology;
 
 import io.graphite.algorithm.GraphAlgorithm;
-import io.graphite.algorithm.exception.algorithm.GraphCycleException;
-import io.graphite.algorithm.graph.IGraph;
-import io.graphite.algorithm.model.Edge;
-import io.graphite.algorithm.result.TopologicalSortResult;
+import io.graphite.exception.algorithm.GraphCycleException;
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
+import io.graphite.result.TopologicalSortResult;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -14,11 +14,11 @@ public class KahnTopologicalSort extends GraphAlgorithm implements TopologicalAl
     @Override
     public TopologicalSortResult sort(IGraph graph) {
         validate(graph);
-        requireDirectedGraph(graph);
+        requireDirected(graph);
 
         int vertices = graph.getVertices();
 
-        int[] indegree = new int[vertices];
+        int[] indegree = ints(graph, 0);
 //        Step 1:Calculate indegree of every vertex
         for (int u = 0; u < vertices; u++) {
             indegree[u] = 0;

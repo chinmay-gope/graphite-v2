@@ -1,12 +1,12 @@
-package io.graphite.algorithm.examples.bipartite;
+package io.graphite.examples.bipartite;
 
 import io.graphite.algorithm.bipartite.BFSBipartiteChecker;
-import io.graphite.algorithm.bipartite.DFSBipartiteChecker;
 import io.graphite.algorithm.bipartite.BipartiteAlgorithm;
-import io.graphite.algorithm.examples.util.GraphDemoPrinter;
+import io.graphite.algorithm.bipartite.DFSBipartiteChecker;
+import io.graphite.builder.Graphs;
+import io.graphite.examples.util.GraphDemoPrinter;
 import io.graphite.graph.Graph;
 import io.graphite.result.Result;
-import io.graphite.builder.Graphs;
 import io.graphite.util.GraphPrinter;
 import io.graphite.validation.GraphValidator;
 
@@ -20,7 +20,7 @@ public class BipartiteDemo {
                 .addEdge(3, 0)
                 .build();
 
-        GraphDemoPrinter.printHeader("Bipartite Even Cycle", graph);
+        io.graphite.examples.util.GraphDemoPrinter.printHeader("Bipartite Even Cycle", graph);
         GraphPrinter.print(graph);
 
         BipartiteAlgorithm bfsBipartiteChecker = new BFSBipartiteChecker();

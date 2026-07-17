@@ -1,4 +1,4 @@
-package io.graphite.algorithm.validation;
+package io.graphite.validation;
 
 import io.graphite.graph.IGraph;
 import io.graphite.result.EulerResult;

@@ -1,9 +1,9 @@
 package io.graphite.algorithm.bipartite;
 
 import io.graphite.algorithm.GraphAlgorithm;
-import io.graphite.algorithm.graph.IGraph;
-import io.graphite.algorithm.model.Edge;
-import io.graphite.algorithm.validation.GraphValidator;
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
+import io.graphite.validation.GraphValidator;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
@@ -19,7 +19,7 @@ public class BFSBipartiteChecker extends GraphAlgorithm implements BipartiteAlgo
             return false;
         }
 
-        int[] color = ints(graph,-1);
+        int[] color = ints(graph, -1);
 
         for (int i = 0; i < graph.getVertices(); i++) {
             if (color[i] == -1) {

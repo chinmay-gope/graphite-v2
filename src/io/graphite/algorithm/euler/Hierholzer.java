@@ -1,16 +1,17 @@
 package io.graphite.algorithm.euler;
 
 import io.graphite.algorithm.GraphAlgorithm;
-import io.graphite.algorithm.exception.algorithm.GraphCycleException;
-import io.graphite.algorithm.exception.graph.GraphDisconnectedException;
-import io.graphite.algorithm.graph.IGraph;
-import io.graphite.algorithm.model.Edge;
-import io.graphite.algorithm.result.EulerResult;
-import io.graphite.algorithm.util.GraphUtils;
+import io.graphite.exception.algorithm.GraphCycleException;
+import io.graphite.exception.graph.GraphDisconnectedException;
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
+import io.graphite.result.EulerResult;
+import io.graphite.util.GraphUtils;
 
 import java.util.*;
 
-import static io.graphite.algorithm.util.GraphUtils.isConnected;
+import static io.graphite.util.GraphUtils.isConnected;
+
 
 public class Hierholzer extends GraphAlgorithm implements EulerAlgorithm {
 
@@ -42,23 +43,16 @@ public class Hierholzer extends GraphAlgorithm implements EulerAlgorithm {
         requireUndirected(graph);
 
         if (!isConnected(graph)) {
-            throw new GraphDisconnectedException(
-                    "Euler circuit requires a connected graph."
-            );
+            throw new GraphDisconnectedException("Euler circuit requires a connected graph.");
         }
 
         if (countOddVertices(graph) != 0) {
-            throw new GraphCycleException(
-                    "Graph does not contain an Euler circuit."
-            );
+            throw new GraphCycleException("Graph does not contain an Euler circuit.");
         }
 
         int start = findStartVertex(graph);
 
-        return new EulerResult(
-                EulerType.CIRCUIT,
-                buildEulerTraversal(graph, start)
-        );
+        return new EulerResult(EulerType.CIRCUIT, buildEulerTraversal(graph, start));
 
     }
 
@@ -119,16 +113,12 @@ public class Hierholzer extends GraphAlgorithm implements EulerAlgorithm {
         return path;
     }
 
-    private List<Integer> buildEulerTraversal(
-            IGraph graph,
-            int start) {
+    private List<Integer> buildEulerTraversal(IGraph graph, int start) {
 
         List<Integer> traversal = hierholzer(graph, start);
 
         if (traversal.size() != graph.edgeCount() + 1) {
-            throw new GraphCycleException(
-                    "Invalid Euler traversal."
-            );
+            throw new GraphCycleException("Invalid Euler traversal.");
         }
 
         return traversal;

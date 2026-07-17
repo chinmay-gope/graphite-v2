@@ -1,4 +1,4 @@
-package io.graphite.algorithm.result;
+package io.graphite.result;
 
 public interface Result {
     String RESET = "\u001B[0m";

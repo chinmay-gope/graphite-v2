@@ -1,15 +1,11 @@
-package io.graphite.algorithm.benchmark.shortestpath;
+package io.graphite.benchmark.shortestpath;
 
-import io.graphite.algorithm.benchmark.StressConfig;
-import io.graphite.algorithm.benchmark.StressRunner;
-import io.graphite.algorithm.shortestpath.AllPairsShortestPathAlgorithm;
-import io.graphite.algorithm.shortestpath.BellmanFord;
-import io.graphite.algorithm.shortestpath.Dijkstra;
-import io.graphite.algorithm.shortestpath.FloydWarshall;
-import io.graphite.algorithm.shortestpath.ShortestPathAlgorithm;
+import io.graphite.algorithm.shortestpath.*;
+import io.graphite.benchmark.StressConfig;
+import io.graphite.benchmark.StressRunner;
 import io.graphite.graph.GraphFactory;
 
-import static io.graphite.algorithm.benchmark.StressRunner.randomSource;
+import static io.graphite.benchmark.StressRunner.randomSource;
 
 public class ShortestPathBenchmark {
     public static void stressDijkstra() {

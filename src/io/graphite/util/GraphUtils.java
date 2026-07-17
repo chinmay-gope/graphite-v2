@@ -1,6 +1,6 @@
-package io.graphite.algorithm.util;
+package io.graphite.util;
 
-import io.graphite.algorithm.exception.graph.UnsupportedGraphTypeException;
+import io.graphite.exception.graph.UnsupportedGraphTypeException;
 import io.graphite.graph.Graph;
 import io.graphite.graph.GraphFactory;
 import io.graphite.graph.IGraph;

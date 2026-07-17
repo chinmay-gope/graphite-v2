@@ -1,10 +1,10 @@
-package io.graphite.algorithm.benchmark.cycle;
+package io.graphite.benchmark.cycle;
 
-import io.graphite.algorithm.benchmark.StressConfig;
-import io.graphite.algorithm.benchmark.StressRunner;
 import io.graphite.algorithm.cycle.CycleDetectionAlgorithm;
 import io.graphite.algorithm.cycle.DirectedCycleDetector;
 import io.graphite.algorithm.cycle.UndirectedCycleDetector;
+import io.graphite.benchmark.StressConfig;
+import io.graphite.benchmark.StressRunner;
 import io.graphite.graph.GraphFactory;
 
 public class CycleBenchmark {

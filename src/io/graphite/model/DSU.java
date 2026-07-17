@@ -1,4 +1,4 @@
-package io.graphite.algorithm.model;
+package io.graphite.model;
 
 public class DSU {
     private final int[] parent;

@@ -1,12 +1,12 @@
 package io.graphite.algorithm.mst;
 
 import io.graphite.algorithm.GraphAlgorithm;
-import io.graphite.algorithm.graph.IGraph;
-import io.graphite.algorithm.exception.graph.GraphDisconnectedException;
-import io.graphite.algorithm.model.Edge;
-import io.graphite.algorithm.model.MSTNode;
-import io.graphite.algorithm.result.MSTEdge;
-import io.graphite.algorithm.result.MSTResult;
+import io.graphite.exception.graph.GraphDisconnectedException;
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
+import io.graphite.model.MSTNode;
+import io.graphite.result.MSTEdge;
+import io.graphite.result.MSTResult;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,19 +48,14 @@ public class Prim extends GraphAlgorithm implements MSTAlgorithm {
             for (Edge edge : neighbours(graph, vertex)) {
                 if (!visited[edge.destination()]) {
 
-                    queue.offer(new MSTNode(
-                            vertex,
-                            edge.destination(),
-                            edge.weight()
-                    ));
+                    queue.offer(new MSTNode(vertex, edge.destination(), edge.weight()));
                 }
             }
         }
 
         for (boolean vertexVisited : visited) {
             if (!vertexVisited) {
-                throw new GraphDisconnectedException(
-                        "Minimum spanning tree requires a connected graph.");
+                throw new GraphDisconnectedException("Minimum spanning tree requires a connected graph.");
             }
         }
 

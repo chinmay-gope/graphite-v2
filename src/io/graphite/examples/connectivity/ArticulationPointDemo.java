@@ -1,11 +1,11 @@
-package io.graphite.algorithm.examples.connectivity;
+package io.graphite.examples.connectivity;
 
-import io.graphite.algorithm.connectivity.APFinder;
-import io.graphite.algorithm.examples.util.GraphDemoPrinter;
 import io.graphite.algorithm.connectivity.APAlgorithm;
+import io.graphite.algorithm.connectivity.APFinder;
+import io.graphite.builder.Graphs;
+import io.graphite.examples.util.GraphDemoPrinter;
 import io.graphite.graph.Graph;
 import io.graphite.result.APResult;
-import io.graphite.builder.Graphs;
 import io.graphite.util.GraphPrinter;
 
 public class ArticulationPointDemo {
@@ -75,7 +75,7 @@ public class ArticulationPointDemo {
         result = algorithm.findArticulationPoints(graph);
         System.out.println(result);
 
-        graph =  Graphs
+        graph = Graphs
                 .undirected(8)
                 .addEdge(0, 1)
                 .addEdge(1, 2)

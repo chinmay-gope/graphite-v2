@@ -1,4 +1,4 @@
-package io.graphite.algorithm.exception;
+package io.graphite.exception;
 
 public class GraphException extends RuntimeException {
     public GraphException(String message) {

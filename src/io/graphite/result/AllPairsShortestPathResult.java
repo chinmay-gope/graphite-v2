@@ -1,8 +1,8 @@
-package io.graphite.algorithm.result;
+package io.graphite.result;
 
 import java.util.Arrays;
 
-import static io.graphite.algorithm.result.Result.*;
+import static io.graphite.result.Result.*;
 
 public record AllPairsShortestPathResult(int[][] distance) {
     public AllPairsShortestPathResult {

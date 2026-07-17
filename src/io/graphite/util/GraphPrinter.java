@@ -1,4 +1,4 @@
-package io.graphite.algorithm.util;
+package io.graphite.util;
 
 import io.graphite.graph.IGraph;
 import io.graphite.model.Edge;

@@ -1,7 +1,7 @@
 package io.graphite.algorithm.euler;
 
-import io.graphite.algorithm.graph.IGraph;
-import io.graphite.algorithm.result.EulerResult;
+import io.graphite.graph.IGraph;
+import io.graphite.result.EulerResult;
 
 public interface EulerAlgorithm {
     EulerResult findEulerPath(IGraph graph);

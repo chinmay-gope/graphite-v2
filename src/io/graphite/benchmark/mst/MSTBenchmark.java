@@ -1,13 +1,13 @@
-package io.graphite.algorithm.benchmark.mst;
+package io.graphite.benchmark.mst;
 
-import io.graphite.algorithm.benchmark.StressConfig;
-import io.graphite.algorithm.benchmark.StressRunner;
 import io.graphite.algorithm.mst.Kruskal;
 import io.graphite.algorithm.mst.MSTAlgorithm;
 import io.graphite.algorithm.mst.Prim;
+import io.graphite.benchmark.StressConfig;
+import io.graphite.benchmark.StressRunner;
 import io.graphite.graph.GraphFactory;
 
-import static io.graphite.algorithm.benchmark.StressRunner.randomSource;
+import static io.graphite.benchmark.StressRunner.randomSource;
 
 public class MSTBenchmark {
     public static void stressPrim() {

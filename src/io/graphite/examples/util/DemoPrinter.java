@@ -1,4 +1,4 @@
-package io.graphite.algorithm.examples.util;
+package io.graphite.examples.util;
 
 import io.graphite.graph.IGraph;
 

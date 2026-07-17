@@ -1,10 +1,10 @@
-package io.graphite.algorithm.result;
+package io.graphite.result;
 
-import io.graphite.algorithm.model.Edge;
+import io.graphite.model.Edge;
 
 import java.util.List;
 
-import static io.graphite.algorithm.result.Result.*;
+import static io.graphite.result.Result.*;
 
 public record BridgeResult(List<Edge> bridges) {
     public BridgeResult {

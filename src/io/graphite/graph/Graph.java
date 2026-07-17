@@ -1,13 +1,12 @@
-package io.graphite.algorithm.graph;
+package io.graphite.graph;
 
 import io.graphite.builder.GraphConfiguration;
-import io.graphite.algorithm.exception.graph.InvalidVertexException;
-import io.graphite.algorithm.model.Edge;
+import io.graphite.exception.graph.InvalidVertexException;
+import io.graphite.model.Edge;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 
 
 public abstract class Graph implements IGraph {

@@ -1,4 +1,6 @@
-package io.graphite.algorithm.builder;
+package io.graphite.builder;
+
+import io.graphite.generator.RandomGraphBuilder;
 
 public final class Graphs {
     private Graphs() {
@@ -11,5 +13,9 @@ public final class Graphs {
 
     public static UndirectedGraphBuilder undirected() {
         return new UndirectedGraphBuilder();
+    }
+
+    public static RandomGraphBuilder random() {
+        return new RandomGraphBuilder();
     }
 }

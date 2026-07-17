@@ -1,14 +1,14 @@
 package io.graphite.algorithm.traversal;
 
 import io.graphite.algorithm.GraphAlgorithm;
-import io.graphite.algorithm.graph.IGraph;
-import io.graphite.algorithm.model.Edge;
-import io.graphite.algorithm.result.TraversalResult;
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
+import io.graphite.result.TraversalResult;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public final class DFS extends GraphAlgorithm implements TraversalAlgorithm {
+public class DFS extends GraphAlgorithm implements TraversalAlgorithm {
 
     @Override
     public TraversalResult traverse(IGraph graph, int source) {

@@ -1,11 +1,11 @@
-package io.graphite.algorithm.examples.euler;
+package io.graphite.examples.euler;
 
 import io.graphite.algorithm.euler.Hierholzer;
-import io.graphite.algorithm.examples.util.GraphDemoPrinter;
+import io.graphite.builder.Graphs;
+import io.graphite.examples.util.GraphDemoPrinter;
 import io.graphite.exception.GraphException;
 import io.graphite.graph.Graph;
 import io.graphite.result.EulerResult;
-import io.graphite.builder.Graphs;
 import io.graphite.util.GraphPrinter;
 
 public class HierholzerDemo {

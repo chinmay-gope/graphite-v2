@@ -1,11 +1,11 @@
-package io.graphite.algorithm.examples.connectivity;
+package io.graphite.examples.connectivity;
 
-import io.graphite.algorithm.connectivity.BiconnectedComponents;
-import io.graphite.algorithm.examples.util.GraphDemoPrinter;
 import io.graphite.algorithm.connectivity.BiconnectedAlgorithm;
+import io.graphite.algorithm.connectivity.BiconnectedComponents;
+import io.graphite.builder.Graphs;
+import io.graphite.examples.util.GraphDemoPrinter;
 import io.graphite.graph.Graph;
 import io.graphite.result.BiConnectedResult;
-import io.graphite.builder.Graphs;
 import io.graphite.util.GraphPrinter;
 
 public class BiConnectedDemo {
@@ -127,8 +127,8 @@ public class BiConnectedDemo {
                 .undirected(5)
                 .addEdge(0, 1)
                 .addEdge(0, 2)
-                .addEdge(1, 2,4)
-                .addEdge(1, 3,5)
+                .addEdge(1, 2, 4)
+                .addEdge(1, 3, 5)
                 .addEdge(2, 3)
                 .addEdge(3, 4)
                 .build();

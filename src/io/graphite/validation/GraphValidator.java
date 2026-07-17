@@ -1,6 +1,6 @@
-package io.graphite.algorithm.validation;
+package io.graphite.validation;
 
-import io.graphite.algorithm.exception.graph.InvalidVertexException;
+import io.graphite.exception.graph.InvalidVertexException;
 import io.graphite.graph.DirectedGraph;
 import io.graphite.graph.IGraph;
 import io.graphite.graph.UndirectedGraph;

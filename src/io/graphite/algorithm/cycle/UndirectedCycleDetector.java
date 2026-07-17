@@ -1,8 +1,8 @@
 package io.graphite.algorithm.cycle;
 
 import io.graphite.algorithm.GraphAlgorithm;
-import io.graphite.algorithm.graph.IGraph;
-import io.graphite.algorithm.model.Edge;
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
 
 public class UndirectedCycleDetector extends GraphAlgorithm implements CycleDetectionAlgorithm {
     @Override

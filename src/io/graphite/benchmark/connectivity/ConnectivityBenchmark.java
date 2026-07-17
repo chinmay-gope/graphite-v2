@@ -1,11 +1,8 @@
-package io.graphite.algorithm.benchmark.connectivity;
+package io.graphite.benchmark.connectivity;
 
-import io.graphite.algorithm.benchmark.StressConfig;
-import io.graphite.algorithm.benchmark.StressRunner;
 import io.graphite.algorithm.connectivity.*;
-import io.graphite.algorithm.connectivity.APAlgorithm;
-import io.graphite.algorithm.connectivity.BiconnectedAlgorithm;
-import io.graphite.algorithm.connectivity.BridgeAlgorithm;
+import io.graphite.benchmark.StressConfig;
+import io.graphite.benchmark.StressRunner;
 import io.graphite.graph.GraphFactory;
 
 public class ConnectivityBenchmark {

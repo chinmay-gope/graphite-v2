@@ -1,10 +1,10 @@
-package io.graphite.algorithm.examples.topology;
+package io.graphite.examples.topology;
 
-import io.graphite.algorithm.examples.util.GraphDemoPrinter;
 import io.graphite.algorithm.topology.DFSTopologicalSort;
+import io.graphite.builder.Graphs;
+import io.graphite.examples.util.GraphDemoPrinter;
 import io.graphite.exception.GraphException;
 import io.graphite.graph.Graph;
-import io.graphite.builder.Graphs;
 import io.graphite.util.GraphPrinter;
 
 public class TopologicalDemo {

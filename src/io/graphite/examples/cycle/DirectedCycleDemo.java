@@ -1,10 +1,10 @@
-package io.graphite.algorithm.examples.cycle;
+package io.graphite.examples.cycle;
 
-import io.graphite.algorithm.cycle.DirectedCycleDetector;
 import io.graphite.algorithm.cycle.CycleDetectionAlgorithm;
-import io.graphite.algorithm.examples.util.GraphDemoPrinter;
-import io.graphite.graph.Graph;
+import io.graphite.algorithm.cycle.DirectedCycleDetector;
 import io.graphite.builder.Graphs;
+import io.graphite.examples.util.GraphDemoPrinter;
+import io.graphite.graph.Graph;
 
 public class DirectedCycleDemo {
     static void main() {

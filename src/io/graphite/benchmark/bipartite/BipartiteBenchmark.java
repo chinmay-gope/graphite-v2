@@ -1,10 +1,10 @@
-package io.graphite.algorithm.benchmark.bipartite;
+package io.graphite.benchmark.bipartite;
 
-import io.graphite.algorithm.benchmark.StressConfig;
-import io.graphite.algorithm.benchmark.StressRunner;
 import io.graphite.algorithm.bipartite.BFSBipartiteChecker;
 import io.graphite.algorithm.bipartite.BipartiteAlgorithm;
 import io.graphite.algorithm.bipartite.DFSBipartiteChecker;
+import io.graphite.benchmark.StressConfig;
+import io.graphite.benchmark.StressRunner;
 import io.graphite.graph.GraphFactory;
 
 public class BipartiteBenchmark {

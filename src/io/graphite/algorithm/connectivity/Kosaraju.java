@@ -1,10 +1,10 @@
 package io.graphite.algorithm.connectivity;
 
 import io.graphite.algorithm.GraphAlgorithm;
-import io.graphite.algorithm.graph.IGraph;
-import io.graphite.algorithm.model.Edge;
-import io.graphite.algorithm.result.SCCResult;
-import io.graphite.algorithm.util.GraphUtils;
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
+import io.graphite.result.SCCResult;
+import io.graphite.util.GraphUtils;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ public class Kosaraju extends GraphAlgorithm implements SCCAlgorithm {
     @Override
     public SCCResult findSCCs(IGraph graph) {
         validate(graph);
-        requireDirectedGraph(graph);
+        requireDirected(graph);
 
         boolean[] visited = booleans(graph);
         Deque<Integer> stack = new ArrayDeque<>();
