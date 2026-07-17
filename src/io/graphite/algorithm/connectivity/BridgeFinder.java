@@ -1,9 +1,9 @@
 package io.graphite.algorithm.connectivity;
 
 import io.graphite.algorithm.GraphAlgorithm;
-import io.graphite.algorithm.graph.IGraph;
-import io.graphite.algorithm.model.Edge;
-import io.graphite.algorithm.result.BridgeResult;
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
+import io.graphite.result.BridgeResult;
 
 import java.util.ArrayList;
 import java.util.List;

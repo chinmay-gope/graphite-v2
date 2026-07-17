@@ -1,4 +1,4 @@
-package io.graphite.algorithm.builder;
+package io.graphite.builder;
 
 public final class Graphs {
     private Graphs() {

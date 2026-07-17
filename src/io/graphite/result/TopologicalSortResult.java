@@ -1,4 +1,4 @@
-package io.graphite.algorithm.result;
+package io.graphite.result;
 
 import java.util.List;
 

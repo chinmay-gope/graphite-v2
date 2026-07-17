@@ -1,7 +1,7 @@
-package io.graphite.algorithm.examples;
+package io.graphite.examples;
 
-import io.graphite.graph.Graph;
 import io.graphite.builder.Graphs;
+import io.graphite.graph.Graph;
 import io.graphite.util.GraphPrinter;
 import io.graphite.util.GraphUtils;
 
@@ -19,7 +19,7 @@ public class GraphDemo {
                 .build();
 
         GraphPrinter.print(graph);
-        System.out.println("\nEdge Count : " +  graph.edgeCount());
+        System.out.println("\nEdge Count : " + graph.edgeCount());
 
         Graph g2 = GraphUtils.transpose(graph);
         System.out.println("\nTransposed Graph : ");

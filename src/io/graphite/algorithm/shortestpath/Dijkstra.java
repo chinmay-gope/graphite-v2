@@ -1,12 +1,12 @@
 package io.graphite.algorithm.shortestpath;
 
 import io.graphite.algorithm.GraphAlgorithm;
-import io.graphite.algorithm.graph.IGraph;
-import io.graphite.algorithm.exception.algorithm.NegativeWeightException;
-import io.graphite.algorithm.model.Edge;
-import io.graphite.algorithm.model.VertexCost;
-import io.graphite.algorithm.result.ShortestPathResult;
-import io.graphite.algorithm.validation.GraphValidator;
+import io.graphite.exception.algorithm.NegativeWeightException;
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
+import io.graphite.model.VertexCost;
+import io.graphite.result.ShortestPathResult;
+import io.graphite.validation.GraphValidator;
 
 import java.util.PriorityQueue;
 

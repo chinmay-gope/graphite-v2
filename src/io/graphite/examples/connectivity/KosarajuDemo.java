@@ -1,11 +1,11 @@
-package io.graphite.algorithm.examples.connectivity;
+package io.graphite.examples.connectivity;
 
 import io.graphite.algorithm.connectivity.Kosaraju;
 import io.graphite.algorithm.connectivity.SCCAlgorithm;
-import io.graphite.algorithm.examples.util.GraphDemoPrinter;
+import io.graphite.builder.Graphs;
+import io.graphite.examples.util.GraphDemoPrinter;
 import io.graphite.graph.Graph;
 import io.graphite.result.SCCResult;
-import io.graphite.builder.Graphs;
 import io.graphite.util.GraphPrinter;
 
 public class KosarajuDemo {

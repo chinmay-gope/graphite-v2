@@ -2,8 +2,8 @@ package io.graphite.algorithm.bipartite;
 
 import io.graphite.algorithm.GraphAlgorithm;
 import io.graphite.algorithm.graph.IGraph;
-import io.graphite.algorithm.model.Edge;
 import io.graphite.algorithm.validation.GraphValidator;
+import io.graphite.model.Edge;
 
 public class DFSBipartiteChecker
         extends GraphAlgorithm

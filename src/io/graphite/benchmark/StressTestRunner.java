@@ -1,13 +1,13 @@
-package io.graphite.algorithm.benchmark;
+package io.graphite.benchmark;
 
-import io.graphite.algorithm.benchmark.bipartite.BipartiteBenchmark;
-import io.graphite.algorithm.benchmark.connectivity.ConnectivityBenchmark;
-import io.graphite.algorithm.benchmark.cycle.CycleBenchmark;
-import io.graphite.algorithm.benchmark.euler.EulerBenchmark;
-import io.graphite.algorithm.benchmark.mst.MSTBenchmark;
-import io.graphite.algorithm.benchmark.shortestpath.ShortestPathBenchmark;
-import io.graphite.algorithm.benchmark.topology.TopologyBenchmark;
-import io.graphite.algorithm.benchmark.traversal.TraversalBenchmark;
+import io.graphite.benchmark.bipartite.BipartiteBenchmark;
+import io.graphite.benchmark.connectivity.ConnectivityBenchmark;
+import io.graphite.benchmark.cycle.CycleBenchmark;
+import io.graphite.benchmark.euler.EulerBenchmark;
+import io.graphite.benchmark.mst.MSTBenchmark;
+import io.graphite.benchmark.shortestpath.ShortestPathBenchmark;
+import io.graphite.benchmark.topology.TopologyBenchmark;
+import io.graphite.benchmark.traversal.TraversalBenchmark;
 
 public class StressTestRunner {
 

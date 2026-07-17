@@ -1,4 +1,4 @@
-package io.graphite.algorithm.benchmark;
+package io.graphite.benchmark;
 
 public record StressConfig(int iterations, int[] vertices, int edgeMultiplier) {
 

@@ -3,10 +3,10 @@ package io.graphite.algorithm.topology;
 import io.graphite.algorithm.GraphAlgorithm;
 import io.graphite.algorithm.cycle.CycleDetectionAlgorithm;
 import io.graphite.algorithm.cycle.DirectedCycleDetector;
-import io.graphite.algorithm.exception.algorithm.GraphCycleException;
-import io.graphite.algorithm.graph.IGraph;
-import io.graphite.algorithm.model.Edge;
-import io.graphite.algorithm.result.TopologicalSortResult;
+import io.graphite.exception.algorithm.GraphCycleException;
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
+import io.graphite.result.TopologicalSortResult;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

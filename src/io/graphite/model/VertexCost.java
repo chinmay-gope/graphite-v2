@@ -1,4 +1,4 @@
-package io.graphite.algorithm.model;
+package io.graphite.model;
 
 public record VertexCost(int vertex, int cost)
         implements Comparable<VertexCost> {

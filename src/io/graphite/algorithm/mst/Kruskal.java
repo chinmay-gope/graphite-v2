@@ -1,12 +1,12 @@
 package io.graphite.algorithm.mst;
 
 import io.graphite.algorithm.GraphAlgorithm;
-import io.graphite.algorithm.exception.graph.GraphDisconnectedException;
-import io.graphite.algorithm.graph.IGraph;
-import io.graphite.algorithm.model.DSU;
-import io.graphite.algorithm.model.Edge;
-import io.graphite.algorithm.result.MSTEdge;
-import io.graphite.algorithm.result.MSTResult;
+import io.graphite.exception.graph.GraphDisconnectedException;
+import io.graphite.graph.IGraph;
+import io.graphite.model.DSU;
+import io.graphite.model.Edge;
+import io.graphite.result.MSTEdge;
+import io.graphite.result.MSTResult;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -19,7 +19,7 @@ public class Kruskal extends GraphAlgorithm implements MSTAlgorithm {
         requireUndirected(graph);
 
         DSU dsu = new DSU(graph.getVertices());
-        List<Edge> edges = new ArrayList<>(graph.getEdges());
+        List<Edge> edges = new ArrayList(graph.getEdges());
         List<MSTEdge> mst = new ArrayList<>();
 
 //        mutable copy

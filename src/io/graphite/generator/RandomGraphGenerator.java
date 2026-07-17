@@ -1,4 +1,4 @@
-package io.graphite.algorithm.generator;
+package io.graphite.generator;
 
 import io.graphite.builder.Graphs;
 import io.graphite.graph.Graph;

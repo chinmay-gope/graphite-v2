@@ -1,8 +1,8 @@
-package io.graphite.algorithm.examples.util;
+package io.graphite.examples.util;
 
-import io.graphite.graph.IGraph;
 import io.graphite.algorithm.traversal.TraversalAlgorithm;
 import io.graphite.exception.GraphException;
+import io.graphite.graph.IGraph;
 import io.graphite.result.Result;
 import io.graphite.util.GraphPrinter;
 

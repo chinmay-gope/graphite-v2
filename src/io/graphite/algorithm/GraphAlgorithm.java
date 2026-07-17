@@ -1,8 +1,8 @@
 package io.graphite.algorithm;
 
-import io.graphite.algorithm.graph.IGraph;
-import io.graphite.algorithm.model.Edge;
-import io.graphite.algorithm.validation.GraphValidator;
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
+import io.graphite.validation.GraphValidator;
 
 import java.util.Arrays;
 import java.util.List;

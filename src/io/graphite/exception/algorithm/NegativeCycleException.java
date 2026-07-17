@@ -1,4 +1,4 @@
-package io.graphite.algorithm.exception.algorithm;
+package io.graphite.exception.algorithm;
 
 import io.graphite.algorithm.exception.GraphException;
 

@@ -1,14 +1,14 @@
-package io.graphite.algorithm.benchmark.euler;
+package io.graphite.benchmark.euler;
 
-import io.graphite.algorithm.benchmark.StressConfig;
-import io.graphite.algorithm.benchmark.StressRunner;
 import io.graphite.algorithm.euler.EulerAlgorithm;
 import io.graphite.algorithm.euler.Hierholzer;
+import io.graphite.benchmark.StressConfig;
+import io.graphite.benchmark.StressRunner;
 import io.graphite.exception.algorithm.GraphCycleException;
 import io.graphite.exception.graph.GraphDisconnectedException;
+import io.graphite.graph.GraphFactory;
 import io.graphite.result.EulerResult;
 import io.graphite.validation.EulerValidator;
-import io.graphite.graph.GraphFactory;
 
 public class EulerBenchmark {
     public static void stressEulerPath() {

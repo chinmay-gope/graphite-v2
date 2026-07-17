@@ -1,12 +1,12 @@
-package io.graphite.algorithm.examples.shortestpath;
+package io.graphite.examples.shortestpath;
 
-import io.graphite.algorithm.examples.util.GraphDemoPrinter;
 import io.graphite.algorithm.shortestpath.AllPairsShortestPathAlgorithm;
 import io.graphite.algorithm.shortestpath.FloydWarshall;
+import io.graphite.builder.Graphs;
+import io.graphite.examples.util.GraphDemoPrinter;
 import io.graphite.exception.GraphException;
 import io.graphite.graph.Graph;
 import io.graphite.result.AllPairsShortestPathResult;
-import io.graphite.builder.Graphs;
 import io.graphite.util.GraphPrinter;
 
 public class FloydWarshallDemo {

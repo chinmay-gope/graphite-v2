@@ -1,6 +1,6 @@
-package io.graphite.algorithm.builder;
+package io.graphite.builder;
 
-import io.graphite.algorithm.graph.UndirectedGraph;
+import io.graphite.graph.UndirectedGraph;
 
 public final class UndirectedGraphBuilder extends AbstractGraphBuilder<UndirectedGraph> {
     @Override

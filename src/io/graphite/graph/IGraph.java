@@ -1,6 +1,6 @@
-package io.graphite.algorithm.graph;
+package io.graphite.graph;
 
-import io.graphite.algorithm.model.Edge;
+import io.graphite.model.Edge;
 
 import java.util.List;
 

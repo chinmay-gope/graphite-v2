@@ -1,6 +1,6 @@
-package io.graphite.algorithm.examples.traversal;
+package io.graphite.examples.traversal;
 
-import io.graphite.algorithm.examples.util.GraphDemoPrinter;
+import io.graphite.examples.util.GraphDemoPrinter;
 import io.graphite.algorithm.traversal.TraversalAlgorithm;
 import io.graphite.algorithm.traversal.BFS;
 import io.graphite.algorithm.traversal.DFS;

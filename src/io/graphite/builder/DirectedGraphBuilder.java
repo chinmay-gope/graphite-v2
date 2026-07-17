@@ -1,6 +1,6 @@
-package io.graphite.algorithm.builder;
+package io.graphite.builder;
 
-import io.graphite.algorithm.graph.DirectedGraph;
+import io.graphite.graph.DirectedGraph;
 
 public final class DirectedGraphBuilder extends AbstractGraphBuilder<DirectedGraph> {
     @Override

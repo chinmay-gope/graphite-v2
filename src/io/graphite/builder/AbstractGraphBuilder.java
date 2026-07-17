@@ -1,6 +1,6 @@
-package io.graphite.algorithm.builder;
+package io.graphite.builder;
 
-import io.graphite.algorithm.graph.Graph;
+import io.graphite.graph.Graph;
 
 public abstract class AbstractGraphBuilder<T extends Graph> {
     protected final GraphConfiguration configuration =
