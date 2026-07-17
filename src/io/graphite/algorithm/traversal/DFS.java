@@ -12,10 +12,11 @@ public final class DFS extends GraphAlgorithm implements TraversalAlgorithm {
 
     @Override
     public TraversalResult traverse(IGraph graph, int source) {
-        validateGraph(graph);
+        validate(graph);
         validateVertex(graph, source);
 
-        boolean[] visited = createVisitedArray(graph);
+        boolean[] visited = booleans(graph);
+
         List<Integer> traversalOrder = new ArrayList<>();
 
         dfs(graph, source, visited, traversalOrder);

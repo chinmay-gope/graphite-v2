@@ -1,9 +1,9 @@
 package io.graphite.algorithm.shortestpath;
 
 import io.graphite.algorithm.GraphAlgorithm;
-import io.graphite.algorithm.graph.IGraph;
 import io.graphite.algorithm.exception.algorithm.NegativeCycleException;
-import io.graphite.algorithm.model.GraphEdge;
+import io.graphite.algorithm.graph.IGraph;
+import io.graphite.algorithm.model.Edge;
 import io.graphite.algorithm.result.ShortestPathResult;
 
 import java.util.List;
@@ -11,14 +11,14 @@ import java.util.List;
 public class BellmanFord extends GraphAlgorithm implements ShortestPathAlgorithm {
     @Override
     public ShortestPathResult shortestPath(IGraph graph, int source) {
-        validateGraph(graph);
+        validate(graph);
         validateVertex(graph, source);
 
-        int[] distance = createDistanceArray(graph, Integer.MAX_VALUE);
+        int[] distance = ints(graph, Integer.MAX_VALUE);
 
         distance[source] = 0;
 
-        List<GraphEdge> edges = getAllEdges(graph);
+        List<Edge> edges = graph.getEdges();
 
         relaxEdges(edges, distance, graph.getVertices());
 
@@ -27,12 +27,12 @@ public class BellmanFord extends GraphAlgorithm implements ShortestPathAlgorithm
         return new ShortestPathResult(source, distance);
     }
 
-    private void relaxEdges(List<GraphEdge> edges,
+    private void relaxEdges(List<Edge> edges,
                             int[] distance,
                             int vertices) {
 
         for (int i = 1; i < vertices; i++) {
-            for (GraphEdge edge : edges) {
+            for (Edge edge : edges) {
 
                 int u = edge.source();
                 int v = edge.destination();
@@ -47,8 +47,8 @@ public class BellmanFord extends GraphAlgorithm implements ShortestPathAlgorithm
         }
     }
 
-    private void detectNegativeCycle(List<GraphEdge> edges, int[] distance) {
-        for (GraphEdge edge : edges) {
+    private void detectNegativeCycle(List<Edge> edges, int[] distance) {
+        for (Edge edge : edges) {
             int u = edge.source();
             int v = edge.destination();
             int wt = edge.weight();

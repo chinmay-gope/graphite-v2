@@ -6,6 +6,7 @@ import io.graphite.algorithm.model.Edge;
 import io.graphite.algorithm.result.TraversalResult;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 
@@ -13,14 +14,14 @@ public class BFS extends GraphAlgorithm implements TraversalAlgorithm {
     @Override
     public TraversalResult traverse(IGraph graph, int source) {
 
-        validateGraph(graph);
+        validate(graph);
         validateVertex(graph, source);
 
-        boolean[] visited = createVisitedArray(graph);
+        boolean[] visited = booleans(graph);
 
         Queue<Integer> queue = new ArrayDeque<>();
 
-        List<Integer> traversalOrder = createTraversalList();
+        List<Integer> traversalOrder = new ArrayList<>();
 
         visited[source] = true;
         queue.offer(source);

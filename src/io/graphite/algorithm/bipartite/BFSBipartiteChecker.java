@@ -12,14 +12,14 @@ public class BFSBipartiteChecker extends GraphAlgorithm implements BipartiteAlgo
 
     @Override
     public boolean isBipartite(IGraph graph) {
-        validateGraph(graph);
-        requireUndirectedGraph(graph);
+        validate(graph);
+        requireUndirected(graph);
 
         if (GraphValidator.hasSelfLoop(graph)) {
             return false;
         }
 
-        int[] color = createDistanceArray(graph, -1);
+        int[] color = ints(graph,-1);
 
         for (int i = 0; i < graph.getVertices(); i++) {
             if (color[i] == -1) {
@@ -44,14 +44,14 @@ public class BFSBipartiteChecker extends GraphAlgorithm implements BipartiteAlgo
             for (Edge edge : neighbours(graph, current)) {
                 int neighbour = edge.destination();
 
-                // Not visited yet
+                // Not booleans yet
                 if (color[neighbour] == -1) {
                     // Assign opposite color
                     color[neighbour] = 1 - color[current];
                     queue.offer(neighbour);
                 }
 
-                // Already visited and same color
+                // Already booleans and same color
                 else if (color[neighbour] == color[current]) {
                     return false;
                 }

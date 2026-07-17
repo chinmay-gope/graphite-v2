@@ -1,9 +1,12 @@
 package io.graphite.algorithm.shortestpath;
 
 import io.graphite.algorithm.GraphAlgorithm;
-import io.graphite.algorithm.graph.IGraph;
 import io.graphite.algorithm.exception.algorithm.NegativeCycleException;
+import io.graphite.algorithm.graph.IGraph;
+import io.graphite.algorithm.model.Edge;
 import io.graphite.algorithm.result.AllPairsShortestPathResult;
+
+import java.util.Arrays;
 
 public class FloydWarshall extends GraphAlgorithm implements AllPairsShortestPathAlgorithm {
 
@@ -11,7 +14,7 @@ public class FloydWarshall extends GraphAlgorithm implements AllPairsShortestPat
 
     @Override
     public AllPairsShortestPathResult shortestPaths(IGraph graph) {
-        validateGraph(graph);
+        validate(graph);
         int vertices = graph.getVertices();
 
         int[][] distance = createDistanceMatrix(graph);
@@ -20,13 +23,11 @@ public class FloydWarshall extends GraphAlgorithm implements AllPairsShortestPat
             for (int from = 0; from < vertices; from++) {
                 for (int to = 0; to < vertices; to++) {
 
-                    if (distance[from][via] == INF
-                            || distance[via][to] == INF) {
+                    if (distance[from][via] == INF || distance[via][to] == INF) {
                         continue;
                     }
 
-                    if (distance[from][via] + distance[via][to]
-                            < distance[from][to]) {
+                    if (distance[from][via] + distance[via][to] < distance[from][to]) {
                         distance[from][to] = distance[from][via] + distance[via][to];
                     }
                 }
@@ -44,5 +45,20 @@ public class FloydWarshall extends GraphAlgorithm implements AllPairsShortestPat
                 throw new NegativeCycleException();
             }
         }
+    }
+
+    private int[][] createDistanceMatrix(IGraph graph) {
+        int V = graph.getVertices();
+        int[][] distance = new int[V][V];
+
+        for (int i = 0; i < V; i++) {
+            Arrays.fill(distance[i], Integer.MAX_VALUE);
+            distance[i][i] = 0;
+
+            for (Edge edge : neighbours(graph, i)) {
+                distance[i][edge.destination()] = edge.weight();
+            }
+        }
+        return distance;
     }
 }

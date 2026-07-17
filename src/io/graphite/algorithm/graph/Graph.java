@@ -1,85 +1,123 @@
 package io.graphite.algorithm.graph;
 
+import io.graphite.algorithm.builder.GraphConfiguration;
 import io.graphite.algorithm.exception.graph.InvalidVertexException;
 import io.graphite.algorithm.model.Edge;
-import io.graphite.algorithm.util.GraphUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
+
+
 
 public abstract class Graph implements IGraph {
 
-    protected final int vertices;
-    protected final List<List<Edge>> adjacencyList;
-    protected int edgeCount;
-    public static final int UNDIRECTED_GRAPH_DEFAULT_WEIGHT = 1;
+    // ==========================================================
+    // Fields
+    // ==========================================================
 
-    protected Graph(int vertices) {
-        this.vertices = vertices;
+    protected int edgeCount;
+
+    protected final int vertices;
+
+    protected final boolean weighted;
+
+    protected final List<List<Edge>> adjacencyList;
+
+    // ==========================================================
+    // Constructor
+    // ==========================================================
+
+    protected Graph(GraphConfiguration configuration) {
+
+        this.vertices = configuration.getVertices();
+
+        this.weighted = configuration.isWeighted();
 
         adjacencyList = new ArrayList<>();
+
         for (int i = 0; i < vertices; i++) {
             adjacencyList.add(new ArrayList<>());
         }
     }
 
+    // ==========================================================
+    // Validation
+    // ==========================================================
+
     protected void validateVertex(int vertex) {
-        if (vertex < 0 || vertex >= vertices) {
+
+        if (!containsVertex(vertex)) {
             throw new InvalidVertexException(vertex);
         }
     }
 
+    // ==========================================================
+    // Vertex Queries
+    // ==========================================================
+
     @Override
-    public void removeEdge(int source, int destination) {
+    public boolean containsVertex(int vertex) {
+        return vertex >= 0 && vertex < vertices;
+    }
+
+    @Override
+    public int degree(int vertex) {
+
+        validateVertex(vertex);
+
+        return adjacencyList.get(vertex).size();
+    }
+
+    @Override
+    public boolean hasEdge(
+            int source,
+            int destination) {
+
         validateVertex(source);
         validateVertex(destination);
 
-        Iterator<Edge> iterator = adjacencyList.get(source).iterator();
-
-        while (iterator.hasNext()) {
-            if (iterator.next().destination() == destination) {
-                iterator.remove();
-                break;
-            }
-        }
-
-        if (getGraphType() == GraphType.UNDIRECTED) {
-
-            iterator = adjacencyList.get(destination).iterator();
-
-            while (iterator.hasNext()) {
-                if (iterator.next().destination() == source) {
-                    iterator.remove();
-                    break;
-                }
-            }
-        }
+        return adjacencyList.get(source)
+                .stream()
+                .anyMatch(edge ->
+                        edge.destination() == destination);
     }
 
-    @Override
-    public void addEdge(int source, int destination) {
-        addEdge(source, destination, UNDIRECTED_GRAPH_DEFAULT_WEIGHT);
-        edgeCount++;
-    }
-
-    @Override
-    public abstract void addEdge(int source, int destination, int weight);
-
-    @Override
-    public abstract GraphType getGraphType();
+    // ==========================================================
+    // Graph Views
+    // ==========================================================
 
     @Override
     public List<Edge> getNeighbours(int vertex) {
+
         validateVertex(vertex);
-        return Collections.unmodifiableList(adjacencyList.get(vertex));
+
+        return Collections.unmodifiableList(
+                adjacencyList.get(vertex));
+    }
+
+    @Override
+    public List<Edge> getEdges() {
+
+        List<Edge> edges = new ArrayList<>();
+
+        for (List<Edge> neighbours : adjacencyList) {
+            edges.addAll(neighbours);
+        }
+
+        return List.copyOf(edges);
     }
 
     @Override
     public List<List<Edge>> getAdjacencyList() {
-        return Collections.unmodifiableList(adjacencyList);
+
+        return Collections.unmodifiableList(
+                adjacencyList);
     }
+
+    // ==========================================================
+    // Graph Metadata
+    // ==========================================================
 
     @Override
     public int getVertices() {
@@ -92,12 +130,55 @@ public abstract class Graph implements IGraph {
     }
 
     @Override
+    public boolean isWeighted() {
+        return weighted;
+    }
+
+    @Override
     public boolean isEmpty() {
         return vertices == 0;
     }
 
-    @Override
-    public IGraph transpose(IGraph graph) {
-        return GraphUtils.transpose(graph);
+    protected GraphConfiguration configuration() {
+        GraphConfiguration config = new GraphConfiguration();
+
+        config.setWeighted(weighted);
+        config.setVertices(vertices);
+
+        return config;
     }
+
+    // ==========================================================
+    // Graph Operations
+    // ==========================================================
+
+    @Override
+    public void clear() {
+
+        adjacencyList.forEach(List::clear);
+
+        edgeCount = 0;
+    }
+
+
+    // ==========================================================
+    // Abstract Operations
+    // ==========================================================
+
+    @Override
+    public abstract void addEdge(
+            int source,
+            int destination,
+            int weight);
+
+    @Override
+    public abstract void removeEdge(
+            int source,
+            int destination);
+
+    @Override
+    public abstract IGraph copy();
+
+    @Override
+    public abstract IGraph transpose();
 }

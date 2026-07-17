@@ -1,7 +1,7 @@
 package io.graphite.algorithm.graph;
 
 import io.graphite.algorithm.generator.RandomGraphGenerator;
-import io.graphite.algorithm.builder.GraphBuilder;
+import io.graphite.algorithm.builder.Graphs;
 
 public final class GraphFactory {
 
@@ -15,7 +15,7 @@ public final class GraphFactory {
 
             case DIRECTED -> new DirectedGraph(vertices);
 
-            case UNDIRECTED -> new UnDirectedGraph(vertices);
+            case UNDIRECTED -> new UndirectedGraph(vertices);
         };
     }
 
@@ -158,7 +158,7 @@ public final class GraphFactory {
                     "Euler circuit requires at least 3 vertices.");
         }
 
-        GraphBuilder builder = GraphBuilder.undirected(vertices);
+        Graphs builder = Graphs.undirected(vertices);
 
         // Base cycle
         for (int i = 0; i < vertices - 1; i++) {
@@ -177,7 +177,7 @@ public final class GraphFactory {
                     "Euler path requires at least 2 vertices.");
         }
 
-        GraphBuilder builder = GraphBuilder.undirected(vertices);
+        Graphs builder = Graphs.undirected(vertices);
 
         for (int i = 0; i < vertices - 1; i++) {
             builder.addEdge(i, i + 1);
@@ -193,7 +193,7 @@ public final class GraphFactory {
                     "Invalid Euler graph requires at least 5 vertices.");
         }
 
-        GraphBuilder builder = GraphBuilder.undirected(vertices);
+        Graphs builder = Graphs.undirected(vertices);
 
         for (int i = 1; i < vertices; i++) {
             builder.addEdge(0, i);
@@ -204,7 +204,7 @@ public final class GraphFactory {
 
     public static Graph disconnectedEulerGraph(int vertices) {
 
-        GraphBuilder builder = GraphBuilder.undirected(vertices);
+        Graphs builder = Graphs.undirected(vertices);
 
         int mid = vertices / 2;
 

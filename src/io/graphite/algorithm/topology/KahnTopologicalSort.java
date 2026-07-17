@@ -1,8 +1,8 @@
 package io.graphite.algorithm.topology;
 
 import io.graphite.algorithm.GraphAlgorithm;
-import io.graphite.algorithm.graph.IGraph;
 import io.graphite.algorithm.exception.algorithm.GraphCycleException;
+import io.graphite.algorithm.graph.IGraph;
 import io.graphite.algorithm.model.Edge;
 import io.graphite.algorithm.result.TopologicalSortResult;
 
@@ -13,7 +13,7 @@ import java.util.Queue;
 public class KahnTopologicalSort extends GraphAlgorithm implements TopologicalAlgorithm {
     @Override
     public TopologicalSortResult sort(IGraph graph) {
-        validateGraph(graph);
+        validate(graph);
         requireDirectedGraph(graph);
 
         int vertices = graph.getVertices();

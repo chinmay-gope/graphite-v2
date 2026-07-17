@@ -11,14 +11,14 @@ public class DFSBipartiteChecker
 
     @Override
     public boolean isBipartite(IGraph graph) {
-        validateGraph(graph);
-        requireUndirectedGraph(graph);
+        validate(graph);
+        requireUndirected(graph);
 
         if (GraphValidator.hasSelfLoop(graph)) {
             return false;
         }
 
-        int[] color = createDistanceArray(graph, -1);
+        int[] color = ints(graph, -1);
 
         for (int i = 0; i < graph.getVertices(); i++) {
             if (color[i] == -1) {

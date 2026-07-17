@@ -6,12 +6,12 @@ import io.graphite.algorithm.shortestpath.FloydWarshall;
 import io.graphite.algorithm.exception.GraphException;
 import io.graphite.algorithm.graph.Graph;
 import io.graphite.algorithm.result.AllPairsShortestPathResult;
-import io.graphite.algorithm.builder.GraphBuilder;
+import io.graphite.algorithm.builder.Graphs;
 import io.graphite.algorithm.util.GraphPrinter;
 
 public class FloydWarshallDemo {
     static void main() {
-        Graph graph = GraphBuilder
+        Graph graph = Graphs
                 .directed(4)
                 .addEdge(0, 1, 5)
                 .addEdge(0, 3, 10)
@@ -25,7 +25,7 @@ public class FloydWarshallDemo {
         AllPairsShortestPathResult result = algorithm.shortestPaths(graph);
         System.out.println(result);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .undirected(4)
                 .addEdge(0, 1, 4)
                 .addEdge(0, 2, 1)
@@ -39,7 +39,7 @@ public class FloydWarshallDemo {
         System.out.println(result);
 
 
-        graph = GraphBuilder
+        graph = Graphs
                 .directed(5)
                 .addEdge(0, 1, 3)
                 .addEdge(0, 2, 8)
@@ -56,7 +56,7 @@ public class FloydWarshallDemo {
         result = algorithm.shortestPaths(graph);
         System.out.println(result);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .directed(5)
                 .addEdge(0, 1, 2)
                 .addEdge(1, 2, 4)
@@ -67,7 +67,7 @@ public class FloydWarshallDemo {
         result = algorithm.shortestPaths(graph);
         System.out.println(result);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .directed(5)
                 .addEdge(0, 1, 10)
                 .addEdge(0, 2, 3)
@@ -82,7 +82,7 @@ public class FloydWarshallDemo {
         result = algorithm.shortestPaths(graph);
         System.out.println(result);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .directed(5)
                 .addEdge(0, 1, 2)
                 .addEdge(0, 2, 9)
@@ -101,7 +101,7 @@ public class FloydWarshallDemo {
         result = algorithm.shortestPaths(graph);
         System.out.println(result);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .directed(6)
                 .addEdge(0, 1, 1)
                 .addEdge(1, 2, 2)
@@ -114,7 +114,7 @@ public class FloydWarshallDemo {
         result = algorithm.shortestPaths(graph);
         System.out.println(result);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .directed(3)
                 .addEdge(0, 0, 5)
                 .addEdge(0, 1, 2)
@@ -125,7 +125,7 @@ public class FloydWarshallDemo {
         result = algorithm.shortestPaths(graph);
         System.out.println(result);
         try {
-            graph = GraphBuilder
+            graph = Graphs
                     .directed(3)
                     .addEdge(0, 1, 1)
                     .addEdge(1, 2, -2)

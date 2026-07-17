@@ -4,6 +4,7 @@ import io.graphite.algorithm.GraphAlgorithm;
 import io.graphite.algorithm.graph.IGraph;
 import io.graphite.algorithm.model.Edge;
 import io.graphite.algorithm.result.SCCResult;
+import io.graphite.algorithm.util.GraphUtils;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -13,10 +14,10 @@ import java.util.List;
 public class Kosaraju extends GraphAlgorithm implements SCCAlgorithm {
     @Override
     public SCCResult findSCCs(IGraph graph) {
-        validateGraph(graph);
+        validate(graph);
         requireDirectedGraph(graph);
 
-        boolean[] visited = createVisitedArray(graph);
+        boolean[] visited = booleans(graph);
         Deque<Integer> stack = new ArrayDeque<>();
 
         for (int i = 0; i < graph.getVertices(); i++) {
@@ -25,9 +26,9 @@ public class Kosaraju extends GraphAlgorithm implements SCCAlgorithm {
             }
         }
 
-        IGraph transpose = graph.transpose(graph);
+        IGraph transpose = GraphUtils.transpose(graph);
 
-        visited = createVisitedArray(graph);
+        visited = booleans(graph);
 
         List<List<Integer>> components = new ArrayList<>();
 
@@ -69,6 +70,7 @@ public class Kosaraju extends GraphAlgorithm implements SCCAlgorithm {
             List<Integer> component) {
         visited[current] = true;
         component.add(current);
+
         for (Edge edge : neighbours(graph, current)) {
             int neighbour = edge.destination();
             if (!visited[neighbour]) {

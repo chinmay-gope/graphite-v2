@@ -2,7 +2,6 @@ package io.graphite.algorithm.validation;
 
 import io.graphite.algorithm.graph.IGraph;
 import io.graphite.algorithm.result.EulerResult;
-import io.graphite.algorithm.util.GraphUtils;
 
 import java.util.List;
 
@@ -50,7 +49,7 @@ public final class EulerValidator {
             IGraph graph,
             EulerResult result) {
 
-        int expected = GraphUtils.edgeCount(graph) + 1;
+        int expected = graph.edgeCount() + 1;
         int actual = result.traversal().size();
 
         if (actual != expected) {
@@ -72,7 +71,7 @@ public final class EulerValidator {
             int u = path.get(i);
             int v = path.get(i + 1);
 
-            if (!GraphUtils.hasEdge(graph, u, v)) {
+            if (!graph.hasEdge(u, v)) {
                 throw new IllegalStateException(
                         "Edge " + u + " -> " + v + " does not exist."
                 );

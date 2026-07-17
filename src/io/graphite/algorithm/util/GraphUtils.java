@@ -1,13 +1,12 @@
 package io.graphite.algorithm.util;
 
-import io.graphite.algorithm.graph.IGraph;
-import io.graphite.algorithm.traversal.DFS;
 import io.graphite.algorithm.exception.graph.UnsupportedGraphTypeException;
-import io.graphite.algorithm.graph.GraphFactory;
-import io.graphite.algorithm.graph.GraphType;
-import io.graphite.algorithm.model.Edge;
 import io.graphite.algorithm.graph.Graph;
+import io.graphite.algorithm.graph.GraphFactory;
+import io.graphite.algorithm.graph.IGraph;
+import io.graphite.algorithm.model.Edge;
 import io.graphite.algorithm.result.TraversalResult;
+import io.graphite.algorithm.traversal.DFS;
 
 import java.util.HashSet;
 import java.util.List;
@@ -18,49 +17,15 @@ public final class GraphUtils {
         throw new AssertionError("No GraphUtils instances for you!");
     }
 
-    public static int edgeCount(IGraph graph) {
-        int count = 0;
-
-        for (int i = 0; i < graph.getVertices(); i++) {
-            count += graph.getNeighbours(i).size();
-        }
-
-        if (graph.getGraphType() == GraphType.UNDIRECTED) {
-            count /= 2;
-        }
-
-        return count;
-    }
-
-    public static boolean hasEdge(
-            IGraph graph,
-            int source,
-            int destination) {
-        for (Edge edge : graph.getNeighbours(source)) {
-            if (edge.destination() == destination) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
     public static Graph transpose(IGraph graph) {
         if (graph.getGraphType() != GraphType.DIRECTED) {
             throw new UnsupportedGraphTypeException(graph.getGraphType(), GraphType.DIRECTED);
         }
-        Graph reversed = GraphFactory.create(
-                GraphType.DIRECTED,
-                graph.getVertices()
-        );
+        Graph reversed = GraphFactory.create(GraphType.DIRECTED, graph.getVertices());
 
         for (int source = 0; source < graph.getVertices(); source++) {
-            for (Edge edge : graph.getNeighbours(source)) {
-                reversed.addEdge(
-                        edge.destination(),
-                        source,
-                        edge.weight()
-                );
+            for (Edge edge : graph.neighbors(source)) {
+                reversed.addEdge(edge.destination(), source, edge.weight());
             }
         }
 
@@ -68,21 +33,14 @@ public final class GraphUtils {
     }
 
     public static Graph cloneGraph(IGraph graph) {
-        Graph clone = GraphFactory.create(
-                graph.getGraphType(),
-                graph.getVertices()
-        );
+        Graph clone = GraphFactory.create(graph.getGraphType(), graph.getVertices());
 
         boolean directed = graph.getGraphType() == GraphType.DIRECTED;
 
         for (int source = 0; source < graph.getVertices(); source++) {
-            for (Edge edge : graph.getNeighbours(source)) {
+            for (Edge edge : graph.neighbors(source)) {
                 if (directed || source < edge.destination()) {
-                    clone.addEdge(
-                            source,
-                            edge.destination()
-                            , edge.weight()
-                    );
+                    clone.addEdge(source, edge.destination(), edge.weight());
                 }
             }
         }
@@ -90,15 +48,11 @@ public final class GraphUtils {
         return clone;
     }
 
-    public static int degree(IGraph graph, int vertex) {
-        return graph.getNeighbours(vertex).size();
-    }
-
     public static boolean isConnected(IGraph graph) {
         int start = -1;
 
         for (int i = 0; i < graph.getVertices(); i++) {
-            if (degree(graph, i) > 0) {
+            if (graph.degree(i) > 0) {
                 start = i;
                 break;
             }
@@ -114,7 +68,7 @@ public final class GraphUtils {
 
         for (int i = 0; i < graph.getVertices(); i++) {
 
-            if (degree(graph, i) > 0 && !visited.contains(i)) {
+            if (graph.degree(i) > 0 && !visited.contains(i)) {
                 return false;
             }
         }
@@ -123,7 +77,7 @@ public final class GraphUtils {
     }
 
     public static Edge getFirstNeighbour(IGraph graph, int vertex) {
-        List<Edge> edgeList = graph.getNeighbours(vertex);
+        List<Edge> edgeList = graph.neighbors(vertex);
 
         if (edgeList.isEmpty()) {
             return null;

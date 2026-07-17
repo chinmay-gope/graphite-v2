@@ -75,7 +75,7 @@ public final class DemoUtils {
             System.out.printf(
                     "Neighbours of %-2d : %s%n",
                     vertex,
-                    Result.BLUE + graph.getNeighbours(vertex) + Result.RESET
+                    Result.BLUE + graph.neighbors(vertex) + Result.RESET
             );
         }
     }

@@ -6,13 +6,13 @@ import io.graphite.algorithm.bipartite.BipartiteAlgorithm;
 import io.graphite.algorithm.examples.util.GraphDemoPrinter;
 import io.graphite.algorithm.graph.Graph;
 import io.graphite.algorithm.result.Result;
-import io.graphite.algorithm.builder.GraphBuilder;
+import io.graphite.algorithm.builder.Graphs;
 import io.graphite.algorithm.util.GraphPrinter;
 import io.graphite.algorithm.validation.GraphValidator;
 
 public class BipartiteDemo {
     static void main() {
-        Graph graph = GraphBuilder
+        Graph graph = Graphs
                 .undirected(4)
                 .addEdge(0, 1)
                 .addEdge(1, 2)
@@ -29,7 +29,7 @@ public class BipartiteDemo {
         checkIsBipartite(graph, dfsBipartiteChecker, bfsBipartiteChecker);
 
 
-        graph = GraphBuilder
+        graph = Graphs
                 .undirected(3)
                 .addEdge(0, 1)
                 .addEdge(1, 2)
@@ -40,7 +40,7 @@ public class BipartiteDemo {
 
         checkIsBipartite(graph, dfsBipartiteChecker, bfsBipartiteChecker);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .undirected(2)
                 .addEdge(0, 0)
                 .addEdge(0, 1)
@@ -50,7 +50,7 @@ public class BipartiteDemo {
 
         checkIsBipartite(graph, dfsBipartiteChecker, bfsBipartiteChecker);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .undirected(6)
                 .addEdge(0, 1)
                 .addEdge(0, 2)
@@ -63,7 +63,7 @@ public class BipartiteDemo {
 
         checkIsBipartite(graph, dfsBipartiteChecker, bfsBipartiteChecker);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .undirected(4)
                 .addEdge(0, 1)
                 .addEdge(0, 2)
@@ -77,7 +77,7 @@ public class BipartiteDemo {
 
         checkIsBipartite(graph, dfsBipartiteChecker, bfsBipartiteChecker);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .undirected(6)
                 .addEdge(0, 1)
                 .addEdge(2, 3)
@@ -88,7 +88,7 @@ public class BipartiteDemo {
 
         checkIsBipartite(graph, dfsBipartiteChecker, bfsBipartiteChecker);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .undirected(7)
                 .addEdge(0, 1)
                 .addEdge(2, 3)
@@ -101,7 +101,7 @@ public class BipartiteDemo {
 
         checkIsBipartite(graph, dfsBipartiteChecker, bfsBipartiteChecker);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .undirected(4)
                 .addEdge(0, 1)
                 .addEdge(1, 2)
@@ -114,7 +114,7 @@ public class BipartiteDemo {
 
         checkIsBipartite(graph, dfsBipartiteChecker, bfsBipartiteChecker);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .undirected(9)
                 .addEdge(0, 1)
                 .addEdge(1, 2)

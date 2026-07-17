@@ -15,7 +15,7 @@ public final class GraphPrinter {
         for (int i = 0; i < graph.getVertices(); i++) {
             IO.print(CYAN + i + WHITE + " -> ");
 
-            for (Edge edge : graph.getNeighbours(i)) {
+            for (Edge edge : graph.neighbors(i)) {
                 IO.print(YELLOW + edge + RESET + " ");
             }
 
@@ -25,7 +25,7 @@ public final class GraphPrinter {
 
     public static void printEdges(IGraph graph) {
         for (int i = 0; i < graph.getVertices(); i++) {
-            for (Edge edge : graph.getNeighbours(i)) {
+            for (Edge edge : graph.neighbors(i)) {
                 System.out.printf(
                         CYAN + "%d" + RESET + " -> " +
                                 YELLOW + "%d" + RESET +

@@ -1,10 +1,10 @@
 package io.graphite.algorithm.topology;
 
 import io.graphite.algorithm.GraphAlgorithm;
-import io.graphite.algorithm.cycle.DirectedCycleDetector;
 import io.graphite.algorithm.cycle.CycleDetectionAlgorithm;
-import io.graphite.algorithm.graph.IGraph;
+import io.graphite.algorithm.cycle.DirectedCycleDetector;
 import io.graphite.algorithm.exception.algorithm.GraphCycleException;
+import io.graphite.algorithm.graph.IGraph;
 import io.graphite.algorithm.model.Edge;
 import io.graphite.algorithm.result.TopologicalSortResult;
 
@@ -16,8 +16,8 @@ import java.util.List;
 public class DFSTopologicalSort extends GraphAlgorithm implements TopologicalAlgorithm {
     @Override
     public TopologicalSortResult sort(IGraph graph) {
-        validateGraph(graph);
-        requireDirectedGraph(graph);
+        validate(graph);
+        requireUndirected(graph);
 
         CycleDetectionAlgorithm detector = new DirectedCycleDetector();
 
@@ -25,7 +25,7 @@ public class DFSTopologicalSort extends GraphAlgorithm implements TopologicalAlg
             throw new GraphCycleException("Topological sort requires a Directed Acyclic Graph (DAG).");
         }
 
-        boolean[] visited = createVisitedArray(graph);
+        boolean[] visited = booleans(graph);
 
         Deque<Integer> stack = new ArrayDeque<>();
 

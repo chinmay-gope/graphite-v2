@@ -1,8 +1,7 @@
 package io.graphite.algorithm.generator;
 
-import io.graphite.algorithm.graph.GraphType;
+import io.graphite.algorithm.builder.Graphs;
 import io.graphite.algorithm.graph.Graph;
-import io.graphite.algorithm.builder.GraphBuilder;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -47,7 +46,7 @@ public final class RandomGraphGenerator {
     }
 
 
-    private void generateSpanningTree(GraphBuilder builder) {
+    private void generateSpanningTree(Graphs builder) {
 
         for (int vertex = 1; vertex < vertices; vertex++) {
 
@@ -69,7 +68,7 @@ public final class RandomGraphGenerator {
         return random().nextInt(minWeight, maxWeight + 1);
     }
 
-    private void addEdge(GraphBuilder builder, int source, int destination) {
+    private void addEdge(Graphs builder, int source, int destination) {
 
         int weight = randomWeight();
 
@@ -104,7 +103,7 @@ public final class RandomGraphGenerator {
     }
 
 
-    private void generateRemainingEdges(GraphBuilder builder) {
+    private void generateRemainingEdges(Graphs builder) {
 
         while (usedEdges.size() < edges) {
 
@@ -135,9 +134,9 @@ public final class RandomGraphGenerator {
         return allowSelfLoops ? maximumEdges + vertices : maximumEdges;
     }
 
-    private GraphBuilder createBuilder() {
+    private Graphs createBuilder() {
 
-        return graphType == GraphType.DIRECTED ? GraphBuilder.directed(vertices) : GraphBuilder.undirected(vertices);
+        return graphType == GraphType.DIRECTED ? Graphs.directed(vertices) : Graphs.undirected(vertices);
     }
 
     public static RandomGraphGenerator directed() {
@@ -152,7 +151,7 @@ public final class RandomGraphGenerator {
 
         validate();
 
-        GraphBuilder builder = createBuilder();
+        Graphs builder = createBuilder();
 
 
         if (connected) {
@@ -202,7 +201,7 @@ public final class RandomGraphGenerator {
 
     public static Graph dag(int vertices) {
 
-        GraphBuilder builder = GraphBuilder.directed(vertices);
+        Graphs builder = Graphs.directed(vertices);
 
         ThreadLocalRandom random = ThreadLocalRandom.current();
 
@@ -228,7 +227,7 @@ public final class RandomGraphGenerator {
 
     public static Graph bipartiteGraph(int vertices) {
 
-        GraphBuilder builder = GraphBuilder.undirected(vertices);
+        Graphs builder = Graphs.undirected(vertices);
 
         ThreadLocalRandom random = ThreadLocalRandom.current();
 

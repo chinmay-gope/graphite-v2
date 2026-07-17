@@ -1,8 +1,9 @@
 package io.graphite.algorithm.validation;
 
-import io.graphite.algorithm.graph.IGraph;
 import io.graphite.algorithm.exception.graph.InvalidVertexException;
-import io.graphite.algorithm.exception.algorithm.NullGraphException;
+import io.graphite.algorithm.graph.DirectedGraph;
+import io.graphite.algorithm.graph.IGraph;
+import io.graphite.algorithm.graph.UndirectedGraph;
 import io.graphite.algorithm.model.Edge;
 
 public final class GraphValidator {
@@ -26,17 +27,6 @@ public final class GraphValidator {
         return false;
     }
 
-    public static boolean hasWeightedEdges(IGraph graph) {
-        for (int i = 0; i < graph.getVertices(); i++) {
-            for (Edge edge : graph.getNeighbours(i)) {
-                if (edge.weight() != 1) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
     public static boolean hasNegativeEdges(IGraph graph) {
         for (int i = 0; i < graph.getVertices(); i++) {
             for (Edge edge : graph.getNeighbours(i)) {
@@ -49,12 +39,40 @@ public final class GraphValidator {
     }
 
     public static void validateVertex(IGraph graph, int vertex) {
-        if (graph == null) {
-            throw new NullGraphException();
-        }
+        validate(graph);
 
         if (vertex < 0 || vertex >= graph.getVertices()) {
             throw new InvalidVertexException(vertex);
+        }
+    }
+
+    public static void validate(IGraph graph) {
+        if (graph == null) {
+            throw new NullPointerException("Graph cannot be null.");
+        }
+    }
+
+    public static void requireDirected(IGraph graph) {
+        if (!(graph instanceof DirectedGraph)) {
+            throw new UnsupportedOperationException(
+                    "Directed graph required."
+            );
+        }
+    }
+
+    public static void requireUndirected(IGraph graph) {
+        if (!(graph instanceof UndirectedGraph)) {
+            throw new UnsupportedOperationException(
+                    "Undirected graph required."
+            );
+        }
+    }
+
+    public static void requireWeighted(IGraph graph) {
+        if (!graph.isWeighted()) {
+            throw new UnsupportedOperationException(
+                    "Weighted graph required."
+            );
         }
     }
 }

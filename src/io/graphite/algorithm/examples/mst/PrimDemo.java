@@ -6,12 +6,12 @@ import io.graphite.algorithm.mst.Prim;
 import io.graphite.algorithm.exception.GraphException;
 import io.graphite.algorithm.graph.Graph;
 import io.graphite.algorithm.result.MSTResult;
-import io.graphite.algorithm.builder.GraphBuilder;
+import io.graphite.algorithm.builder.Graphs;
 import io.graphite.algorithm.util.GraphPrinter;
 
 public class PrimDemo {
     static void main() {
-        Graph graph = GraphBuilder
+        Graph graph = Graphs
                 .undirected(5)
                 .addEdge(0, 1, 2)
                 .addEdge(0, 3, 6)
@@ -31,7 +31,7 @@ public class PrimDemo {
 
         System.out.println(result);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .undirected(4)
                 .addEdge(0, 1, 1)
                 .addEdge(0, 2, 1)
@@ -46,7 +46,7 @@ public class PrimDemo {
         result = algorithm.findMST(graph, 0);
         System.out.println(result);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .undirected(1)
                 .build();
         GraphDemoPrinter.printHeader("Prim MST With Single Vertex", graph);
@@ -55,7 +55,7 @@ public class PrimDemo {
         System.out.println(result);
 
 
-        graph = GraphBuilder
+        graph = Graphs
                 .undirected(4)
                 .addEdge(0, 1, 1)
                 .addEdge(1, 2, -1)
@@ -69,7 +69,7 @@ public class PrimDemo {
         System.out.println(result);
 
         try {
-            graph = GraphBuilder
+            graph = Graphs
                     .undirected(6)
                     .addEdge(0, 1, 4)
                     .addEdge(1, 2, 2)

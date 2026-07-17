@@ -5,12 +5,12 @@ import io.graphite.algorithm.examples.util.GraphDemoPrinter;
 import io.graphite.algorithm.connectivity.BridgeAlgorithm;
 import io.graphite.algorithm.graph.Graph;
 import io.graphite.algorithm.result.BridgeResult;
-import io.graphite.algorithm.builder.GraphBuilder;
+import io.graphite.algorithm.builder.Graphs;
 import io.graphite.algorithm.util.GraphPrinter;
 
 public class BridgeDemo {
     static void main() {
-        Graph graph = GraphBuilder
+        Graph graph = Graphs
                 .undirected(5)
                 .addEdge(0, 1)
                 .addEdge(1, 2)
@@ -25,7 +25,7 @@ public class BridgeDemo {
         BridgeResult result = algorithm.findBridges(graph);
         System.out.println(result);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .undirected(5)
                 .addEdge(0, 1)
                 .addEdge(1, 2)
@@ -38,7 +38,7 @@ public class BridgeDemo {
         result = algorithm.findBridges(graph);
         System.out.println(result);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .undirected(4)
                 .addEdge(0, 1)
                 .addEdge(1, 2)
@@ -51,7 +51,7 @@ public class BridgeDemo {
         result = algorithm.findBridges(graph);
         System.out.println(result.bridges());
 
-        graph = GraphBuilder
+        graph = Graphs
                 .undirected(5)
                 .addEdge(0, 1)
                 .addEdge(1, 2)
@@ -65,7 +65,7 @@ public class BridgeDemo {
         result = algorithm.findBridges(graph);
         System.out.println(result);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .undirected(6)
                 .addEdge(0, 1)
                 .addEdge(1, 2)

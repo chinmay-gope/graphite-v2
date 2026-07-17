@@ -3,7 +3,6 @@ package io.graphite.algorithm.connectivity;
 import io.graphite.algorithm.GraphAlgorithm;
 import io.graphite.algorithm.graph.IGraph;
 import io.graphite.algorithm.model.Edge;
-import io.graphite.algorithm.model.GraphEdge;
 import io.graphite.algorithm.result.BridgeResult;
 
 import java.util.ArrayList;
@@ -14,15 +13,15 @@ public class BridgeFinder extends GraphAlgorithm implements BridgeAlgorithm {
 
     @Override
     public BridgeResult findBridges(IGraph graph) {
-        validateGraph(graph);
-        requireUndirectedGraph(graph);
+        validate(graph);
+        requireUndirected(graph);
 
-        boolean[] visited = createVisitedArray(graph);
+        boolean[] visited = booleans(graph);
 
-        int[] discovery = new int[graph.getVertices()];
-        int[] low = new int[graph.getVertices()];
+        int[] discovery = ints(graph, 0);
+        int[] low = ints(graph, 0);
 
-        List<GraphEdge> bridges = new ArrayList<>();
+        List<Edge> bridges = new ArrayList<>();
 
         for (int i = 0; i < graph.getVertices(); i++) {
             if (!visited[i]) {
@@ -47,7 +46,7 @@ public class BridgeFinder extends GraphAlgorithm implements BridgeAlgorithm {
             boolean[] visited,
             int[] discovery,
             int[] low,
-            List<GraphEdge> bridges) {
+            List<Edge> bridges) {
         visited[current] = true;
         discovery[current] = low[current] = time++;
 
@@ -75,7 +74,7 @@ public class BridgeFinder extends GraphAlgorithm implements BridgeAlgorithm {
                 // If the neighbor cannot reach an ancestor of current,
                 // then current -> neighbor is a bridge.
                 if (low[neighbour] > discovery[current]) {
-                    bridges.add(new GraphEdge(
+                    bridges.add(new Edge(
                             current,
                             neighbour,
                             edge.weight()
