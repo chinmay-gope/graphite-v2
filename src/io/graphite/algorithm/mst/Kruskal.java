@@ -19,7 +19,7 @@ public class Kruskal extends GraphAlgorithm implements MSTAlgorithm {
         requireUndirected(graph);
 
         DSU dsu = new DSU(graph.getVertices());
-        List<Edge> edges = new ArrayList(graph.getEdges());
+        List<Edge> edges = new ArrayList<>(graph.getEdges());
         List<MSTEdge> mst = new ArrayList<>();
 
 //        mutable copy

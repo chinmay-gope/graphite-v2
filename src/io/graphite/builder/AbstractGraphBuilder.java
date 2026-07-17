@@ -2,42 +2,77 @@ package io.graphite.builder;
 
 import io.graphite.graph.Graph;
 
-public abstract class AbstractGraphBuilder<T extends Graph> {
-    protected final GraphConfiguration configuration =
-            new GraphConfiguration();
+public abstract class AbstractGraphBuilder<G extends Graph, SELF extends AbstractGraphBuilder<G, SELF>> {
+    protected final GraphConfiguration configuration = new GraphConfiguration();
 
-    public AbstractGraphBuilder<T> vertices(int vertices) {
+    protected G graph;
+
+    protected abstract G createGraph();
+
+    @SuppressWarnings("unchecked")
+    protected final SELF self() {
+        return (SELF) this;
+    }
+
+    protected final G graph() {
+        if (graph == null) {
+            graph = createGraph();
+        }
+
+        return graph;
+    }
+
+    public SELF vertices(int vertices) {
         configuration.setVertices(vertices);
-        return this;
+        return self();
     }
 
-    public AbstractGraphBuilder<T> weighted(boolean weighted) {
+    public SELF weighted(boolean weighted) {
         configuration.setWeighted(weighted);
-        return this;
+        return self();
     }
 
-    public AbstractGraphBuilder<T> weightRange(int min, int max) {
-        configuration.setWeighted(true);
-        configuration.setMinWeight(min);
-        configuration.setMaxWeight(max);
-
-        return this;
+    public SELF immutable(boolean immutable) {
+        configuration.setImmutable(immutable);
+        return self();
     }
 
-    public AbstractGraphBuilder<T> selfLoops(boolean enabled) {
-        configuration.setSelfLoops(enabled);
-        return this;
+    public SELF selfLoops(boolean immutable) {
+        configuration.setSelfLoops(immutable);
+        return self();
     }
 
-    public AbstractGraphBuilder<T> parallelEdges(boolean enabled) {
-        configuration.setParallelEdges(enabled);
-        return this;
+    public SELF parallelEdges(boolean immutable) {
+        configuration.setParallelEdges(immutable);
+        return self();
     }
 
-    public AbstractGraphBuilder<T> immutable(boolean enabled) {
-        configuration.setImmutable(enabled);
-        return this;
+    public SELF addEdge(
+            int source,
+            int destination) {
+        graph().addEdge(source, destination, 1);
+
+        return self();
     }
 
-    public abstract T build();
+    public SELF addEdge(
+            int source,
+            int destination,
+            int weight) {
+        graph().addEdge(source, destination, weight);
+
+        return self();
+    }
+
+    public SELF clear() {
+        graph().clear();
+
+        return self();
+    }
+
+    public G build() {
+        BuilderValidator.validate(configuration);
+
+        return graph();
+    }
 }

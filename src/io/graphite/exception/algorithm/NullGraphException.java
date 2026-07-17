@@ -1,6 +1,6 @@
 package io.graphite.exception.algorithm;
 
-import io.graphite.algorithm.exception.GraphException;
+import io.graphite.exception.GraphException;
 
 public class NullGraphException extends GraphException {
     public NullGraphException() {

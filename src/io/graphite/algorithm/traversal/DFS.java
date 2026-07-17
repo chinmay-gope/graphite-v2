@@ -8,7 +8,7 @@ import io.graphite.result.TraversalResult;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class DFS extends GraphAlgorithm implements TraversalAlgorithm {
+public class DFS extends GraphAlgorithm implements TraversalAlgorithm {
 
     @Override
     public TraversalResult traverse(IGraph graph, int source) {

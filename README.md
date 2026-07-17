@@ -421,6 +421,9 @@ System.out.println(result.getParents());
 
 ---
 
+## **visualizer** 
+![graphite_visualizer_v1.png](src/io/graphite/diagrams/graphite_visualizer_v1.png)
+
 ## 📄 License
 
 This project is licensed under the MIT License.
