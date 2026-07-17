@@ -13,14 +13,14 @@ import java.util.PriorityQueue;
 public class Dijkstra extends GraphAlgorithm implements ShortestPathAlgorithm {
     @Override
     public ShortestPathResult shortestPath(IGraph graph, int source) {
-        validateGraph(graph);
+        validate(graph);
         validateVertex(graph, source);
 
         if (GraphValidator.hasNegativeEdges(graph)) {
             throw new NegativeWeightException("Dijkstra cannot be applied to graphs with negative edge weights.");
         }
 
-        int[] distance = createDistanceArray(graph, Integer.MAX_VALUE);
+        int[] distance = ints(graph, Integer.MAX_VALUE);
         distance[source] = 0;
 
         PriorityQueue<VertexCost> queue = new PriorityQueue<>();

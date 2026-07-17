@@ -5,7 +5,7 @@ import java.util.Objects;
 public record ShortestPathResult(int source, int[] distance) {
 
     public ShortestPathResult {
-        Objects.requireNonNull(distance, "distance cannot be null");
+        Objects.requireNonNull(distance, "distances cannot be null");
         distance = distance.clone();
     }
 
@@ -16,7 +16,7 @@ public record ShortestPathResult(int source, int[] distance) {
 
     @Override
     public String toString() {
-//        return "ShortestPathResult{" + "source=" + source + ", distance=" + Arrays.toString(distance) + '}';
+//        return "ShortestPathResult{" + "source=" + source + ", distances=" + Arrays.toString(distances) + '}';
 
         StringBuilder builder = new StringBuilder();
 

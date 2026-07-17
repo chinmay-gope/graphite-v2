@@ -1,13 +1,13 @@
 package io.graphite.algorithm.result;
 
-import io.graphite.algorithm.model.GraphEdge;
+import io.graphite.algorithm.model.Edge;
 
 import java.util.List;
 
 import static io.graphite.algorithm.result.Result.*;
 
 public record BiConnectedResult(
-        List<List<GraphEdge>> components,
+        List<List<Edge>> components,
         int componentCount
 ) {
     @Override
@@ -34,7 +34,7 @@ public record BiConnectedResult(
                     .append(RESET)
                     .append("\n");
 
-            for (GraphEdge edge : components.get(i)) {
+            for (Edge edge : components.get(i)) {
                 sb.append("  ")
                         .append(MAGENTA)
                         .append(edge.source())

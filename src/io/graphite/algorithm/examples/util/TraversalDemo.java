@@ -1,6 +1,6 @@
 package io.graphite.algorithm.examples.util;
 
-import io.graphite.algorithm.builder.GraphBuilder;
+import io.graphite.algorithm.builder.Graphs;
 import io.graphite.algorithm.graph.IGraph;
 import io.graphite.algorithm.traversal.BFS;
 import io.graphite.algorithm.traversal.DFS;
@@ -8,7 +8,7 @@ import io.graphite.algorithm.traversal.DFS;
 public final class TraversalDemo {
 
     private static final IGraph GRAPH =
-            GraphBuilder
+            Graphs
                     .undirected(8)
                     .addEdge(0, 1)
                     .addEdge(0, 2)

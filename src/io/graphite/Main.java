@@ -1,12 +1,12 @@
 package io.graphite;
 
 import io.graphite.algorithm.graph.Graph;
-import io.graphite.algorithm.builder.GraphBuilder;
+import io.graphite.algorithm.builder.Graphs;
 import io.graphite.algorithm.util.GraphPrinter;
 
 public class Main {
     static void main() {
-        Graph graph = GraphBuilder
+        Graph graph = Graphs
                 .undirected(5)
                 .addEdge(0, 1)
                 .addEdge(0, 2)
@@ -17,7 +17,7 @@ public class Main {
         System.out.println("Undirected Adj List : " + graph.getAdjacencyList());
         GraphPrinter.print(graph);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .directed(4)
                 .addEdge(0, 1, 5)
                 .addEdge(1, 2, 7)

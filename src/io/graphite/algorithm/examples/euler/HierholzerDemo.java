@@ -5,12 +5,12 @@ import io.graphite.algorithm.examples.util.GraphDemoPrinter;
 import io.graphite.algorithm.exception.GraphException;
 import io.graphite.algorithm.graph.Graph;
 import io.graphite.algorithm.result.EulerResult;
-import io.graphite.algorithm.builder.GraphBuilder;
+import io.graphite.algorithm.builder.Graphs;
 import io.graphite.algorithm.util.GraphPrinter;
 
 public class HierholzerDemo {
     static void main() {
-        Graph graph = GraphBuilder
+        Graph graph = Graphs
                 .undirected(4)
                 .addEdge(0, 1)
                 .addEdge(1, 2)
@@ -26,7 +26,7 @@ public class HierholzerDemo {
         System.out.println(circuit);
         System.out.println(path);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .undirected(1)
                 .build();
         GraphDemoPrinter.printHeader("Euler", graph);
@@ -37,7 +37,7 @@ public class HierholzerDemo {
         System.out.println(path);
 
         try {
-            graph = GraphBuilder
+            graph = Graphs
                     .undirected(4)
                     .addEdge(0, 1)
                     .addEdge(1, 2)
@@ -55,7 +55,7 @@ public class HierholzerDemo {
         }
 
         try {
-            graph = GraphBuilder
+            graph = Graphs
                     .undirected(6)
                     .addEdge(0, 1)
                     .addEdge(1, 2)

@@ -4,13 +4,13 @@ import io.graphite.algorithm.cycle.DirectedCycleDetector;
 import io.graphite.algorithm.cycle.CycleDetectionAlgorithm;
 import io.graphite.algorithm.examples.util.GraphDemoPrinter;
 import io.graphite.algorithm.graph.Graph;
-import io.graphite.algorithm.builder.GraphBuilder;
+import io.graphite.algorithm.builder.Graphs;
 
 public class DirectedCycleDemo {
     static void main() {
         CycleDetectionAlgorithm detector =
                 new DirectedCycleDetector();
-        Graph noCycleGraph = GraphBuilder
+        Graph noCycleGraph = Graphs
                 .directed(5)
                 .addEdge(0, 1)
                 .addEdge(1, 2)
@@ -21,7 +21,7 @@ public class DirectedCycleDemo {
         GraphDemoPrinter.printHeader("Directed Cycle Detection", noCycleGraph);
         System.out.println(detector.hasCycle(noCycleGraph));
 
-        Graph cycleGraph = GraphBuilder
+        Graph cycleGraph = Graphs
                 .directed(4)
                 .addEdge(0, 1)
                 .addEdge(1, 2)

@@ -7,10 +7,10 @@ import io.graphite.algorithm.model.Edge;
 public class DirectedCycleDetector extends GraphAlgorithm implements CycleDetectionAlgorithm {
     @Override
     public boolean hasCycle(IGraph graph) {
-        validateGraph(graph);
+        validate(graph);
 
-        boolean[] visited = createVisitedArray(graph);
-        boolean[] recursionStack = createVisitedArray(graph);
+        boolean[] visited = booleans(graph);
+        boolean[] recursionStack = booleans(graph);
 
         for (int i = 0; i < graph.getVertices(); i++) {
             if (!visited[i]) {

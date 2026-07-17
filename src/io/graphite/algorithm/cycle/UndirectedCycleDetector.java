@@ -7,9 +7,9 @@ import io.graphite.algorithm.model.Edge;
 public class UndirectedCycleDetector extends GraphAlgorithm implements CycleDetectionAlgorithm {
     @Override
     public boolean hasCycle(IGraph graph) {
-        validateGraph(graph);
+        validate(graph);
 
-        boolean[] visited = createVisitedArray(graph);
+        boolean[] visited = booleans(graph);
 
         for (int i = 0; i < graph.getVertices(); i++) {
             if (!visited[i]) {

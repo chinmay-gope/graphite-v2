@@ -3,11 +3,9 @@ package io.graphite.algorithm.connectivity;
 import io.graphite.algorithm.GraphAlgorithm;
 import io.graphite.algorithm.graph.IGraph;
 import io.graphite.algorithm.model.Edge;
-import io.graphite.algorithm.model.GraphEdge;
 import io.graphite.algorithm.result.BiConnectedResult;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
@@ -16,24 +14,20 @@ public class BiconnectedComponents extends GraphAlgorithm
 
     @Override
     public BiConnectedResult findBiconnectedComponents(IGraph graph) {
-        validateGraph(graph);
-        requireUndirectedGraph(graph);
+        validate(graph);
+        requireUndirected(graph);
 
-        int n = graph.getVertices();
+        boolean[] visited = booleans(graph);
+        int[] disc = ints(graph, 0);
+        int[] low = ints(graph, 0);
+        int[] parent = ints(graph, -1);
 
-        boolean[] visited = new boolean[n];
-        int[] disc = new int[n];
-        int[] low = new int[n];
-        int[] parent = new int[n];
-
-        Arrays.fill(parent, -1);
-
-        Stack<GraphEdge> stack = new Stack<>();
-        List<List<GraphEdge>> result = new ArrayList<>();
+        Stack<Edge> stack = new Stack<>();
+        List<List<Edge>> result = new ArrayList<>();
 
         int time = 0;
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < graph.getVertices(); i++) {
 
             if (!visited[i]) {
 
@@ -51,7 +45,7 @@ public class BiconnectedComponents extends GraphAlgorithm
 
                 // Remaining edges belong to one BCC
                 if (!stack.isEmpty()) {
-                    List<GraphEdge> component = new ArrayList<>();
+                    List<Edge> component = new ArrayList<>();
 
                     while (!stack.isEmpty()) {
                         component.add(stack.pop());
@@ -72,8 +66,8 @@ public class BiconnectedComponents extends GraphAlgorithm
             int[] disc,
             int[] low,
             int[] parent,
-            Stack<GraphEdge> stack,
-            List<List<GraphEdge>> result,
+            Stack<Edge> stack,
+            List<List<Edge>> result,
             int time
     ) {
 
@@ -84,7 +78,7 @@ public class BiconnectedComponents extends GraphAlgorithm
 
             int v = edge.destination();
 
-            GraphEdge graphEdge = new GraphEdge(
+            Edge graphEdge = new Edge(
                     u,
                     v,
                     edge.weight()
@@ -109,10 +103,10 @@ public class BiconnectedComponents extends GraphAlgorithm
                 low[u] = Math.min(low[u], low[v]);
 
                 if (low[v] >= disc[u]) {
-                    List<GraphEdge> component = new ArrayList<>();
+                    List<Edge> component = new ArrayList<>();
 
                     while (!stack.isEmpty()) {
-                        GraphEdge e = stack.pop();
+                        Edge e = stack.pop();
                         component.add(e);
 
                         if ((e.source() == u && e.destination() == v)

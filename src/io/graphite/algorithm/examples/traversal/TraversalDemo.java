@@ -5,13 +5,13 @@ import io.graphite.algorithm.traversal.TraversalAlgorithm;
 import io.graphite.algorithm.traversal.BFS;
 import io.graphite.algorithm.traversal.DFS;
 import io.graphite.algorithm.graph.Graph;
-import io.graphite.algorithm.builder.GraphBuilder;
+import io.graphite.algorithm.builder.Graphs;
 
 public class TraversalDemo {
 
     static void main() {
 
-        Graph graph = GraphBuilder
+        Graph graph = Graphs
                 .undirected(7)
                 .addEdge(0, 1)
                 .addEdge(0, 2)

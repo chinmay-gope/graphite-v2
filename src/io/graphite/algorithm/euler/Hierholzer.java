@@ -1,16 +1,15 @@
 package io.graphite.algorithm.euler;
 
 import io.graphite.algorithm.GraphAlgorithm;
-import io.graphite.algorithm.graph.IGraph;
 import io.graphite.algorithm.exception.algorithm.GraphCycleException;
 import io.graphite.algorithm.exception.graph.GraphDisconnectedException;
+import io.graphite.algorithm.graph.IGraph;
 import io.graphite.algorithm.model.Edge;
 import io.graphite.algorithm.result.EulerResult;
 import io.graphite.algorithm.util.GraphUtils;
 
 import java.util.*;
 
-import static io.graphite.algorithm.util.GraphUtils.degree;
 import static io.graphite.algorithm.util.GraphUtils.isConnected;
 
 public class Hierholzer extends GraphAlgorithm implements EulerAlgorithm {
@@ -18,8 +17,8 @@ public class Hierholzer extends GraphAlgorithm implements EulerAlgorithm {
 
     @Override
     public EulerResult findEulerPath(IGraph graph) {
-        validateGraph(graph);
-        requireUndirectedGraph(graph);
+        validate(graph);
+        requireUndirected(graph);
 
         if (!isConnected(graph)) {
             throw new GraphDisconnectedException("Euler path requires a connected graph.");
@@ -39,8 +38,8 @@ public class Hierholzer extends GraphAlgorithm implements EulerAlgorithm {
 
     @Override
     public EulerResult findEulerCircuit(IGraph graph) {
-        validateGraph(graph);
-        requireUndirectedGraph(graph);
+        validate(graph);
+        requireUndirected(graph);
 
         if (!isConnected(graph)) {
             throw new GraphDisconnectedException(
@@ -68,7 +67,7 @@ public class Hierholzer extends GraphAlgorithm implements EulerAlgorithm {
 
         for (int i = 0; i < graph.getVertices(); i++) {
 
-            if (degree(graph, i) % 2 != 0) {
+            if (graph.degree(i) % 2 != 0) {
                 odd++;
             }
         }
@@ -78,14 +77,14 @@ public class Hierholzer extends GraphAlgorithm implements EulerAlgorithm {
 
     private int findStartVertex(IGraph graph) {
         for (int i = 0; i < graph.getVertices(); i++) {
-            if (degree(graph, i) % 2 != 0) {
+            if (graph.degree(i) % 2 != 0) {
                 return i;
             }
 
         }
 
         for (int i = 0; i < graph.getVertices(); i++) {
-            if (degree(graph, i) > 0) {
+            if (graph.degree(i) > 0) {
                 return i;
             }
         }
@@ -126,7 +125,7 @@ public class Hierholzer extends GraphAlgorithm implements EulerAlgorithm {
 
         List<Integer> traversal = hierholzer(graph, start);
 
-        if (traversal.size() != GraphUtils.edgeCount(graph) + 1) {
+        if (traversal.size() != graph.edgeCount() + 1) {
             throw new GraphCycleException(
                     "Invalid Euler traversal."
             );

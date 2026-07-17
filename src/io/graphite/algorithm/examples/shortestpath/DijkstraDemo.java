@@ -6,12 +6,12 @@ import io.graphite.algorithm.shortestpath.Dijkstra;
 import io.graphite.algorithm.exception.GraphException;
 import io.graphite.algorithm.graph.Graph;
 import io.graphite.algorithm.result.ShortestPathResult;
-import io.graphite.algorithm.builder.GraphBuilder;
+import io.graphite.algorithm.builder.Graphs;
 import io.graphite.algorithm.util.GraphPrinter;
 
 public class DijkstraDemo {
     static void main() {
-        Graph graph = GraphBuilder
+        Graph graph = Graphs
                 .directed(6)
                 .addEdge(0, 1, 4)
                 .addEdge(0, 2, 2)
@@ -32,7 +32,7 @@ public class DijkstraDemo {
 
         GraphDemoPrinter.printFooter();
 
-        Graph unreachableVertex = GraphBuilder
+        Graph unreachableVertex = Graphs
                 .directed(7)
                 .addEdge(0, 1, 4)
                 .addEdge(0, 2, 2)
@@ -47,7 +47,7 @@ public class DijkstraDemo {
         System.out.println(result);
 
         try {
-            Graph g = GraphBuilder
+            Graph g = Graphs
                     .directed(3)
                     .addEdge(0, 2, -2)
                     .build();

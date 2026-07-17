@@ -5,12 +5,12 @@ import io.graphite.algorithm.examples.util.GraphDemoPrinter;
 import io.graphite.algorithm.connectivity.APAlgorithm;
 import io.graphite.algorithm.graph.Graph;
 import io.graphite.algorithm.result.APResult;
-import io.graphite.algorithm.builder.GraphBuilder;
+import io.graphite.algorithm.builder.Graphs;
 import io.graphite.algorithm.util.GraphPrinter;
 
 public class ArticulationPointDemo {
     static void main() {
-        Graph graph = GraphBuilder
+        Graph graph = Graphs
                 .undirected(5)
                 .addEdge(0, 1)
                 .addEdge(1, 2)
@@ -25,7 +25,7 @@ public class ArticulationPointDemo {
         APResult result = algorithm.findArticulationPoints(graph);
         System.out.println(result);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .undirected(4)
                 .addEdge(0, 1)
                 .addEdge(1, 2)
@@ -37,7 +37,7 @@ public class ArticulationPointDemo {
         result = algorithm.findArticulationPoints(graph);
         System.out.println(result);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .undirected(5)
                 .addEdge(0, 1)
                 .addEdge(1, 2)
@@ -50,7 +50,7 @@ public class ArticulationPointDemo {
         result = algorithm.findArticulationPoints(graph);
         System.out.println(result);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .undirected(5)
                 .addEdge(0, 1)
                 .addEdge(0, 2)
@@ -62,7 +62,7 @@ public class ArticulationPointDemo {
         result = algorithm.findArticulationPoints(graph);
         System.out.println(result);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .undirected(7)
                 .addEdge(0, 1)
                 .addEdge(1, 2)
@@ -75,7 +75,7 @@ public class ArticulationPointDemo {
         result = algorithm.findArticulationPoints(graph);
         System.out.println(result);
 
-        graph =  GraphBuilder
+        graph =  Graphs
                 .undirected(8)
                 .addEdge(0, 1)
                 .addEdge(1, 2)

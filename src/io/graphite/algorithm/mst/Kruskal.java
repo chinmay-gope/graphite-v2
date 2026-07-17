@@ -1,29 +1,33 @@
 package io.graphite.algorithm.mst;
 
 import io.graphite.algorithm.GraphAlgorithm;
-import io.graphite.algorithm.graph.IGraph;
 import io.graphite.algorithm.exception.graph.GraphDisconnectedException;
+import io.graphite.algorithm.graph.IGraph;
 import io.graphite.algorithm.model.DSU;
-import io.graphite.algorithm.model.GraphEdge;
+import io.graphite.algorithm.model.Edge;
 import io.graphite.algorithm.result.MSTEdge;
 import io.graphite.algorithm.result.MSTResult;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Kruskal extends GraphAlgorithm implements MSTAlgorithm {
     @Override
     public MSTResult findMST(IGraph graph, int source) {
-        validateGraph(graph);
-        requireUndirectedGraph(graph);
+        validate(graph);
+        requireUndirected(graph);
 
         DSU dsu = new DSU(graph.getVertices());
-        List<GraphEdge> edges = getAllEdges(graph);
+        List<Edge> edges = new ArrayList<>(graph.getEdges());
         List<MSTEdge> mst = new ArrayList<>();
+
+//        mutable copy
+        edges.sort(Comparator.comparingInt(Edge::weight));
 
         int cost = 0;
 
-        for (GraphEdge edge : edges) {
+        for (Edge edge : edges) {
             int u = edge.source();
             int v = edge.destination();
 

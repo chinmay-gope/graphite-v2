@@ -4,12 +4,12 @@ import io.graphite.algorithm.examples.util.GraphDemoPrinter;
 import io.graphite.algorithm.topology.DFSTopologicalSort;
 import io.graphite.algorithm.exception.GraphException;
 import io.graphite.algorithm.graph.Graph;
-import io.graphite.algorithm.builder.GraphBuilder;
+import io.graphite.algorithm.builder.Graphs;
 import io.graphite.algorithm.util.GraphPrinter;
 
 public class TopologicalDemo {
     static void main() {
-        Graph graph = GraphBuilder
+        Graph graph = Graphs
                 .directed(6)
                 .addEdge(5, 2)
                 .addEdge(5, 0)
@@ -26,7 +26,7 @@ public class TopologicalDemo {
         System.out.println(algorithm.sort(graph));
 
         try {
-            graph = GraphBuilder
+            graph = Graphs
                     .directed(3)
                     .addEdge(0, 1)
                     .addEdge(1, 2)

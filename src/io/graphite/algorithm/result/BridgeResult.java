@@ -1,25 +1,25 @@
 package io.graphite.algorithm.result;
 
-import io.graphite.algorithm.model.GraphEdge;
+import io.graphite.algorithm.model.Edge;
 
 import java.util.List;
 
 import static io.graphite.algorithm.result.Result.*;
 
-public record BridgeResult(List<GraphEdge> bridges) {
+public record BridgeResult(List<Edge> bridges) {
     public BridgeResult {
         bridges = List.copyOf(bridges);
     }
 
     @Override
-    public List<GraphEdge> bridges() {
+    public List<Edge> bridges() {
         return List.copyOf(bridges);
     }
 
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        for (GraphEdge edge : bridges) {
+        for (Edge edge : bridges) {
             int source = edge.source();
             int destination = edge.destination();
             builder.append(CYAN)

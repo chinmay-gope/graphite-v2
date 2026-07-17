@@ -5,12 +5,12 @@ import io.graphite.algorithm.connectivity.SCCAlgorithm;
 import io.graphite.algorithm.examples.util.GraphDemoPrinter;
 import io.graphite.algorithm.graph.Graph;
 import io.graphite.algorithm.result.SCCResult;
-import io.graphite.algorithm.builder.GraphBuilder;
+import io.graphite.algorithm.builder.Graphs;
 import io.graphite.algorithm.util.GraphPrinter;
 
 public class KosarajuDemo {
     static void main() {
-        Graph graph = GraphBuilder
+        Graph graph = Graphs
                 .directed(3)
                 .addEdge(0, 1)
                 .addEdge(1, 2)
@@ -25,7 +25,7 @@ public class KosarajuDemo {
         SCCResult result = algorithm.findSCCs(graph);
         System.out.println(result);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .directed(6)
                 .addEdge(0, 1, 1)
                 .addEdge(1, 2, 1)
@@ -39,7 +39,7 @@ public class KosarajuDemo {
         result = algorithm.findSCCs(graph);
         System.out.println(result);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .directed(5)
                 .addEdge(0, 1, 1)
                 .addEdge(1, 2, 1)
@@ -51,7 +51,7 @@ public class KosarajuDemo {
         result = algorithm.findSCCs(graph);
         System.out.println(result);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .directed(8)
                 .addEdge(0, 1, 1)
                 .addEdge(1, 2, 1)
@@ -69,7 +69,7 @@ public class KosarajuDemo {
         result = algorithm.findSCCs(graph);
         System.out.println(result);
 
-        graph = GraphBuilder
+        graph = Graphs
                 .directed(7)
                 .addEdge(0, 1, 1)
                 .addEdge(1, 0, 1)   // SCC1

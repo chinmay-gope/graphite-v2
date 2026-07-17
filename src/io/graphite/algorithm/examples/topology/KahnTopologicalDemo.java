@@ -4,12 +4,12 @@ import io.graphite.algorithm.examples.util.GraphDemoPrinter;
 import io.graphite.algorithm.topology.KahnTopologicalSort;
 import io.graphite.algorithm.exception.GraphException;
 import io.graphite.algorithm.graph.Graph;
-import io.graphite.algorithm.builder.GraphBuilder;
+import io.graphite.algorithm.builder.Graphs;
 import io.graphite.algorithm.util.GraphPrinter;
 
 public class KahnTopologicalDemo {
     static void main() {
-        Graph graph = GraphBuilder
+        Graph graph = Graphs
                 .directed(6)
                 .addEdge(5, 2)
                 .addEdge(5, 0)
@@ -25,7 +25,7 @@ public class KahnTopologicalDemo {
         KahnTopologicalSort algorithm = new KahnTopologicalSort();
         System.out.println(algorithm.sort(graph));
 
-        Graph cyclic = GraphBuilder
+        Graph cyclic = Graphs
                 .directed(3)
                 .addEdge(1, 2)
                 .addEdge(0, 1)
@@ -38,7 +38,7 @@ public class KahnTopologicalDemo {
         System.out.println(algorithm.sort(cyclic));
 
         try {
-            Graph undirected = GraphBuilder
+            Graph undirected = Graphs
                     .undirected(3)
                     .build();
             GraphDemoPrinter.printHeader("Kahn Topological Sort Undirected", undirected);

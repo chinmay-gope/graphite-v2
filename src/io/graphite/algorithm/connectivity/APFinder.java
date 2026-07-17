@@ -14,15 +14,15 @@ public class APFinder extends GraphAlgorithm implements APAlgorithm {
 
     @Override
     public APResult findArticulationPoints(IGraph graph) {
-        validateGraph(graph);
-        requireUndirectedGraph(graph);
+        validate(graph);
+        requireUndirected(graph);
 
-        boolean[] visited = createVisitedArray(graph);
+        boolean[] visited = booleans(graph);
 
-        int[] discovery = new int[graph.getVertices()];
-        int[] low = new int[graph.getVertices()];
+        int[] discovery = ints(graph, 0);
+        int[] low = ints(graph, 0);
 
-        boolean[] articulation = new boolean[graph.getVertices()];
+        boolean[] articulation = booleans(graph);
 
         for (int i = 0; i < graph.getVertices(); i++) {
             if (!visited[i]) {

@@ -6,12 +6,12 @@ import io.graphite.algorithm.shortestpath.BellmanFord;
 import io.graphite.algorithm.exception.GraphException;
 import io.graphite.algorithm.graph.Graph;
 import io.graphite.algorithm.result.ShortestPathResult;
-import io.graphite.algorithm.builder.GraphBuilder;
+import io.graphite.algorithm.builder.Graphs;
 import io.graphite.algorithm.util.GraphPrinter;
 
 public class BellmanFordDemo {
     static void main() {
-        Graph graph = GraphBuilder
+        Graph graph = Graphs
                 .directed(4)
                 .addEdge(0, 1, 4)
                 .addEdge(0, 2, 5)
@@ -29,7 +29,7 @@ public class BellmanFordDemo {
         System.out.println(result);
 
         try {
-            Graph negativeWeightCycle = GraphBuilder
+            Graph negativeWeightCycle = Graphs
                     .directed(4)
                     .addEdge(0, 1, 1)
                     .addEdge(1, 2, -1)

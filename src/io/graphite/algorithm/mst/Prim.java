@@ -15,10 +15,10 @@ import java.util.PriorityQueue;
 public class Prim extends GraphAlgorithm implements MSTAlgorithm {
     @Override
     public MSTResult findMST(IGraph graph, int source) {
-        validateGraph(graph);
-        requireUndirectedGraph(graph);
+        validate(graph);
+        requireUndirected(graph);
 
-        boolean[] visited = createVisitedArray(graph);
+        boolean[] visited = booleans(graph);
 
         PriorityQueue<MSTNode> queue = new PriorityQueue<>();
 
