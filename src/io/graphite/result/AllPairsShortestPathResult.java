@@ -2,9 +2,7 @@ package io.graphite.result;
 
 import java.util.Arrays;
 
-import static io.graphite.result.Result.*;
-
-public record AllPairsShortestPathResult(int[][] distance) implements Result {
+public record AllPairsShortestPathResult(int[][] distance) implements Colors {
     public AllPairsShortestPathResult {
         distance = Arrays.stream(distance)
                 .map(int[]::clone)

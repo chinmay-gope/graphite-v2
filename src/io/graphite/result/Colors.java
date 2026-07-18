@@ -1,6 +1,6 @@
 package io.graphite.result;
 
-public interface Result {
+public interface Colors {
     String RESET = "\u001B[0m";
     String CYAN = "\u001B[96m";
     String YELLOW = "\u001B[93m";

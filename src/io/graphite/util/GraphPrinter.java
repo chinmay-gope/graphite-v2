@@ -2,9 +2,9 @@ package io.graphite.util;
 
 import io.graphite.graph.IGraph;
 import io.graphite.model.Edge;
-import io.graphite.result.Result;
+import io.graphite.result.Colors;
 
-public final class GraphPrinter implements Result {
+public final class GraphPrinter implements Colors {
 
     private GraphPrinter() {
         throw new AssertionError("No GraphPrinter instances for you!");

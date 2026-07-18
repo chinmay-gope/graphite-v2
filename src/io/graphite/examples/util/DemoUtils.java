@@ -3,7 +3,7 @@ package io.graphite.examples.util;
 import io.graphite.algorithm.traversal.TraversalAlgorithm;
 import io.graphite.exception.GraphException;
 import io.graphite.graph.IGraph;
-import io.graphite.result.Result;
+import io.graphite.result.Colors;
 import io.graphite.util.GraphPrinter;
 
 public final class DemoUtils {
@@ -61,7 +61,7 @@ public final class DemoUtils {
 
         for (int vertex = 0; vertex < graph.getVertices(); vertex++) {
 
-            System.out.printf("Neighbours of %-2d : %s%n", vertex, Result.BLUE + graph.neighbors(vertex) + Result.RESET);
+            System.out.printf("Neighbours of %-2d : %s%n", vertex, Colors.BLUE + graph.neighbors(vertex) + Colors.RESET);
         }
     }
 

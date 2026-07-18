@@ -6,11 +6,11 @@ import io.graphite.algorithm.bipartite.DFSBipartiteChecker;
 import io.graphite.builder.Graphs;
 import io.graphite.examples.util.GraphDemoPrinter;
 import io.graphite.graph.Graph;
-import io.graphite.result.Result;
+import io.graphite.result.Colors;
 import io.graphite.util.GraphPrinter;
 import io.graphite.validation.GraphValidator;
 
-public class BipartiteDemo implements Result {
+public class BipartiteDemo implements Colors {
     static void main() {
         Graph graph = Graphs
                 .undirected(4)

@@ -1,9 +1,9 @@
 package io.graphite.examples.util;
 
 import io.graphite.graph.IGraph;
-import io.graphite.result.Result;
+import io.graphite.result.Colors;
 
-public final class GraphDemoPrinter implements Result {
+public final class GraphDemoPrinter implements Colors {
 
     private GraphDemoPrinter() {
         throw new AssertionError("No GraphDemoPrinter instances for you!");

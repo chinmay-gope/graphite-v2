@@ -4,7 +4,7 @@ import io.graphite.model.Edge;
 
 import java.util.List;
 
-import static io.graphite.result.Result.*;
+import static io.graphite.result.Colors.*;
 
 public record BridgeResult(List<Edge> bridges) {
     public BridgeResult {

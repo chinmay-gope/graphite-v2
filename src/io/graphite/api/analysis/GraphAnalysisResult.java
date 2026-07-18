@@ -1,6 +1,6 @@
 package io.graphite.api.analysis;
 
-import io.graphite.result.Result;
+import io.graphite.result.Colors;
 
 public record GraphAnalysisResult(
 
@@ -23,7 +23,7 @@ public record GraphAnalysisResult(
         int maxDegree,
         int minDegree
 
-) implements Result {
+) implements Colors {
 
     private static String bool(boolean value) {
         return value ? "Yes" : "No";

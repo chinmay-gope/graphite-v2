@@ -2,7 +2,7 @@ package io.graphite.result;
 
 import java.util.List;
 
-public record APResult(List<Integer> articulationPoints) {
+public record APResult(List<Integer> articulationPoints) implements Colors {
 
     public APResult {
         articulationPoints = List.copyOf(articulationPoints);
@@ -15,7 +15,7 @@ public record APResult(List<Integer> articulationPoints) {
 
     @Override
     public String toString() {
-        return Result.CYAN + "Articulation Points: " + Result.RESET +
-                Result.MAGENTA + articulationPoints + Result.RESET;
+        return CYAN + "Articulation Points: " + RESET +
+                MAGENTA + articulationPoints + RESET;
     }
 }
