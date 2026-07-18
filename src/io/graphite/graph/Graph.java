@@ -1,5 +1,6 @@
 package io.graphite.graph;
 
+import io.graphite.api.*;
 import io.graphite.builder.GraphConfiguration;
 import io.graphite.exception.graph.InvalidVertexException;
 import io.graphite.model.Edge;
@@ -72,17 +73,12 @@ public abstract class Graph implements IGraph {
     }
 
     @Override
-    public boolean hasEdge(
-            int source,
-            int destination) {
+    public boolean hasEdge(int source, int destination) {
 
         validateVertex(source);
         validateVertex(destination);
 
-        return adjacencyList.get(source)
-                .stream()
-                .anyMatch(edge ->
-                        edge.destination() == destination);
+        return adjacencyList.get(source).stream().anyMatch(edge -> edge.destination() == destination);
     }
 
     // ==========================================================
@@ -90,12 +86,11 @@ public abstract class Graph implements IGraph {
     // ==========================================================
 
     @Override
-    public List<Edge> getNeighbours(int vertex) {
+    public List<Edge> getNeighbors(int vertex) {
 
         validateVertex(vertex);
 
-        return Collections.unmodifiableList(
-                adjacencyList.get(vertex));
+        return Collections.unmodifiableList(adjacencyList.get(vertex));
     }
 
     @Override
@@ -162,15 +157,10 @@ public abstract class Graph implements IGraph {
     // ==========================================================
 
     @Override
-    public abstract void addEdge(
-            int source,
-            int destination,
-            int weight);
+    public abstract void addEdge(int source, int destination, int weight);
 
     @Override
-    public abstract void removeEdge(
-            int source,
-            int destination);
+    public abstract void removeEdge(int source, int destination);
 
     @Override
     public IGraph copy() {
@@ -181,4 +171,134 @@ public abstract class Graph implements IGraph {
     public IGraph transpose() {
         return GraphTransposer.transpose(this);
     }
+
+    // ==========================================================
+    // Aliases
+    // ==========================================================
+
+    @Override
+    public List<Edge> neighbors(int vertex) {
+        return getNeighbors(vertex);
+    }
+
+    @Override
+    public List<Edge> edges() {
+        return getEdges();
+    }
+
+    @Override
+    public int vertexCount() {
+        return getVertices();
+    }
+
+    @Override
+    public boolean contains(int vertex) {
+        return containsVertex(vertex);
+    }
+
+    @Override
+    public Iterable<Integer> vertices() {
+
+        List<Integer> vertices = new ArrayList<>();
+
+        for (int i = 0; i < getVertices(); i++) {
+            vertices.add(i);
+        }
+
+        return Collections.unmodifiableList(vertices);
+    }
+
+    // ==========================================================
+    // Services
+    // ==========================================================
+
+    private TraversalService traversal;
+    private MSTService mst;
+    private ShortestPathService shortestPath;
+    private ConnectivityService connectivity;
+    private CycleService cycle;
+    private EulerService euler;
+    private TopologyService topology;
+    private BipartiteService bipartite;
+
+    @Override
+    public TraversalService traversal() {
+
+        if (traversal == null) {
+            traversal = new TraversalService(this);
+        }
+
+        return traversal;
+    }
+
+    @Override
+    public MSTService mst() {
+
+        if (mst == null) {
+            mst = new MSTService(this);
+        }
+
+        return mst;
+    }
+
+    @Override
+    public ShortestPathService shortestPath() {
+
+        if (shortestPath == null) {
+            shortestPath = new ShortestPathService(this);
+        }
+
+        return shortestPath;
+    }
+
+    @Override
+    public ConnectivityService connectivity() {
+
+        if (connectivity == null) {
+            connectivity = new ConnectivityService(this);
+        }
+
+        return connectivity;
+    }
+
+    @Override
+    public CycleService cycle() {
+
+        if (cycle == null) {
+            cycle = new CycleService(this);
+        }
+
+        return cycle;
+    }
+
+    @Override
+    public EulerService euler() {
+
+        if (euler == null) {
+            euler = new EulerService(this);
+        }
+
+        return euler;
+    }
+
+    @Override
+    public TopologyService topology() {
+
+        if (topology == null) {
+            topology = new TopologyService(this);
+        }
+
+        return topology;
+    }
+
+    @Override
+    public BipartiteService bipartite() {
+
+        if (bipartite == null) {
+            bipartite = new BipartiteService(this);
+        }
+
+        return bipartite;
+    }
+
 }

@@ -6,7 +6,7 @@ import io.graphite.result.EulerResult;
 
 public final class EulerService extends GraphService {
 
-    EulerService(IGraph graph) {
+    public EulerService(IGraph graph) {
         super(graph);
     }
 

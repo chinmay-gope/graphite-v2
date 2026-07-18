@@ -7,7 +7,7 @@ import io.graphite.result.TraversalResult;
 
 public final class TraversalService extends GraphService {
 
-    TraversalService(IGraph graph) {
+    public TraversalService(IGraph graph) {
         super(graph);
     }
 

@@ -17,7 +17,7 @@ public final class GraphValidator {
 
     public static boolean hasSelfLoop(IGraph graph) {
         for (int i = 0; i < graph.getVertices(); i++) {
-            for (Edge edge : graph.getNeighbours(i)) {
+            for (Edge edge : graph.getNeighbors(i)) {
 
                 if (i == edge.destination()) {
                     return true;
@@ -29,7 +29,7 @@ public final class GraphValidator {
 
     public static boolean hasNegativeEdges(IGraph graph) {
         for (int i = 0; i < graph.getVertices(); i++) {
-            for (Edge edge : graph.getNeighbours(i)) {
+            for (Edge edge : graph.getNeighbors(i)) {
                 if (edge.weight() < 0) {
                     return true;
                 }

@@ -6,7 +6,7 @@ import io.graphite.graph.IGraph;
 import io.graphite.result.MSTResult;
 
 public final class MSTService extends GraphService {
-    MSTService(IGraph graph) {
+    public MSTService(IGraph graph) {
         super(graph);
     }
 

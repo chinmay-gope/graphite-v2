@@ -1,7 +1,10 @@
 package io.graphite.graph;
 
+import io.graphite.api.*;
 import io.graphite.model.Edge;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public interface IGraph {
@@ -34,17 +37,42 @@ public interface IGraph {
 
     // ========= Views =========
 
-    List<Edge> getNeighbours(int vertex);
+    List<Edge> getNeighbors(int vertex);
+
+    default List<Edge> neighbors(int vertex) {
+        return getNeighbors(vertex);
+    }
 
     List<Edge> getEdges();
 
+    default List<Edge> edges() {
+        return getEdges();
+    }
 
     // ========= Metadata =========
 
     int getVertices();
 
+    default int vertexCount() {
+        return getVertices();
+    }
+
     int edgeCount();
 
+    default Iterable<Integer> vertices() {
+
+        List<Integer> vertices = new ArrayList<>();
+
+        for (int i = 0; i < vertexCount(); i++) {
+            vertices.add(i);
+        }
+
+        return Collections.unmodifiableList(vertices);
+    }
+
+    default boolean contains(int vertex) {
+        return containsVertex(vertex);
+    }
 
     // ========= Copy =========
 
@@ -54,4 +82,22 @@ public interface IGraph {
     // ========= Transform =========
 
     IGraph transpose();
+
+    // ========= Services =========
+
+    BipartiteService bipartite();
+
+    ConnectivityService connectivity();
+
+    CycleService cycle();
+
+    EulerService euler();
+
+    ShortestPathService shortestPath();
+
+    TopologyService topology();
+
+    MSTService mst();
+
+    TraversalService traversal();
 }

@@ -12,7 +12,7 @@ import io.graphite.result.SCCResult;
 
 public final class ConnectivityService extends GraphService {
 
-    ConnectivityService(IGraph graph) {
+    public ConnectivityService(IGraph graph) {
         super(graph);
     }
 

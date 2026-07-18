@@ -8,7 +8,7 @@ import io.graphite.result.AllPairsShortestPathResult;
 import io.graphite.result.ShortestPathResult;
 
 public final class ShortestPathService extends GraphService {
-    ShortestPathService(IGraph graph) {
+    public ShortestPathService(IGraph graph) {
         super(graph);
     }
 

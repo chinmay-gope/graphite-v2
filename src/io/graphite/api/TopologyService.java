@@ -6,7 +6,7 @@ import io.graphite.graph.IGraph;
 import io.graphite.result.TopologicalSortResult;
 
 public final class TopologyService extends GraphService {
-    TopologyService(IGraph graph) {
+    public TopologyService(IGraph graph) {
         super(graph);
     }
 

@@ -5,7 +5,7 @@ import io.graphite.algorithm.bipartite.DFSBipartiteChecker;
 import io.graphite.graph.IGraph;
 
 public final class BipartiteService extends GraphService {
-    BipartiteService(IGraph graph) {
+    public BipartiteService(IGraph graph) {
         super(graph);
     }
 
