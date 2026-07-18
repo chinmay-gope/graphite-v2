@@ -4,6 +4,9 @@ import io.graphite.builder.AbstractGraphBuilder;
 import io.graphite.builder.GraphConfiguration;
 import io.graphite.builder.Graphs;
 import io.graphite.generator.internal.EdgeTracker;
+import io.graphite.generator.internal.RandomEdgeGenerator;
+import io.graphite.generator.internal.RandomWeightGenerator;
+import io.graphite.generator.internal.SpanningTreeGenerator;
 import io.graphite.generator.validation.RandomGraphValidator;
 import io.graphite.graph.IGraph;
 
@@ -26,8 +29,7 @@ public final class RandomGraphGenerator {
     private final GraphConfiguration configuration;
     private final EdgeTracker tracker;
 
-    private RandomGraphGenerator(GraphConfiguration configuration,
-                                 EdgeTracker tracker) {
+    private RandomGraphGenerator(GraphConfiguration configuration, EdgeTracker tracker) {
         this.configuration = configuration;
         this.tracker = tracker;
     }
@@ -44,12 +46,8 @@ public final class RandomGraphGenerator {
         return random().nextInt(configuration.getVertices());
     }
 
-    private int randomWeight() {
-        return random().nextInt(configuration.getMinWeight(), configuration.getMaxWeight() + 1);
-    }
-
     private void addEdge(AbstractGraphBuilder<?, ?> builder, int source, int destination) {
-        int weight = randomWeight();
+        int weight = RandomWeightGenerator.next(configuration);
 
         if (configuration.isWeighted()) {
             builder.addEdge(source, destination, weight);
@@ -74,16 +72,11 @@ public final class RandomGraphGenerator {
         }
     }
 
-    private void generateSpanningTree(AbstractGraphBuilder<?, ?> builder) {
-        for (int vertex = 1; vertex < configuration.getVertices(); vertex++) {
-            int parent = random().nextInt(vertex);
-            addEdge(builder, parent, vertex);
-        }
-    }
-
     private AbstractGraphBuilder<?, ?> createBuilder() {
 
-        return configuration.isDirected() ? Graphs.directed().vertices(configuration.getVertices()).weighted(configuration.isWeighted()) : Graphs.undirected().vertices(configuration.getVertices()).weighted(configuration.isWeighted());
+        return configuration.isDirected() ?
+                Graphs.directed().vertices(configuration.getVertices()).weighted(configuration.isWeighted())
+                : Graphs.undirected().vertices(configuration.getVertices()).weighted(configuration.isWeighted());
     }
 
     public IGraph generate() {
@@ -92,15 +85,25 @@ public final class RandomGraphGenerator {
 
         AbstractGraphBuilder<?, ?> builder = createBuilder();
 
-        EdgeTracker tracker =
-                new EdgeTracker(configuration);
+        EdgeTracker tracker = new EdgeTracker(configuration);
 
 
         if (configuration.isConnected()) {
-//            generator.generateSpanningTree(builder);
+
+            configuration.setVertices(configuration.getVertices());
+            configuration.setWeighted(configuration.isWeighted());
+            configuration.setConnected(true);
+
+            SpanningTreeGenerator.generate(
+                    builder,
+                    configuration,
+                    tracker);
         }
 
-//        generator.generateRemainingEdges(builder);
+        RandomEdgeGenerator.generate(
+                builder,
+                configuration,
+                tracker);
 
         return builder.build();
     }

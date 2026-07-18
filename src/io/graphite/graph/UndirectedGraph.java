@@ -34,7 +34,7 @@ public final class UndirectedGraph extends Graph {
 
         for (List<Edge> neighbours : adjacencyList) {
             for (Edge edge : neighbours) {
-
+//                unique edges
                 if (edge.source() < edge.destination()) {
                     edges.add(edge);
                 }
@@ -59,25 +59,5 @@ public final class UndirectedGraph extends Graph {
         if (removed1 && removed2) {
             edgeCount--;
         }
-    }
-
-    @Override
-    public IGraph copy() {
-        UndirectedGraph copy =
-                new UndirectedGraph(configuration());
-
-        for (Edge edge : getEdges()) {
-            copy.addEdge(
-                    edge.source(),
-                    edge.destination(),
-                    edge.weight());
-        }
-
-        return copy;
-    }
-
-    @Override
-    public IGraph transpose() {
-        return copy();
     }
 }

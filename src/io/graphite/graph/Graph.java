@@ -17,27 +17,30 @@ public abstract class Graph implements IGraph {
 
     protected int edgeCount;
 
-    protected final int vertices;
-
-    protected final boolean weighted;
-
     protected final List<List<Edge>> adjacencyList;
+
+    protected final GraphConfiguration configuration;
 
     // ==========================================================
     // Constructor
     // ==========================================================
 
     protected Graph(GraphConfiguration configuration) {
-
-        this.vertices = configuration.getVertices();
-
-        this.weighted = configuration.isWeighted();
+        this.configuration = configuration;
 
         adjacencyList = new ArrayList<>();
 
-        for (int i = 0; i < vertices; i++) {
+        for (int i = 0; i < configuration.getVertices(); i++) {
             adjacencyList.add(new ArrayList<>());
         }
+    }
+
+    // ==========================================================
+    // Internal Helpers
+    // ==========================================================
+
+    protected GraphConfiguration configuration() {
+        return configuration;
     }
 
     // ==========================================================
@@ -52,12 +55,12 @@ public abstract class Graph implements IGraph {
     }
 
     // ==========================================================
-    // Vertex Queries
+    // Queries
     // ==========================================================
 
     @Override
     public boolean containsVertex(int vertex) {
-        return vertex >= 0 && vertex < vertices;
+        return vertex >= 0 && vertex < configuration.getVertices();
     }
 
     @Override
@@ -83,7 +86,7 @@ public abstract class Graph implements IGraph {
     }
 
     // ==========================================================
-    // Graph Views
+    // Views
     // ==========================================================
 
     @Override
@@ -107,20 +110,13 @@ public abstract class Graph implements IGraph {
         return List.copyOf(edges);
     }
 
-    @Override
-    public List<List<Edge>> getAdjacencyList() {
-
-        return Collections.unmodifiableList(
-                adjacencyList);
-    }
-
     // ==========================================================
-    // Graph Metadata
+    // Metadata
     // ==========================================================
 
     @Override
     public int getVertices() {
-        return vertices;
+        return configuration.getVertices();
     }
 
     @Override
@@ -130,25 +126,26 @@ public abstract class Graph implements IGraph {
 
     @Override
     public boolean isWeighted() {
-        return weighted;
+        return configuration.isWeighted();
     }
 
     @Override
     public boolean isEmpty() {
-        return vertices == 0;
+        return configuration.getVertices() == 0;
     }
 
-    protected GraphConfiguration configuration() {
-        GraphConfiguration config = new GraphConfiguration();
+    @Override
+    public boolean isDirected() {
+        return configuration.isDirected();
+    }
 
-        config.setWeighted(weighted);
-        config.setVertices(vertices);
-
-        return config;
+    @Override
+    public boolean isUndirected() {
+        return configuration.isUndirected();
     }
 
     // ==========================================================
-    // Graph Operations
+    // Mutation
     // ==========================================================
 
     @Override
@@ -161,7 +158,7 @@ public abstract class Graph implements IGraph {
 
 
     // ==========================================================
-    // Abstract Operations
+    // Abstract
     // ==========================================================
 
     @Override
@@ -176,8 +173,12 @@ public abstract class Graph implements IGraph {
             int destination);
 
     @Override
-    public abstract IGraph copy();
+    public IGraph copy() {
+        return GraphCopier.copy(this);
+    }
 
     @Override
-    public abstract IGraph transpose();
+    public IGraph transpose() {
+        return GraphTransposer.transpose(this);
+    }
 }

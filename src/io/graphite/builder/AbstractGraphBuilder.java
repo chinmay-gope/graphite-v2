@@ -1,11 +1,18 @@
 package io.graphite.builder;
 
 import io.graphite.graph.Graph;
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public abstract class AbstractGraphBuilder<G extends Graph, SELF extends AbstractGraphBuilder<G, SELF>> {
     protected final GraphConfiguration configuration = new GraphConfiguration();
 
-    protected G graph;
+    protected final List<Edge> edges =
+            new ArrayList<>();
 
     protected abstract G createGraph();
 
@@ -14,12 +21,16 @@ public abstract class AbstractGraphBuilder<G extends Graph, SELF extends Abstrac
         return (SELF) this;
     }
 
-    protected final G graph() {
-        if (graph == null) {
-            graph = createGraph();
-        }
+    protected final List<Edge> edges() {
+        return edges;
+    }
 
-        return graph;
+    public boolean isEmpty() {
+        return edges.isEmpty();
+    }
+
+    public int edgeCount() {
+        return edges.size();
     }
 
     public SELF vertices(int vertices) {
@@ -50,22 +61,57 @@ public abstract class AbstractGraphBuilder<G extends Graph, SELF extends Abstrac
     public SELF addEdge(
             int source,
             int destination) {
-        graph().addEdge(source, destination, 1);
 
-        return self();
+        return addEdge(
+                source,
+                destination,
+                1
+        );
     }
 
     public SELF addEdge(
             int source,
             int destination,
             int weight) {
-        graph().addEdge(source, destination, weight);
+
+        edges.add(new Edge(
+                source,
+                destination,
+                weight));
+
+        return self();
+    }
+
+    public SELF addEdge(Edge edge) {
+
+        edges.add(edge);
+
+        return self();
+    }
+
+    public SELF addEdges(Collection<Edge> edges) {
+
+        this.edges.addAll(edges);
 
         return self();
     }
 
     public SELF clear() {
-        graph().clear();
+
+        edges.clear();
+
+        configuration.setVertices(0);
+
+        return self();
+    }
+
+    public SELF from(IGraph graph) {
+
+        configuration.setVertices(graph.getVertices());
+        configuration.setWeighted(graph.isWeighted());
+        configuration.setDirected(graph.isDirected());
+
+        addEdges(graph.getEdges());
 
         return self();
     }
@@ -73,6 +119,16 @@ public abstract class AbstractGraphBuilder<G extends Graph, SELF extends Abstrac
     public G build() {
         BuilderValidator.validate(configuration);
 
-        return graph();
+        G graph = createGraph();
+
+        for (Edge edge : edges) {
+
+            graph.addEdge(
+                    edge.source(),
+                    edge.destination(),
+                    edge.weight());
+        }
+
+        return graph;
     }
 }
