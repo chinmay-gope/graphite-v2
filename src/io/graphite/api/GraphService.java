@@ -15,6 +15,7 @@ import io.graphite.graph.IGraph;
  *
  * @see BipartiteService
  * @see ConnectivityService
+ * @see CycleService
  * @see EulerService
  * @see MSTService
  * @see ShortestPathService
