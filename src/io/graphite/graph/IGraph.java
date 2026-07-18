@@ -18,6 +18,7 @@ public interface IGraph {
 
     void clear();
 
+    IGraph asImmutable();
 
     // ========= Queries =========
 
@@ -34,6 +35,8 @@ public interface IGraph {
     boolean isDirected();
 
     boolean isUndirected();
+
+    boolean isImmutable();
 
 
     // ========= Views =========

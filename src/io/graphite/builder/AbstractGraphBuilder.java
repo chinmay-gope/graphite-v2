@@ -116,7 +116,8 @@ public abstract class AbstractGraphBuilder<G extends Graph, SELF extends Abstrac
         return self();
     }
 
-    public G build() {
+    public IGraph build() {
+
         BuilderValidator.validate(configuration);
 
         G graph = createGraph();
@@ -129,6 +130,8 @@ public abstract class AbstractGraphBuilder<G extends Graph, SELF extends Abstrac
                     edge.weight());
         }
 
-        return graph;
+        return configuration.isImmutable()
+                ? graph.asImmutable()
+                : graph;
     }
 }

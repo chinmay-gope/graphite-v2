@@ -5,6 +5,7 @@ import io.graphite.api.analysis.GraphAnalysis;
 import io.graphite.api.analysis.GraphAnalysisService;
 import io.graphite.builder.GraphConfiguration;
 import io.graphite.exception.graph.InvalidVertexException;
+import io.graphite.graph.internal.ImmutableGraph;
 import io.graphite.model.Edge;
 
 import java.util.ArrayList;
@@ -141,6 +142,11 @@ public abstract class Graph implements IGraph {
         return configuration.isUndirected();
     }
 
+    @Override
+    public boolean isImmutable() {
+        return configuration.isImmutable();
+    }
+
     // ==========================================================
     // Mutation
     // ==========================================================
@@ -153,6 +159,10 @@ public abstract class Graph implements IGraph {
         edgeCount = 0;
     }
 
+    @Override
+    public IGraph asImmutable() {
+        return configuration.isImmutable() ? this : new ImmutableGraph(this);
+    }
 
     // ==========================================================
     // Abstract
