@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import static io.graphite.result.Result.*;
 
-public record AllPairsShortestPathResult(int[][] distance) {
+public record AllPairsShortestPathResult(int[][] distance) implements Result {
     public AllPairsShortestPathResult {
         distance = Arrays.stream(distance)
                 .map(int[]::clone)

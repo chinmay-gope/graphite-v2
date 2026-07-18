@@ -1,6 +1,7 @@
 package io.graphite.graph;
 
 import io.graphite.api.*;
+import io.graphite.api.analysis.GraphAnalysis;
 import io.graphite.model.Edge;
 
 import java.util.ArrayList;
@@ -100,4 +101,6 @@ public interface IGraph {
     MSTService mst();
 
     TraversalService traversal();
+
+    GraphAnalysis analysis();
 }

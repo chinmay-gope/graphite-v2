@@ -2,7 +2,7 @@ package io.graphite.result;
 
 import java.util.List;
 
-public record MSTResult(int cost, List<MSTEdge> edges) {
+public record MSTResult(int cost, List<MSTEdge> edges) implements Result {
     public MSTResult {
         edges = List.copyOf(edges);
     }

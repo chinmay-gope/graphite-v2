@@ -9,7 +9,7 @@ import static io.graphite.result.Result.*;
 public record BiConnectedResult(
         List<List<Edge>> components,
         int componentCount
-) {
+) implements Result {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

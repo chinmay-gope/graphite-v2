@@ -10,7 +10,7 @@ import io.graphite.result.Result;
 import io.graphite.util.GraphPrinter;
 import io.graphite.validation.GraphValidator;
 
-public class BipartiteDemo {
+public class BipartiteDemo implements Result {
     static void main() {
         Graph graph = Graphs
                 .undirected(4)
@@ -137,12 +137,12 @@ public class BipartiteDemo {
 
     private static String colorizeResult(boolean isBipartite, Graph graph) {
         if (GraphValidator.hasSelfLoop(graph)) {
-            return Result.YELLOW + "self-loop detected" + Result.RESET;
+            return YELLOW + "self-loop detected" + RESET;
         }
         if (!isBipartite) {
-            return Result.RED + "false" + Result.RESET;
+            return RED + "false" + RESET;
         }
-        return Result.GREEN + "true" + Result.RESET;
+        return GREEN + "true" + RESET;
     }
 
     private static void checkIsBipartite(Graph graph,

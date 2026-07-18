@@ -1,6 +1,8 @@
 package io.graphite.graph;
 
 import io.graphite.api.*;
+import io.graphite.api.analysis.GraphAnalysis;
+import io.graphite.api.analysis.GraphAnalysisService;
 import io.graphite.builder.GraphConfiguration;
 import io.graphite.exception.graph.InvalidVertexException;
 import io.graphite.model.Edge;
@@ -221,6 +223,8 @@ public abstract class Graph implements IGraph {
     private TopologyService topology;
     private BipartiteService bipartite;
 
+    private GraphAnalysis analysis;
+
     @Override
     public TraversalService traversal() {
 
@@ -299,6 +303,20 @@ public abstract class Graph implements IGraph {
         }
 
         return bipartite;
+    }
+
+    // ==========================================================
+    // Analysis
+    // ==========================================================
+
+    @Override
+    public GraphAnalysis analysis() {
+
+        if (analysis == null) {
+            analysis = new GraphAnalysisService(this);
+        }
+
+        return analysis;
     }
 
 }

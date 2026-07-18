@@ -1,10 +1,9 @@
 package io.graphite.examples.util;
 
 import io.graphite.graph.IGraph;
+import io.graphite.result.Result;
 
-import static io.graphite.result.Result.*;
-
-public final class DemoPrinter {
+public final class DemoPrinter implements Result {
 
     private static final String LINE =
             "════════════════════════════════════════════════════════════════════════════════";

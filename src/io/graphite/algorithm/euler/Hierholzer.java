@@ -10,9 +10,6 @@ import io.graphite.util.GraphUtils;
 
 import java.util.*;
 
-import static io.graphite.util.GraphUtils.isConnected;
-
-
 public class Hierholzer extends GraphAlgorithm implements EulerAlgorithm {
 
 
@@ -21,7 +18,7 @@ public class Hierholzer extends GraphAlgorithm implements EulerAlgorithm {
         validate(graph);
         requireUndirected(graph);
 
-        if (!isConnected(graph)) {
+        if (!GraphUtils.isConnected(graph)) {
             throw new GraphDisconnectedException("Euler path requires a connected graph.");
         }
 
@@ -42,7 +39,7 @@ public class Hierholzer extends GraphAlgorithm implements EulerAlgorithm {
         validate(graph);
         requireUndirected(graph);
 
-        if (!isConnected(graph)) {
+        if (!GraphUtils.isConnected(graph)) {
             throw new GraphDisconnectedException("Euler circuit requires a connected graph.");
         }
 
@@ -88,7 +85,7 @@ public class Hierholzer extends GraphAlgorithm implements EulerAlgorithm {
 
     private List<Integer> hierholzer(IGraph graph, int start) {
 
-        IGraph clone = GraphUtils.cloneGraph(graph);
+        IGraph clone = graph.copy();
 
         Deque<Integer> stack = new ArrayDeque<>();
         List<Integer> path = new ArrayList<>();
