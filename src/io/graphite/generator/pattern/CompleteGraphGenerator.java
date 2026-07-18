@@ -9,6 +9,11 @@ public final class CompleteGraphGenerator {
 
     public static IGraph generate(int vertices) {
 
+        if (vertices <= 0) {
+            throw new IllegalArgumentException(
+                    "Complete graph requires at least one vertex.");
+        }
+
         var builder = Graphs
                 .undirected()
                 .vertices(vertices);

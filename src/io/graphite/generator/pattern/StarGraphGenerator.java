@@ -3,12 +3,17 @@ package io.graphite.generator.pattern;
 import io.graphite.builder.Graphs;
 import io.graphite.graph.IGraph;
 
-public final class StarGenerator {
+public final class StarGraphGenerator {
 
-    private StarGenerator() {
+    private StarGraphGenerator() {
     }
 
     public static IGraph generate(int vertices) {
+
+        if (vertices < 2) {
+            throw new IllegalArgumentException(
+                    "Star graph requires at least 2 vertices.");
+        }
 
         var builder = Graphs
                 .undirected()
