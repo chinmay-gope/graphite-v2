@@ -10,7 +10,7 @@ import io.graphite.util.GraphPrinter;
 public class KahnTopologicalDemo {
     static void main() {
         Graph graph = Graphs
-                .directed(6)
+                .directed()
                 .addEdge(5, 2)
                 .addEdge(5, 0)
                 .addEdge(4, 0)
@@ -26,7 +26,7 @@ public class KahnTopologicalDemo {
         System.out.println(algorithm.sort(graph));
 
         Graph cyclic = Graphs
-                .directed(3)
+                .directed()
                 .addEdge(1, 2)
                 .addEdge(0, 1)
                 .addEdge(2, 0)
@@ -39,7 +39,7 @@ public class KahnTopologicalDemo {
 
         try {
             Graph undirected = Graphs
-                    .undirected(3)
+                    .undirected()
                     .build();
             GraphDemoPrinter.printHeader("Kahn Topological Sort Undirected", undirected);
             System.out.println(algorithm.sort(undirected));

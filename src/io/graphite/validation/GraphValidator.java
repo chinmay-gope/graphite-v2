@@ -1,5 +1,6 @@
 package io.graphite.validation;
 
+import io.graphite.exception.algorithm.NullGraphException;
 import io.graphite.exception.graph.InvalidVertexException;
 import io.graphite.graph.DirectedGraph;
 import io.graphite.graph.IGraph;
@@ -48,7 +49,7 @@ public final class GraphValidator {
 
     public static void validate(IGraph graph) {
         if (graph == null) {
-            throw new NullPointerException("Graph cannot be null.");
+            throw new NullGraphException();
         }
     }
 

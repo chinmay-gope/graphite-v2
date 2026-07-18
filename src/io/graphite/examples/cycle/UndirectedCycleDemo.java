@@ -11,7 +11,7 @@ public class UndirectedCycleDemo {
         CycleDetectionAlgorithm detector =
                 new UndirectedCycleDetector();
         Graph noCycleGraph = Graphs
-                .undirected(5)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(1, 2)
                 .addEdge(2, 3)
@@ -22,7 +22,7 @@ public class UndirectedCycleDemo {
         System.out.println(detector.hasCycle(noCycleGraph));
 
         Graph cycleGraph = Graphs
-                .undirected(4)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(1, 2)
                 .addEdge(2, 3)

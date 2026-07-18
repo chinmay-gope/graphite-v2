@@ -22,7 +22,7 @@ public class KahnTopologicalSort extends GraphAlgorithm implements TopologicalAl
 //        Step 1:Calculate indegree of every vertex
         for (int u = 0; u < vertices; u++) {
             indegree[u] = 0;
-            for (Edge edge : graph.getAdjacencyList().get(u)) {
+            for (Edge edge : graph.getNeighbors(u)) {
                 indegree[edge.destination()]++;
             }
         }
@@ -42,7 +42,7 @@ public class KahnTopologicalSort extends GraphAlgorithm implements TopologicalAl
             int u = queue.poll();
             order.add(u);
 
-            for (Edge edge : graph.getAdjacencyList().get(u)) {
+            for (Edge edge : graph.getNeighbors(u)) {
                 indegree[edge.destination()]--;
 
                 if (indegree[edge.destination()] == 0) {

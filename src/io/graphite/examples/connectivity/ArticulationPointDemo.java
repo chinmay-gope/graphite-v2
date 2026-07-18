@@ -11,7 +11,7 @@ import io.graphite.util.GraphPrinter;
 public class ArticulationPointDemo {
     static void main() {
         Graph graph = Graphs
-                .undirected(5)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(1, 2)
                 .addEdge(2, 3)
@@ -26,7 +26,7 @@ public class ArticulationPointDemo {
         System.out.println(result);
 
         graph = Graphs
-                .undirected(4)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(1, 2)
                 .addEdge(2, 3)
@@ -38,7 +38,7 @@ public class ArticulationPointDemo {
         System.out.println(result);
 
         graph = Graphs
-                .undirected(5)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(1, 2)
                 .addEdge(2, 0)
@@ -51,7 +51,7 @@ public class ArticulationPointDemo {
         System.out.println(result);
 
         graph = Graphs
-                .undirected(5)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(0, 2)
                 .addEdge(0, 3)
@@ -63,7 +63,7 @@ public class ArticulationPointDemo {
         System.out.println(result);
 
         graph = Graphs
-                .undirected(7)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(1, 2)
                 .addEdge(3, 4)
@@ -76,7 +76,7 @@ public class ArticulationPointDemo {
         System.out.println(result);
 
         graph = Graphs
-                .undirected(8)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(1, 2)
                 .addEdge(2, 0)

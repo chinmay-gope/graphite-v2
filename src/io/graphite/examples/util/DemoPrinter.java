@@ -30,7 +30,7 @@ public final class DemoPrinter implements Colors {
         System.out.printf("%sGraph Type :%s %s%n",
                 WHITE,
                 RESET,
-                YELLOW + graph.getGraphType() + RESET);
+                YELLOW + graph.isDirected() + RESET);
 
         System.out.printf("%sVertices   :%s %d%n",
                 WHITE,

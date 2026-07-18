@@ -10,7 +10,7 @@ import io.graphite.util.GraphPrinter;
 public class TopologicalDemo {
     static void main() {
         Graph graph = Graphs
-                .directed(6)
+                .directed()
                 .addEdge(5, 2)
                 .addEdge(5, 0)
                 .addEdge(4, 0)
@@ -27,7 +27,7 @@ public class TopologicalDemo {
 
         try {
             graph = Graphs
-                    .directed(3)
+                    .directed()
                     .addEdge(0, 1)
                     .addEdge(1, 2)
                     .addEdge(2, 0)

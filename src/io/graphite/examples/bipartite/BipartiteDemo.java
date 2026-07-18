@@ -13,7 +13,7 @@ import io.graphite.validation.GraphValidator;
 public class BipartiteDemo implements Colors {
     static void main() {
         Graph graph = Graphs
-                .undirected(4)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(1, 2)
                 .addEdge(2, 3)
@@ -30,7 +30,7 @@ public class BipartiteDemo implements Colors {
 
 
         graph = Graphs
-                .undirected(3)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(1, 2)
                 .addEdge(2, 0)
@@ -41,7 +41,7 @@ public class BipartiteDemo implements Colors {
         checkIsBipartite(graph, dfsBipartiteChecker, bfsBipartiteChecker);
 
         graph = Graphs
-                .undirected(2)
+                .undirected()
                 .addEdge(0, 0)
                 .addEdge(0, 1)
                 .build();
@@ -51,7 +51,7 @@ public class BipartiteDemo implements Colors {
         checkIsBipartite(graph, dfsBipartiteChecker, bfsBipartiteChecker);
 
         graph = Graphs
-                .undirected(6)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(0, 2)
                 .addEdge(1, 3)
@@ -64,7 +64,7 @@ public class BipartiteDemo implements Colors {
         checkIsBipartite(graph, dfsBipartiteChecker, bfsBipartiteChecker);
 
         graph = Graphs
-                .undirected(4)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(0, 2)
                 .addEdge(0, 3)
@@ -78,7 +78,7 @@ public class BipartiteDemo implements Colors {
         checkIsBipartite(graph, dfsBipartiteChecker, bfsBipartiteChecker);
 
         graph = Graphs
-                .undirected(6)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(2, 3)
                 .addEdge(4, 5)
@@ -89,7 +89,7 @@ public class BipartiteDemo implements Colors {
         checkIsBipartite(graph, dfsBipartiteChecker, bfsBipartiteChecker);
 
         graph = Graphs
-                .undirected(7)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(2, 3)
                 .addEdge(3, 4)
@@ -102,7 +102,7 @@ public class BipartiteDemo implements Colors {
         checkIsBipartite(graph, dfsBipartiteChecker, bfsBipartiteChecker);
 
         graph = Graphs
-                .undirected(4)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(1, 2)
                 .addEdge(2, 3)
@@ -115,7 +115,7 @@ public class BipartiteDemo implements Colors {
         checkIsBipartite(graph, dfsBipartiteChecker, bfsBipartiteChecker);
 
         graph = Graphs
-                .undirected(9)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(1, 2)
                 .addEdge(3, 4)

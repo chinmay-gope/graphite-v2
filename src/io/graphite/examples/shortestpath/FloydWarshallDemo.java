@@ -12,7 +12,7 @@ import io.graphite.util.GraphPrinter;
 public class FloydWarshallDemo {
     static void main() {
         Graph graph = Graphs
-                .directed(4)
+                .directed()
                 .addEdge(0, 1, 5)
                 .addEdge(0, 3, 10)
                 .addEdge(1, 2, 3)
@@ -26,7 +26,7 @@ public class FloydWarshallDemo {
         System.out.println(result);
 
         graph = Graphs
-                .undirected(4)
+                .undirected()
                 .addEdge(0, 1, 4)
                 .addEdge(0, 2, 1)
                 .addEdge(1, 2, 2)
@@ -40,7 +40,7 @@ public class FloydWarshallDemo {
 
 
         graph = Graphs
-                .directed(5)
+                .directed()
                 .addEdge(0, 1, 3)
                 .addEdge(0, 2, 8)
                 .addEdge(0, 4, -4)
@@ -57,7 +57,7 @@ public class FloydWarshallDemo {
         System.out.println(result);
 
         graph = Graphs
-                .directed(5)
+                .directed()
                 .addEdge(0, 1, 2)
                 .addEdge(1, 2, 4)
                 .addEdge(3, 4, 1)
@@ -68,7 +68,7 @@ public class FloydWarshallDemo {
         System.out.println(result);
 
         graph = Graphs
-                .directed(5)
+                .directed()
                 .addEdge(0, 1, 10)
                 .addEdge(0, 2, 3)
                 .addEdge(2, 1, 1)
@@ -83,7 +83,7 @@ public class FloydWarshallDemo {
         System.out.println(result);
 
         graph = Graphs
-                .directed(5)
+                .directed()
                 .addEdge(0, 1, 2)
                 .addEdge(0, 2, 9)
                 .addEdge(0, 3, 8)
@@ -102,7 +102,7 @@ public class FloydWarshallDemo {
         System.out.println(result);
 
         graph = Graphs
-                .directed(6)
+                .directed()
                 .addEdge(0, 1, 1)
                 .addEdge(1, 2, 2)
                 .addEdge(2, 3, 3)
@@ -115,7 +115,7 @@ public class FloydWarshallDemo {
         System.out.println(result);
 
         graph = Graphs
-                .directed(3)
+                .directed()
                 .addEdge(0, 0, 5)
                 .addEdge(0, 1, 2)
                 .addEdge(1, 2, 3)
@@ -126,7 +126,7 @@ public class FloydWarshallDemo {
         System.out.println(result);
         try {
             graph = Graphs
-                    .directed(3)
+                    .directed()
                     .addEdge(0, 1, 1)
                     .addEdge(1, 2, -2)
                     .addEdge(2, 0, -2)

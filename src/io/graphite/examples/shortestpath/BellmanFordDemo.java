@@ -12,7 +12,7 @@ import io.graphite.util.GraphPrinter;
 public class BellmanFordDemo {
     static void main() {
         Graph graph = Graphs
-                .directed(4)
+                .directed()
                 .addEdge(0, 1, 4)
                 .addEdge(0, 2, 5)
                 .addEdge(1, 2, -2)
@@ -30,7 +30,7 @@ public class BellmanFordDemo {
 
         try {
             Graph negativeWeightCycle = Graphs
-                    .directed(4)
+                    .directed()
                     .addEdge(0, 1, 1)
                     .addEdge(1, 2, -1)
                     .addEdge(2, 3, -1)

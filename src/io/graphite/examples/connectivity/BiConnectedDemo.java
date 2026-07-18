@@ -11,7 +11,7 @@ import io.graphite.util.GraphPrinter;
 public class BiConnectedDemo {
     static void main() {
         Graph graph = Graphs
-                .undirected(3)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(1, 2)
                 .addEdge(0, 2)
@@ -25,7 +25,7 @@ public class BiConnectedDemo {
         System.out.println(result);
 
         graph = Graphs
-                .undirected(5)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(1, 2)
                 .addEdge(0, 2)
@@ -40,7 +40,7 @@ public class BiConnectedDemo {
         System.out.println(result);
 
         graph = Graphs
-                .undirected(4)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(1, 2)
                 .addEdge(0, 2)
@@ -52,7 +52,7 @@ public class BiConnectedDemo {
         System.out.println(result);
 
         graph = Graphs
-                .undirected(7)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(1, 2)
                 .addEdge(0, 3)
@@ -68,7 +68,7 @@ public class BiConnectedDemo {
         System.out.println(result);
 
         graph = Graphs
-                .undirected(5)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(0, 2)
                 .addEdge(0, 3)
@@ -80,7 +80,7 @@ public class BiConnectedDemo {
         System.out.println(result);
 
         graph = Graphs
-                .undirected(4)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(1, 2)
                 .addEdge(0, 3)
@@ -94,7 +94,7 @@ public class BiConnectedDemo {
         System.out.println(result);
 
         graph = Graphs
-                .undirected(7)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(1, 2)
                 .addEdge(4, 3)
@@ -108,7 +108,7 @@ public class BiConnectedDemo {
         System.out.println(result);
 
         graph = Graphs
-                .undirected(7)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(1, 2)
                 .addEdge(2, 3)
@@ -124,7 +124,7 @@ public class BiConnectedDemo {
         System.out.println(result);
 
         graph = Graphs
-                .undirected(5)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(0, 2)
                 .addEdge(1, 2, 4)

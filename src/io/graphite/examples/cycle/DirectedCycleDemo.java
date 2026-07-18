@@ -11,7 +11,7 @@ public class DirectedCycleDemo {
         CycleDetectionAlgorithm detector =
                 new DirectedCycleDetector();
         Graph noCycleGraph = Graphs
-                .directed(5)
+                .directed()
                 .addEdge(0, 1)
                 .addEdge(1, 2)
                 .addEdge(2, 3)
@@ -22,7 +22,7 @@ public class DirectedCycleDemo {
         System.out.println(detector.hasCycle(noCycleGraph));
 
         Graph cycleGraph = Graphs
-                .directed(4)
+                .directed()
                 .addEdge(0, 1)
                 .addEdge(1, 2)
                 .addEdge(2, 3)

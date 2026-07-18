@@ -10,7 +10,7 @@ public class GraphDemo {
     static void main() {
 
         Graph graph = Graphs
-                .directed(6)
+                .directed()
                 .addEdge(0, 1)
                 .addEdge(0, 2)
                 .addEdge(1, 3)

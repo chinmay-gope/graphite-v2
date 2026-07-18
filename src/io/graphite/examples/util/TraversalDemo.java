@@ -9,7 +9,7 @@ public final class TraversalDemo {
 
     private static final IGraph GRAPH =
             Graphs
-                    .undirected(8)
+                    .undirected()
                     .addEdge(0, 1)
                     .addEdge(0, 2)
                     .addEdge(1, 3)

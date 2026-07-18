@@ -1,13 +1,13 @@
 package io.graphite;
 
-import io.graphite.algorithm.graph.Graph;
-import io.graphite.algorithm.builder.Graphs;
-import io.graphite.algorithm.util.GraphPrinter;
+import io.graphite.builder.Graphs;
+import io.graphite.graph.Graph;
+import io.graphite.util.GraphPrinter;
 
 public class Main {
     static void main() {
         Graph graph = Graphs
-                .undirected(5)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(0, 2)
                 .addEdge(1, 3)
@@ -17,7 +17,7 @@ public class Main {
         GraphPrinter.print(graph);
 
         graph = Graphs
-                .directed(4)
+                .directed()
                 .addEdge(0, 1, 5)
                 .addEdge(1, 2, 7)
                 .addEdge(2, 3, 9)

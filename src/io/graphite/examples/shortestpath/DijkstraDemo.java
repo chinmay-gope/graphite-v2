@@ -12,7 +12,7 @@ import io.graphite.util.GraphPrinter;
 public class DijkstraDemo {
     static void main() {
         Graph graph = Graphs
-                .directed(6)
+                .directed()
                 .addEdge(0, 1, 4)
                 .addEdge(0, 2, 2)
                 .addEdge(1, 2, 5)
@@ -33,7 +33,7 @@ public class DijkstraDemo {
         GraphDemoPrinter.printFooter();
 
         Graph unreachableVertex = Graphs
-                .directed(7)
+                .directed()
                 .addEdge(0, 1, 4)
                 .addEdge(0, 2, 2)
                 .addEdge(2, 4, 3)
@@ -48,7 +48,7 @@ public class DijkstraDemo {
 
         try {
             Graph g = Graphs
-                    .directed(3)
+                    .directed()
                     .addEdge(0, 2, -2)
                     .build();
 

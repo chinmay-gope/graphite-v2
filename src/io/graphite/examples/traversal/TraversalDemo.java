@@ -12,7 +12,7 @@ public class TraversalDemo {
     static void main() {
 
         Graph graph = Graphs
-                .undirected(7)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(0, 2)
                 .addEdge(1, 3)

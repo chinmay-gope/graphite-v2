@@ -127,7 +127,7 @@ public final class ImmutableGraph implements IGraph {
         return graph.transpose().asImmutable();
     }
 
-//    ______________________________________________
+//    _____________________services______________________
 
     @Override
     public BipartiteService bipartite() {
@@ -176,7 +176,7 @@ public final class ImmutableGraph implements IGraph {
 
     @Override
     public IGraph asImmutable() {
-        return graph;
+        return new ImmutableGraph(this);
     }
 
 }

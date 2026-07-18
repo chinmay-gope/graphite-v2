@@ -10,13 +10,6 @@ public record AllPairsShortestPathResult(int[][] distance) implements Colors {
     }
 
     @Override
-    public int[][] distance() {
-        return Arrays.stream(distance)
-                .map(int[]::clone)
-                .toArray(int[][]::new);
-    }
-
-    @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
         System.out.println();
