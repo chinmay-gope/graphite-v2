@@ -4,7 +4,7 @@ import io.graphite.algorithm.euler.Hierholzer;
 import io.graphite.graph.IGraph;
 import io.graphite.result.EulerResult;
 
-public class EulerService extends GraphService {
+public final class EulerService extends GraphService {
 
     EulerService(IGraph graph) {
         super(graph);
