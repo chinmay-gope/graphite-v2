@@ -1,7 +1,8 @@
 package io.graphite.graph;
 
-import io.graphite.generator.RandomGraphGenerator;
+import io.graphite.builder.GraphConfiguration;
 import io.graphite.builder.Graphs;
+import io.graphite.generator.RandomGraphGenerator;
 
 public final class GraphFactory {
 
@@ -10,13 +11,16 @@ public final class GraphFactory {
     private GraphFactory() {
     }
 
-    public static Graph create(GraphType type, int vertices) {
-        return switch (type) {
+    public static DirectedGraph directed(
+            GraphConfiguration configuration) {
 
-            case DIRECTED -> new DirectedGraph(vertices);
+        return new DirectedGraph(configuration);
+    }
 
-            case UNDIRECTED -> new UndirectedGraph(vertices);
-        };
+    public static UndirectedGraph undirected(
+            GraphConfiguration configuration) {
+
+        return new UndirectedGraph(configuration);
     }
 
     public static Graph traversalGraph(int vertices) {

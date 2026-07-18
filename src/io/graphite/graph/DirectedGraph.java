@@ -34,34 +34,4 @@ public final class DirectedGraph extends Graph {
             edgeCount--;
         }
     }
-
-    @Override
-    public DirectedGraph copy() {
-
-        DirectedGraph copy = new DirectedGraph(configuration());
-
-        for (Edge edge : getEdges()) {
-            copy.addEdge(
-                    edge.source(),
-                    edge.destination(),
-                    edge.weight());
-        }
-
-        return copy;
-    }
-
-    @Override
-    public DirectedGraph transpose() {
-
-        DirectedGraph transpose = new DirectedGraph(configuration());
-
-        for (Edge edge : getEdges()) {
-            transpose.addEdge(
-                    edge.destination(),
-                    edge.source(),
-                    edge.weight());
-        }
-
-        return transpose;
-    }
 }

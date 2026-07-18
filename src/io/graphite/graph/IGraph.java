@@ -27,14 +27,16 @@ public interface IGraph {
 
     boolean isWeighted();
 
+    boolean isDirected();
+
+    boolean isUndirected();
+
 
     // ========= Views =========
 
     List<Edge> getNeighbours(int vertex);
 
     List<Edge> getEdges();
-
-    List<List<Edge>> getAdjacencyList();
 
 
     // ========= Metadata =========

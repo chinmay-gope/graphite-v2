@@ -14,7 +14,6 @@ public class Main {
                 .addEdge(2, 4)
                 .build();
 
-        System.out.println("Undirected Adj List : " + graph.getAdjacencyList());
         GraphPrinter.print(graph);
 
         graph = Graphs
@@ -24,7 +23,6 @@ public class Main {
                 .addEdge(2, 3, 9)
                 .build();
 
-        System.out.println("Directed Adj List : " + graph.getAdjacencyList());
         GraphPrinter.print(graph);
     }
 }
