@@ -5,10 +5,14 @@ import io.graphite.algorithm.traversal.DFS;
 import io.graphite.graph.IGraph;
 import io.graphite.result.TraversalResult;
 
-public final class TraversalService extends GraphService {
+public final class TraversalService {
+
+    private final IGraph graph;
+
+    private TraversalService traversal;
 
     TraversalService(IGraph graph) {
-        super(graph);
+        this.graph = graph;
     }
 
     public TraversalResult bfs(int source) {
