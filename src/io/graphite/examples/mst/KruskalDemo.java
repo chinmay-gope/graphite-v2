@@ -1,7 +1,6 @@
 package io.graphite.examples.mst;
 
 import io.graphite.algorithm.mst.Kruskal;
-import io.graphite.algorithm.mst.MSTAlgorithm;
 import io.graphite.builder.Graphs;
 import io.graphite.examples.util.GraphDemoPrinter;
 import io.graphite.exception.GraphException;
@@ -27,7 +26,7 @@ public class KruskalDemo {
         GraphDemoPrinter.printHeader("Kruskal MST", graph);
         GraphPrinter.print(graph);
 
-        MSTAlgorithm algorithm = new Kruskal();
+        Kruskal algorithm = new Kruskal();
 
         graph = Graphs
                 .undirected(4)
@@ -39,7 +38,7 @@ public class KruskalDemo {
                 .build();
         GraphDemoPrinter.printHeader("Kruskal MST Equal Weights", graph);
         GraphPrinter.print(graph);
-        MSTResult result = algorithm.findMST(graph, 0);
+        MSTResult result = algorithm.findMST(graph);
         System.out.println(result);
 
         graph = Graphs
@@ -47,7 +46,7 @@ public class KruskalDemo {
                 .build();
         GraphDemoPrinter.printHeader("Kruskal MST Single", graph);
         GraphPrinter.print(graph);
-        result = algorithm.findMST(graph, 0);
+        result = algorithm.findMST(graph);
         System.out.println(result);
 
         graph = Graphs
@@ -64,7 +63,7 @@ public class KruskalDemo {
                 .build();
         GraphDemoPrinter.printHeader("Kruskal MST Cycle Heavy", graph);
         GraphPrinter.print(graph);
-        result = algorithm.findMST(graph, 0);
+        result = algorithm.findMST(graph);
         System.out.println(result);
 
         graph = Graphs
@@ -82,7 +81,7 @@ public class KruskalDemo {
                 .build();
         GraphDemoPrinter.printHeader("Kruskal MST Dynamic Inter Width", graph);
         GraphPrinter.print(graph);
-        result = algorithm.findMST(graph, 0);
+        result = algorithm.findMST(graph);
         System.out.println(result);
 
         try {
@@ -93,7 +92,7 @@ public class KruskalDemo {
                     .addEdge(3, 4, 1)
                     .build();
             GraphDemoPrinter.printHeader("Kruskal MST Disconnected Graph", graph);
-            result = algorithm.findMST(graph, 0);
+            result = algorithm.findMST(graph);
             System.out.println(result);
         } catch (GraphException e) {
             System.err.println(e.getMessage());

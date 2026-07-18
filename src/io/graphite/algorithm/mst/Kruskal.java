@@ -12,9 +12,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class Kruskal extends GraphAlgorithm implements MSTAlgorithm {
-    @Override
-    public MSTResult findMST(IGraph graph, int source) {
+public class Kruskal extends GraphAlgorithm {
+
+    public MSTResult findMST(IGraph graph) {
         validate(graph);
         requireUndirected(graph);
 
