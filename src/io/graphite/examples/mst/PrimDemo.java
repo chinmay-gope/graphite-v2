@@ -1,6 +1,5 @@
 package io.graphite.examples.mst;
 
-import io.graphite.algorithm.mst.MSTAlgorithm;
 import io.graphite.algorithm.mst.Prim;
 import io.graphite.builder.Graphs;
 import io.graphite.examples.util.GraphDemoPrinter;
@@ -25,7 +24,7 @@ public class PrimDemo {
         GraphDemoPrinter.printHeader("Prim MST", graph);
         GraphPrinter.print(graph);
 
-        MSTAlgorithm algorithm = new Prim();
+        Prim algorithm = new Prim();
 
         MSTResult result = algorithm.findMST(graph, 0);
 

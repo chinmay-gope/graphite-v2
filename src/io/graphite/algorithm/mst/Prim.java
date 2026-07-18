@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 
-public class Prim extends GraphAlgorithm implements MSTAlgorithm {
-    @Override
+public class Prim extends GraphAlgorithm {
+
     public MSTResult findMST(IGraph graph, int source) {
         validate(graph);
         requireUndirected(graph);
