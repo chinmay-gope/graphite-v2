@@ -5,12 +5,13 @@ import io.graphite.builder.Graphs;
 import io.graphite.examples.util.GraphDemoPrinter;
 import io.graphite.exception.GraphException;
 import io.graphite.graph.Graph;
+import io.graphite.graph.IGraph;
 import io.graphite.result.EulerResult;
 import io.graphite.util.GraphPrinter;
 
 public class HierholzerDemo {
     static void main() {
-        Graph graph = Graphs
+        IGraph graph = Graphs
                 .undirected()
                 .addEdge(0, 1)
                 .addEdge(1, 2)

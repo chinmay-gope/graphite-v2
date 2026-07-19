@@ -4,9 +4,7 @@ import io.graphite.model.Edge;
 
 import java.util.List;
 
-import static io.graphite.result.Colors.*;
-
-public record BridgeResult(List<Edge> bridges) {
+public record BridgeResult(List<Edge> bridges) implements Colors {
     public BridgeResult {
         bridges = List.copyOf(bridges);
     }

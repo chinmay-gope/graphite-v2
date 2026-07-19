@@ -4,13 +4,13 @@ import io.graphite.algorithm.connectivity.BridgeAlgorithm;
 import io.graphite.algorithm.connectivity.BridgeFinder;
 import io.graphite.builder.Graphs;
 import io.graphite.examples.util.GraphDemoPrinter;
-import io.graphite.graph.Graph;
+import io.graphite.graph.IGraph;
 import io.graphite.result.BridgeResult;
 import io.graphite.util.GraphPrinter;
 
 public class BridgeDemo {
     static void main() {
-        Graph graph = Graphs
+        IGraph graph = Graphs
                 .undirected()
                 .addEdge(0, 1)
                 .addEdge(1, 2)

@@ -5,14 +5,14 @@ import io.graphite.algorithm.bipartite.BipartiteAlgorithm;
 import io.graphite.algorithm.bipartite.DFSBipartiteChecker;
 import io.graphite.builder.Graphs;
 import io.graphite.examples.util.GraphDemoPrinter;
-import io.graphite.graph.Graph;
+import io.graphite.graph.IGraph;
 import io.graphite.result.Colors;
 import io.graphite.util.GraphPrinter;
 import io.graphite.validation.GraphValidator;
 
 public class BipartiteDemo implements Colors {
     static void main() {
-        Graph graph = Graphs
+        IGraph graph = Graphs
                 .undirected()
                 .addEdge(0, 1)
                 .addEdge(1, 2)
@@ -135,7 +135,7 @@ public class BipartiteDemo implements Colors {
         checkIsBipartite(graph, dfsBipartiteChecker, bfsBipartiteChecker);
     }
 
-    private static String colorizeResult(boolean isBipartite, Graph graph) {
+    private static String colorizeResult(boolean isBipartite, IGraph graph) {
         if (GraphValidator.hasSelfLoop(graph)) {
             return YELLOW + "self-loop detected" + RESET;
         }
@@ -145,7 +145,7 @@ public class BipartiteDemo implements Colors {
         return GREEN + "true" + RESET;
     }
 
-    private static void checkIsBipartite(Graph graph,
+    private static void checkIsBipartite(IGraph graph,
                                          BipartiteAlgorithm dfsChecker,
                                          BipartiteAlgorithm bfsChecker) {
         boolean dfsResult = dfsChecker.isBipartite(graph);

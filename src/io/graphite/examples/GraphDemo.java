@@ -9,7 +9,7 @@ public class GraphDemo {
 
     static void main() {
 
-        Graph graph = Graphs
+        IGraph graph = Graphs
                 .directed()
                 .addEdge(0, 1)
                 .addEdge(0, 2)

@@ -4,13 +4,13 @@ import io.graphite.algorithm.mst.Kruskal;
 import io.graphite.builder.Graphs;
 import io.graphite.examples.util.GraphDemoPrinter;
 import io.graphite.exception.GraphException;
-import io.graphite.graph.Graph;
+import io.graphite.graph.IGraph;
 import io.graphite.result.MSTResult;
 import io.graphite.util.GraphPrinter;
 
 public class KruskalDemo {
     static void main() {
-        Graph graph = Graphs
+        IGraph graph = Graphs
                 .undirected()
                 .addEdge(0, 1, 2)
                 .addEdge(0, 3, 6)

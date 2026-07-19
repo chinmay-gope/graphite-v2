@@ -130,6 +130,8 @@ public abstract class AbstractGraphBuilder<G extends Graph, SELF extends Abstrac
                     edge.weight());
         }
 
+        System.out.println("Graph built with " + graph.getVertices() + " vertices and " + graph.getEdges().size() + " edges.");
+
         return configuration.isImmutable()
                 ? graph.asImmutable()
                 : graph;

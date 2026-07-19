@@ -31,6 +31,10 @@ public final class Graphs {
         return CycleGraphGenerator.generate(vertices);
     }
 
+    public static IGraph dag(int vertices) {
+        return DAGGenerator.generate(vertices, vertices * 2);
+    }
+
     public static IGraph completeBipartite(int left, int right) {
         return CompleteBipartiteGraphGenerator.generate(left, right);
     }
@@ -51,7 +55,7 @@ public final class Graphs {
         return GridGraphGenerator.generate(rows, cols);
     }
 
-    public static IGraph bipartite(int left, int right, int edges) {
-        return BipartiteGraphGenerator.generate(left, right, edges);
+    public static IGraph bipartite(int left, int right) {
+        return BipartiteGraphGenerator.generate(left, right, left + right);
     }
 }

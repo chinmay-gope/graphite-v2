@@ -5,12 +5,13 @@ import io.graphite.algorithm.connectivity.SCCAlgorithm;
 import io.graphite.builder.Graphs;
 import io.graphite.examples.util.GraphDemoPrinter;
 import io.graphite.graph.Graph;
+import io.graphite.graph.IGraph;
 import io.graphite.result.SCCResult;
 import io.graphite.util.GraphPrinter;
 
 public class KosarajuDemo {
     static void main() {
-        Graph graph = Graphs
+        IGraph graph = Graphs
                 .directed()
                 .addEdge(0, 1)
                 .addEdge(1, 2)

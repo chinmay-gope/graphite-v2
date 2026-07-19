@@ -6,7 +6,7 @@ import io.graphite.graph.IGraph;
 import io.graphite.result.Colors;
 import io.graphite.util.GraphPrinter;
 
-public final class DemoUtils {
+public final class DemoUtils implements Colors {
 
     private DemoUtils() {
         throw new AssertionError("Utility class");
@@ -35,7 +35,7 @@ public final class DemoUtils {
     }
 
     /**
-     * Prints adjacency list, graph visualization, edges and neighbours.
+     * Prints adjacency list, graph visualization, edges and neighbors.
      */
     public static void printGraph(IGraph graph) {
 
@@ -61,7 +61,7 @@ public final class DemoUtils {
 
         for (int vertex = 0; vertex < graph.getVertices(); vertex++) {
 
-            System.out.printf("Neighbours of %-2d : %s%n", vertex, Colors.BLUE + graph.neighbors(vertex) + Colors.RESET);
+            System.out.printf("Neighbours of %-2d : %s%n", vertex, BLUE + graph.neighbors(vertex) + RESET);
         }
     }
 

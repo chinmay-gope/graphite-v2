@@ -6,12 +6,13 @@ import io.graphite.algorithm.traversal.BFS;
 import io.graphite.algorithm.traversal.DFS;
 import io.graphite.graph.Graph;
 import io.graphite.builder.Graphs;
+import io.graphite.graph.IGraph;
 
 public class TraversalDemo {
 
     static void main() {
 
-        Graph graph = Graphs
+        IGraph graph = Graphs
                 .undirected()
                 .addEdge(0, 1)
                 .addEdge(0, 2)
@@ -31,7 +32,7 @@ public class TraversalDemo {
         traversalAlgorithm(graph, dfs);
     }
 
-    private static void traversalAlgorithm(Graph graph, TraversalAlgorithm algorithm) {
+    private static void traversalAlgorithm(IGraph graph, TraversalAlgorithm algorithm) {
         System.out.println(algorithm.traverse(graph, 0));
         System.out.println(algorithm.traverse(graph, 1));
         System.out.println(algorithm.traverse(graph, 2));

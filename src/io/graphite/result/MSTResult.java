@@ -11,23 +11,23 @@ public record MSTResult(int cost, List<MSTEdge> edges) implements Colors {
     public String toString() {
         StringBuilder builder = new StringBuilder();
 
-        builder.append(Colors.CYAN)
+        builder.append(CYAN)
                 .append("═══════════════ Minimum Spanning Tree ═══════════════")
-                .append(Colors.RESET)
+                .append(RESET)
                 .append('\n');
 
         builder.append("Total Cost : ")
-                .append(Colors.GREEN)
+                .append(GREEN)
                 .append(cost)
-                .append(Colors.RESET)
+                .append(RESET)
                 .append('\n');
 
         builder.append("Edges")
-                .append(Colors.MAGENTA)
+                .append(MAGENTA)
                 .append(" (")
                 .append(edges.size())
                 .append(")")
-                .append(Colors.RESET)
+                .append(RESET)
                 .append('\n');
 
 
@@ -45,7 +45,7 @@ public record MSTResult(int cost, List<MSTEdge> edges) implements Colors {
 
             for (MSTEdge edge : edges) {
                 builder.append("  ")
-                        .append(Colors.YELLOW)
+                        .append(YELLOW)
                         .append("• ")
                         .append(String.format(
                                 "%d ──(%" + maxWeightWidth + "d)──> %d",
@@ -53,7 +53,7 @@ public record MSTResult(int cost, List<MSTEdge> edges) implements Colors {
                                 edge.weight(),
                                 edge.destination())
                         )
-                        .append(Colors.RESET)
+                        .append(RESET)
                         .append('\n');
             }
             builder.append("─────────────────────────────────────────────────────");

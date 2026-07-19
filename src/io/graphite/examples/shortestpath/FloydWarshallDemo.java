@@ -6,12 +6,13 @@ import io.graphite.builder.Graphs;
 import io.graphite.examples.util.GraphDemoPrinter;
 import io.graphite.exception.GraphException;
 import io.graphite.graph.Graph;
+import io.graphite.graph.IGraph;
 import io.graphite.result.AllPairsShortestPathResult;
 import io.graphite.util.GraphPrinter;
 
 public class FloydWarshallDemo {
     static void main() {
-        Graph graph = Graphs
+        IGraph graph = Graphs
                 .directed()
                 .addEdge(0, 1, 5)
                 .addEdge(0, 3, 10)

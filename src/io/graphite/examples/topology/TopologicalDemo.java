@@ -5,11 +5,12 @@ import io.graphite.builder.Graphs;
 import io.graphite.examples.util.GraphDemoPrinter;
 import io.graphite.exception.GraphException;
 import io.graphite.graph.Graph;
+import io.graphite.graph.IGraph;
 import io.graphite.util.GraphPrinter;
 
 public class TopologicalDemo {
     static void main() {
-        Graph graph = Graphs
+        IGraph graph = Graphs
                 .directed()
                 .addEdge(5, 2)
                 .addEdge(5, 0)

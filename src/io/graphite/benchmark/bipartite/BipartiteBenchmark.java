@@ -28,7 +28,7 @@ public class BipartiteBenchmark {
         StressRunner.run(
                 "Bipartite Stress Test (dfs)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphFactory::weightedGraph,
+                GraphFactory::bipartiteGraph,
                 bipartite::isBipartite
         );
         StressRunner.run(
