@@ -22,5 +22,7 @@ public class Main {
         GraphPrinter.edgeList(graph);
         GraphPrinter.matrix(graph);
         GraphPrinter.statistics(graph);
+        GraphPrinter.dot(graph);
+        GraphPrinter.mermaid(graph);
     }
 }

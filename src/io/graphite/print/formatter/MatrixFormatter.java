@@ -3,10 +3,9 @@ package io.graphite.print.formatter;
 import io.graphite.graph.IGraph;
 import io.graphite.model.Edge;
 import io.graphite.print.GraphFormatter;
+import io.graphite.result.Colors;
 
-import static io.graphite.result.Colors.*;
-
-public final class MatrixFormatter implements GraphFormatter {
+public final class MatrixFormatter implements GraphFormatter, Colors {
 
     @Override
     public String format(IGraph graph) {

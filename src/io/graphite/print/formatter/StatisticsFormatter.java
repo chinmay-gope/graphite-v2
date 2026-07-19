@@ -4,12 +4,11 @@ import io.graphite.api.analysis.GraphAnalysis;
 import io.graphite.exception.GraphException;
 import io.graphite.graph.IGraph;
 import io.graphite.print.GraphFormatter;
+import io.graphite.result.Colors;
 
 import java.util.function.BooleanSupplier;
 
-import static io.graphite.result.Colors.*;
-
-public final class StatisticsFormatter implements GraphFormatter {
+public final class StatisticsFormatter implements GraphFormatter, Colors {
 
 
     @Override
