@@ -24,10 +24,14 @@ import java.util.concurrent.ThreadLocalRandom;
  *   <li>Parallel edges</li>
  * </ul>
  */
-public final class RandomGraphGenerator {
+public final class RandomGraphGenerator<G extends IGraph> {
 
     private final GraphConfiguration configuration;
     private final EdgeTracker tracker;
+
+    public RandomGraphGenerator(GraphConfiguration configuration) {
+        this(configuration, new EdgeTracker(configuration));
+    }
 
     private RandomGraphGenerator(GraphConfiguration configuration, EdgeTracker tracker) {
         this.configuration = configuration;

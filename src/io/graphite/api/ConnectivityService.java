@@ -5,14 +5,11 @@ import io.graphite.algorithm.connectivity.BiconnectedComponents;
 import io.graphite.algorithm.connectivity.BridgeFinder;
 import io.graphite.algorithm.connectivity.Kosaraju;
 import io.graphite.graph.IGraph;
-import io.graphite.result.APResult;
-import io.graphite.result.BiConnectedResult;
-import io.graphite.result.BridgeResult;
-import io.graphite.result.SCCResult;
+import io.graphite.result.*;
 
 public final class ConnectivityService extends GraphService {
 
-    ConnectivityService(IGraph graph) {
+    public ConnectivityService(IGraph graph) {
         super(graph);
     }
 

@@ -6,13 +6,14 @@ import io.graphite.builder.Graphs;
 import io.graphite.examples.util.GraphDemoPrinter;
 import io.graphite.exception.GraphException;
 import io.graphite.graph.Graph;
+import io.graphite.graph.IGraph;
 import io.graphite.result.ShortestPathResult;
 import io.graphite.util.GraphPrinter;
 
 public class BellmanFordDemo {
     static void main() {
-        Graph graph = Graphs
-                .directed(4)
+        IGraph graph = Graphs
+                .directed()
                 .addEdge(0, 1, 4)
                 .addEdge(0, 2, 5)
                 .addEdge(1, 2, -2)
@@ -29,8 +30,8 @@ public class BellmanFordDemo {
         System.out.println(result);
 
         try {
-            Graph negativeWeightCycle = Graphs
-                    .directed(4)
+            IGraph negativeWeightCycle = Graphs
+                    .directed()
                     .addEdge(0, 1, 1)
                     .addEdge(1, 2, -1)
                     .addEdge(2, 3, -1)

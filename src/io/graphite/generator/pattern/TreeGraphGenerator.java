@@ -7,9 +7,9 @@ import io.graphite.generator.internal.EdgeTracker;
 import io.graphite.generator.internal.SpanningTreeGenerator;
 import io.graphite.graph.IGraph;
 
-public final class TreeGenerator {
+public final class TreeGraphGenerator {
 
-    private TreeGenerator() {
+    private TreeGraphGenerator() {
     }
 
     public static IGraph generate(int vertices) {
@@ -21,6 +21,11 @@ public final class TreeGenerator {
             int vertices,
             boolean weighted) {
 
+        if (vertices <= 0) {
+            throw new IllegalArgumentException(
+                    "Tree requires at least one vertex.");
+        }
+        
         GraphConfiguration configuration =
                 new GraphConfiguration();
 

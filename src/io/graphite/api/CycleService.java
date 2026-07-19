@@ -5,7 +5,7 @@ import io.graphite.algorithm.cycle.UndirectedCycleDetector;
 import io.graphite.graph.IGraph;
 
 public final class CycleService extends GraphService {
-    CycleService(IGraph graph) {
+    public CycleService(IGraph graph) {
         super(graph);
     }
 

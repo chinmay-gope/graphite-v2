@@ -2,9 +2,8 @@ package io.graphite.result;
 
 import java.util.List;
 
-import static io.graphite.result.Result.*;
 
-public record SCCResult(List<List<Integer>> components) {
+public record SCCResult(List<List<Integer>> components) implements Colors {
 
     public SCCResult {
         components = List.copyOf(components);

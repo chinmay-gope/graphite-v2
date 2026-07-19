@@ -3,11 +3,16 @@ package io.graphite.generator.pattern;
 import io.graphite.builder.Graphs;
 import io.graphite.graph.IGraph;
 
-public final class CycleGenerator {
-    private CycleGenerator() {
+public final class CycleGraphGenerator {
+    private CycleGraphGenerator() {
     }
 
     public static IGraph generate(int vertices) {
+
+        if (vertices < 3) {
+            throw new IllegalArgumentException(
+                    "Cycle graph requires at least 3 vertices.");
+        }
 
         var builder = Graphs
                 .undirected()

@@ -3,26 +3,18 @@ package io.graphite.generator.pattern;
 import io.graphite.builder.Graphs;
 import io.graphite.graph.IGraph;
 
-public final class GridGenerator {
+public final class GridGraphGenerator {
 
-    private GridGenerator() {
+    private GridGraphGenerator() {
 
     }
 
-    private int rows;
-    private int cols;
+    public static IGraph generate(int rows, int cols) {
 
-    public GridGenerator rows(int rows) {
-        this.rows = rows;
-        return this;
-    }
-
-    public GridGenerator columns(int cols) {
-        this.cols = cols;
-        return this;
-    }
-
-    public IGraph generate() {
+        if (rows <= 0 || cols <= 0) {
+            throw new IllegalArgumentException(
+                    "Grid dimensions must be positive.");
+        }
 
         int vertices = rows * cols;
 

@@ -5,15 +5,15 @@ import io.graphite.algorithm.bipartite.BipartiteAlgorithm;
 import io.graphite.algorithm.bipartite.DFSBipartiteChecker;
 import io.graphite.builder.Graphs;
 import io.graphite.examples.util.GraphDemoPrinter;
-import io.graphite.graph.Graph;
-import io.graphite.result.Result;
+import io.graphite.graph.IGraph;
+import io.graphite.result.Colors;
 import io.graphite.util.GraphPrinter;
 import io.graphite.validation.GraphValidator;
 
-public class BipartiteDemo {
+public class BipartiteDemo implements Colors {
     static void main() {
-        Graph graph = Graphs
-                .undirected(4)
+        IGraph graph = Graphs
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(1, 2)
                 .addEdge(2, 3)
@@ -30,7 +30,7 @@ public class BipartiteDemo {
 
 
         graph = Graphs
-                .undirected(3)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(1, 2)
                 .addEdge(2, 0)
@@ -41,7 +41,7 @@ public class BipartiteDemo {
         checkIsBipartite(graph, dfsBipartiteChecker, bfsBipartiteChecker);
 
         graph = Graphs
-                .undirected(2)
+                .undirected()
                 .addEdge(0, 0)
                 .addEdge(0, 1)
                 .build();
@@ -51,7 +51,7 @@ public class BipartiteDemo {
         checkIsBipartite(graph, dfsBipartiteChecker, bfsBipartiteChecker);
 
         graph = Graphs
-                .undirected(6)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(0, 2)
                 .addEdge(1, 3)
@@ -64,7 +64,7 @@ public class BipartiteDemo {
         checkIsBipartite(graph, dfsBipartiteChecker, bfsBipartiteChecker);
 
         graph = Graphs
-                .undirected(4)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(0, 2)
                 .addEdge(0, 3)
@@ -78,7 +78,7 @@ public class BipartiteDemo {
         checkIsBipartite(graph, dfsBipartiteChecker, bfsBipartiteChecker);
 
         graph = Graphs
-                .undirected(6)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(2, 3)
                 .addEdge(4, 5)
@@ -89,7 +89,7 @@ public class BipartiteDemo {
         checkIsBipartite(graph, dfsBipartiteChecker, bfsBipartiteChecker);
 
         graph = Graphs
-                .undirected(7)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(2, 3)
                 .addEdge(3, 4)
@@ -102,7 +102,7 @@ public class BipartiteDemo {
         checkIsBipartite(graph, dfsBipartiteChecker, bfsBipartiteChecker);
 
         graph = Graphs
-                .undirected(4)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(1, 2)
                 .addEdge(2, 3)
@@ -115,7 +115,7 @@ public class BipartiteDemo {
         checkIsBipartite(graph, dfsBipartiteChecker, bfsBipartiteChecker);
 
         graph = Graphs
-                .undirected(9)
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(1, 2)
                 .addEdge(3, 4)
@@ -135,17 +135,17 @@ public class BipartiteDemo {
         checkIsBipartite(graph, dfsBipartiteChecker, bfsBipartiteChecker);
     }
 
-    private static String colorizeResult(boolean isBipartite, Graph graph) {
+    private static String colorizeResult(boolean isBipartite, IGraph graph) {
         if (GraphValidator.hasSelfLoop(graph)) {
-            return Result.YELLOW + "self-loop detected" + Result.RESET;
+            return YELLOW + "self-loop detected" + RESET;
         }
         if (!isBipartite) {
-            return Result.RED + "false" + Result.RESET;
+            return RED + "false" + RESET;
         }
-        return Result.GREEN + "true" + Result.RESET;
+        return GREEN + "true" + RESET;
     }
 
-    private static void checkIsBipartite(Graph graph,
+    private static void checkIsBipartite(IGraph graph,
                                          BipartiteAlgorithm dfsChecker,
                                          BipartiteAlgorithm bfsChecker) {
         boolean dfsResult = dfsChecker.isBipartite(graph);

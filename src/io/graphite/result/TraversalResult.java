@@ -2,9 +2,7 @@ package io.graphite.result;
 
 import java.util.List;
 
-import static io.graphite.result.Result.*;
-
-public record TraversalResult(int source, List<Integer> traversalOrder) {
+public record TraversalResult(int source, List<Integer> traversalOrder) implements Colors {
     public TraversalResult {
         traversalOrder = List.copyOf(traversalOrder);
     }

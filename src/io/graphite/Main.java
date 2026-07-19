@@ -1,28 +1,24 @@
 package io.graphite;
 
-import io.graphite.algorithm.graph.Graph;
-import io.graphite.algorithm.builder.Graphs;
-import io.graphite.algorithm.util.GraphPrinter;
+import io.graphite.builder.Graphs;
+import io.graphite.graph.IGraph;
+import io.graphite.print.GraphPrinter;
 
 public class Main {
     static void main() {
-        Graph graph = Graphs
-                .undirected(5)
-                .addEdge(0, 1)
-                .addEdge(0, 2)
-                .addEdge(1, 3)
-                .addEdge(2, 4)
+        IGraph graph = Graphs
+                .directed()
+                .vertices(5)
+                .weighted(true)
+                .immutable(true)
+                .addEdge(0, 1, 3)
+                .addEdge(1, 2, 3)
                 .build();
 
-        GraphPrinter.print(graph);
+//        graph.addEdge(0,4);
+        System.out.println("Graph as mutable: " + graph.asImmutable().getClass()); // throws : This graph is immutable.
 
-        graph = Graphs
-                .directed(4)
-                .addEdge(0, 1, 5)
-                .addEdge(1, 2, 7)
-                .addEdge(2, 3, 9)
-                .build();
-
-        GraphPrinter.print(graph);
+        GraphPrinter.compact(graph); // print() also uses same formatter
+        GraphPrinter.edgeList(graph);
     }
 }

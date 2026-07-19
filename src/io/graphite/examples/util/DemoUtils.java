@@ -3,10 +3,10 @@ package io.graphite.examples.util;
 import io.graphite.algorithm.traversal.TraversalAlgorithm;
 import io.graphite.exception.GraphException;
 import io.graphite.graph.IGraph;
-import io.graphite.result.Result;
+import io.graphite.result.Colors;
 import io.graphite.util.GraphPrinter;
 
-public final class DemoUtils {
+public final class DemoUtils implements Colors {
 
     private DemoUtils() {
         throw new AssertionError("Utility class");
@@ -35,11 +35,9 @@ public final class DemoUtils {
     }
 
     /**
-     * Prints adjacency list, graph visualization, edges and neighbours.
+     * Prints adjacency list, graph visualization, edges and neighbors.
      */
     public static void printGraph(IGraph graph) {
-
-        printAdjacencyList(graph);
 
         GraphPrinter.print(graph);
 
@@ -48,15 +46,6 @@ public final class DemoUtils {
         printNeighbours(graph);
     }
 
-    /**
-     * Prints only the adjacency list.
-     */
-    public static void printAdjacencyList(IGraph graph) {
-        IO.println(
-                "Adjacency List : " +
-                        Result.MAGENTA + graph.getAdjacencyList() + Result.RESET
-        );
-    }
 
     /**
      * Prints all graph edges.
@@ -72,41 +61,26 @@ public final class DemoUtils {
 
         for (int vertex = 0; vertex < graph.getVertices(); vertex++) {
 
-            System.out.printf(
-                    "Neighbours of %-2d : %s%n",
-                    vertex,
-                    Result.BLUE + graph.neighbors(vertex) + Result.RESET
-            );
+            System.out.printf("Neighbours of %-2d : %s%n", vertex, BLUE + graph.neighbors(vertex) + RESET);
         }
     }
 
     /**
      * Prints traversal from one source vertex.
      */
-    public static void printTraversal(
-            IGraph graph,
-            TraversalAlgorithm algorithm,
-            int source) {
+    public static void printTraversal(IGraph graph, TraversalAlgorithm algorithm, int source) {
 
-        IO.println(
-                algorithm.traverse(graph, source)
-        );
+        IO.println(algorithm.traverse(graph, source));
     }
 
     /**
      * Prints traversals from every vertex.
      */
-    public static void printTraversalsFromAllVertices(
-            IGraph graph,
-            TraversalAlgorithm algorithm) {
+    public static void printTraversalsFromAllVertices(IGraph graph, TraversalAlgorithm algorithm) {
 
         for (int vertex = 0; vertex < graph.getVertices(); vertex++) {
 
-            printTraversal(
-                    graph,
-                    algorithm,
-                    vertex
-            );
+            printTraversal(graph, algorithm, vertex);
         }
     }
 }

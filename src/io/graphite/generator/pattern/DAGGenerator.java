@@ -12,29 +12,36 @@ public final class DAGGenerator {
     private DAGGenerator() {
     }
 
-    private int vertices;
-    private int edges;
+    public static IGraph generate(
+            int vertices,
+            int edges) {
 
-    public DAGGenerator vertices(int vertices) {
-        this.vertices = vertices;
-        return this;
-    }
+        // validation
+        if (vertices <= 0) {
+            throw new IllegalArgumentException(
+                    "DAG requires at least one vertex.");
+        }
 
-    public DAGGenerator edges(int edges) {
-        this.edges = edges;
-        return this;
-    }
+        if (edges < 0) {
+            throw new IllegalArgumentException(
+                    "Edge count cannot be negative.");
+        }
 
-    public IGraph generate() {
+        int maxEdges = vertices * (vertices - 1) / 2;
 
-        var builder =
-                Graphs.directed()
-                        .vertices(vertices);
+        if (edges > maxEdges) {
+            throw new IllegalArgumentException(
+                    "A DAG with " + vertices + " vertices can contain at most "
+                            + maxEdges + " edges.");
+        }
+
+        var builder = Graphs.directed()
+                .vertices(vertices);
 
         ThreadLocalRandom random =
                 ThreadLocalRandom.current();
 
-        Set<String> used =
+        Set<EdgeKey> used =
                 new HashSet<>();
 
         while (used.size() < edges) {
@@ -45,13 +52,16 @@ public final class DAGGenerator {
             int destination =
                     random.nextInt(source + 1, vertices);
 
-            String key =
-                    source + "-" + destination;
-
-            if (used.add(key))
+            if (used.add(new EdgeKey(source, destination))) {
                 builder.addEdge(source, destination);
+            }
         }
 
         return builder.build();
+    }
+
+    private record EdgeKey(
+            int source,
+            int destination) {
     }
 }

@@ -2,7 +2,8 @@ package io.graphite.graph;
 
 import io.graphite.builder.GraphConfiguration;
 import io.graphite.builder.Graphs;
-import io.graphite.generator.RandomGraphGenerator;
+import io.graphite.builder.UndirectedGraphBuilder;
+import io.graphite.generator.pattern.BipartiteGraphGenerator;
 
 public final class GraphFactory {
 
@@ -23,146 +24,167 @@ public final class GraphFactory {
         return new UndirectedGraph(configuration);
     }
 
-    public static Graph traversalGraph(int vertices) {
+    public static IGraph traversalGraph(int vertices) {
 
-        return RandomGraphGenerator
+        return Graphs.random()
                 .undirected()
                 .vertices(vertices)
                 .edges(vertices * 2)
-                .connected(true)
-                .build();
+                .connected()
+                .generate();
     }
 
-    public static Graph mstGraph(int vertices) {
-        return RandomGraphGenerator
+    public static IGraph mstGraph(int vertices) {
+        return Graphs.random()
                 .undirected()
                 .vertices(vertices)
                 .edges(vertices * 3)
-                .weighted(true)
-                .connected(true)
-                .build();
+                .weighted()
+                .connected()
+                .generate();
     }
 
-    public static Graph denseGraph(int vertices) {
+    public static IGraph denseGraph(int vertices) {
 
         return denseGraph(vertices, DENSITY);
     }
 
-    public static Graph directedDenseGraph(int vertices) {
+    public static IGraph directedDenseGraph(int vertices) {
 
         int maximumEdges = vertices * (vertices - 1) / 2;
 
         int edges = (int) (maximumEdges * 0.75);
 
-        return RandomGraphGenerator
+        return Graphs.random()
                 .directed()
                 .vertices(vertices)
                 .edges(edges)
-                .connected(true)
-                .build();
+                .connected()
+                .generate();
     }
 
-    public static Graph denseGraph(int vertices, double density) {
+    public static IGraph denseGraph(int vertices, double density) {
 
         int maximumEdges = vertices * (vertices - 1) / 2;
 
         int edges = (int) (maximumEdges * density);
 
-        return RandomGraphGenerator
+        return Graphs.random()
                 .undirected()
                 .vertices(vertices)
                 .edges(edges)
-                .connected(true)
-                .build();
+                .connected()
+                .generate();
     }
 
-    public static Graph denseWeightedGraph(int vertices) {
+    public static IGraph denseWeightedGraph(int vertices) {
 
         int maxEdges = vertices * (vertices - 1) / 2;
 
         int edges = (int) (maxEdges * DENSITY);
 
-        return RandomGraphGenerator
+        return Graphs.random()
                 .undirected()
                 .vertices(vertices)
                 .edges(edges)
-                .connected(true)
-                .weighted(true)
+                .connected()
                 .weightRange(1, 50)
-                .build();
+                .generate();
     }
 
-    public static Graph weightedGraph(int vertices) {
+    public static IGraph weightedGraph(int vertices) {
 
-        return RandomGraphGenerator
+        return Graphs.random()
                 .undirected()
                 .vertices(vertices)
                 .edges(vertices * 2)
-                .connected(true)
-                .weighted(true)
+                .connected()
                 .weightRange(1, 50)
-                .build();
+                .generate();
     }
 
-    public static Graph directedGraph(int vertices) {
+    public static IGraph directedGraph(int vertices) {
 
-        return RandomGraphGenerator
+        return Graphs.random()
                 .directed()
                 .vertices(vertices)
                 .edges(vertices * 2)
-                .build();
+                .generate();
     }
 
-    public static Graph sparseGraph(int vertices) {
+    public static IGraph sparseGraph(int vertices) {
 
-        return RandomGraphGenerator
+        return Graphs.random()
                 .undirected()
                 .vertices(vertices)
                 .edges((int) (vertices * 1.3))
-                .connected(true)
-                .build();
+                .connected()
+                .generate();
     }
 
-    public static Graph directedSparseGraph(int vertices) {
+    public static IGraph directedSparseGraph(int vertices) {
 
-        return RandomGraphGenerator
+        return Graphs.random()
                 .directed()
                 .vertices(vertices)
                 .edges((int) (vertices * 1.3))
-                .connected(true)
-                .build();
+                .connected()
+                .generate();
     }
 
-    public static Graph treeGraph(int vertices) {
+    public static IGraph treeGraph(int vertices) {
 
-        return RandomGraphGenerator
+        return Graphs.random()
                 .undirected()
                 .vertices(vertices)
                 .edges(vertices - 1)
-                .connected(true)
-                .build();
+                .connected()
+                .generate();
     }
 
-    public static Graph dag(int vertices) {
+    public static IGraph dag(int vertices) {
 
-        return RandomGraphGenerator
-                .dag(vertices);
+        return Graphs.dag(vertices);
     }
 
-    public static Graph bipartiteGraph(int vertices) {
+    public static IGraph bipartiteGraph(int vertices) {
 
-        return RandomGraphGenerator
-                .bipartiteGraph(vertices);
+        int left = vertices / 2;
+        int right = vertices - left;
+
+        return BipartiteGraphGenerator.generate(
+                left,
+                right,
+                left + right
+        );
     }
 
-    public static Graph eulerCircuitGraph(int vertices) {
+    public static IGraph bipartiteGraph(int left, int right) {
+
+        return BipartiteGraphGenerator.generate(
+                left,
+                right,
+                left + right
+        );
+    }
+
+    public static IGraph bipartiteGraph(int left, int right, int edges) {
+
+        return BipartiteGraphGenerator.generate(
+                left,
+                right,
+                edges
+        );
+    }
+
+    public static IGraph eulerCircuitGraph(int vertices) {
 
         if (vertices < 3) {
             throw new IllegalArgumentException(
                     "Euler circuit requires at least 3 vertices.");
         }
 
-        Graphs builder = Graphs.undirected(vertices);
+        UndirectedGraphBuilder builder = Graphs.undirected();
 
         // Base cycle
         for (int i = 0; i < vertices - 1; i++) {
@@ -174,14 +196,14 @@ public final class GraphFactory {
         return builder.build();
     }
 
-    public static Graph eulerPathGraph(int vertices) {
+    public static IGraph eulerPathGraph(int vertices) {
 
         if (vertices < 2) {
             throw new IllegalArgumentException(
                     "Euler path requires at least 2 vertices.");
         }
 
-        Graphs builder = Graphs.undirected(vertices);
+        UndirectedGraphBuilder builder = Graphs.undirected();
 
         for (int i = 0; i < vertices - 1; i++) {
             builder.addEdge(i, i + 1);
@@ -190,14 +212,14 @@ public final class GraphFactory {
         return builder.build();
     }
 
-    public static Graph invalidEulerGraph(int vertices) {
+    public static IGraph invalidEulerGraph(int vertices) {
 
         if (vertices < 5) {
             throw new IllegalArgumentException(
                     "Invalid Euler graph requires at least 5 vertices.");
         }
 
-        Graphs builder = Graphs.undirected(vertices);
+        UndirectedGraphBuilder builder = Graphs.undirected();
 
         for (int i = 1; i < vertices; i++) {
             builder.addEdge(0, i);
@@ -206,9 +228,9 @@ public final class GraphFactory {
         return builder.build();
     }
 
-    public static Graph disconnectedEulerGraph(int vertices) {
+    public static IGraph disconnectedEulerGraph(int vertices) {
 
-        Graphs builder = Graphs.undirected(vertices);
+        UndirectedGraphBuilder builder = Graphs.undirected();
 
         int mid = vertices / 2;
 

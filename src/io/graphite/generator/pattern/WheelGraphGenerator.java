@@ -3,19 +3,12 @@ package io.graphite.generator.pattern;
 import io.graphite.builder.Graphs;
 import io.graphite.graph.IGraph;
 
-public final class WheelGenerator {
+public final class WheelGraphGenerator {
 
-    private WheelGenerator() {
+    private WheelGraphGenerator() {
     }
 
-    private int vertices;
-
-    public WheelGenerator vertices(int vertices) {
-        this.vertices = vertices;
-        return this;
-    }
-
-    public IGraph generate() {
+    public static IGraph generate(int vertices) {
 
         if (vertices < 4)
             throw new IllegalArgumentException(

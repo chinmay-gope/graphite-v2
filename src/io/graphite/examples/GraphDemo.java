@@ -1,28 +1,484 @@
 package io.graphite.examples;
 
+import io.graphite.api.analysis.GraphAnalysisResult;
 import io.graphite.builder.Graphs;
-import io.graphite.graph.Graph;
-import io.graphite.util.GraphPrinter;
-import io.graphite.util.GraphUtils;
+import io.graphite.graph.IGraph;
+import io.graphite.print.GraphPrinter;
 
-public class GraphDemo {
+public final class GraphDemo {
 
-    static void main() {
+    static void main(String[] args) {
 
-        Graph graph = Graphs
-                .directed(6)
+        builderDemo();
+        immutableDemo();
+        copyDemo();
+        transposeDemo();
+
+        directedDemo();
+        undirectedDemo();
+
+        randomGeneratorDemo();
+
+        treeGeneratorDemo();
+        starGeneratorDemo();
+        wheelGeneratorDemo();
+        gridGeneratorDemo();
+        cycleGeneratorDemo();
+        completeGeneratorDemo();
+        completeBipartiteGeneratorDemo();
+        bipartiteGeneratorDemo();
+
+        generatorStressDemo();
+
+        graphFactoryDemo();
+
+        analysisDemo();
+
+        printerDemo();
+    }
+
+    // ---------------------------------------------------------
+    // Builder
+    // ---------------------------------------------------------
+
+    private static void builderDemo() {
+
+        header("Builder Demo");
+
+        IGraph graph = Graphs
+                .undirected()
+                .vertices(6)
+                .weighted(true)
+                .immutable(false)
+                .addEdge(0, 1, 5)
+                .addEdge(0, 2, 2)
+                .addEdge(1, 3, 7)
+                .addEdge(2, 4, 4)
+                .addEdge(4, 5, 1)
+                .build();
+
+        print(graph);
+
+        System.out.println("\nRemoving edge (0,1)");
+        graph.removeEdge(0, 1);
+
+        print(graph);
+
+        System.out.println("\nBuilder.from()");
+
+        IGraph rebuilt = Graphs
+                .undirected()
+                .from(graph)
+                .build();
+
+        print(rebuilt);
+    }
+
+    // ---------------------------------------------------------
+    // Immutable
+    // ---------------------------------------------------------
+    private static void immutableDemo() {
+
+        header("Immutable Graph Demo");
+
+        IGraph graph = Graphs
+                .undirected()
+                .vertices(5)
+                .immutable(true)
+                .addEdge(0, 1)
+                .addEdge(1, 2)
+                .addEdge(2, 3)
+                .build();
+
+        print(graph);
+
+        try {
+
+            graph.addEdge(3, 4);
+
+            System.out.println("FAILED");
+
+        } catch (Exception e) {
+
+            System.out.println("PASS : " + e.getMessage());
+        }
+
+        try {
+
+            graph.removeEdge(0, 1);
+
+            System.out.println("FAILED");
+
+        } catch (Exception e) {
+
+            System.out.println("PASS : " + e.getMessage());
+        }
+
+        try {
+
+            graph.clear();
+
+            System.out.println("FAILED");
+
+        } catch (Exception e) {
+
+            System.out.println("PASS : " + e.getMessage());
+        }
+    }
+
+    // ---------------------------------------------------------
+    // Copy
+    // ---------------------------------------------------------
+    private static void copyDemo() {
+
+        header("Copy Demo");
+
+        IGraph graph = Graphs
+                .undirected()
+                .vertices(5)
+                .addEdge(0, 1)
+                .addEdge(1, 2)
+                .build();
+
+        IGraph copy = graph.copy();
+
+        copy.addEdge(2, 3);
+
+        System.out.println("Original");
+
+        print(graph);
+
+        System.out.println();
+
+        System.out.println("Copy");
+
+        print(copy);
+    }
+
+    // ---------------------------------------------------------
+    // Transpose
+    // ---------------------------------------------------------
+
+    private static void transposeDemo() {
+
+        header("Transpose Demo");
+
+        IGraph graph = Graphs
+                .directed()
+                .vertices(5)
                 .addEdge(0, 1)
                 .addEdge(0, 2)
                 .addEdge(1, 3)
-                .addEdge(2, 4)
-                .addEdge(3, 5)
+                .addEdge(4, 0)
                 .build();
 
-        GraphPrinter.print(graph);
-        System.out.println("\nEdge Count : " + graph.edgeCount());
+        System.out.println("Original");
 
-        Graph g2 = GraphUtils.transpose(graph);
-        System.out.println("\nTransposed Graph : ");
-        GraphPrinter.print(g2);
+        GraphPrinter.compact(graph);
+
+        System.out.println();
+
+        System.out.println("Transpose");
+
+        GraphPrinter.compact(graph.transpose());
+    }
+
+    // ---------------------------------------------------------
+    // Directed
+    // ---------------------------------------------------------
+
+    private static void directedDemo() {
+
+        header("Directed Graph Demo");
+
+        IGraph graph = Graphs
+                .directed()
+                .vertices(6)
+                .weighted(true)
+                .addEdge(0, 1, 4)
+                .addEdge(0, 2, 3)
+                .addEdge(2, 5, 8)
+                .addEdge(5, 1, 9)
+                .build();
+
+        print(graph);
+    }
+    // ---------------------------------------------------------
+    // Undirected
+    // ---------------------------------------------------------
+
+    private static void undirectedDemo() {
+
+        header("Undirected Graph Demo");
+
+        IGraph graph = Graphs
+                .undirected()
+                .vertices(6)
+                .weighted(false)
+                .addEdge(0, 1)
+                .addEdge(0, 2)
+                .addEdge(1, 3)
+                .addEdge(3, 4)
+                .addEdge(4, 5)
+                .build();
+
+        print(graph);
+    }
+    // ---------------------------------------------------------
+    // Random Generator
+    // ---------------------------------------------------------
+
+    private static void randomGeneratorDemo() {
+    }
+
+    // ---------------------------------------------------------
+    // Pattern Generators
+    // ---------------------------------------------------------
+
+    private static void treeGeneratorDemo() {
+
+        header("Tree Generator");
+
+        IGraph graph = Graphs.tree(10);
+
+        print(graph);
+
+        System.out.println("Tree       : " + graph.analysis().isTree());
+        System.out.println("Connected  : " + graph.analysis().isConnected());
+        System.out.println("Cycle      : " + graph.analysis().isCyclic());
+    }
+
+    private static void starGeneratorDemo() {
+
+        header("Star Generator");
+
+        IGraph graph = Graphs.star(8);
+
+        print(graph);
+
+        System.out.println("Center Degree : " + graph.degree(0));
+
+        for (int i = 1; i < graph.vertexCount(); i++) {
+
+            System.out.println(
+                    "Degree(" + i + ") = " +
+                            graph.degree(i));
+        }
+    }
+
+    private static void wheelGeneratorDemo() {
+
+        header("Wheel Generator");
+
+        IGraph graph = Graphs.wheel(8);
+
+        print(graph);
+
+        System.out.println("Connected : "
+                + graph.analysis().isConnected());
+
+        System.out.println("Cycle     : "
+                + graph.analysis().isCyclic());
+    }
+
+    private static void gridGeneratorDemo() {
+
+        header("Grid Generator");
+
+        IGraph graph = Graphs.grid(3, 4);
+
+        print(graph);
+
+        System.out.println("Vertices : "
+                + graph.vertexCount());
+
+        System.out.println("Edges : "
+                + graph.edgeCount());
+    }
+
+    private static void cycleGeneratorDemo() {
+
+        header("Cycle Generator");
+
+        IGraph graph = Graphs.cycle(8);
+
+        print(graph);
+
+        for (int i = 0; i < graph.vertexCount(); i++) {
+
+            System.out.println(
+                    "Degree(" + i + ") = "
+                            + graph.degree(i));
+        }
+    }
+
+    private static void completeGeneratorDemo() {
+
+        header("Complete Graph Generator");
+
+        IGraph graph = Graphs.complete(6);
+
+        print(graph);
+
+        for (int i = 0; i < graph.vertexCount(); i++) {
+
+            System.out.println(
+                    "Degree(" + i + ") = "
+                            + graph.degree(i));
+        }
+    }
+
+    private static void completeBipartiteGeneratorDemo() {
+
+        header("Complete Bipartite Generator");
+
+        IGraph graph = Graphs.completeBipartite(3, 4);
+
+        print(graph);
+
+        System.out.println("Bipartite : "
+                + graph.analysis().isBipartite());
+
+        System.out.println("Connected : "
+                + graph.analysis().isConnected());
+    }
+
+    private static void bipartiteGeneratorDemo() {
+
+        header("Random Bipartite Generator");
+
+        IGraph graph = Graphs.bipartite(4, 5);
+
+        print(graph);
+
+        System.out.println("Bipartite : "
+                + graph.analysis().isBipartite());
+
+        System.out.println("Connected : "
+                + graph.analysis().isConnected());
+    }
+
+    private static void generatorStressDemo() {
+
+        header("Generator Stress");
+
+        print(Graphs.tree(20));
+
+        print(Graphs.star(20));
+
+        print(Graphs.wheel(20));
+
+        print(Graphs.cycle(20));
+
+        print(Graphs.complete(20));
+
+        print(Graphs.completeBipartite(10, 10));
+
+        print(Graphs.grid(5, 5));
+    }
+
+    // ---------------------------------------------------------
+    // Graph Factory
+    // ---------------------------------------------------------
+
+    private static void graphFactoryDemo() {
+
+    }
+
+    // ---------------------------------------------------------
+    // Analysis
+    // ---------------------------------------------------------
+
+    private static void analysisDemo() {
+
+        header("Analysis Demo");
+
+        IGraph graph = Graphs
+                .undirected()
+                .vertices(6)
+                .addEdge(0, 1)
+                .addEdge(1, 2)
+                .addEdge(2, 3)
+                .addEdge(3, 4)
+                .addEdge(4, 5)
+                .build();
+
+        print(graph);
+
+        var analysis = graph.analysis();
+
+        System.out.println("Connected      : " + analysis.isConnected());
+        System.out.println("Tree           : " + analysis.isTree());
+        System.out.println("Forest         : " + analysis.isForest());
+        System.out.println("Cycle          : " + analysis.isCyclic());
+        System.out.println("Bipartite      : " + analysis.isBipartite());
+        System.out.println("Eulerian       : " + analysis.isEulerian());
+
+        System.out.println();
+
+        System.out.println("Max Degree     : " + analysis.maxDegree());
+        System.out.println("Min Degree     : " + analysis.minDegree());
+        System.out.println("Average Degree : " + analysis.averageDegree());
+        System.out.println("Density        : " + analysis.density());
+
+        System.out.println();
+
+        GraphAnalysisResult analyze = graph.analysis().analyze();
+        System.out.println(analyze);
+    }
+
+    // ---------------------------------------------------------
+    // Printer
+    // ---------------------------------------------------------
+
+    private static void printerDemo() {
+
+        header("Printer Demo");
+
+        IGraph graph = Graphs
+                .undirected()
+                .vertices(6)
+                .weighted(true)
+                .addEdge(0, 1, 5)
+                .addEdge(0, 2, 1)
+                .addEdge(1, 4, 8)
+                .addEdge(4, 5, 2)
+                .build();
+
+        System.out.println("Compact");
+
+        GraphPrinter.compact(graph);
+
+        System.out.println("Edge List");
+
+        GraphPrinter.edgeList(graph);
+
+        System.out.println("Tree");
+
+        GraphPrinter.tree(graph);
+    }
+
+    // ---------------------------------------------------------
+    // Helpers
+    // ---------------------------------------------------------
+
+    private static void header(String title) {
+
+        System.out.println();
+        System.out.println("==================================================");
+        System.out.println(title);
+        System.out.println("==================================================");
+    }
+
+    private static void print(IGraph graph) {
+
+        GraphPrinter.compact(graph);
+
+        System.out.println();
+        System.out.println("Vertices : " + graph.vertexCount());
+        System.out.println("Edges    : " + graph.edgeCount());
+        System.out.println("Directed : " + graph.isDirected());
+        System.out.println("Weighted : " + graph.isWeighted());
+        System.out.println("Immutable: " + graph.asImmutable().getClass());
     }
 }

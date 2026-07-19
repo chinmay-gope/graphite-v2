@@ -1,7 +1,11 @@
 package io.graphite.graph;
 
+import io.graphite.api.*;
+import io.graphite.api.analysis.GraphAnalysis;
 import io.graphite.model.Edge;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public interface IGraph {
@@ -10,10 +14,15 @@ public interface IGraph {
 
     void addEdge(int source, int destination, int weight);
 
+    default void addEdge(int source, int destination) {
+        addEdge(source, destination, 1);
+    }
+
     void removeEdge(int source, int destination);
 
     void clear();
 
+    IGraph asImmutable();
 
     // ========= Queries =========
 
@@ -34,17 +43,42 @@ public interface IGraph {
 
     // ========= Views =========
 
-    List<Edge> getNeighbours(int vertex);
+    List<Edge> getNeighbors(int vertex);
+
+    default List<Edge> neighbors(int vertex) {
+        return getNeighbors(vertex);
+    }
 
     List<Edge> getEdges();
 
+    default List<Edge> edges() {
+        return getEdges();
+    }
 
     // ========= Metadata =========
 
     int getVertices();
 
+    default int vertexCount() {
+        return getVertices();
+    }
+
     int edgeCount();
 
+    default Iterable<Integer> vertices() {
+
+        List<Integer> vertices = new ArrayList<>();
+
+        for (int i = 0; i < vertexCount(); i++) {
+            vertices.add(i);
+        }
+
+        return Collections.unmodifiableList(vertices);
+    }
+
+    default boolean contains(int vertex) {
+        return containsVertex(vertex);
+    }
 
     // ========= Copy =========
 
@@ -54,4 +88,24 @@ public interface IGraph {
     // ========= Transform =========
 
     IGraph transpose();
+
+    // ========= Services =========
+
+    BipartiteService bipartite();
+
+    ConnectivityService connectivity();
+
+    CycleService cycle();
+
+    EulerService euler();
+
+    ShortestPathService shortestPath();
+
+    TopologyService topology();
+
+    MSTService mst();
+
+    TraversalService traversal();
+
+    GraphAnalysis analysis();
 }

@@ -5,13 +5,14 @@ import io.graphite.algorithm.cycle.UndirectedCycleDetector;
 import io.graphite.builder.Graphs;
 import io.graphite.examples.util.GraphDemoPrinter;
 import io.graphite.graph.Graph;
+import io.graphite.graph.IGraph;
 
 public class UndirectedCycleDemo {
     static void main() {
         CycleDetectionAlgorithm detector =
                 new UndirectedCycleDetector();
-        Graph noCycleGraph = Graphs
-                .undirected(5)
+        IGraph noCycleGraph = Graphs
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(1, 2)
                 .addEdge(2, 3)
@@ -21,8 +22,8 @@ public class UndirectedCycleDemo {
         GraphDemoPrinter.printHeader("Undirected Cycle Detection", noCycleGraph);
         System.out.println(detector.hasCycle(noCycleGraph));
 
-        Graph cycleGraph = Graphs
-                .undirected(4)
+        IGraph cycleGraph = Graphs
+                .undirected()
                 .addEdge(0, 1)
                 .addEdge(1, 2)
                 .addEdge(2, 3)

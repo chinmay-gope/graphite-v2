@@ -5,14 +5,14 @@ import io.graphite.algorithm.shortestpath.ShortestPathAlgorithm;
 import io.graphite.builder.Graphs;
 import io.graphite.examples.util.GraphDemoPrinter;
 import io.graphite.exception.GraphException;
-import io.graphite.graph.Graph;
+import io.graphite.graph.IGraph;
 import io.graphite.result.ShortestPathResult;
 import io.graphite.util.GraphPrinter;
 
 public class DijkstraDemo {
     static void main() {
-        Graph graph = Graphs
-                .directed(6)
+        IGraph graph = Graphs
+                .directed()
                 .addEdge(0, 1, 4)
                 .addEdge(0, 2, 2)
                 .addEdge(1, 2, 5)
@@ -32,8 +32,8 @@ public class DijkstraDemo {
 
         GraphDemoPrinter.printFooter();
 
-        Graph unreachableVertex = Graphs
-                .directed(7)
+        IGraph unreachableVertex = Graphs
+                .directed()
                 .addEdge(0, 1, 4)
                 .addEdge(0, 2, 2)
                 .addEdge(2, 4, 3)
@@ -47,14 +47,14 @@ public class DijkstraDemo {
         System.out.println(result);
 
         try {
-            Graph g = Graphs
-                    .directed(3)
+            graph = Graphs
+                    .directed()
                     .addEdge(0, 2, -2)
                     .build();
 
-            GraphDemoPrinter.printHeader("Dijkstra Shortest Path for Negative Weight", g);
+            GraphDemoPrinter.printHeader("Dijkstra Shortest Path for Negative Weight", graph);
 
-            result = algorithm.shortestPath(g, 0);
+            result = algorithm.shortestPath(graph, 0);
             System.out.println(result);
         } catch (GraphException e) {
             System.err.println(e.getMessage());

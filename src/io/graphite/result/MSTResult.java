@@ -2,7 +2,7 @@ package io.graphite.result;
 
 import java.util.List;
 
-public record MSTResult(int cost, List<MSTEdge> edges) {
+public record MSTResult(int cost, List<MSTEdge> edges) implements Colors {
     public MSTResult {
         edges = List.copyOf(edges);
     }
@@ -11,23 +11,23 @@ public record MSTResult(int cost, List<MSTEdge> edges) {
     public String toString() {
         StringBuilder builder = new StringBuilder();
 
-        builder.append(Result.CYAN)
+        builder.append(CYAN)
                 .append("═══════════════ Minimum Spanning Tree ═══════════════")
-                .append(Result.RESET)
+                .append(RESET)
                 .append('\n');
 
         builder.append("Total Cost : ")
-                .append(Result.GREEN)
+                .append(GREEN)
                 .append(cost)
-                .append(Result.RESET)
+                .append(RESET)
                 .append('\n');
 
         builder.append("Edges")
-                .append(Result.MAGENTA)
+                .append(MAGENTA)
                 .append(" (")
                 .append(edges.size())
                 .append(")")
-                .append(Result.RESET)
+                .append(RESET)
                 .append('\n');
 
 
@@ -45,7 +45,7 @@ public record MSTResult(int cost, List<MSTEdge> edges) {
 
             for (MSTEdge edge : edges) {
                 builder.append("  ")
-                        .append(Result.YELLOW)
+                        .append(YELLOW)
                         .append("• ")
                         .append(String.format(
                                 "%d ──(%" + maxWeightWidth + "d)──> %d",
@@ -53,7 +53,7 @@ public record MSTResult(int cost, List<MSTEdge> edges) {
                                 edge.weight(),
                                 edge.destination())
                         )
-                        .append(Result.RESET)
+                        .append(RESET)
                         .append('\n');
             }
             builder.append("─────────────────────────────────────────────────────");

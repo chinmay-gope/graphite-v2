@@ -1,10 +1,9 @@
 package io.graphite.examples.util;
 
 import io.graphite.graph.IGraph;
+import io.graphite.result.Colors;
 
-import static io.graphite.result.Result.*;
-
-public final class DemoPrinter {
+public final class DemoPrinter implements Colors {
 
     private static final String LINE =
             "════════════════════════════════════════════════════════════════════════════════";
@@ -31,7 +30,7 @@ public final class DemoPrinter {
         System.out.printf("%sGraph Type :%s %s%n",
                 WHITE,
                 RESET,
-                YELLOW + graph.getGraphType() + RESET);
+                YELLOW + graph.isDirected() + RESET);
 
         System.out.printf("%sVertices   :%s %d%n",
                 WHITE,

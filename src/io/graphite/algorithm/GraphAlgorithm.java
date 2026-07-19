@@ -52,7 +52,7 @@ public abstract class GraphAlgorithm {
 
     protected final List<Edge> neighbours(IGraph graph, int vertex) {
 
-        return graph.getNeighbours(vertex);
+        return graph.getNeighbors(vertex);
     }
 
     protected final List<Edge> edges(IGraph graph) {

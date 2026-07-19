@@ -4,12 +4,10 @@ import io.graphite.model.Edge;
 
 import java.util.List;
 
-import static io.graphite.result.Result.*;
-
 public record BiConnectedResult(
         List<List<Edge>> components,
         int componentCount
-) {
+) implements Colors {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

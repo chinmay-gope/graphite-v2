@@ -8,10 +8,4 @@ public final class UndirectedGraphBuilder extends AbstractGraphBuilder<Undirecte
     protected UndirectedGraph createGraph() {
         return GraphFactory.undirected(configuration);
     }
-
-    @Override
-    public UndirectedGraph build() {
-        BuilderValidator.validate(configuration);
-        return new UndirectedGraph(configuration);
-    }
 }

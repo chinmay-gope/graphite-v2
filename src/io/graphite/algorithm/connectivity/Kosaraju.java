@@ -26,7 +26,7 @@ public class Kosaraju extends GraphAlgorithm implements SCCAlgorithm {
             }
         }
 
-        IGraph transpose = GraphUtils.transpose(graph);
+        IGraph transpose = graph.transpose();
 
         visited = booleans(graph);
 

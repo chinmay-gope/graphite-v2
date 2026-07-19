@@ -74,7 +74,7 @@ public class BiconnectedComponents extends GraphAlgorithm
         visited[u] = true;
         disc[u] = low[u] = ++time;
 
-        for (Edge edge : graph.getAdjacencyList().get(u)) {
+        for (Edge edge : graph.getNeighbors(u)) {
 
             int v = edge.destination();
 

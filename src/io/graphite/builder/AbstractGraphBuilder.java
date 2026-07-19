@@ -2,6 +2,7 @@ package io.graphite.builder;
 
 import io.graphite.graph.Graph;
 import io.graphite.graph.IGraph;
+import io.graphite.graph.internal.ImmutableGraph;
 import io.graphite.model.Edge;
 
 import java.util.ArrayList;
@@ -116,7 +117,8 @@ public abstract class AbstractGraphBuilder<G extends Graph, SELF extends Abstrac
         return self();
     }
 
-    public G build() {
+    public IGraph build() {
+
         BuilderValidator.validate(configuration);
 
         G graph = createGraph();
@@ -129,6 +131,8 @@ public abstract class AbstractGraphBuilder<G extends Graph, SELF extends Abstrac
                     edge.weight());
         }
 
-        return graph;
+        return configuration.isImmutable()
+                ? graph.asImmutable()
+                : graph;
     }
 }

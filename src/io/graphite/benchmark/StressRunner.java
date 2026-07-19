@@ -2,6 +2,7 @@ package io.graphite.benchmark;
 
 import io.graphite.examples.util.DemoUtils;
 import io.graphite.graph.Graph;
+import io.graphite.graph.IGraph;
 
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Consumer;
@@ -15,8 +16,8 @@ public final class StressRunner {
     public static void run(
             String title,
             StressConfig config,
-            Function<Integer, Graph> graphFactory,
-            Consumer<Graph> algorithm) {
+            Function<Integer, IGraph> graphFactory,
+            Consumer<IGraph> algorithm) {
 
         DemoUtils.run(title, () -> {
             long total = 0;
@@ -27,7 +28,7 @@ public final class StressRunner {
 
                 for (int i = 0; i < config.iterations(); i++) {
 
-                    Graph graph = graphFactory.apply(vertices);
+                    IGraph graph = graphFactory.apply(vertices);
 
                     algorithm.accept(graph);
                 }
@@ -50,7 +51,7 @@ public final class StressRunner {
         });
     }
 
-    public static int randomSource(Graph graph) {
+    public static int randomSource(IGraph graph) {
 
         return ThreadLocalRandom.current().nextInt(graph.getVertices());
     }
