@@ -17,7 +17,7 @@ public class DFSTopologicalSort extends GraphAlgorithm implements TopologicalAlg
     @Override
     public TopologicalSortResult sort(IGraph graph) {
         validate(graph);
-        requireUndirected(graph);
+        requireDirected(graph);
 
         CycleDetectionAlgorithm detector = new DirectedCycleDetector();
 

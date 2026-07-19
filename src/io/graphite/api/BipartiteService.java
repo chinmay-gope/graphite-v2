@@ -9,11 +9,11 @@ public final class BipartiteService extends GraphService {
         super(graph);
     }
 
-    boolean bfs() {
+    public boolean bfs() {
         return new BFSBipartiteChecker().isBipartite(graph);
     }
 
-    boolean dfs() {
+    public boolean dfs() {
         return new DFSBipartiteChecker().isBipartite(graph);
     }
 }

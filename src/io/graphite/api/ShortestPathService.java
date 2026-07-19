@@ -12,15 +12,15 @@ public final class ShortestPathService extends GraphService {
         super(graph);
     }
 
-    ShortestPathResult dijkstra(int source) {
+    public ShortestPathResult dijkstra(int source) {
         return new Dijkstra().shortestPath(graph, source);
     }
 
-    ShortestPathResult bellmanFord(int source) {
+    public ShortestPathResult bellmanFord(int source) {
         return new BellmanFord().shortestPath(graph, source);
     }
 
-    AllPairsShortestPathResult floydWarshall() {
+    public AllPairsShortestPathResult floydWarshall() {
         return new FloydWarshall().shortestPaths(graph);
     }
 }
