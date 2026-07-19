@@ -14,6 +14,14 @@ public record BridgeResult(List<Edge> bridges) implements Colors {
         return List.copyOf(bridges);
     }
 
+    public int count() {
+        return bridges.size();
+    }
+
+    public boolean isEmpty() {
+        return bridges.isEmpty();
+    }
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
@@ -32,5 +40,4 @@ public record BridgeResult(List<Edge> bridges) implements Colors {
         }
         return builder.toString();
     }
-
 }

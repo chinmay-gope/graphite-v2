@@ -13,6 +13,7 @@ public final class GraphPrinter {
     private static final GraphFormatter STATISTICS = new StatisticsFormatter();
     private static final GraphFormatter DOT = new DotFormatter();
     private static final GraphFormatter MERMAID = new MermaidFormatter();
+    private static final GraphFormatter JSON = new JsonFormatter();
 
     private GraphPrinter() {
     }
@@ -43,6 +44,10 @@ public final class GraphPrinter {
 
     public static void mermaid(IGraph graph) {
         System.out.println(MERMAID.format(graph));
+    }
+
+    public static void json(IGraph graph) {
+        System.out.println(JSON.format(graph));
     }
 
     // preserve compatibility
