@@ -20,5 +20,7 @@ public class Main {
 
         GraphPrinter.compact(graph); // print() also uses same formatter
         GraphPrinter.edgeList(graph);
+        GraphPrinter.matrix(graph);
+        GraphPrinter.statistics(graph);
     }
 }

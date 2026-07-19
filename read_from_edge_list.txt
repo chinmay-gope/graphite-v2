@@ -1,0 +1,16 @@
+=== Graphite Edge Printer V2 ===
+
+Graph Summary
+
+  Vertices     : 4
+  Edges        : 4
+  Directed     : Yes
+  Weighted     : Yes
+  Connected    : Yes
+-----------------------------------------------
+Index  Source          Destination     Weight
+-----------------------------------------------
+[001]   0               1              10
+[002]   1               2              20
+[003]   2               3              30
+[004]   3               0              40

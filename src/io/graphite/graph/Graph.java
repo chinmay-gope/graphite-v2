@@ -3,10 +3,10 @@ package io.graphite.graph;
 import io.graphite.api.*;
 import io.graphite.api.analysis.GraphAnalysis;
 import io.graphite.api.analysis.GraphAnalysisService;
-import io.graphite.api.io.GraphWriterService;
 import io.graphite.builder.GraphConfiguration;
 import io.graphite.exception.graph.InvalidVertexException;
 import io.graphite.graph.internal.ImmutableGraph;
+import io.graphite.io.writer.GraphWriterService;
 import io.graphite.model.Edge;
 
 import java.util.ArrayList;

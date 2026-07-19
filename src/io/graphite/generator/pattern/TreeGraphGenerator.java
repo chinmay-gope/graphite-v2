@@ -3,6 +3,7 @@ package io.graphite.generator.pattern;
 import io.graphite.builder.AbstractGraphBuilder;
 import io.graphite.builder.GraphConfiguration;
 import io.graphite.builder.Graphs;
+import io.graphite.exception.graph.InvalidGraphConfigurationException;
 import io.graphite.generator.internal.EdgeTracker;
 import io.graphite.generator.internal.SpanningTreeGenerator;
 import io.graphite.graph.IGraph;
@@ -22,7 +23,7 @@ public final class TreeGraphGenerator {
             boolean weighted) {
 
         if (vertices <= 0) {
-            throw new IllegalArgumentException(
+            throw new InvalidGraphConfigurationException(
                     "Tree requires at least one vertex.");
         }
         

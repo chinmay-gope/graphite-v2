@@ -2,8 +2,8 @@ package io.graphite.graph.internal;
 
 import io.graphite.api.*;
 import io.graphite.api.analysis.GraphAnalysis;
-import io.graphite.api.io.GraphWriterService;
 import io.graphite.graph.IGraph;
+import io.graphite.io.writer.GraphWriterService;
 import io.graphite.model.Edge;
 
 import java.util.List;

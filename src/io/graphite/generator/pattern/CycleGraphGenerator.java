@@ -1,6 +1,7 @@
 package io.graphite.generator.pattern;
 
 import io.graphite.builder.Graphs;
+import io.graphite.exception.graph.InvalidGraphConfigurationException;
 import io.graphite.graph.IGraph;
 
 public final class CycleGraphGenerator {
@@ -10,7 +11,7 @@ public final class CycleGraphGenerator {
     public static IGraph generate(int vertices) {
 
         if (vertices < 3) {
-            throw new IllegalArgumentException(
+            throw new InvalidGraphConfigurationException(
                     "Cycle graph requires at least 3 vertices.");
         }
 

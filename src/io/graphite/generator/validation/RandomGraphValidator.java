@@ -1,6 +1,7 @@
 package io.graphite.generator.validation;
 
 import io.graphite.builder.GraphConfiguration;
+import io.graphite.exception.graph.InvalidGraphConfigurationException;
 
 public final class RandomGraphValidator {
     private RandomGraphValidator() {
@@ -8,26 +9,26 @@ public final class RandomGraphValidator {
 
     public static void validate(GraphConfiguration configuration) {
         if (configuration.getVertices() <= 0) {
-            throw new IllegalArgumentException("Vertices must be greater than zero.");
+            throw new InvalidGraphConfigurationException("Vertices must be greater than zero.");
         }
 
         if (configuration.getEdges() <= 0) {
-            throw new IllegalArgumentException("Edges cannot be negative.");
+            throw new InvalidGraphConfigurationException("Edges cannot be negative.");
         }
 
         if (configuration.isWeighted() && configuration.getMinWeight() > configuration.getMaxWeight()) {
 
-            throw new IllegalArgumentException("Minimum weight cannot exceed maximum weight.");
+            throw new InvalidGraphConfigurationException("Minimum weight cannot exceed maximum weight.");
         }
 
         if (configuration.isConnected() && configuration.getEdges() < configuration.getVertices() - 1) {
 
-            throw new IllegalArgumentException("A connected graph requires at least V - 1 edges.");
+            throw new InvalidGraphConfigurationException("A connected graph requires at least V - 1 edges.");
         }
 
         if (!configuration.allowParallelEdges() && configuration.getEdges() > maximumEdges(configuration)) {
 
-            throw new IllegalArgumentException("Too many edges requested.");
+            throw new InvalidGraphConfigurationException("Too many edges requested.");
         }
     }
 

@@ -2,7 +2,7 @@ package io.graphite.graph;
 
 import io.graphite.api.*;
 import io.graphite.api.analysis.GraphAnalysis;
-import io.graphite.api.io.GraphWriterService;
+import io.graphite.io.writer.GraphWriterService;
 import io.graphite.model.Edge;
 
 import java.util.ArrayList;

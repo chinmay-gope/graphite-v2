@@ -1,6 +1,7 @@
 package io.graphite.generator.pattern;
 
 import io.graphite.builder.Graphs;
+import io.graphite.exception.graph.InvalidGraphConfigurationException;
 import io.graphite.graph.IGraph;
 
 import java.util.HashSet;
@@ -18,19 +19,19 @@ public final class DAGGenerator {
 
         // validation
         if (vertices <= 0) {
-            throw new IllegalArgumentException(
+            throw new InvalidGraphConfigurationException(
                     "DAG requires at least one vertex.");
         }
 
         if (edges < 0) {
-            throw new IllegalArgumentException(
+            throw new InvalidGraphConfigurationException(
                     "Edge count cannot be negative.");
         }
 
         int maxEdges = vertices * (vertices - 1) / 2;
 
         if (edges > maxEdges) {
-            throw new IllegalArgumentException(
+            throw new InvalidGraphConfigurationException(
                     "A DAG with " + vertices + " vertices can contain at most "
                             + maxEdges + " edges.");
         }

@@ -4,6 +4,7 @@ import io.graphite.api.analysis.GraphAnalysisResult;
 import io.graphite.builder.Graphs;
 import io.graphite.examples.util.DemoUtils;
 import io.graphite.exception.GraphException;
+import io.graphite.graph.GraphFactory;
 import io.graphite.graph.IGraph;
 import io.graphite.print.GraphPrinter;
 
@@ -12,9 +13,12 @@ import java.nio.file.Path;
 
 public final class GraphDemo {
 
+    private static final String PATH = "graph.txt";
+
     static void main() throws IOException {
-//        new GraphDemo().executeThemAll();
+        new GraphDemo().executeThemAll();
         writeToFile();
+        readFromFile();
     }
 
 
@@ -53,14 +57,25 @@ public final class GraphDemo {
     private static void writeToFile() throws IOException {
         IGraph graph = Graphs
                 .undirected()
-                .vertices(5)
-                .weighted(true)
-                .addEdge(0, 1, 3)
-                .addEdge(1, 2, 8)
+                .vertices(6)
+                .addEdge(0, 1)
+                .addEdge(1, 2)
+                .addEdge(2, 3)
+                .addEdge(3, 4)
+                .addEdge(4, 5)
                 .build();
 
         graph.write()
-                .edgeList(Path.of("graph.txt"));
+                .edgeList(Path.of(PATH));
+    }
+
+    private static void readFromFile() throws IOException {
+        IGraph restored =
+                Graphs.read()
+                        .edgeList(Path.of(PATH));
+
+        System.out.println("Restored Graph:");
+        GraphPrinter.compact(restored);
     }
 
     // ---------------------------------------------------------
@@ -689,6 +704,39 @@ public final class GraphDemo {
 
     private static void graphFactoryDemo() {
 
+        header("Graph Factory");
+
+        DemoUtils.run("Traversal Graph", () ->
+                GraphFactory.traversalGraph(10)
+        );
+
+        DemoUtils.run("Shortest Path Graph", () ->
+                GraphFactory.denseGraph(10)
+        );
+
+        DemoUtils.run("Minimum Spanning Tree Graph", () ->
+                GraphFactory.mstGraph(10)
+        );
+
+        DemoUtils.run("Directed Dense Graph", () ->
+                GraphFactory.directedDenseGraph(10)
+        );
+
+        DemoUtils.run("Dense Graph", () ->
+                GraphFactory.denseGraph(10)
+        );
+
+        DemoUtils.run("Directed Acyclic Graph (DAG)", () ->
+                GraphFactory.dag(10)
+        );
+
+        DemoUtils.run("Tree Graph", () ->
+                GraphFactory.treeGraph(10)
+        );
+
+        DemoUtils.run("Bipartite Graph", () ->
+                GraphFactory.bipartiteGraph(10)
+        );
     }
 
 // ---------------------------------------------------------

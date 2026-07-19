@@ -1,6 +1,7 @@
 package io.graphite.generator.pattern;
 
 import io.graphite.builder.Graphs;
+import io.graphite.exception.graph.InvalidGraphConfigurationException;
 import io.graphite.graph.IGraph;
 
 public final class CompleteGraphGenerator {
@@ -10,7 +11,7 @@ public final class CompleteGraphGenerator {
     public static IGraph generate(int vertices) {
 
         if (vertices <= 0) {
-            throw new IllegalArgumentException(
+            throw new InvalidGraphConfigurationException(
                     "Complete graph requires at least one vertex.");
         }
 

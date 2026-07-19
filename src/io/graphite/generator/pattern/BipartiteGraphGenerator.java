@@ -1,6 +1,7 @@
 package io.graphite.generator.pattern;
 
 import io.graphite.builder.Graphs;
+import io.graphite.exception.graph.InvalidGraphConfigurationException;
 import io.graphite.graph.IGraph;
 
 import java.util.HashSet;
@@ -19,24 +20,24 @@ public final class BipartiteGraphGenerator {
     public static IGraph generate(int left, int right, int edges) {
 
         if (left <= 0) {
-            throw new IllegalArgumentException(
+            throw new InvalidGraphConfigurationException(
                     "Left partition must contain at least one vertex.");
         }
 
         if (right <= 0) {
-            throw new IllegalArgumentException(
+            throw new InvalidGraphConfigurationException(
                     "Right partition must contain at least one vertex.");
         }
 
         if (edges < 0) {
-            throw new IllegalArgumentException(
+            throw new InvalidGraphConfigurationException(
                     "Edge count cannot be negative.");
         }
 
         int maxEdges = left * right;
 
         if (edges > maxEdges) {
-            throw new IllegalArgumentException(
+            throw new InvalidGraphConfigurationException(
                     "A bipartite graph with partitions of size "
                             + left + " and " + right
                             + " can contain at most "

@@ -4,7 +4,6 @@ import io.graphite.algorithm.GraphAlgorithm;
 import io.graphite.graph.IGraph;
 import io.graphite.model.Edge;
 import io.graphite.result.SCCResult;
-import io.graphite.util.GraphUtils;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

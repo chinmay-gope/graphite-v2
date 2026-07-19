@@ -1,6 +1,7 @@
 package io.graphite.generator.pattern;
 
 import io.graphite.builder.Graphs;
+import io.graphite.exception.graph.InvalidGraphConfigurationException;
 import io.graphite.graph.IGraph;
 
 public final class GridGraphGenerator {
@@ -12,7 +13,7 @@ public final class GridGraphGenerator {
     public static IGraph generate(int rows, int cols) {
 
         if (rows <= 0 || cols <= 0) {
-            throw new IllegalArgumentException(
+            throw new InvalidGraphConfigurationException(
                     "Grid dimensions must be positive.");
         }
 

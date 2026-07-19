@@ -1,7 +1,6 @@
 package io.graphite.benchmark;
 
 import io.graphite.examples.util.DemoUtils;
-import io.graphite.graph.Graph;
 import io.graphite.graph.IGraph;
 
 import java.util.concurrent.ThreadLocalRandom;
