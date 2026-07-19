@@ -1,10 +1,10 @@
 package io.graphite.validation;
 
 import io.graphite.exception.algorithm.NullGraphException;
+import io.graphite.exception.algorithm.UnsupportedWeightedGraphException;
 import io.graphite.exception.graph.InvalidVertexException;
-import io.graphite.graph.DirectedGraph;
+import io.graphite.exception.graph.UnsupportedGraphTypeException;
 import io.graphite.graph.IGraph;
-import io.graphite.graph.UndirectedGraph;
 import io.graphite.model.Edge;
 
 public final class GraphValidator {
@@ -54,26 +54,27 @@ public final class GraphValidator {
     }
 
     public static void requireDirected(IGraph graph) {
-        if (!(graph instanceof DirectedGraph)) {
-            throw new UnsupportedOperationException(
-                    "Directed graph required."
-            );
+        validate(graph);
+        if (!graph.isDirected()) {
+            throw new UnsupportedGraphTypeException(
+                    true,
+                    graph.isDirected());
         }
     }
 
     public static void requireUndirected(IGraph graph) {
-        if (!(graph instanceof UndirectedGraph)) {
-            throw new UnsupportedOperationException(
-                    "Undirected graph required."
-            );
+        validate(graph);
+
+        if (!graph.isUndirected()) {
+            throw new UnsupportedGraphTypeException(
+                    false,
+                    graph.isDirected());
         }
     }
 
     public static void requireWeighted(IGraph graph) {
         if (!graph.isWeighted()) {
-            throw new UnsupportedOperationException(
-                    "Weighted graph required."
-            );
+            throw new UnsupportedWeightedGraphException();
         }
     }
 }

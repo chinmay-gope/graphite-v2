@@ -9,11 +9,11 @@ public final class CycleService extends GraphService {
         super(graph);
     }
 
-    boolean directed() {
+    public boolean directed() {
         return new DirectedCycleDetector().hasCycle(graph);
     }
 
-    boolean undirected() {
+    public boolean undirected() {
         return new UndirectedCycleDetector().hasCycle(graph);
     }
 }

@@ -2,13 +2,27 @@ package io.graphite.examples;
 
 import io.graphite.api.analysis.GraphAnalysisResult;
 import io.graphite.builder.Graphs;
+import io.graphite.examples.util.DemoUtils;
+import io.graphite.exception.GraphException;
+import io.graphite.graph.GraphFactory;
 import io.graphite.graph.IGraph;
 import io.graphite.print.GraphPrinter;
 
+import java.io.IOException;
+import java.nio.file.Path;
+
 public final class GraphDemo {
 
-    static void main(String[] args) {
+    private static final String PATH = "graph.txt";
 
+    static void main() throws IOException {
+        new GraphDemo().executeThemAll();
+        writeToFile();
+        readFromFile();
+    }
+
+
+    void executeThemAll() {
         builderDemo();
         immutableDemo();
         copyDemo();
@@ -16,6 +30,8 @@ public final class GraphDemo {
 
         directedDemo();
         undirectedDemo();
+
+        servicesDemo();
 
         randomGeneratorDemo();
 
@@ -35,6 +51,246 @@ public final class GraphDemo {
         analysisDemo();
 
         printerDemo();
+
+    }
+
+    private static void writeToFile() throws IOException {
+        IGraph graph = Graphs
+                .undirected()
+                .vertices(6)
+                .addEdge(0, 1)
+                .addEdge(1, 2)
+                .addEdge(2, 3)
+                .addEdge(3, 4)
+                .addEdge(4, 5)
+                .build();
+
+        graph.write()
+                .edgeList(Path.of(PATH));
+    }
+
+    private static void readFromFile() throws IOException {
+        IGraph restored =
+                Graphs.read()
+                        .edgeList(Path.of(PATH));
+
+        System.out.println("Restored Graph:");
+        GraphPrinter.compact(restored);
+    }
+
+    // ---------------------------------------------------------
+    // Services
+    // ---------------------------------------------------------
+    private static void servicesDemo() {
+
+        header("Services Demo");
+
+        // ==========================================================
+        // Traversal
+        // ==========================================================
+
+        IGraph traversal = Graphs
+                .undirected()
+                .vertices(6)
+                .addEdge(0, 1)
+                .addEdge(0, 2)
+                .addEdge(1, 3)
+                .addEdge(2, 4)
+                .addEdge(4, 5)
+                .build();
+
+        System.out.println("\nTraversal");
+        print(traversal);
+        System.out.println(traversal.traversal().bfs(0));
+        System.out.println(traversal.traversal().dfs(0));
+
+
+        // ==========================================================
+        // Cycle Detection
+        // ==========================================================
+
+        IGraph cycle = Graphs
+                .undirected()
+                .vertices(5)
+                .addEdge(0, 1)
+                .addEdge(1, 2)
+                .addEdge(2, 0)
+                .addEdge(2, 3)
+                .addEdge(3, 4)
+                .build();
+
+        System.out.println("\nCycle Detection");
+        print(cycle);
+        System.out.println(cycle.cycle().undirected());
+
+
+        // ==========================================================
+        // Bipartite
+        // ==========================================================
+
+        IGraph bipartite = Graphs
+                .undirected()
+                .vertices(6)
+                .addEdge(0, 3)
+                .addEdge(0, 4)
+                .addEdge(1, 3)
+                .addEdge(1, 5)
+                .addEdge(2, 4)
+                .addEdge(2, 5)
+                .build();
+
+        System.out.println("\nBipartite");
+        print(bipartite);
+        System.out.println(bipartite.bipartite().bfs());
+        System.out.println(bipartite.bipartite().dfs());
+
+
+        // ==========================================================
+        // Minimum Spanning Tree
+        // ==========================================================
+
+        IGraph mst = Graphs
+                .undirected()
+                .weighted(true)
+                .vertices(5)
+                .addEdge(0, 1, 2)
+                .addEdge(0, 2, 6)
+                .addEdge(1, 2, 3)
+                .addEdge(1, 3, 8)
+                .addEdge(1, 4, 5)
+                .addEdge(2, 4, 7)
+                .addEdge(3, 4, 9)
+                .build();
+
+        System.out.println("\nMinimum Spanning Tree");
+        print(mst);
+        System.out.println(mst.mst().prim(0));
+        System.out.println(mst.mst().kruskal());
+
+
+        // ==========================================================
+        // Shortest Path
+        // ==========================================================
+
+        IGraph shortest = Graphs
+                .directed()
+                .weighted(true)
+                .vertices(5)
+                .addEdge(0, 1, 10)
+                .addEdge(0, 3, 5)
+                .addEdge(1, 2, 1)
+                .addEdge(1, 3, 2)
+                .addEdge(2, 4, 4)
+                .addEdge(3, 1, 3)
+                .addEdge(3, 2, 9)
+                .addEdge(3, 4, 2)
+                .addEdge(4, 0, 7)
+                .addEdge(4, 2, 6)
+                .build();
+
+        System.out.println("\nShortest Path");
+        print(shortest);
+        System.out.println(shortest.shortestPath().dijkstra(0));
+        System.out.println(shortest.shortestPath().bellmanFord(0));
+        System.out.println(shortest.shortestPath().floydWarshall());
+
+
+        // ==========================================================
+        // Connectivity
+        // ==========================================================
+
+        IGraph connectivity = Graphs
+                .undirected()
+                .vertices(7)
+                .addEdge(0, 1)
+                .addEdge(1, 2)
+                .addEdge(2, 0)
+                .addEdge(1, 3)
+                .addEdge(3, 4)
+                .addEdge(3, 5)
+                .addEdge(5, 6)
+                .build();
+
+        System.out.println("\nConnectivity");
+        print(connectivity);
+        System.out.println(connectivity.connectivity().articulationPoints());
+        System.out.println(connectivity.connectivity().bridges());
+        System.out.println(connectivity.connectivity().biconnectedComponents());
+
+
+        // ==========================================================
+        // Strongly Connected Components
+        // ==========================================================
+
+        IGraph scc = Graphs
+                .directed()
+                .vertices(5)
+                .addEdge(0, 1)
+                .addEdge(1, 2)
+                .addEdge(2, 0)
+                .addEdge(1, 3)
+                .addEdge(3, 4)
+                .build();
+
+        System.out.println("\nStrongly Connected Components");
+        print(scc);
+        System.out.println(scc.connectivity().stronglyConnectedComponents());
+
+
+        // ==========================================================
+        // Topological Sorting
+        // ==========================================================
+
+        IGraph dag = Graphs
+                .directed()
+                .vertices(6)
+                .addEdge(5, 2)
+                .addEdge(5, 0)
+                .addEdge(4, 0)
+                .addEdge(4, 1)
+                .addEdge(2, 3)
+                .addEdge(3, 1)
+                .build();
+
+        System.out.println("\nTopological Sort");
+        print(dag);
+        System.out.println(dag.topology().kahn()); // 3, 4, 5, 1, 2, 0 or
+        System.out.println(dag.topology().dfs()); //  5, 4, 2, 3, 1, 0
+
+
+        // ==========================================================
+        // Analysis
+        // ==========================================================
+
+        System.out.println("\nAnalysis");
+        System.out.println(traversal.analysis().density());
+        System.out.println(traversal.analysis().averageDegree());
+        System.out.println(traversal.analysis().isTree());
+
+        // ==========================================================
+        // Euler
+        // ==========================================================
+
+        IGraph euler = Graphs
+                .undirected()
+                .vertices(5)
+                .addEdge(0, 1)
+                .addEdge(1, 2)
+                .addEdge(2, 3)
+                .addEdge(3, 0)
+                .addEdge(0, 4)
+                .addEdge(4, 2)
+                .build();
+
+        System.out.println("\nEuler");
+        print(euler);
+        System.out.println(euler.euler().path());
+
+        try {
+            System.out.println(euler.euler().circuit());
+        } catch (GraphException e) {
+            System.err.println("Graph is not Eulerian: " + e.getMessage());
+        }
     }
 
     // ---------------------------------------------------------
@@ -229,11 +485,76 @@ public final class GraphDemo {
     // ---------------------------------------------------------
 
     private static void randomGeneratorDemo() {
+
+        header("Random Generator Demo");
+
+        DemoUtils.run("Undirected Graph", () ->
+                Graphs.random()
+                        .undirected()
+                        .vertices(8)
+                        .edges(12)
+                        .generate()
+        );
+
+        DemoUtils.run("Directed Graph", () ->
+                Graphs.random()
+                        .directed()
+                        .vertices(8)
+                        .edges(12)
+                        .generate()
+        );
+
+        DemoUtils.run("Weighted Graph", () ->
+                Graphs.random()
+                        .undirected()
+                        .vertices(8)
+                        .edges(12)
+                        .weightRange(1, 20)
+                        .generate()
+        );
+
+        DemoUtils.run("Connected Graph", () ->
+                Graphs.random()
+                        .undirected()
+                        .vertices(8)
+                        .edges(12)
+                        .connected()
+                        .generate()
+        );
+
+        DemoUtils.run("Graph With Self Loops", () ->
+                Graphs.random()
+                        .undirected()
+                        .vertices(8)
+                        .edges(15)
+                        .allowSelfLoops()
+                        .generate()
+        );
+
+        DemoUtils.run("Graph With Parallel Edges", () ->
+                Graphs.random()
+                        .undirected()
+                        .vertices(8)
+                        .edges(18)
+                        .allowParallelEdges()
+                        .generate()
+        );
+
+        DemoUtils.run("Weighted Connected Graph", () ->
+                Graphs.random()
+                        .undirected()
+                        .vertices(10)
+                        .edges(18)
+                        .weightRange(5, 50)
+                        .connected()
+                        .generate()
+        );
     }
 
-    // ---------------------------------------------------------
-    // Pattern Generators
-    // ---------------------------------------------------------
+
+// ---------------------------------------------------------
+// Pattern Generators
+// ---------------------------------------------------------
 
     private static void treeGeneratorDemo() {
 
@@ -377,17 +698,50 @@ public final class GraphDemo {
         print(Graphs.grid(5, 5));
     }
 
-    // ---------------------------------------------------------
-    // Graph Factory
-    // ---------------------------------------------------------
+// ---------------------------------------------------------
+// Graph Factory
+// ---------------------------------------------------------
 
     private static void graphFactoryDemo() {
 
+        header("Graph Factory");
+
+        DemoUtils.run("Traversal Graph", () ->
+                GraphFactory.traversalGraph(10)
+        );
+
+        DemoUtils.run("Shortest Path Graph", () ->
+                GraphFactory.denseGraph(10)
+        );
+
+        DemoUtils.run("Minimum Spanning Tree Graph", () ->
+                GraphFactory.mstGraph(10)
+        );
+
+        DemoUtils.run("Directed Dense Graph", () ->
+                GraphFactory.directedDenseGraph(10)
+        );
+
+        DemoUtils.run("Dense Graph", () ->
+                GraphFactory.denseGraph(10)
+        );
+
+        DemoUtils.run("Directed Acyclic Graph (DAG)", () ->
+                GraphFactory.dag(10)
+        );
+
+        DemoUtils.run("Tree Graph", () ->
+                GraphFactory.treeGraph(10)
+        );
+
+        DemoUtils.run("Bipartite Graph", () ->
+                GraphFactory.bipartiteGraph(10)
+        );
     }
 
-    // ---------------------------------------------------------
-    // Analysis
-    // ---------------------------------------------------------
+// ---------------------------------------------------------
+// Analysis
+// ---------------------------------------------------------
 
     private static void analysisDemo() {
 
@@ -427,9 +781,9 @@ public final class GraphDemo {
         System.out.println(analyze);
     }
 
-    // ---------------------------------------------------------
-    // Printer
-    // ---------------------------------------------------------
+// ---------------------------------------------------------
+// Printer
+// ---------------------------------------------------------
 
     private static void printerDemo() {
 
@@ -458,9 +812,9 @@ public final class GraphDemo {
         GraphPrinter.tree(graph);
     }
 
-    // ---------------------------------------------------------
-    // Helpers
-    // ---------------------------------------------------------
+// ---------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------
 
     private static void header(String title) {
 

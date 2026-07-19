@@ -4,7 +4,6 @@ import io.graphite.algorithm.mst.Prim;
 import io.graphite.builder.Graphs;
 import io.graphite.examples.util.GraphDemoPrinter;
 import io.graphite.exception.GraphException;
-import io.graphite.graph.Graph;
 import io.graphite.graph.IGraph;
 import io.graphite.result.MSTResult;
 import io.graphite.util.GraphPrinter;

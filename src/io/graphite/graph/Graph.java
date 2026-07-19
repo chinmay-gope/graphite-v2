@@ -6,6 +6,7 @@ import io.graphite.api.analysis.GraphAnalysisService;
 import io.graphite.builder.GraphConfiguration;
 import io.graphite.exception.graph.InvalidVertexException;
 import io.graphite.graph.internal.ImmutableGraph;
+import io.graphite.io.writer.GraphWriterService;
 import io.graphite.model.Edge;
 
 import java.util.ArrayList;
@@ -14,6 +15,18 @@ import java.util.List;
 
 
 public abstract class Graph implements IGraph {
+
+    private GraphWriterService writer;
+
+    @Override
+    public GraphWriterService write() {
+
+        if (writer == null) {
+            writer = new GraphWriterService(this);
+        }
+
+        return writer;
+    }
 
     // ==========================================================
     // Fields

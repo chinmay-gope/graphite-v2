@@ -3,6 +3,7 @@ package io.graphite.graph.internal;
 import io.graphite.api.*;
 import io.graphite.api.analysis.GraphAnalysis;
 import io.graphite.graph.IGraph;
+import io.graphite.io.writer.GraphWriterService;
 import io.graphite.model.Edge;
 
 import java.util.List;
@@ -20,10 +21,14 @@ public final class ImmutableGraph implements IGraph {
                 "This graph is immutable.");
     }
 
+    @Override
+    public GraphWriterService write() {
+        return graph.write();
+    }
+
     // ==========================================================
     // Mutating Operations
     // ==========================================================
-
     @Override
     public void addEdge(int source, int destination, int weight) {
         throw immutable();

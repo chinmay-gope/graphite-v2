@@ -4,7 +4,6 @@ import io.graphite.algorithm.cycle.CycleDetectionAlgorithm;
 import io.graphite.algorithm.cycle.UndirectedCycleDetector;
 import io.graphite.builder.Graphs;
 import io.graphite.examples.util.GraphDemoPrinter;
-import io.graphite.graph.Graph;
 import io.graphite.graph.IGraph;
 
 public class UndirectedCycleDemo {

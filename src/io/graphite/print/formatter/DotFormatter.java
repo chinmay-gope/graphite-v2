@@ -1,0 +1,60 @@
+package io.graphite.print.formatter;
+
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
+import io.graphite.print.GraphFormatter;
+import io.graphite.result.Colors;
+
+public final class DotFormatter
+        implements GraphFormatter, Colors {
+
+    @Override
+    public String format(IGraph graph) {
+
+        StringBuilder out = new StringBuilder();
+
+        boolean directed = graph.isDirected();
+
+        out.append(BOLD)
+                .append(CYAN)
+                .append(directed
+                        ? "digraph G {"
+                        : "graph G {")
+                .append(RESET)
+                .append("\n\n");
+
+        String connector = directed ? " -> " : " -- ";
+
+        for (Edge edge : graph.edges()) {
+
+            out.append("    ")
+                    .append(YELLOW)
+                    .append(edge.source())
+                    .append(RESET)
+                    .append(connector)
+                    .append(GREEN)
+                    .append(edge.destination())
+                    .append(RESET);
+
+            if (graph.isWeighted()) {
+                out.append(" ")
+                        .append(MAGENTA)
+                        .append("[label=\"")
+                        .append(edge.weight())
+                        .append("\"]")
+                        .append(RESET);
+            }
+
+            out.append(";")
+                    .append("\n");
+        }
+
+        out.append("\n")
+                .append(BOLD)
+                .append(CYAN)
+                .append("}")
+                .append(RESET);
+
+        return out.toString();
+    }
+}

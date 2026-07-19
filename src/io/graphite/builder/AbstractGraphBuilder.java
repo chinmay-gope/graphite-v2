@@ -2,7 +2,6 @@ package io.graphite.builder;
 
 import io.graphite.graph.Graph;
 import io.graphite.graph.IGraph;
-import io.graphite.graph.internal.ImmutableGraph;
 import io.graphite.model.Edge;
 
 import java.util.ArrayList;

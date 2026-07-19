@@ -10,11 +10,11 @@ public final class EulerService extends GraphService {
         super(graph);
     }
 
-    public EulerResult findEulerPath() {
+    public EulerResult path() {
         return new Hierholzer().findEulerPath(graph);
     }
 
-    public EulerResult findEulerCircuit() {
+    public EulerResult circuit() {
         return new Hierholzer().findEulerCircuit(graph);
     }
 }

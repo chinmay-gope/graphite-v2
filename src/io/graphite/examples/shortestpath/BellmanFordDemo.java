@@ -5,7 +5,6 @@ import io.graphite.algorithm.shortestpath.ShortestPathAlgorithm;
 import io.graphite.builder.Graphs;
 import io.graphite.examples.util.GraphDemoPrinter;
 import io.graphite.exception.GraphException;
-import io.graphite.graph.Graph;
 import io.graphite.graph.IGraph;
 import io.graphite.result.ShortestPathResult;
 import io.graphite.util.GraphPrinter;

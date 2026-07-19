@@ -3,6 +3,7 @@ package io.graphite.graph;
 import io.graphite.builder.GraphConfiguration;
 import io.graphite.builder.Graphs;
 import io.graphite.builder.UndirectedGraphBuilder;
+import io.graphite.exception.graph.InvalidGraphConfigurationException;
 import io.graphite.generator.pattern.BipartiteGraphGenerator;
 
 public final class GraphFactory {
@@ -180,7 +181,7 @@ public final class GraphFactory {
     public static IGraph eulerCircuitGraph(int vertices) {
 
         if (vertices < 3) {
-            throw new IllegalArgumentException(
+            throw new InvalidGraphConfigurationException(
                     "Euler circuit requires at least 3 vertices.");
         }
 
@@ -199,7 +200,7 @@ public final class GraphFactory {
     public static IGraph eulerPathGraph(int vertices) {
 
         if (vertices < 2) {
-            throw new IllegalArgumentException(
+            throw new InvalidGraphConfigurationException(
                     "Euler path requires at least 2 vertices.");
         }
 
@@ -215,7 +216,7 @@ public final class GraphFactory {
     public static IGraph invalidEulerGraph(int vertices) {
 
         if (vertices < 5) {
-            throw new IllegalArgumentException(
+            throw new InvalidGraphConfigurationException(
                     "Invalid Euler graph requires at least 5 vertices.");
         }
 

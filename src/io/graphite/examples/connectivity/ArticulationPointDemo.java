@@ -4,7 +4,6 @@ import io.graphite.algorithm.connectivity.APAlgorithm;
 import io.graphite.algorithm.connectivity.APFinder;
 import io.graphite.builder.Graphs;
 import io.graphite.examples.util.GraphDemoPrinter;
-import io.graphite.graph.Graph;
 import io.graphite.graph.IGraph;
 import io.graphite.result.APResult;
 import io.graphite.util.GraphPrinter;

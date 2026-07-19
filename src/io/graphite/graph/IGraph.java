@@ -2,6 +2,7 @@ package io.graphite.graph;
 
 import io.graphite.api.*;
 import io.graphite.api.analysis.GraphAnalysis;
+import io.graphite.io.writer.GraphWriterService;
 import io.graphite.model.Edge;
 
 import java.util.ArrayList;
@@ -9,6 +10,8 @@ import java.util.Collections;
 import java.util.List;
 
 public interface IGraph {
+
+    GraphWriterService write();
 
     // ========= Mutation =========
 

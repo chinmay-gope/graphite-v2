@@ -1,5 +1,6 @@
 package io.graphite.validation;
 
+import io.graphite.exception.graph.InvalidGraphConfigurationException;
 import io.graphite.graph.IGraph;
 import io.graphite.result.EulerResult;
 
@@ -29,7 +30,7 @@ public final class EulerValidator {
 
             case CIRCUIT -> {
                 if (first != last) {
-                    throw new IllegalStateException(
+                    throw new InvalidGraphConfigurationException(
                             "Euler circuit must start and end at the same vertex."
                     );
                 }
@@ -37,7 +38,7 @@ public final class EulerValidator {
 
             case PATH -> {
                 if (first == last) {
-                    throw new IllegalStateException(
+                    throw new InvalidGraphConfigurationException(
                             "Euler path must start and end at different vertices."
                     );
                 }
@@ -53,7 +54,7 @@ public final class EulerValidator {
         int actual = result.traversal().size();
 
         if (actual != expected) {
-            throw new IllegalStateException(
+            throw new InvalidGraphConfigurationException(
                     "Expected traversal length " + expected +
                             " but found " + actual
             );
@@ -72,7 +73,7 @@ public final class EulerValidator {
             int v = path.get(i + 1);
 
             if (!graph.hasEdge(u, v)) {
-                throw new IllegalStateException(
+                throw new InvalidGraphConfigurationException(
                         "Edge " + u + " -> " + v + " does not exist."
                 );
             }

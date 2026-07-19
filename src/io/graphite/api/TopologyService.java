@@ -10,11 +10,11 @@ public final class TopologyService extends GraphService {
         super(graph);
     }
 
-    TopologicalSortResult dfs() {
+    public TopologicalSortResult dfs() {
         return new DFSTopologicalSort().sort(graph);
     }
 
-    TopologicalSortResult kahn(IGraph graph) {
+    public TopologicalSortResult kahn() {
         return new KahnTopologicalSort().sort(graph);
     }
 }

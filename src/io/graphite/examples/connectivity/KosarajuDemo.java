@@ -4,7 +4,6 @@ import io.graphite.algorithm.connectivity.Kosaraju;
 import io.graphite.algorithm.connectivity.SCCAlgorithm;
 import io.graphite.builder.Graphs;
 import io.graphite.examples.util.GraphDemoPrinter;
-import io.graphite.graph.Graph;
 import io.graphite.graph.IGraph;
 import io.graphite.result.SCCResult;
 import io.graphite.util.GraphPrinter;
