@@ -1,5 +1,6 @@
 package io.graphite.graph;
 
+import io.graphite.api.io.GraphWriterService;
 import io.graphite.builder.GraphConfiguration;
 import io.graphite.model.Edge;
 

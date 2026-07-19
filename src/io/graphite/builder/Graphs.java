@@ -1,10 +1,16 @@
 package io.graphite.builder;
 
+import io.graphite.api.io.GraphReaderService;
 import io.graphite.generator.RandomGraphBuilder;
 import io.graphite.generator.pattern.*;
 import io.graphite.graph.IGraph;
 
 public final class Graphs {
+
+    public static GraphReaderService read() {
+        return new GraphReaderService();
+    }
+
     private Graphs() {
         throw new AssertionError("Utility class");
     }

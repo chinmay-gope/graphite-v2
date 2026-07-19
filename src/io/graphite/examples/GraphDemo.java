@@ -2,17 +2,24 @@ package io.graphite.examples;
 
 import io.graphite.api.analysis.GraphAnalysisResult;
 import io.graphite.builder.Graphs;
+import io.graphite.examples.util.DemoUtils;
 import io.graphite.exception.GraphException;
 import io.graphite.graph.IGraph;
 import io.graphite.print.GraphPrinter;
 
+import java.io.IOException;
+import java.nio.file.Path;
+
 public final class GraphDemo {
 
-    static void main() {
-        new GraphDemo().executeThemAll();
+    static void main() throws IOException {
+//        new GraphDemo().executeThemAll();
+        writeToFile();
     }
 
+
     void executeThemAll() {
+        builderDemo();
         immutableDemo();
         copyDemo();
         transposeDemo();
@@ -41,6 +48,19 @@ public final class GraphDemo {
 
         printerDemo();
 
+    }
+
+    private static void writeToFile() throws IOException {
+        IGraph graph = Graphs
+                .undirected()
+                .vertices(5)
+                .weighted(true)
+                .addEdge(0, 1, 3)
+                .addEdge(1, 2, 8)
+                .build();
+
+        graph.write()
+                .edgeList(Path.of("graph.txt"));
     }
 
     // ---------------------------------------------------------
@@ -450,11 +470,76 @@ public final class GraphDemo {
     // ---------------------------------------------------------
 
     private static void randomGeneratorDemo() {
+
+        header("Random Generator Demo");
+
+        DemoUtils.run("Undirected Graph", () ->
+                Graphs.random()
+                        .undirected()
+                        .vertices(8)
+                        .edges(12)
+                        .generate()
+        );
+
+        DemoUtils.run("Directed Graph", () ->
+                Graphs.random()
+                        .directed()
+                        .vertices(8)
+                        .edges(12)
+                        .generate()
+        );
+
+        DemoUtils.run("Weighted Graph", () ->
+                Graphs.random()
+                        .undirected()
+                        .vertices(8)
+                        .edges(12)
+                        .weightRange(1, 20)
+                        .generate()
+        );
+
+        DemoUtils.run("Connected Graph", () ->
+                Graphs.random()
+                        .undirected()
+                        .vertices(8)
+                        .edges(12)
+                        .connected()
+                        .generate()
+        );
+
+        DemoUtils.run("Graph With Self Loops", () ->
+                Graphs.random()
+                        .undirected()
+                        .vertices(8)
+                        .edges(15)
+                        .allowSelfLoops()
+                        .generate()
+        );
+
+        DemoUtils.run("Graph With Parallel Edges", () ->
+                Graphs.random()
+                        .undirected()
+                        .vertices(8)
+                        .edges(18)
+                        .allowParallelEdges()
+                        .generate()
+        );
+
+        DemoUtils.run("Weighted Connected Graph", () ->
+                Graphs.random()
+                        .undirected()
+                        .vertices(10)
+                        .edges(18)
+                        .weightRange(5, 50)
+                        .connected()
+                        .generate()
+        );
     }
 
-    // ---------------------------------------------------------
-    // Pattern Generators
-    // ---------------------------------------------------------
+
+// ---------------------------------------------------------
+// Pattern Generators
+// ---------------------------------------------------------
 
     private static void treeGeneratorDemo() {
 
@@ -598,17 +683,17 @@ public final class GraphDemo {
         print(Graphs.grid(5, 5));
     }
 
-    // ---------------------------------------------------------
-    // Graph Factory
-    // ---------------------------------------------------------
+// ---------------------------------------------------------
+// Graph Factory
+// ---------------------------------------------------------
 
     private static void graphFactoryDemo() {
 
     }
 
-    // ---------------------------------------------------------
-    // Analysis
-    // ---------------------------------------------------------
+// ---------------------------------------------------------
+// Analysis
+// ---------------------------------------------------------
 
     private static void analysisDemo() {
 
@@ -648,9 +733,9 @@ public final class GraphDemo {
         System.out.println(analyze);
     }
 
-    // ---------------------------------------------------------
-    // Printer
-    // ---------------------------------------------------------
+// ---------------------------------------------------------
+// Printer
+// ---------------------------------------------------------
 
     private static void printerDemo() {
 
@@ -679,9 +764,9 @@ public final class GraphDemo {
         GraphPrinter.tree(graph);
     }
 
-    // ---------------------------------------------------------
-    // Helpers
-    // ---------------------------------------------------------
+// ---------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------
 
     private static void header(String title) {
 
