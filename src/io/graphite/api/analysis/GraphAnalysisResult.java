@@ -25,15 +25,17 @@ public record GraphAnalysisResult(
 
 ) implements Colors {
 
-    private static String bool(boolean value) {
-        return value ? "Yes" : "No";
+    private static String status(boolean value) {
+        return value
+                ? GREEN + "✓ Yes" + RESET
+                : RED + "✗ No" + RESET;
     }
 
     @Override
     public String toString() {
         return """
                 %s%sGraph Analysis%s
-                %s--------------------------%s
+                %s──────────────────────────%s
                 %s Vertices       :%s %d
                 %s Edges          :%s %d
                 
@@ -57,15 +59,15 @@ public record GraphAnalysisResult(
                 YELLOW, RESET, vertices,
                 YELLOW, RESET, edges,
 
-                MAGENTA, RESET, directed,
-                MAGENTA, RESET, weighted,
+                MAGENTA, RESET, status(directed),
+                MAGENTA, RESET, status(weighted),
 
-                GREEN, RESET, bool(connected),
-                GREEN, RESET, bool(tree),
-                GREEN, RESET, bool(forest),
-                RED, RESET, bool(cyclic),
-                CYAN, RESET, bool(bipartite),
-                BLUE, RESET, bool(eulerian),
+                GREEN, RESET, status(connected),
+                GREEN, RESET, status(tree),
+                GREEN, RESET, status(forest),
+                RED, RESET, status(cyclic),
+                CYAN, RESET, status(bipartite),
+                BLUE, RESET, status(eulerian),
 
                 WHITE, RESET, maxDegree,
                 WHITE, RESET, minDegree,

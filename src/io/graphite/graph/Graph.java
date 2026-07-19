@@ -142,10 +142,6 @@ public abstract class Graph implements IGraph {
         return configuration.isUndirected();
     }
 
-    @Override
-    public boolean isImmutable() {
-        return configuration.isImmutable();
-    }
 
     // ==========================================================
     // Mutation
@@ -161,7 +157,7 @@ public abstract class Graph implements IGraph {
 
     @Override
     public IGraph asImmutable() {
-        return configuration.isImmutable() ? this : new ImmutableGraph(this);
+        return new ImmutableGraph(this);
     }
 
     // ==========================================================

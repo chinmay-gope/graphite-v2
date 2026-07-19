@@ -80,11 +80,6 @@ public final class ImmutableGraph implements IGraph {
     }
 
     @Override
-    public boolean isImmutable() {
-        return true;
-    }
-
-    @Override
     public List<Edge> getNeighbors(int vertex) {
         return graph.getNeighbors(vertex);
     }
@@ -176,7 +171,7 @@ public final class ImmutableGraph implements IGraph {
 
     @Override
     public IGraph asImmutable() {
-        return new ImmutableGraph(this);
+        return this;
     }
 
 }
