@@ -9,7 +9,6 @@ import io.graphite.model.Edge;
 
 public final class GraphValidator {
     private GraphValidator() {
-        throw new AssertionError("No GraphValidator instances for you!");
     }
 
     public static boolean isEmpty(IGraph graph) {

@@ -9,6 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DFS extends GraphAlgorithm implements TraversalAlgorithm {
+    public static final DFS INSTANCE = new DFS();
+
+    private DFS() {
+    }
 
     @Override
     public TraversalResult traverse(IGraph graph, int source) {

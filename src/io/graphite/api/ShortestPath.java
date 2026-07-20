@@ -3,24 +3,25 @@ package io.graphite.api;
 import io.graphite.algorithm.shortestpath.BellmanFord;
 import io.graphite.algorithm.shortestpath.Dijkstra;
 import io.graphite.algorithm.shortestpath.FloydWarshall;
+import io.graphite.api.internal.GraphAPI;
 import io.graphite.graph.IGraph;
 import io.graphite.result.AllPairsShortestPathResult;
 import io.graphite.result.ShortestPathResult;
 
-public final class ShortestPathService extends GraphService {
-    public ShortestPathService(IGraph graph) {
+public final class ShortestPath extends GraphAPI {
+    public ShortestPath(IGraph graph) {
         super(graph);
     }
 
     public ShortestPathResult dijkstra(int source) {
-        return new Dijkstra().shortestPath(graph, source);
+        return Dijkstra.INSTANCE.shortestPath(graph, source);
     }
 
     public ShortestPathResult bellmanFord(int source) {
-        return new BellmanFord().shortestPath(graph, source);
+        return BellmanFord.INSTANCE.shortestPath(graph, source);
     }
 
     public AllPairsShortestPathResult floydWarshall() {
-        return new FloydWarshall().shortestPaths(graph);
+        return FloydWarshall.INSTANCE.shortestPaths(graph);
     }
 }

@@ -10,7 +10,11 @@ import java.util.List;
 
 public class BridgeFinder extends GraphAlgorithm implements BridgeAlgorithm {
     private int time;
-    private int bridgeCount;
+
+    private BridgeFinder() {
+    }
+
+    public static BridgeFinder INSTANCE = new BridgeFinder();
 
     @Override
     public BridgeResult findBridges(IGraph graph) {

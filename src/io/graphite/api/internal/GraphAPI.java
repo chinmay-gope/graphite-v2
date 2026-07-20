@@ -1,11 +1,12 @@
-package io.graphite.api;
+package io.graphite.api.internal;
 
+import io.graphite.api.*;
 import io.graphite.graph.IGraph;
 
 /**
  * Base class for all Graphite API services.
  * <p>
- * A {@code GraphService} provides a high-level, user-friendly API over one or
+ * A {@code GraphAPI} provides a high-level, user-friendly API over one or
  * more graph algorithms while holding a reference to the target graph.
  * Concrete services expose operations such as traversal, shortest paths,
  * minimum spanning trees, connectivity analysis, and more.
@@ -13,16 +14,16 @@ import io.graphite.graph.IGraph;
  * Users should obtain service instances through the graph API rather than
  * creating them directly.
  *
- * @see BipartiteService
- * @see ConnectivityService
- * @see CycleService
- * @see EulerService
- * @see MSTService
- * @see ShortestPathService
- * @see TraversalService
- * @see TopologyService
+ * @see Bipartite
+ * @see Connectivity
+ * @see Cycle
+ * @see Euler
+ * @see MST
+ * @see ShortestPath
+ * @see Traversal
+ * @see Topology
  */
-public abstract class GraphService {
+public abstract class GraphAPI {
 
     /**
      * The graph associated with this service.
@@ -39,7 +40,7 @@ public abstract class GraphService {
      *
      * @param graph the graph this service operates on
      */
-    protected GraphService(IGraph graph) {
+    protected GraphAPI(IGraph graph) {
         this.graph = graph;
     }
 }

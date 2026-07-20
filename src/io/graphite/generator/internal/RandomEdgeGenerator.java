@@ -8,7 +8,6 @@ import java.util.concurrent.ThreadLocalRandom;
 public final class RandomEdgeGenerator {
 
     private RandomEdgeGenerator() {
-        throw new AssertionError("Utility class");
     }
 
     public static void generate(

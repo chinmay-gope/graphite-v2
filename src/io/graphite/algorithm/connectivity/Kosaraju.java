@@ -11,6 +11,12 @@ import java.util.Deque;
 import java.util.List;
 
 public class Kosaraju extends GraphAlgorithm implements SCCAlgorithm {
+
+    private Kosaraju() {
+    }
+
+    public static final Kosaraju INSTANCE = new Kosaraju();
+
     @Override
     public SCCResult findSCCs(IGraph graph) {
         validate(graph);

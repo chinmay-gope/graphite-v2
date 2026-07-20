@@ -10,6 +10,11 @@ import java.util.Arrays;
 
 public class FloydWarshall extends GraphAlgorithm implements AllPairsShortestPathAlgorithm {
 
+    private FloydWarshall() {
+    }
+
+    public static final FloydWarshall INSTANCE = new FloydWarshall();
+
     public static final int INF = Integer.MAX_VALUE;
 
     @Override

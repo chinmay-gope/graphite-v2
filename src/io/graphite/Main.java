@@ -8,7 +8,7 @@ public class Main {
     static void main() {
         IGraph graph = Graphs
                 .random()
-                .vertices(6)
+                .vertices(3)
                 .edges(3)
                 .immutable()
                 .generate();

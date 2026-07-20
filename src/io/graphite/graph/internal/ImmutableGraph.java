@@ -130,42 +130,42 @@ public final class ImmutableGraph implements IGraph {
 //    _____________________services______________________
 
     @Override
-    public BipartiteService bipartite() {
+    public Bipartite bipartite() {
         return graph.bipartite();
     }
 
     @Override
-    public ConnectivityService connectivity() {
+    public Connectivity connectivity() {
         return graph.connectivity();
     }
 
     @Override
-    public CycleService cycle() {
+    public Cycle cycle() {
         return graph.cycle();
     }
 
     @Override
-    public EulerService euler() {
+    public Euler euler() {
         return graph.euler();
     }
 
     @Override
-    public ShortestPathService shortestPath() {
+    public ShortestPath shortestPath() {
         return graph.shortestPath();
     }
 
     @Override
-    public TopologyService topology() {
+    public Topology topology() {
         return graph.topology();
     }
 
     @Override
-    public MSTService mst() {
+    public MST mst() {
         return graph.mst();
     }
 
     @Override
-    public TraversalService traversal() {
+    public Traversal traversal() {
         return graph.traversal();
     }
 

@@ -9,7 +9,6 @@ public final class DemoPrinter implements Colors {
             "════════════════════════════════════════════════════════════════════════════════";
 
     private DemoPrinter() {
-        throw new AssertionError("Utility class");
     }
 
     public static void printHeader(String title, IGraph graph) {

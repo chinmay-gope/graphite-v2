@@ -13,6 +13,10 @@ import java.util.List;
 import java.util.PriorityQueue;
 
 public class Prim extends GraphAlgorithm {
+    private Prim() {
+    }
+
+    public static Prim INSTANCE = new Prim();
 
     public MSTResult findMST(IGraph graph, int source) {
         validate(graph);

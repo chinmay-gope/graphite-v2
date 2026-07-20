@@ -5,6 +5,12 @@ import io.graphite.graph.IGraph;
 import io.graphite.model.Edge;
 
 public class DirectedCycleDetector extends GraphAlgorithm implements CycleDetectionAlgorithm {
+
+    private DirectedCycleDetector() {
+    }
+
+    public static DirectedCycleDetector INSTANCE = new DirectedCycleDetector();
+
     @Override
     public boolean hasCycle(IGraph graph) {
         validate(graph);

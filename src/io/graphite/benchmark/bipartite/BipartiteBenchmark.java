@@ -9,7 +9,7 @@ import io.graphite.graph.GraphFactory;
 
 public class BipartiteBenchmark {
     public static void stressBipartite() {
-        BipartiteAlgorithm bipartite = new BFSBipartiteChecker();
+        BipartiteAlgorithm bipartite = BFSBipartiteChecker.INSTANCE;
 
         StressRunner.run(
                 "Bipartite Stress Test (bfs)",
@@ -24,7 +24,7 @@ public class BipartiteBenchmark {
                 bipartite::isBipartite
         );
 
-        bipartite = new DFSBipartiteChecker();
+        bipartite = DFSBipartiteChecker.INSTANCE;
         StressRunner.run(
                 "Bipartite Stress Test (dfs)",
                 StressConfig.DEFAULT_CONFIG,

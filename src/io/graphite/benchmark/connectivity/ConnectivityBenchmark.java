@@ -8,7 +8,7 @@ import io.graphite.graph.GraphFactory;
 public class ConnectivityBenchmark {
     public static void stressBiConnected() {
 
-        BiconnectedAlgorithm components = new BiconnectedComponents();
+        BiconnectedAlgorithm components = BiconnectedComponents.INSTANCE;
 
         StressRunner.run(
                 "Biconnected Components Stress Test (sparse)",
@@ -40,7 +40,7 @@ public class ConnectivityBenchmark {
     }
 
     public static void stressAP() {
-        APAlgorithm finder = new APFinder();
+        APAlgorithm finder = APFinder.INSTANCE;
 
         StressRunner.run(
                 "ArticulationPoint Stress Test (sparse)",
@@ -72,7 +72,7 @@ public class ConnectivityBenchmark {
     }
 
     public static void stressBridges() {
-        BridgeAlgorithm bridges = new BridgeFinder();
+        BridgeAlgorithm bridges = BridgeFinder.INSTANCE;
 
         StressRunner.run(
                 "Bridge Stress Test (sparse)",
@@ -105,7 +105,7 @@ public class ConnectivityBenchmark {
 
     public static void stressSCCs() {
 
-        SCCAlgorithm scc = new Kosaraju();
+        SCCAlgorithm scc = Kosaraju.INSTANCE;
 
         StressRunner.run(
                 "SCC Stress Test (sparse)",

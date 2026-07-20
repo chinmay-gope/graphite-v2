@@ -9,7 +9,7 @@ import io.graphite.graph.IGraph;
 public class DirectedCycleDemo {
     static void main() {
         CycleDetectionAlgorithm detector =
-                new DirectedCycleDetector();
+                DirectedCycleDetector.INSTANCE;
         IGraph noCycleGraph = Graphs
                 .directed()
                 .addEdge(0, 1)

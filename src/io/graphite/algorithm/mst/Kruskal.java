@@ -14,6 +14,12 @@ import java.util.List;
 
 public class Kruskal extends GraphAlgorithm {
 
+    private Kruskal() {
+
+    }
+
+    public static final Kruskal INSTANCE = new Kruskal();
+
     public MSTResult findMST(IGraph graph) {
         validate(graph);
         requireUndirected(graph);

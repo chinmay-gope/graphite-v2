@@ -9,7 +9,7 @@ import static io.graphite.benchmark.StressRunner.randomSource;
 
 public class ShortestPathBenchmark {
     public static void stressDijkstra() {
-        ShortestPathAlgorithm dijkstra = new Dijkstra();
+        ShortestPathAlgorithm dijkstra = Dijkstra.INSTANCE;
 
         StressRunner.run(
                 "Dijkstra Stress Test",
@@ -20,7 +20,7 @@ public class ShortestPathBenchmark {
     }
 
     public static void stressBellmanFord() {
-        ShortestPathAlgorithm bellmanFord = new BellmanFord();
+        ShortestPathAlgorithm bellmanFord = BellmanFord.INSTANCE;
 
         StressRunner.run(
                 "BellmanFord Stress Test",
@@ -31,7 +31,7 @@ public class ShortestPathBenchmark {
     }
 
     public static void stressTestFloydWarshall() {
-        AllPairsShortestPathAlgorithm floydWarshall = new FloydWarshall();
+        AllPairsShortestPathAlgorithm floydWarshall = FloydWarshall.INSTANCE;
         StressRunner.run(
                 "FloydWarshall Stress Test",
                 StressConfig.FLOYD_CONFIG,

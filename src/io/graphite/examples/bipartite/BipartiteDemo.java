@@ -23,8 +23,8 @@ public class BipartiteDemo implements Colors {
         io.graphite.examples.util.GraphDemoPrinter.printHeader("Bipartite Even Cycle", graph);
         GraphPrinter.print(graph);
 
-        BipartiteAlgorithm bfsBipartiteChecker = new BFSBipartiteChecker();
-        BipartiteAlgorithm dfsBipartiteChecker = new DFSBipartiteChecker();
+        BipartiteAlgorithm bfsBipartiteChecker = BFSBipartiteChecker.INSTANCE;
+        BipartiteAlgorithm dfsBipartiteChecker = DFSBipartiteChecker.INSTANCE;
 
         checkIsBipartite(graph, dfsBipartiteChecker, bfsBipartiteChecker);
 

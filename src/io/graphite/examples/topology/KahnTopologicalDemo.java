@@ -22,7 +22,7 @@ public class KahnTopologicalDemo {
         GraphDemoPrinter.printHeader("Kahn Topological Sort", graph);
         GraphPrinter.printEdges(graph);
 
-        KahnTopologicalSort algorithm = new KahnTopologicalSort();
+        KahnTopologicalSort algorithm = KahnTopologicalSort.INSTANCE;
         System.out.println(algorithm.sort(graph));
 
         IGraph cyclic = Graphs

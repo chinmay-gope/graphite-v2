@@ -7,7 +7,6 @@ import io.graphite.result.Colors;
 public final class GraphPrinter implements Colors {
 
     private GraphPrinter() {
-        throw new AssertionError("No GraphPrinter instances for you!");
     }
 
     public static void print(IGraph graph) {

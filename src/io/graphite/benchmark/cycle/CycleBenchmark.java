@@ -10,7 +10,7 @@ import io.graphite.graph.GraphFactory;
 public class CycleBenchmark {
     public static void stressCycleDetection() {
 
-        CycleDetectionAlgorithm cycleDetector = new DirectedCycleDetector();
+        CycleDetectionAlgorithm cycleDetector = DirectedCycleDetector.INSTANCE;
 
         StressRunner.run(
                 "CycleDetection Stress Test (directed)",
@@ -19,7 +19,7 @@ public class CycleBenchmark {
                 cycleDetector::hasCycle
         );
 
-        cycleDetector = new UndirectedCycleDetector();
+        cycleDetector = UndirectedCycleDetector.INSTANCE;
         StressRunner.run(
                 "CycleDetection Stress Test (un-directed)",
                 StressConfig.DEFAULT_CONFIG,

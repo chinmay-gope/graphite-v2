@@ -21,8 +21,8 @@ public class TraversalDemo {
                 .addEdge(2, 6)
                 .build();
 
-        TraversalAlgorithm bfs = new BFS();
-        TraversalAlgorithm dfs = new DFS();
+        TraversalAlgorithm bfs = BFS.INSTANCE;
+        TraversalAlgorithm dfs = DFS.INSTANCE;
 
         GraphDemoPrinter.printHeader("Breadth First Search", graph);
         traversalAlgorithm(graph, bfs);

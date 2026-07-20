@@ -9,7 +9,7 @@ import io.graphite.graph.GraphFactory;
 
 public class TopologyBenchmark {
     public static void stressTestTopo() {
-        TopologicalAlgorithm topo = new DFSTopologicalSort();
+        TopologicalAlgorithm topo =  DFSTopologicalSort.INSTANCE;
         StressRunner.run(
                 "Topological Stress Test (dfs)",
                 StressConfig.DEFAULT_CONFIG,
@@ -17,7 +17,7 @@ public class TopologyBenchmark {
                 topo::sort
         );
 
-        topo = new KahnTopologicalSort();
+        topo = KahnTopologicalSort.INSTANCE;
         StressRunner.run(
                 "Topological Stress Test (Kahn)",
                 StressConfig.DEFAULT_CONFIG,

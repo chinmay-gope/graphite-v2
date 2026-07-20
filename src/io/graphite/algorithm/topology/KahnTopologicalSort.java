@@ -11,6 +11,12 @@ import java.util.List;
 import java.util.Queue;
 
 public class KahnTopologicalSort extends GraphAlgorithm implements TopologicalAlgorithm {
+
+    private KahnTopologicalSort() {
+    }
+
+    public static final KahnTopologicalSort INSTANCE = new KahnTopologicalSort();
+
     @Override
     public TopologicalSortResult sort(IGraph graph) {
         validate(graph);

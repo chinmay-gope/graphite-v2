@@ -10,6 +10,11 @@ import java.util.List;
 
 public class APFinder extends GraphAlgorithm implements APAlgorithm {
 
+    private APFinder() {
+    }
+
+    public static final APFinder INSTANCE = new APFinder();
+
     private int time;
 
     @Override

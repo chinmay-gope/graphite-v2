@@ -20,7 +20,7 @@ public class BridgeDemo {
         GraphDemoPrinter.printHeader("Bridge Detection", graph);
         GraphPrinter.printEdges(graph);
 
-        BridgeAlgorithm algorithm = new BridgeFinder();
+        BridgeAlgorithm algorithm = BridgeFinder.INSTANCE;
 
         BridgeResult result = algorithm.findBridges(graph);
         System.out.println(result);

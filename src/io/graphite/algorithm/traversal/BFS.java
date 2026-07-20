@@ -11,6 +11,12 @@ import java.util.List;
 import java.util.Queue;
 
 public class BFS extends GraphAlgorithm implements TraversalAlgorithm {
+
+    public static final BFS INSTANCE = new BFS();
+
+    private BFS() {
+    }
+
     @Override
     public TraversalResult traverse(IGraph graph, int source) {
 

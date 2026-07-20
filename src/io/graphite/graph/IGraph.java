@@ -94,21 +94,21 @@ public interface IGraph {
 
     // ========= Services =========
 
-    BipartiteService bipartite();
+    Bipartite bipartite();
 
-    ConnectivityService connectivity();
+    Connectivity connectivity();
 
-    CycleService cycle();
+    Cycle cycle();
 
-    EulerService euler();
+    Euler euler();
 
-    ShortestPathService shortestPath();
+    ShortestPath shortestPath();
 
-    TopologyService topology();
+    Topology topology();
 
-    MSTService mst();
+    MST mst();
 
-    TraversalService traversal();
+    Traversal traversal();
 
     GraphAnalysis analysis();
 }

@@ -25,7 +25,7 @@ public class DijkstraDemo {
         GraphDemoPrinter.printHeader("Dijkstra Shortest Path", graph);
         GraphPrinter.printEdges(graph);
 
-        ShortestPathAlgorithm algorithm = new Dijkstra();
+        ShortestPathAlgorithm algorithm = Dijkstra.INSTANCE;
 
         ShortestPathResult result = algorithm.shortestPath(graph, 0);
         System.out.println(result);

@@ -5,7 +5,6 @@ import io.graphite.exception.graph.InvalidGraphConfigurationException;
 
 public final class BuilderValidator {
     private BuilderValidator() {
-        throw new AssertionError("Utility class");
     }
 
     public static void validate(GraphConfiguration configuration) {

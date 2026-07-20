@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class MSTBenchmark {
     public static void stressPrim() {
-        Prim prim = new Prim();
+        Prim prim = Prim.INSTANCE;
 
         StressRunner.run(
                 "Prim Stress Test",
@@ -27,7 +27,7 @@ public class MSTBenchmark {
     }
 
     public static void stressKruskal() {
-        Kruskal kruskal = new Kruskal();
+        Kruskal kruskal =  Kruskal.INSTANCE;
 
         StressRunner.run(
                 "Kruskal Stress Test",

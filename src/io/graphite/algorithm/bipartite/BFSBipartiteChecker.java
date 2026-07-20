@@ -10,6 +10,12 @@ import java.util.Queue;
 
 public class BFSBipartiteChecker extends GraphAlgorithm implements BipartiteAlgorithm {
 
+    private BFSBipartiteChecker() {
+
+    }
+
+    public static final BFSBipartiteChecker INSTANCE = new BFSBipartiteChecker();
+
     @Override
     public boolean isBipartite(IGraph graph) {
         validate(graph);

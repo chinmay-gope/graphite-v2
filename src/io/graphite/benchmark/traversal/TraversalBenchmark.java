@@ -13,7 +13,7 @@ import static io.graphite.benchmark.StressRunner.randomSource;
 public class TraversalBenchmark {
     public static void stressBFS() {
 
-        TraversalAlgorithm bfs = new BFS();
+        TraversalAlgorithm bfs = BFS.INSTANCE;
 
         StressRunner.run(
                 "BFS Stress Test",
@@ -25,7 +25,7 @@ public class TraversalBenchmark {
 
     public static void stressDFS() {
 
-        TraversalAlgorithm dfs = new DFS();
+        TraversalAlgorithm dfs = DFS.INSTANCE;
 
         StressRunner.run(
                 "DFS Stress Test",

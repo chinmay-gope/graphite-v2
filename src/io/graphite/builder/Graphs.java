@@ -12,7 +12,6 @@ public final class Graphs {
     }
 
     private Graphs() {
-        throw new AssertionError("Utility class");
     }
 
     // Builders

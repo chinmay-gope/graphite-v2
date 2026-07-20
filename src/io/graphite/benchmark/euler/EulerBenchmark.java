@@ -13,7 +13,7 @@ import io.graphite.validation.EulerValidator;
 public class EulerBenchmark {
     public static void stressEulerPath() {
 
-        EulerAlgorithm algorithm = new Hierholzer();
+        EulerAlgorithm algorithm = Hierholzer.INSTANCE;
 
         StressRunner.run(
                 "Euler Path Stress Test",
@@ -31,7 +31,7 @@ public class EulerBenchmark {
 
     public static void stressEulerCircuit() {
 
-        EulerAlgorithm algorithm = new Hierholzer();
+        EulerAlgorithm algorithm = Hierholzer.INSTANCE;
 
         StressRunner.run(
                 "Euler Circuit Stress Test",
@@ -49,7 +49,7 @@ public class EulerBenchmark {
 
     public static void stressInvalidEulerGraph() {
 
-        EulerAlgorithm algorithm = new Hierholzer();
+        EulerAlgorithm algorithm = Hierholzer.INSTANCE;
 
         StressRunner.run(
                 "Invalid Euler Graph",
@@ -70,7 +70,7 @@ public class EulerBenchmark {
 
     public static void stressDisconnectedEulerGraph() {
 
-        EulerAlgorithm algorithm = new Hierholzer();
+        EulerAlgorithm algorithm = Hierholzer.INSTANCE;
 
         StressRunner.run(
                 "Disconnected Euler Graph",

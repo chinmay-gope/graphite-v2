@@ -11,6 +11,12 @@ import io.graphite.validation.GraphValidator;
 import java.util.PriorityQueue;
 
 public class Dijkstra extends GraphAlgorithm implements ShortestPathAlgorithm {
+
+    private Dijkstra() {
+    }
+
+    public static final Dijkstra INSTANCE = new Dijkstra();
+
     @Override
     public ShortestPathResult shortestPath(IGraph graph, int source) {
         validate(graph);

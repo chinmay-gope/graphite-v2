@@ -9,6 +9,12 @@ import io.graphite.result.ShortestPathResult;
 import java.util.List;
 
 public class BellmanFord extends GraphAlgorithm implements ShortestPathAlgorithm {
+
+    private BellmanFord() {
+    }
+
+    public static final BellmanFord INSTANCE = new BellmanFord();
+
     @Override
     public ShortestPathResult shortestPath(IGraph graph, int source) {
         validate(graph);
