@@ -4,6 +4,10 @@ import io.graphite.builder.GraphConfiguration;
 import io.graphite.graph.IGraph;
 
 public final class RandomGraphBuilder {
+
+    public RandomGraphBuilder() {
+    }
+
     private final GraphConfiguration configuration =
             new GraphConfiguration();
 

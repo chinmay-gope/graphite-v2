@@ -5,7 +5,7 @@ import io.graphite.algorithm.cycle.DirectedCycleDetector;
 import io.graphite.algorithm.cycle.UndirectedCycleDetector;
 import io.graphite.benchmark.StressConfig;
 import io.graphite.benchmark.StressRunner;
-import io.graphite.graph.GraphFactory;
+import io.graphite.generator.preset.GraphPresetFactory;
 
 public class CycleBenchmark {
     public static void stressCycleDetection() {
@@ -15,7 +15,7 @@ public class CycleBenchmark {
         StressRunner.run(
                 "CycleDetection Stress Test (directed)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphFactory::weightedGraph,
+                GraphPresetFactory::weightedGraph,
                 cycleDetector::hasCycle
         );
 
@@ -23,7 +23,7 @@ public class CycleBenchmark {
         StressRunner.run(
                 "CycleDetection Stress Test (un-directed)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphFactory::directedGraph,
+                GraphPresetFactory::directedGraph,
                 cycleDetector::hasCycle
         );
     }

@@ -4,6 +4,11 @@ import io.graphite.graph.IGraph;
 
 public final class GraphTransformFactory {
 
+    public static final GraphTransformFactory INSTANCE = new GraphTransformFactory();
+
+    private GraphTransformFactory() {
+    }
+
     public IGraph copy(IGraph graph) {
         return graph.copy();
     }
@@ -40,10 +45,17 @@ public final class GraphTransformFactory {
                 .transform(first, second);
     }
 
+    public IGraph compose(IGraph first,
+                          IGraph second) {
+
+        return new CompositionTransformer()
+                .transform(first, second);
+    }
+
     public IGraph matrixProduct(IGraph first,
                                 IGraph second) {
 
-        return new MatrixCompositionTransformer()
+        return new MatrixProductTransformer()
                 .transform(first, second);
     }
 }

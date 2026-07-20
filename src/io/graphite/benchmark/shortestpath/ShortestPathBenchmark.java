@@ -3,7 +3,7 @@ package io.graphite.benchmark.shortestpath;
 import io.graphite.algorithm.shortestpath.*;
 import io.graphite.benchmark.StressConfig;
 import io.graphite.benchmark.StressRunner;
-import io.graphite.graph.GraphFactory;
+import io.graphite.generator.preset.GraphPresetFactory;
 
 import static io.graphite.benchmark.StressRunner.randomSource;
 
@@ -14,7 +14,7 @@ public class ShortestPathBenchmark {
         StressRunner.run(
                 "Dijkstra Stress Test",
                 StressConfig.WEIGHTED_CONFIG,
-                GraphFactory::weightedGraph,
+                GraphPresetFactory::weightedGraph,
                 graph -> dijkstra.shortestPath(graph, randomSource(graph))
         );
     }
@@ -25,7 +25,7 @@ public class ShortestPathBenchmark {
         StressRunner.run(
                 "BellmanFord Stress Test",
                 StressConfig.WEIGHTED_CONFIG,
-                GraphFactory::weightedGraph,
+                GraphPresetFactory::weightedGraph,
                 graph -> bellmanFord.shortestPath(graph, randomSource(graph))
         );
     }
@@ -35,7 +35,7 @@ public class ShortestPathBenchmark {
         StressRunner.run(
                 "FloydWarshall Stress Test",
                 StressConfig.FLOYD_CONFIG,
-                GraphFactory::denseWeightedGraph,
+                GraphPresetFactory::denseWeightedGraph,
                 floydWarshall::shortestPaths
         );
     }

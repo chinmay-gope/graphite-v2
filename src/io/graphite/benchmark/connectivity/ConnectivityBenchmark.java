@@ -3,7 +3,7 @@ package io.graphite.benchmark.connectivity;
 import io.graphite.algorithm.connectivity.*;
 import io.graphite.benchmark.StressConfig;
 import io.graphite.benchmark.StressRunner;
-import io.graphite.graph.GraphFactory;
+import io.graphite.generator.preset.GraphPresetFactory;
 
 public class ConnectivityBenchmark {
     public static void stressBiConnected() {
@@ -13,28 +13,28 @@ public class ConnectivityBenchmark {
         StressRunner.run(
                 "Biconnected Components Stress Test (sparse)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphFactory::sparseGraph,
+                GraphPresetFactory::sparseGraph,
                 components::findBiconnectedComponents
         );
 
         StressRunner.run(
                 "Biconnected Components Stress Test (traversal)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphFactory::traversalGraph,
+                GraphPresetFactory::traversalGraph,
                 components::findBiconnectedComponents
         );
 
         StressRunner.run(
                 "Biconnected Components Stress Test (mst)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphFactory::mstGraph,
+                GraphPresetFactory::mstGraph,
                 components::findBiconnectedComponents
         );
 
         StressRunner.run(
                 "Biconnected Components Stress Test (dense)",
                 StressConfig.WEIGHTED_CONFIG,
-                GraphFactory::denseGraph,
+                GraphPresetFactory::denseGraph,
                 components::findBiconnectedComponents
         );
     }
@@ -45,28 +45,28 @@ public class ConnectivityBenchmark {
         StressRunner.run(
                 "ArticulationPoint Stress Test (sparse)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphFactory::sparseGraph,
+                GraphPresetFactory::sparseGraph,
                 finder::findArticulationPoints
         );
 
         StressRunner.run(
                 "ArticulationPoint Stress Test (traversal)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphFactory::traversalGraph,
+                GraphPresetFactory::traversalGraph,
                 finder::findArticulationPoints
         );
 
         StressRunner.run(
                 "ArticulationPoint Stress Test (mst)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphFactory::mstGraph,
+                GraphPresetFactory::mstGraph,
                 finder::findArticulationPoints
         );
 
         StressRunner.run(
                 "ArticulationPoint Stress Test (dense)",
                 StressConfig.WEIGHTED_CONFIG,
-                GraphFactory::denseGraph,
+                GraphPresetFactory::denseGraph,
                 finder::findArticulationPoints
         );
     }
@@ -77,28 +77,28 @@ public class ConnectivityBenchmark {
         StressRunner.run(
                 "Bridge Stress Test (sparse)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphFactory::sparseGraph,
+                GraphPresetFactory::sparseGraph,
                 bridges::findBridges
         );
 
         StressRunner.run(
                 "Bridge Stress Test (traversal)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphFactory::traversalGraph,
+                GraphPresetFactory::traversalGraph,
                 bridges::findBridges
         );
 
         StressRunner.run(
                 "Bridge Stress Test (mst)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphFactory::mstGraph,
+                GraphPresetFactory::mstGraph,
                 bridges::findBridges
         );
 
         StressRunner.run(
                 "Bridge Stress Test (dense)",
                 StressConfig.WEIGHTED_CONFIG,
-                GraphFactory::denseGraph,
+                GraphPresetFactory::denseGraph,
                 bridges::findBridges
         );
     }
@@ -110,21 +110,21 @@ public class ConnectivityBenchmark {
         StressRunner.run(
                 "SCC Stress Test (sparse)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphFactory::directedSparseGraph,
+                GraphPresetFactory::directedSparseGraph,
                 scc::findSCCs
         );
 
         StressRunner.run(
                 "SCC Stress Test (dag)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphFactory::dag,
+                GraphPresetFactory::dag,
                 scc::findSCCs
         );
 
         StressRunner.run(
                 "SCC Stress Test (dense)",
                 StressConfig.WEIGHTED_CONFIG,
-                GraphFactory::directedDenseGraph,
+                GraphPresetFactory::directedDenseGraph,
                 scc::findSCCs
         );
     }

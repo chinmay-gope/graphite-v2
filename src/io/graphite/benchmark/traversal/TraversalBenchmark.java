@@ -5,7 +5,7 @@ import io.graphite.algorithm.traversal.DFS;
 import io.graphite.algorithm.traversal.TraversalAlgorithm;
 import io.graphite.benchmark.StressConfig;
 import io.graphite.benchmark.StressRunner;
-import io.graphite.graph.GraphFactory;
+import io.graphite.generator.preset.GraphPresetFactory;
 
 import static io.graphite.benchmark.StressRunner.randomSource;
 
@@ -18,7 +18,7 @@ public class TraversalBenchmark {
         StressRunner.run(
                 "BFS Stress Test",
                 StressConfig.DEFAULT_CONFIG,
-                GraphFactory::traversalGraph,
+                GraphPresetFactory::traversalGraph,
                 graph -> bfs.traverse(graph, randomSource(graph))
         );
     }
@@ -30,13 +30,13 @@ public class TraversalBenchmark {
         StressRunner.run(
                 "DFS Stress Test",
                 StressConfig.DEFAULT_CONFIG,
-                GraphFactory::traversalGraph,
+                GraphPresetFactory::traversalGraph,
                 graph -> dfs.traverse(graph, randomSource(graph))
         );
         StressRunner.run(
                 "DFS Stress Test - (tree)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphFactory::treeGraph,
+                GraphPresetFactory::treeGraph,
                 graph -> dfs.traverse(graph, randomSource(graph))
         );
     }

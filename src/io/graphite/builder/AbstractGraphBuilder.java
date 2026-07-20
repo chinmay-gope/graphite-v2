@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.List;
 
 public abstract class AbstractGraphBuilder<G extends Graph, SELF extends AbstractGraphBuilder<G, SELF>> {
+
     protected final GraphConfiguration configuration = new GraphConfiguration();
 
     protected final List<Edge> edges =

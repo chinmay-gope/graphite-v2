@@ -5,7 +5,7 @@ import io.graphite.graph.UndirectedGraph;
 
 public final class UndirectedGraphBuilder extends AbstractGraphBuilder<UndirectedGraph, UndirectedGraphBuilder> {
 
-    public UndirectedGraphBuilder() {
+    UndirectedGraphBuilder() {
         configuration.setDirected(false);
     }
 

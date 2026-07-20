@@ -4,19 +4,20 @@ import io.graphite.api.analysis.GraphAnalysisResult;
 import io.graphite.builder.Graphs;
 import io.graphite.examples.util.DemoUtils;
 import io.graphite.exception.GraphException;
-import io.graphite.graph.GraphFactory;
+import io.graphite.exception.graph.ImmutableGraphException;
+import io.graphite.generator.preset.GraphPresetFactory;
 import io.graphite.graph.IGraph;
 import io.graphite.print.GraphPrinter;
 
 import java.io.IOException;
 import java.nio.file.Path;
 
-public final class GraphDemo {
+public final class MainExamples {
 
     private static final String PATH = "graph.txt";
 
     static void main() throws IOException {
-        new GraphDemo().executeThemAll();
+        new MainExamples().executeThemAll();
         readFromFile();
         writeToFile();
     }
@@ -69,6 +70,57 @@ public final class GraphDemo {
         GraphPrinter.compact(restored);
     }
 
+    private static void immutableDemo() {
+
+        header("Immutable Graph Demo");
+
+        IGraph graph = Graphs
+                .undirected()
+                .vertices(4)
+                .immutable(true)
+                .addEdge(0, 1)
+                .addEdge(1, 2)
+                .addEdge(2, 3)
+                .build();
+
+        System.out.println("Immutable Graph:");
+        print(graph);
+
+        System.out.println();
+
+        System.out.println("Trying addEdge()...");
+        try {
+            graph.addEdge(0, 3);
+            System.out.println("FAILED");
+        } catch (GraphException e) {
+            System.out.println("PASS : " + e.getMessage());
+        }
+
+        System.out.println();
+
+        System.out.println("Trying removeEdge()...");
+        try {
+            graph.removeEdge(1, 2);
+            System.out.println("FAILED");
+        } catch (GraphException e) {
+            System.out.println("PASS : " + e.getMessage());
+        }
+
+        System.out.println();
+
+        System.out.println("Trying clear()...");
+        try {
+            graph.clear();
+            System.out.println("FAILED");
+        } catch (GraphException e) {
+            System.out.println("PASS : " + e.getMessage());
+        }
+
+        System.out.println();
+
+        System.out.println("Graph is still intact:");
+        print(graph);
+    }
 
     // ---------------------------------------------------------
     // Graph Transformation
@@ -114,6 +166,9 @@ public final class GraphDemo {
         GraphPrinter.statistics(Graphs.transform().difference(g1, g2));
 
         header("MatrixProduct G1 ∘ G2");
+        GraphPrinter.statistics(Graphs.transform().matrixProduct(g1, g2));
+
+        header("Composition |E(G)| × |V(H)|²  |V(G)| × |E(H)|");
         GraphPrinter.statistics(Graphs.transform().matrixProduct(g1, g2));
     }
 
@@ -254,7 +309,13 @@ public final class GraphDemo {
 
         header("Builder Demo");
 
-        IGraph graph = Graphs.undirected().vertices(6).weighted(true).immutable(false).addEdge(0, 1, 5).addEdge(0, 2, 2).addEdge(1, 3, 7).addEdge(2, 4, 4).addEdge(4, 5, 1).build();
+        IGraph graph = Graphs.undirected().vertices(6).weighted(true).immutable(false)
+                .addEdge(0, 1, 5)
+                .addEdge(0, 2, 2)
+                .addEdge(1, 3, 7)
+                .addEdge(2, 4, 4)
+                .addEdge(4, 5, 1)
+                .build();
 
         print(graph);
 
@@ -270,50 +331,6 @@ public final class GraphDemo {
         print(rebuilt);
     }
 
-    // ---------------------------------------------------------
-    // Immutable
-    // ---------------------------------------------------------
-    private static void immutableDemo() {
-
-        header("Immutable Graph Demo");
-
-        IGraph graph = Graphs.undirected().vertices(5).immutable(true).addEdge(0, 1).addEdge(1, 2).addEdge(2, 3).build();
-
-        print(graph);
-
-        try {
-
-            graph.addEdge(3, 4);
-
-            System.out.println("FAILED");
-
-        } catch (Exception e) {
-
-            System.out.println("PASS : " + e.getMessage());
-        }
-
-        try {
-
-            graph.removeEdge(0, 1);
-
-            System.out.println("FAILED");
-
-        } catch (Exception e) {
-
-            System.out.println("PASS : " + e.getMessage());
-        }
-
-        try {
-
-            graph.clear();
-
-            System.out.println("FAILED");
-
-        } catch (Exception e) {
-
-            System.out.println("PASS : " + e.getMessage());
-        }
-    }
 
     // ---------------------------------------------------------
     // Copy
@@ -548,21 +565,21 @@ public final class GraphDemo {
 
         header("Graph Factory");
 
-        DemoUtils.run("Traversal Graph", () -> GraphFactory.traversalGraph(10));
+        DemoUtils.run("Traversal Graph", () -> GraphPresetFactory.traversalGraph(10));
 
-        DemoUtils.run("Shortest Path Graph", () -> GraphFactory.denseGraph(10));
+        DemoUtils.run("Shortest Path Graph", () -> GraphPresetFactory.denseGraph(10));
 
-        DemoUtils.run("Minimum Spanning Tree Graph", () -> GraphFactory.mstGraph(10));
+        DemoUtils.run("Minimum Spanning Tree Graph", () -> GraphPresetFactory.mstGraph(10));
 
-        DemoUtils.run("Directed Dense Graph", () -> GraphFactory.directedDenseGraph(10));
+        DemoUtils.run("Directed Dense Graph", () -> GraphPresetFactory.directedDenseGraph(10));
 
-        DemoUtils.run("Dense Graph", () -> GraphFactory.denseGraph(10));
+        DemoUtils.run("Dense Graph", () -> GraphPresetFactory.denseGraph(10));
 
-        DemoUtils.run("Directed Acyclic Graph (DAG)", () -> GraphFactory.dag(10));
+        DemoUtils.run("Directed Acyclic Graph (DAG)", () -> GraphPresetFactory.dag(10));
 
-        DemoUtils.run("Tree Graph", () -> GraphFactory.treeGraph(10));
+        DemoUtils.run("Tree Graph", () -> GraphPresetFactory.treeGraph(10));
 
-        DemoUtils.run("Bipartite Graph", () -> GraphFactory.bipartiteGraph(10));
+        DemoUtils.run("Bipartite Graph", () -> GraphPresetFactory.bipartiteGraph(10));
     }
 
 // ---------------------------------------------------------
@@ -643,6 +660,6 @@ public final class GraphDemo {
         System.out.println("Edges    : " + graph.edgeCount());
         System.out.println("Directed : " + graph.isDirected());
         System.out.println("Weighted : " + graph.isWeighted());
-        System.out.println("Immutable: " + graph.asImmutable().getClass());
+        System.out.println("Immutable: " + graph.getClass());
     }
 }

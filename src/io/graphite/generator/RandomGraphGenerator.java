@@ -7,8 +7,8 @@ import io.graphite.generator.internal.EdgeTracker;
 import io.graphite.generator.internal.RandomEdgeGenerator;
 import io.graphite.generator.internal.RandomWeightGenerator;
 import io.graphite.generator.internal.SpanningTreeGenerator;
-import io.graphite.validation.RandomGraphValidator;
 import io.graphite.graph.IGraph;
+import io.graphite.validation.RandomGraphValidator;
 
 import java.util.concurrent.ThreadLocalRandom;
 

@@ -5,7 +5,7 @@ import io.graphite.algorithm.bipartite.BipartiteAlgorithm;
 import io.graphite.algorithm.bipartite.DFSBipartiteChecker;
 import io.graphite.benchmark.StressConfig;
 import io.graphite.benchmark.StressRunner;
-import io.graphite.graph.GraphFactory;
+import io.graphite.generator.preset.GraphPresetFactory;
 
 public class BipartiteBenchmark {
     public static void stressBipartite() {
@@ -14,13 +14,13 @@ public class BipartiteBenchmark {
         StressRunner.run(
                 "Bipartite Stress Test (bfs)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphFactory::weightedGraph,
+                GraphPresetFactory::weightedGraph,
                 bipartite::isBipartite
         );
         StressRunner.run(
                 "Bipartite Stress Test (bfs - bipartiteGraph)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphFactory::bipartiteGraph,
+                GraphPresetFactory::bipartiteGraph,
                 bipartite::isBipartite
         );
 
@@ -28,13 +28,13 @@ public class BipartiteBenchmark {
         StressRunner.run(
                 "Bipartite Stress Test (dfs)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphFactory::bipartiteGraph,
+                GraphPresetFactory::bipartiteGraph,
                 bipartite::isBipartite
         );
         StressRunner.run(
                 "Bipartite Stress Test (dfs - bipartiteGraph)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphFactory::bipartiteGraph,
+                GraphPresetFactory::bipartiteGraph,
                 bipartite::isBipartite
         );
 

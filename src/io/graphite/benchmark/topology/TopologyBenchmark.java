@@ -5,7 +5,7 @@ import io.graphite.algorithm.topology.KahnTopologicalSort;
 import io.graphite.algorithm.topology.TopologicalAlgorithm;
 import io.graphite.benchmark.StressConfig;
 import io.graphite.benchmark.StressRunner;
-import io.graphite.graph.GraphFactory;
+import io.graphite.generator.preset.GraphPresetFactory;
 
 public class TopologyBenchmark {
     public static void stressTestTopo() {
@@ -13,7 +13,7 @@ public class TopologyBenchmark {
         StressRunner.run(
                 "Topological Stress Test (dfs)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphFactory::dag,
+                GraphPresetFactory::dag,
                 topo::sort
         );
 
@@ -21,7 +21,7 @@ public class TopologyBenchmark {
         StressRunner.run(
                 "Topological Stress Test (Kahn)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphFactory::dag,
+                GraphPresetFactory::dag,
                 topo::sort
         );
 

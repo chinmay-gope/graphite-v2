@@ -3,7 +3,9 @@ package io.graphite.graph;
 import io.graphite.generator.pattern.*;
 
 public final class PatternGraphFactory {
-    public PatternGraphFactory() {
+
+    public static final PatternGraphFactory INSTANCE = new PatternGraphFactory();
+    private PatternGraphFactory() {
     }
 
     // Patterns

@@ -5,7 +5,7 @@ import io.graphite.graph.GraphFactory;
 import io.graphite.graph.IGraph;
 import io.graphite.model.Edge;
 
-public final class MatrixCompositionTransformer extends GraphTransformer {
+public final class MatrixProductTransformer extends GraphTransformer {
 
     public IGraph transform(IGraph first, IGraph second) {
         validate(first, second);
