@@ -19,7 +19,7 @@ public class DFSTopologicalSort extends GraphAlgorithm implements TopologicalAlg
     private DFSTopologicalSort() {
     }
 
-    public static DFSTopologicalSort INSTANCE = new DFSTopologicalSort();
+    public static final DFSTopologicalSort INSTANCE = new DFSTopologicalSort();
 
     @Override
     public TopologicalSortResult sort(IGraph graph) {

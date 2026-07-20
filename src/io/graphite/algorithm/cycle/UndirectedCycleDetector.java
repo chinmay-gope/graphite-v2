@@ -10,7 +10,7 @@ public class UndirectedCycleDetector extends GraphAlgorithm implements CycleDete
     private UndirectedCycleDetector() {
     }
 
-    public static UndirectedCycleDetector INSTANCE = new UndirectedCycleDetector();
+    public static final UndirectedCycleDetector INSTANCE = new UndirectedCycleDetector();
 
     @Override
     public boolean hasCycle(IGraph graph) {

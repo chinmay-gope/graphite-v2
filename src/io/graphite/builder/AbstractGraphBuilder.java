@@ -3,6 +3,7 @@ package io.graphite.builder;
 import io.graphite.graph.Graph;
 import io.graphite.graph.IGraph;
 import io.graphite.model.Edge;
+import io.graphite.validation.BuilderValidator;
 
 import java.util.ArrayList;
 import java.util.Collection;

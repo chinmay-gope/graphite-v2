@@ -51,16 +51,6 @@ public final class DemoPrinter implements Colors {
         printLine();
     }
 
-    public static void printSubSection(String title) {
-
-        System.out.printf(
-                "%s➜ %s%s%n",
-                CYAN,
-                title,
-                RESET
-        );
-    }
-
     public static void printSuccess() {
 
         System.out.println(

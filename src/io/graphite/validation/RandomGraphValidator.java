@@ -1,4 +1,4 @@
-package io.graphite.generator.validation;
+package io.graphite.validation;
 
 import io.graphite.builder.GraphConfiguration;
 import io.graphite.exception.graph.InvalidGraphConfigurationException;

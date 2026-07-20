@@ -15,7 +15,7 @@ public class BridgeFinder extends GraphAlgorithm implements BridgeAlgorithm {
     private BridgeFinder() {
     }
 
-    public static BridgeFinder INSTANCE = new BridgeFinder();
+    public static final BridgeFinder INSTANCE = new BridgeFinder();
 
     @Override
     public BridgeResult findBridges(IGraph graph) {

@@ -1,6 +1,7 @@
-package io.graphite.builder;
+package io.graphite.validation;
 
 
+import io.graphite.builder.GraphConfiguration;
 import io.graphite.exception.graph.InvalidGraphConfigurationException;
 
 public final class BuilderValidator {

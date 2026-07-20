@@ -17,7 +17,7 @@ public class Prim extends GraphAlgorithm {
     private Prim() {
     }
 
-    public static Prim INSTANCE = new Prim();
+    public static final Prim INSTANCE = new Prim();
 
     public MSTResult findMST(IGraph graph, int source) {
         GraphPreconditions.requireGraph(graph);

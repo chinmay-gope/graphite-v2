@@ -17,8 +17,8 @@ public final class GraphDemo {
 
     static void main() throws IOException {
         new GraphDemo().executeThemAll();
-        writeToFile();
         readFromFile();
+        writeToFile();
     }
 
 
@@ -44,6 +44,8 @@ public final class GraphDemo {
         completeBipartiteGeneratorDemo();
         bipartiteGeneratorDemo();
 
+        graphTransformDemo();
+
         generatorStressDemo();
 
         graphFactoryDemo();
@@ -65,6 +67,54 @@ public final class GraphDemo {
 
         System.out.println("Restored Graph:");
         GraphPrinter.compact(restored);
+    }
+
+
+    // ---------------------------------------------------------
+    // Graph Transformation
+    // ---------------------------------------------------------
+    private static void graphTransformDemo() {
+        IGraph g1 = Graphs
+                .undirected()
+                .vertices(5)
+                .weighted(true)
+                .addEdge(0, 1, 5)
+                .addEdge(1, 2, 7)
+                .addEdge(3, 4, 2)
+                .build();
+
+        IGraph g2 = Graphs
+                .undirected()
+                .vertices(5)
+                .weighted(true)
+                .addEdge(1, 2, 7)
+                .addEdge(2, 3, 4)
+                .addEdge(0, 4, 9)
+                .build();
+
+        header("Original G1");
+        GraphPrinter.statistics(g1);
+
+        header("Original G2");
+        GraphPrinter.statistics(g2);
+
+        header("Copy of G1");
+        GraphPrinter.statistics(Graphs.transform().copy(g1));
+
+        header("Merge G1 + G2");
+        GraphPrinter.statistics(Graphs.transform().merge(g1, g2));
+
+        header("Union G1 ∪ G2");
+        GraphPrinter.statistics(Graphs.transform().union(g1, g2));
+
+        header("Intersection G1 ∩ G2");
+        GraphPrinter.statistics(Graphs.transform().intersection(g1, g2));
+
+        header("Difference G1 − G2");
+        GraphPrinter.statistics(Graphs.transform().difference(g1, g2));
+
+        header("MatrixProduct G1 ∘ G2");
+        GraphPrinter.statistics(Graphs.transform().matrixProduct(g1, g2));
     }
 
     // ---------------------------------------------------------

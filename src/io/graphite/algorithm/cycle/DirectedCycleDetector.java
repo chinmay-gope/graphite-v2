@@ -10,7 +10,7 @@ public class DirectedCycleDetector extends GraphAlgorithm implements CycleDetect
     private DirectedCycleDetector() {
     }
 
-    public static DirectedCycleDetector INSTANCE = new DirectedCycleDetector();
+    public static final DirectedCycleDetector INSTANCE = new DirectedCycleDetector();
 
     @Override
     public boolean hasCycle(IGraph graph) {
