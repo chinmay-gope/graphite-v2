@@ -3,7 +3,6 @@ package io.graphite.graph.transform;
 import io.graphite.builder.GraphConfiguration;
 import io.graphite.graph.GraphFactory;
 import io.graphite.graph.IGraph;
-import io.graphite.model.Edge;
 
 public final class UnionTransformer extends GraphTransformer {
 
@@ -11,41 +10,14 @@ public final class UnionTransformer extends GraphTransformer {
         validate(first, second);
 
         GraphConfiguration config = configuration(first);
-
-        int vertices = Math.max(
-                first.vertexCount(),
-                second.vertexCount()
-        );
-
-        config.setVertices(vertices);
+        config.setVertices(Math.max(first.vertexCount(), second.vertexCount()));
 
         IGraph union = GraphFactory.create(config);
 
-        addUniqueEdges(union, first);
-        addUniqueEdges(union, second);
+        copyEdges(union, first, edge -> true);
+        copyEdges(union, second,
+                edge -> !union.hasEdge(edge.source(), edge.destination()));
 
         return union;
-    }
-
-    private void addUniqueEdges(IGraph destination, IGraph source) {
-        for (Edge edge : source.edges()) {
-            if (source.isWeighted()) {
-                if (destination.hasEdge(edge.source(),
-                        edge.destination())) {
-                    continue;
-                }
-
-                destination.addEdge(
-                        edge.source(),
-                        edge.destination(),
-                        edge.weight()
-                );
-            } else {
-                destination.addEdge(
-                        edge.source(),
-                        edge.destination()
-                );
-            }
-        }
     }
 }
