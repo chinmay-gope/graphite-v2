@@ -9,6 +9,14 @@ public record AllPairsShortestPathResult(int[][] distance) implements Colors {
                 .toArray(int[][]::new);
     }
 
+    public int distance(int source, int destination) {
+        return distance[source][destination];
+    }
+
+    public boolean isReachable(int source, int destination) {
+        return distance[source][destination] != Integer.MAX_VALUE;
+    }
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();

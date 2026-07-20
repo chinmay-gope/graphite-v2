@@ -4,6 +4,7 @@ import io.graphite.algorithm.GraphAlgorithm;
 import io.graphite.graph.IGraph;
 import io.graphite.model.Edge;
 import io.graphite.result.APResult;
+import io.graphite.validation.GraphPreconditions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +20,8 @@ public class APFinder extends GraphAlgorithm implements APAlgorithm {
 
     @Override
     public APResult findArticulationPoints(IGraph graph) {
-        validate(graph);
-        requireUndirected(graph);
+        GraphPreconditions.requireGraph(graph);
+        GraphPreconditions.requireUndirected(graph);
 
         boolean[] visited = booleans(graph);
 

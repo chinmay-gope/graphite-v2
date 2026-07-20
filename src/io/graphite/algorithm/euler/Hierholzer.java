@@ -7,6 +7,7 @@ import io.graphite.graph.IGraph;
 import io.graphite.model.Edge;
 import io.graphite.result.EulerResult;
 import io.graphite.util.GraphUtils;
+import io.graphite.validation.GraphPreconditions;
 
 import java.util.*;
 
@@ -20,8 +21,8 @@ public class Hierholzer extends GraphAlgorithm implements EulerAlgorithm {
 
     @Override
     public EulerResult findEulerPath(IGraph graph) {
-        validate(graph);
-        requireUndirected(graph);
+        GraphPreconditions.requireGraph(graph);
+        GraphPreconditions.requireUndirected(graph);
 
         if (!GraphUtils.isConnected(graph)) {
             throw new GraphDisconnectedException("Euler path requires a connected graph.");
@@ -41,8 +42,8 @@ public class Hierholzer extends GraphAlgorithm implements EulerAlgorithm {
 
     @Override
     public EulerResult findEulerCircuit(IGraph graph) {
-        validate(graph);
-        requireUndirected(graph);
+        GraphPreconditions.requireGraph(graph);
+        GraphPreconditions.requireUndirected(graph);
 
         if (!GraphUtils.isConnected(graph)) {
             throw new GraphDisconnectedException("Euler circuit requires a connected graph.");

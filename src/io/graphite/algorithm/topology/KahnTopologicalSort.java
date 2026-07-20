@@ -5,6 +5,7 @@ import io.graphite.exception.algorithm.GraphCycleException;
 import io.graphite.graph.IGraph;
 import io.graphite.model.Edge;
 import io.graphite.result.TopologicalSortResult;
+import io.graphite.validation.GraphPreconditions;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -19,8 +20,8 @@ public class KahnTopologicalSort extends GraphAlgorithm implements TopologicalAl
 
     @Override
     public TopologicalSortResult sort(IGraph graph) {
-        validate(graph);
-        requireDirected(graph);
+        GraphPreconditions.requireGraph(graph);
+        GraphPreconditions.requireDirected(graph);
 
         int vertices = graph.getVertices();
 

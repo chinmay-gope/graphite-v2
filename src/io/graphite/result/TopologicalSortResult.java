@@ -7,6 +7,26 @@ public record TopologicalSortResult(List<Integer> order) {
         order = List.copyOf(order);
     }
 
+    public int size() {
+        return order.size();
+    }
+
+    public boolean isEmpty() {
+        return order.isEmpty();
+    }
+
+    public boolean contains(int vertex) {
+        return order.contains(vertex);
+    }
+
+    public int first() {
+        return order.getFirst();
+    }
+
+    public int last() {
+        return order.getLast();
+    }
+
     @Override
     public String toString() {
         return "Topological Order: " + order;

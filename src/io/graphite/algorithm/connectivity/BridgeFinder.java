@@ -4,6 +4,7 @@ import io.graphite.algorithm.GraphAlgorithm;
 import io.graphite.graph.IGraph;
 import io.graphite.model.Edge;
 import io.graphite.result.BridgeResult;
+import io.graphite.validation.GraphPreconditions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +19,8 @@ public class BridgeFinder extends GraphAlgorithm implements BridgeAlgorithm {
 
     @Override
     public BridgeResult findBridges(IGraph graph) {
-        validate(graph);
-        requireUndirected(graph);
+        GraphPreconditions.requireGraph(graph);
+        GraphPreconditions.requireUndirected(graph);
 
         boolean[] visited = booleans(graph);
 

@@ -5,6 +5,7 @@ import io.graphite.exception.algorithm.NegativeCycleException;
 import io.graphite.graph.IGraph;
 import io.graphite.model.Edge;
 import io.graphite.result.ShortestPathResult;
+import io.graphite.validation.GraphPreconditions;
 
 import java.util.List;
 
@@ -17,24 +18,26 @@ public class BellmanFord extends GraphAlgorithm implements ShortestPathAlgorithm
 
     @Override
     public ShortestPathResult shortestPath(IGraph graph, int source) {
-        validate(graph);
-        validateVertex(graph, source);
+        GraphPreconditions.requireGraph(graph);
+        GraphPreconditions.requireVertex(graph, source);
 
         int[] distance = ints(graph, Integer.MAX_VALUE);
+        int[] parent = ints(graph, -1);
 
         distance[source] = 0;
 
-        List<Edge> edges = graph.getEdges();
+        List<Edge> edges = edges(graph);
 
-        relaxEdges(edges, distance, graph.getVertices());
+        relaxEdges(edges, distance, parent, graph.getVertices());
 
         detectNegativeCycle(edges, distance);
 
-        return new ShortestPathResult(source, distance);
+        return new ShortestPathResult(source, distance, parent);
     }
 
     private void relaxEdges(List<Edge> edges,
                             int[] distance,
+                            int[] parent,
                             int vertices) {
 
         for (int i = 1; i < vertices; i++) {
@@ -48,6 +51,7 @@ public class BellmanFord extends GraphAlgorithm implements ShortestPathAlgorithm
                         distance[u] + wt < distance[v]) {
 
                     distance[v] = distance[u] + wt;
+                    parent[v] = u;
                 }
             }
         }

@@ -3,6 +3,7 @@ package io.graphite.algorithm.bipartite;
 import io.graphite.algorithm.GraphAlgorithm;
 import io.graphite.graph.IGraph;
 import io.graphite.model.Edge;
+import io.graphite.validation.GraphPreconditions;
 import io.graphite.validation.GraphValidator;
 
 public class DFSBipartiteChecker
@@ -16,8 +17,8 @@ public class DFSBipartiteChecker
 
     @Override
     public boolean isBipartite(IGraph graph) {
-        validate(graph);
-        requireUndirected(graph);
+        GraphPreconditions.requireGraph(graph);
+        GraphPreconditions.requireUndirected(graph);
 
         if (GraphValidator.hasSelfLoop(graph)) {
             return false;

@@ -22,7 +22,5 @@ public class Main {
         GraphPrinter.statistics(graph);
         GraphPrinter.dot(graph);
         GraphPrinter.mermaid(graph);
-        GraphPrinter.json(graph);
-//        graph.write().json();
     }
 }

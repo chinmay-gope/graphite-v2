@@ -3,6 +3,7 @@ package io.graphite.algorithm.cycle;
 import io.graphite.algorithm.GraphAlgorithm;
 import io.graphite.graph.IGraph;
 import io.graphite.model.Edge;
+import io.graphite.validation.GraphPreconditions;
 
 public class DirectedCycleDetector extends GraphAlgorithm implements CycleDetectionAlgorithm {
 
@@ -13,7 +14,7 @@ public class DirectedCycleDetector extends GraphAlgorithm implements CycleDetect
 
     @Override
     public boolean hasCycle(IGraph graph) {
-        validate(graph);
+        GraphPreconditions.requireGraph(graph);
 
         boolean[] visited = booleans(graph);
         boolean[] recursionStack = booleans(graph);
