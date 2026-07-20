@@ -5,7 +5,7 @@ import io.graphite.graph.GraphFactory;
 import io.graphite.graph.IGraph;
 import io.graphite.model.Edge;
 
-public final class CompositionTransformer extends GraphTransformer {
+public final class MatrixCompositionTransformer extends GraphTransformer {
 
     public IGraph transform(IGraph first, IGraph second) {
         validate(first, second);
@@ -17,20 +17,17 @@ public final class CompositionTransformer extends GraphTransformer {
 
         IGraph composition = GraphFactory.create(config);
 
-        // Build adjacency matrices
         int[][] A = buildMatrix(first, vertices);
         int[][] B = buildMatrix(second, vertices);
 
-        // Matrix multiplication
+        // Use Strassen’s algorithm instead of naive multiplication
+        int[][] C = strassenMultiply(A, B);
+
         for (int i = 0; i < vertices; i++) {
             for (int j = 0; j < vertices; j++) {
-                int weight = 0;
-                for (int k = 0; k < vertices; k++) {
-                    weight += A[i][k] * B[k][j];
-                }
-                if (weight > 0) {
+                if (C[i][j] > 0) {
                     if (first.isWeighted() || second.isWeighted()) {
-                        composition.addEdge(i, j, weight);
+                        composition.addEdge(i, j, C[i][j]);
                     } else {
                         composition.addEdge(i, j);
                     }
@@ -48,5 +45,10 @@ public final class CompositionTransformer extends GraphTransformer {
                     graph.isWeighted() ? edge.weight() : 1;
         }
         return matrix;
+    }
+
+    // Simplified Strassen’s multiplication (recursive)
+    private int[][] strassenMultiply(int[][] A, int[][] B) {
+        return StrassenMatrix.multiply(A, B);
     }
 }

@@ -40,10 +40,10 @@ public final class GraphTransformFactory {
                 .transform(first, second);
     }
 
-    public IGraph compose(IGraph first,
-                          IGraph second) {
+    public IGraph matrixProduct(IGraph first,
+                                IGraph second) {
 
-        return new CompositionTransformer()
+        return new MatrixCompositionTransformer()
                 .transform(first, second);
     }
 }
