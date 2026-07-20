@@ -55,24 +55,13 @@ public final class GraphDemo {
     }
 
     private static void writeToFile() throws IOException {
-        IGraph graph = Graphs
-                .undirected()
-                .vertices(6)
-                .addEdge(0, 1)
-                .addEdge(1, 2)
-                .addEdge(2, 3)
-                .addEdge(3, 4)
-                .addEdge(4, 5)
-                .build();
+        IGraph graph = Graphs.undirected().vertices(6).addEdge(0, 1).addEdge(1, 2).addEdge(2, 3).addEdge(3, 4).addEdge(4, 5).build();
 
-        graph.write()
-                .edgeList(Path.of(PATH));
+        graph.write().edgeList(Path.of(PATH));
     }
 
     private static void readFromFile() throws IOException {
-        IGraph restored =
-                Graphs.read()
-                        .edgeList(Path.of(PATH));
+        IGraph restored = Graphs.read().edgeList(Path.of(PATH));
 
         System.out.println("Restored Graph:");
         GraphPrinter.compact(restored);
@@ -89,15 +78,7 @@ public final class GraphDemo {
         // Traversal
         // ==========================================================
 
-        IGraph traversal = Graphs
-                .undirected()
-                .vertices(6)
-                .addEdge(0, 1)
-                .addEdge(0, 2)
-                .addEdge(1, 3)
-                .addEdge(2, 4)
-                .addEdge(4, 5)
-                .build();
+        IGraph traversal = Graphs.undirected().vertices(6).addEdge(0, 1).addEdge(0, 2).addEdge(1, 3).addEdge(2, 4).addEdge(4, 5).build();
 
         System.out.println("\nTraversal");
         print(traversal);
@@ -109,15 +90,7 @@ public final class GraphDemo {
         // Cycle Detection
         // ==========================================================
 
-        IGraph cycle = Graphs
-                .undirected()
-                .vertices(5)
-                .addEdge(0, 1)
-                .addEdge(1, 2)
-                .addEdge(2, 0)
-                .addEdge(2, 3)
-                .addEdge(3, 4)
-                .build();
+        IGraph cycle = Graphs.undirected().vertices(5).addEdge(0, 1).addEdge(1, 2).addEdge(2, 0).addEdge(2, 3).addEdge(3, 4).build();
 
         System.out.println("\nCycle Detection");
         print(cycle);
@@ -128,16 +101,7 @@ public final class GraphDemo {
         // Bipartite
         // ==========================================================
 
-        IGraph bipartite = Graphs
-                .undirected()
-                .vertices(6)
-                .addEdge(0, 3)
-                .addEdge(0, 4)
-                .addEdge(1, 3)
-                .addEdge(1, 5)
-                .addEdge(2, 4)
-                .addEdge(2, 5)
-                .build();
+        IGraph bipartite = Graphs.undirected().vertices(6).addEdge(0, 3).addEdge(0, 4).addEdge(1, 3).addEdge(1, 5).addEdge(2, 4).addEdge(2, 5).build();
 
         System.out.println("\nBipartite");
         print(bipartite);
@@ -149,18 +113,7 @@ public final class GraphDemo {
         // Minimum Spanning Tree
         // ==========================================================
 
-        IGraph mst = Graphs
-                .undirected()
-                .weighted(true)
-                .vertices(5)
-                .addEdge(0, 1, 2)
-                .addEdge(0, 2, 6)
-                .addEdge(1, 2, 3)
-                .addEdge(1, 3, 8)
-                .addEdge(1, 4, 5)
-                .addEdge(2, 4, 7)
-                .addEdge(3, 4, 9)
-                .build();
+        IGraph mst = Graphs.undirected().weighted(true).vertices(5).addEdge(0, 1, 2).addEdge(0, 2, 6).addEdge(1, 2, 3).addEdge(1, 3, 8).addEdge(1, 4, 5).addEdge(2, 4, 7).addEdge(3, 4, 9).build();
 
         System.out.println("\nMinimum Spanning Tree");
         print(mst);
@@ -172,21 +125,7 @@ public final class GraphDemo {
         // Shortest Path
         // ==========================================================
 
-        IGraph shortest = Graphs
-                .directed()
-                .weighted(true)
-                .vertices(5)
-                .addEdge(0, 1, 10)
-                .addEdge(0, 3, 5)
-                .addEdge(1, 2, 1)
-                .addEdge(1, 3, 2)
-                .addEdge(2, 4, 4)
-                .addEdge(3, 1, 3)
-                .addEdge(3, 2, 9)
-                .addEdge(3, 4, 2)
-                .addEdge(4, 0, 7)
-                .addEdge(4, 2, 6)
-                .build();
+        IGraph shortest = Graphs.directed().weighted(true).vertices(5).addEdge(0, 1, 10).addEdge(0, 3, 5).addEdge(1, 2, 1).addEdge(1, 3, 2).addEdge(2, 4, 4).addEdge(3, 1, 3).addEdge(3, 2, 9).addEdge(3, 4, 2).addEdge(4, 0, 7).addEdge(4, 2, 6).build();
 
         System.out.println("\nShortest Path");
         print(shortest);
@@ -199,17 +138,7 @@ public final class GraphDemo {
         // Connectivity
         // ==========================================================
 
-        IGraph connectivity = Graphs
-                .undirected()
-                .vertices(7)
-                .addEdge(0, 1)
-                .addEdge(1, 2)
-                .addEdge(2, 0)
-                .addEdge(1, 3)
-                .addEdge(3, 4)
-                .addEdge(3, 5)
-                .addEdge(5, 6)
-                .build();
+        IGraph connectivity = Graphs.undirected().vertices(7).addEdge(0, 1).addEdge(1, 2).addEdge(2, 0).addEdge(1, 3).addEdge(3, 4).addEdge(3, 5).addEdge(5, 6).build();
 
         System.out.println("\nConnectivity");
         print(connectivity);
@@ -222,15 +151,7 @@ public final class GraphDemo {
         // Strongly Connected Components
         // ==========================================================
 
-        IGraph scc = Graphs
-                .directed()
-                .vertices(5)
-                .addEdge(0, 1)
-                .addEdge(1, 2)
-                .addEdge(2, 0)
-                .addEdge(1, 3)
-                .addEdge(3, 4)
-                .build();
+        IGraph scc = Graphs.directed().vertices(5).addEdge(0, 1).addEdge(1, 2).addEdge(2, 0).addEdge(1, 3).addEdge(3, 4).build();
 
         System.out.println("\nStrongly Connected Components");
         print(scc);
@@ -241,16 +162,7 @@ public final class GraphDemo {
         // Topological Sorting
         // ==========================================================
 
-        IGraph dag = Graphs
-                .directed()
-                .vertices(6)
-                .addEdge(5, 2)
-                .addEdge(5, 0)
-                .addEdge(4, 0)
-                .addEdge(4, 1)
-                .addEdge(2, 3)
-                .addEdge(3, 1)
-                .build();
+        IGraph dag = Graphs.directed().vertices(6).addEdge(5, 2).addEdge(5, 0).addEdge(4, 0).addEdge(4, 1).addEdge(2, 3).addEdge(3, 1).build();
 
         System.out.println("\nTopological Sort");
         print(dag);
@@ -271,16 +183,7 @@ public final class GraphDemo {
         // Euler
         // ==========================================================
 
-        IGraph euler = Graphs
-                .undirected()
-                .vertices(5)
-                .addEdge(0, 1)
-                .addEdge(1, 2)
-                .addEdge(2, 3)
-                .addEdge(3, 0)
-                .addEdge(0, 4)
-                .addEdge(4, 2)
-                .build();
+        IGraph euler = Graphs.undirected().vertices(5).addEdge(0, 1).addEdge(1, 2).addEdge(2, 3).addEdge(3, 0).addEdge(0, 4).addEdge(4, 2).build();
 
         System.out.println("\nEuler");
         print(euler);
@@ -301,17 +204,7 @@ public final class GraphDemo {
 
         header("Builder Demo");
 
-        IGraph graph = Graphs
-                .undirected()
-                .vertices(6)
-                .weighted(true)
-                .immutable(false)
-                .addEdge(0, 1, 5)
-                .addEdge(0, 2, 2)
-                .addEdge(1, 3, 7)
-                .addEdge(2, 4, 4)
-                .addEdge(4, 5, 1)
-                .build();
+        IGraph graph = Graphs.undirected().vertices(6).weighted(true).immutable(false).addEdge(0, 1, 5).addEdge(0, 2, 2).addEdge(1, 3, 7).addEdge(2, 4, 4).addEdge(4, 5, 1).build();
 
         print(graph);
 
@@ -322,10 +215,7 @@ public final class GraphDemo {
 
         System.out.println("\nBuilder.from()");
 
-        IGraph rebuilt = Graphs
-                .undirected()
-                .from(graph)
-                .build();
+        IGraph rebuilt = Graphs.undirected().from(graph).build();
 
         print(rebuilt);
     }
@@ -337,14 +227,7 @@ public final class GraphDemo {
 
         header("Immutable Graph Demo");
 
-        IGraph graph = Graphs
-                .undirected()
-                .vertices(5)
-                .immutable(true)
-                .addEdge(0, 1)
-                .addEdge(1, 2)
-                .addEdge(2, 3)
-                .build();
+        IGraph graph = Graphs.undirected().vertices(5).immutable(true).addEdge(0, 1).addEdge(1, 2).addEdge(2, 3).build();
 
         print(graph);
 
@@ -389,12 +272,7 @@ public final class GraphDemo {
 
         header("Copy Demo");
 
-        IGraph graph = Graphs
-                .undirected()
-                .vertices(5)
-                .addEdge(0, 1)
-                .addEdge(1, 2)
-                .build();
+        IGraph graph = Graphs.undirected().vertices(5).addEdge(0, 1).addEdge(1, 2).build();
 
         IGraph copy = graph.copy();
 
@@ -419,14 +297,7 @@ public final class GraphDemo {
 
         header("Transpose Demo");
 
-        IGraph graph = Graphs
-                .directed()
-                .vertices(5)
-                .addEdge(0, 1)
-                .addEdge(0, 2)
-                .addEdge(1, 3)
-                .addEdge(4, 0)
-                .build();
+        IGraph graph = Graphs.directed().vertices(5).addEdge(0, 1).addEdge(0, 2).addEdge(1, 3).addEdge(4, 0).build();
 
         System.out.println("Original");
 
@@ -447,15 +318,7 @@ public final class GraphDemo {
 
         header("Directed Graph Demo");
 
-        IGraph graph = Graphs
-                .directed()
-                .vertices(6)
-                .weighted(true)
-                .addEdge(0, 1, 4)
-                .addEdge(0, 2, 3)
-                .addEdge(2, 5, 8)
-                .addEdge(5, 1, 9)
-                .build();
+        IGraph graph = Graphs.directed().vertices(6).weighted(true).addEdge(0, 1, 4).addEdge(0, 2, 3).addEdge(2, 5, 8).addEdge(5, 1, 9).build();
 
         print(graph);
     }
@@ -467,16 +330,7 @@ public final class GraphDemo {
 
         header("Undirected Graph Demo");
 
-        IGraph graph = Graphs
-                .undirected()
-                .vertices(6)
-                .weighted(false)
-                .addEdge(0, 1)
-                .addEdge(0, 2)
-                .addEdge(1, 3)
-                .addEdge(3, 4)
-                .addEdge(4, 5)
-                .build();
+        IGraph graph = Graphs.undirected().vertices(6).weighted(false).addEdge(0, 1).addEdge(0, 2).addEdge(1, 3).addEdge(3, 4).addEdge(4, 5).build();
 
         print(graph);
     }
@@ -488,67 +342,19 @@ public final class GraphDemo {
 
         header("Random Generator Demo");
 
-        DemoUtils.run("Undirected Graph", () ->
-                Graphs.random()
-                        .undirected()
-                        .vertices(8)
-                        .edges(12)
-                        .generate()
-        );
+        DemoUtils.run("Undirected Graph", () -> Graphs.random().undirected().vertices(8).edges(12).generate());
 
-        DemoUtils.run("Directed Graph", () ->
-                Graphs.random()
-                        .directed()
-                        .vertices(8)
-                        .edges(12)
-                        .generate()
-        );
+        DemoUtils.run("Directed Graph", () -> Graphs.random().directed().vertices(8).edges(12).generate());
 
-        DemoUtils.run("Weighted Graph", () ->
-                Graphs.random()
-                        .undirected()
-                        .vertices(8)
-                        .edges(12)
-                        .weightRange(1, 20)
-                        .generate()
-        );
+        DemoUtils.run("Weighted Graph", () -> Graphs.random().undirected().vertices(8).edges(12).weightRange(1, 20).generate());
 
-        DemoUtils.run("Connected Graph", () ->
-                Graphs.random()
-                        .undirected()
-                        .vertices(8)
-                        .edges(12)
-                        .connected()
-                        .generate()
-        );
+        DemoUtils.run("Connected Graph", () -> Graphs.random().undirected().vertices(8).edges(12).connected().generate());
 
-        DemoUtils.run("Graph With Self Loops", () ->
-                Graphs.random()
-                        .undirected()
-                        .vertices(8)
-                        .edges(15)
-                        .allowSelfLoops()
-                        .generate()
-        );
+        DemoUtils.run("Graph With Self Loops", () -> Graphs.random().undirected().vertices(8).edges(15).allowSelfLoops().generate());
 
-        DemoUtils.run("Graph With Parallel Edges", () ->
-                Graphs.random()
-                        .undirected()
-                        .vertices(8)
-                        .edges(18)
-                        .allowParallelEdges()
-                        .generate()
-        );
+        DemoUtils.run("Graph With Parallel Edges", () -> Graphs.random().undirected().vertices(8).edges(18).allowParallelEdges().generate());
 
-        DemoUtils.run("Weighted Connected Graph", () ->
-                Graphs.random()
-                        .undirected()
-                        .vertices(10)
-                        .edges(18)
-                        .weightRange(5, 50)
-                        .connected()
-                        .generate()
-        );
+        DemoUtils.run("Weighted Connected Graph", () -> Graphs.random().undirected().vertices(10).edges(18).weightRange(5, 50).connected().generate());
     }
 
 
@@ -560,7 +366,7 @@ public final class GraphDemo {
 
         header("Tree Generator");
 
-        IGraph graph = Graphs.tree(10);
+        IGraph graph = Graphs.patterns().tree(10);
 
         print(graph);
 
@@ -573,7 +379,7 @@ public final class GraphDemo {
 
         header("Star Generator");
 
-        IGraph graph = Graphs.star(8);
+        IGraph graph = Graphs.patterns().star(8);
 
         print(graph);
 
@@ -581,9 +387,7 @@ public final class GraphDemo {
 
         for (int i = 1; i < graph.vertexCount(); i++) {
 
-            System.out.println(
-                    "Degree(" + i + ") = " +
-                            graph.degree(i));
+            System.out.println("Degree(" + i + ") = " + graph.degree(i));
         }
     }
 
@@ -591,45 +395,39 @@ public final class GraphDemo {
 
         header("Wheel Generator");
 
-        IGraph graph = Graphs.wheel(8);
+        IGraph graph = Graphs.patterns().wheel(8);
 
         print(graph);
 
-        System.out.println("Connected : "
-                + graph.analysis().isConnected());
+        System.out.println("Connected : " + graph.analysis().isConnected());
 
-        System.out.println("Cycle     : "
-                + graph.analysis().isCyclic());
+        System.out.println("Cycle     : " + graph.analysis().isCyclic());
     }
 
     private static void gridGeneratorDemo() {
 
         header("Grid Generator");
 
-        IGraph graph = Graphs.grid(3, 4);
+        IGraph graph = Graphs.patterns().grid(3, 4);
 
         print(graph);
 
-        System.out.println("Vertices : "
-                + graph.vertexCount());
+        System.out.println("Vertices : " + graph.vertexCount());
 
-        System.out.println("Edges : "
-                + graph.edgeCount());
+        System.out.println("Edges : " + graph.edgeCount());
     }
 
     private static void cycleGeneratorDemo() {
 
         header("Cycle Generator");
 
-        IGraph graph = Graphs.cycle(8);
+        IGraph graph = Graphs.patterns().cycle(8);
 
         print(graph);
 
         for (int i = 0; i < graph.vertexCount(); i++) {
 
-            System.out.println(
-                    "Degree(" + i + ") = "
-                            + graph.degree(i));
+            System.out.println("Degree(" + i + ") = " + graph.degree(i));
         }
     }
 
@@ -637,15 +435,13 @@ public final class GraphDemo {
 
         header("Complete Graph Generator");
 
-        IGraph graph = Graphs.complete(6);
+        IGraph graph = Graphs.patterns().complete(6);
 
         print(graph);
 
         for (int i = 0; i < graph.vertexCount(); i++) {
 
-            System.out.println(
-                    "Degree(" + i + ") = "
-                            + graph.degree(i));
+            System.out.println("Degree(" + i + ") = " + graph.degree(i));
         }
     }
 
@@ -653,49 +449,45 @@ public final class GraphDemo {
 
         header("Complete Bipartite Generator");
 
-        IGraph graph = Graphs.completeBipartite(3, 4);
+        IGraph graph = Graphs.patterns().completeBipartite(3, 4);
 
         print(graph);
 
-        System.out.println("Bipartite : "
-                + graph.analysis().isBipartite());
+        System.out.println("Bipartite : " + graph.analysis().isBipartite());
 
-        System.out.println("Connected : "
-                + graph.analysis().isConnected());
+        System.out.println("Connected : " + graph.analysis().isConnected());
     }
 
     private static void bipartiteGeneratorDemo() {
 
         header("Random Bipartite Generator");
 
-        IGraph graph = Graphs.bipartite(4, 5);
+        IGraph graph = Graphs.patterns().bipartite(4, 5);
 
         print(graph);
 
-        System.out.println("Bipartite : "
-                + graph.analysis().isBipartite());
+        System.out.println("Bipartite : " + graph.analysis().isBipartite());
 
-        System.out.println("Connected : "
-                + graph.analysis().isConnected());
+        System.out.println("Connected : " + graph.analysis().isConnected());
     }
 
     private static void generatorStressDemo() {
 
         header("Generator Stress");
 
-        print(Graphs.tree(20));
+        print(Graphs.patterns().tree(20));
 
-        print(Graphs.star(20));
+        print(Graphs.patterns().star(20));
 
-        print(Graphs.wheel(20));
+        print(Graphs.patterns().wheel(20));
 
-        print(Graphs.cycle(20));
+        print(Graphs.patterns().cycle(20));
 
-        print(Graphs.complete(20));
+        print(Graphs.patterns().complete(20));
 
-        print(Graphs.completeBipartite(10, 10));
+        print(Graphs.patterns().completeBipartite(10, 10));
 
-        print(Graphs.grid(5, 5));
+        print(Graphs.patterns().grid(5, 5));
     }
 
 // ---------------------------------------------------------
@@ -706,37 +498,21 @@ public final class GraphDemo {
 
         header("Graph Factory");
 
-        DemoUtils.run("Traversal Graph", () ->
-                GraphFactory.traversalGraph(10)
-        );
+        DemoUtils.run("Traversal Graph", () -> GraphFactory.traversalGraph(10));
 
-        DemoUtils.run("Shortest Path Graph", () ->
-                GraphFactory.denseGraph(10)
-        );
+        DemoUtils.run("Shortest Path Graph", () -> GraphFactory.denseGraph(10));
 
-        DemoUtils.run("Minimum Spanning Tree Graph", () ->
-                GraphFactory.mstGraph(10)
-        );
+        DemoUtils.run("Minimum Spanning Tree Graph", () -> GraphFactory.mstGraph(10));
 
-        DemoUtils.run("Directed Dense Graph", () ->
-                GraphFactory.directedDenseGraph(10)
-        );
+        DemoUtils.run("Directed Dense Graph", () -> GraphFactory.directedDenseGraph(10));
 
-        DemoUtils.run("Dense Graph", () ->
-                GraphFactory.denseGraph(10)
-        );
+        DemoUtils.run("Dense Graph", () -> GraphFactory.denseGraph(10));
 
-        DemoUtils.run("Directed Acyclic Graph (DAG)", () ->
-                GraphFactory.dag(10)
-        );
+        DemoUtils.run("Directed Acyclic Graph (DAG)", () -> GraphFactory.dag(10));
 
-        DemoUtils.run("Tree Graph", () ->
-                GraphFactory.treeGraph(10)
-        );
+        DemoUtils.run("Tree Graph", () -> GraphFactory.treeGraph(10));
 
-        DemoUtils.run("Bipartite Graph", () ->
-                GraphFactory.bipartiteGraph(10)
-        );
+        DemoUtils.run("Bipartite Graph", () -> GraphFactory.bipartiteGraph(10));
     }
 
 // ---------------------------------------------------------
@@ -747,15 +523,7 @@ public final class GraphDemo {
 
         header("Analysis Demo");
 
-        IGraph graph = Graphs
-                .undirected()
-                .vertices(6)
-                .addEdge(0, 1)
-                .addEdge(1, 2)
-                .addEdge(2, 3)
-                .addEdge(3, 4)
-                .addEdge(4, 5)
-                .build();
+        IGraph graph = Graphs.undirected().vertices(6).addEdge(0, 1).addEdge(1, 2).addEdge(2, 3).addEdge(3, 4).addEdge(4, 5).build();
 
         print(graph);
 
@@ -789,15 +557,7 @@ public final class GraphDemo {
 
         header("Printer Demo");
 
-        IGraph graph = Graphs
-                .undirected()
-                .vertices(6)
-                .weighted(true)
-                .addEdge(0, 1, 5)
-                .addEdge(0, 2, 1)
-                .addEdge(1, 4, 8)
-                .addEdge(4, 5, 2)
-                .build();
+        IGraph graph = Graphs.undirected().vertices(6).weighted(true).addEdge(0, 1, 5).addEdge(0, 2, 1).addEdge(1, 4, 8).addEdge(4, 5, 2).build();
 
         System.out.println("Compact");
 

@@ -25,6 +25,12 @@ public final class GraphFactory {
         return new UndirectedGraph(configuration);
     }
 
+    public static IGraph create(GraphConfiguration configuration) {
+        return configuration.isDirected()
+                ? directed(configuration)
+                : undirected(configuration);
+    }
+
     public static IGraph traversalGraph(int vertices) {
 
         return Graphs.random()
@@ -145,7 +151,7 @@ public final class GraphFactory {
 
     public static IGraph dag(int vertices) {
 
-        return Graphs.dag(vertices);
+        return Graphs.patterns().dag(vertices);
     }
 
     public static IGraph bipartiteGraph(int vertices) {
