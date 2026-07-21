@@ -1,5 +1,8 @@
-package io.graphite.benchmark;
+package io.graphite.builder;
 
+import io.graphite.benchmark.Benchmark;
+import io.graphite.benchmark.BenchmarkConfig;
+import io.graphite.benchmark.BenchmarkTask;
 import io.graphite.graph.IGraph;
 
 public final class BenchmarkBuilder {
@@ -54,7 +57,6 @@ public final class BenchmarkBuilder {
 
         return new Benchmark(
                 name,
-                graph,
                 task,
                 config
         );

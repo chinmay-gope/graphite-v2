@@ -13,9 +13,6 @@ public final class BenchmarkPrinter {
         System.out.println();
         System.out.println(BOLD + CYAN + "▶ " + result.name() + RESET);
 
-        System.out.printf("%-20s : %s%d%s%n", "Vertices", GREEN, result.vertices(), RESET);
-        System.out.printf("%-20s : %s%d%s%n", "Edges", GREEN, result.edges(), RESET);
-
         System.out.printf("%-20s : %s%d%s%n", "Warmup", YELLOW, result.warmup(), RESET);
         System.out.printf("%-20s : %s%d%s%n", "Iterations", YELLOW, result.iterations(), RESET);
 

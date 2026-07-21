@@ -1,6 +1,6 @@
 package io.graphite.benchmark;
 
-import io.graphite.examples.util.DemoUtils;
+import io.graphite.examples.ExamplePrinter;
 import io.graphite.graph.IGraph;
 
 import java.util.concurrent.ThreadLocalRandom;
@@ -18,7 +18,7 @@ public final class StressRunner {
             Function<Integer, IGraph> graphFactory,
             Consumer<IGraph> algorithm) {
 
-        DemoUtils.run(title, () -> {
+        ExamplePrinter.execute(title, () -> {
             long total = 0;
 
             for (int vertices : config.vertices()) {

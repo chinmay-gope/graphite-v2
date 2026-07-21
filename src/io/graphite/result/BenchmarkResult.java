@@ -1,7 +1,5 @@
 package io.graphite.result;
 
-import io.graphite.graph.IGraph;
-
 public record BenchmarkResult(
         // ---------------------------------------------------------
         // Benchmark
@@ -9,14 +7,6 @@ public record BenchmarkResult(
         String name,
         int warmup,
         int iterations,
-        // ---------------------------------------------------------
-        // Graph Information
-        // ---------------------------------------------------------
-        int vertices,
-        int edges,
-        boolean directed,
-        boolean weighted,
-        IGraph immutable,
         // ---------------------------------------------------------
         // Performance
         // ---------------------------------------------------------
@@ -26,6 +16,5 @@ public record BenchmarkResult(
         double maximumMillis,
         double standardDeviation,
         double operationsPerSecond
-
 ) {
 }

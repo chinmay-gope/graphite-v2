@@ -15,6 +15,6 @@ public class StressTestRunner {
         TopologyStress.run();
         BipartiteStress.run(); // both bfs & dfs
         ConnectivityStress.run(); //  sparse, traversal, mst, dense
-        EulerStress.run();
+        EulerStress.run(); // path, circuit
     }
 }

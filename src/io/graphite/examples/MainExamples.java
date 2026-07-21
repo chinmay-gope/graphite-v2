@@ -2,7 +2,6 @@ package io.graphite.examples;
 
 import io.graphite.api.analysis.GraphAnalysisResult;
 import io.graphite.builder.Graphs;
-import io.graphite.examples.util.DemoUtils;
 import io.graphite.exception.GraphException;
 import io.graphite.generator.preset.GraphPresetGenerator;
 import io.graphite.graph.IGraph;
@@ -408,19 +407,19 @@ public final class MainExamples {
 
         header("Random Generator Demo");
 
-        DemoUtils.run("Undirected Graph", () -> Graphs.random().undirected().vertices(8).edges(12).build());
+        ExamplePrinter.execute("Undirected Graph", () -> Graphs.random().undirected().vertices(8).edges(12).build());
 
-        DemoUtils.run("Directed Graph", () -> Graphs.random().directed().vertices(8).edges(12).build());
+        ExamplePrinter.execute("Directed Graph", () -> Graphs.random().directed().vertices(8).edges(12).build());
 
-        DemoUtils.run("Weighted Graph", () -> Graphs.random().undirected().vertices(8).edges(12).weightRange(1, 20).build());
+        ExamplePrinter.execute("Weighted Graph", () -> Graphs.random().undirected().vertices(8).edges(12).weightRange(1, 20).build());
 
-        DemoUtils.run("Connected Graph", () -> Graphs.random().undirected().vertices(8).edges(12).connected().build());
+        ExamplePrinter.execute("Connected Graph", () -> Graphs.random().undirected().vertices(8).edges(12).connected().build());
 
-        DemoUtils.run("Graph With Self Loops", () -> Graphs.random().undirected().vertices(8).edges(15).allowSelfLoops().build());
+        ExamplePrinter.execute("Graph With Self Loops", () -> Graphs.random().undirected().vertices(8).edges(15).allowSelfLoops().build());
 
-        DemoUtils.run("Graph With Parallel Edges", () -> Graphs.random().undirected().vertices(8).edges(18).allowParallelEdges().build());
+        ExamplePrinter.execute("Graph With Parallel Edges", () -> Graphs.random().undirected().vertices(8).edges(18).allowParallelEdges().build());
 
-        DemoUtils.run("Weighted Connected Graph", () -> Graphs.random().undirected().vertices(10).edges(18).weightRange(5, 50).connected().build());
+        ExamplePrinter.execute("Weighted Connected Graph", () -> Graphs.random().undirected().vertices(10).edges(18).weightRange(5, 50).connected().build());
     }
 
 
@@ -564,21 +563,21 @@ public final class MainExamples {
 
         header("Graph Factory");
 
-        DemoUtils.run("Traversal Graph", () -> GraphPresetGenerator.traversalGraph(10));
+        ExamplePrinter.execute("Traversal Graph", () -> GraphPresetGenerator.traversalGraph(10));
 
-        DemoUtils.run("Shortest Path Graph", () -> GraphPresetGenerator.denseGraph(10));
+        ExamplePrinter.execute("Shortest Path Graph", () -> GraphPresetGenerator.denseGraph(10));
 
-        DemoUtils.run("Minimum Spanning Tree Graph", () -> GraphPresetGenerator.mstGraph(10));
+        ExamplePrinter.execute("Minimum Spanning Tree Graph", () -> GraphPresetGenerator.mstGraph(10));
 
-        DemoUtils.run("Directed Dense Graph", () -> GraphPresetGenerator.directedDenseGraph(10));
+        ExamplePrinter.execute("Directed Dense Graph", () -> GraphPresetGenerator.directedDenseGraph(10));
 
-        DemoUtils.run("Dense Graph", () -> GraphPresetGenerator.denseGraph(10));
+        ExamplePrinter.execute("Dense Graph", () -> GraphPresetGenerator.denseGraph(10));
 
-        DemoUtils.run("Directed Acyclic Graph (DAG)", () -> GraphPresetGenerator.dag(10));
+        ExamplePrinter.execute("Directed Acyclic Graph (DAG)", () -> GraphPresetGenerator.dag(10));
 
-        DemoUtils.run("Tree Graph", () -> GraphPresetGenerator.treeGraph(10));
+        ExamplePrinter.execute("Tree Graph", () -> GraphPresetGenerator.treeGraph(10));
 
-        DemoUtils.run("Bipartite Graph", () -> GraphPresetGenerator.bipartiteGraph(10));
+        ExamplePrinter.execute("Bipartite Graph", () -> GraphPresetGenerator.bipartiteGraph(10));
     }
 
 // ---------------------------------------------------------

@@ -18,7 +18,7 @@ public interface IGraph {
     void addEdge(int source, int destination, int weight);
 
     default void addEdge(int source, int destination) {
-        addEdge(source, destination,1);
+        addEdge(source, destination, 1);
     }
 
     void removeEdge(int source, int destination);
