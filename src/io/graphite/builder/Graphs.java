@@ -1,8 +1,8 @@
 package io.graphite.builder;
 
 import io.graphite.generator.RandomGraphBuilder;
-import io.graphite.generator.example.GraphExampleFactory;
-import io.graphite.generator.preset.GraphPresetFactory;
+import io.graphite.generator.example.GraphExampleGenerator;
+import io.graphite.generator.preset.GraphPresetGenerator;
 import io.graphite.graph.PatternGraphFactory;
 import io.graphite.graph.transform.GraphTransformFactory;
 import io.graphite.io.reader.GraphReaderService;
@@ -29,16 +29,15 @@ public final class Graphs {
         return GraphTransformFactory.INSTANCE;
     }
 
-    public static GraphPresetFactory presets() {
+    public static GraphPresetGenerator presets() {
 
-        return GraphPresetFactory.INSTANCE;
+        return GraphPresetGenerator.INSTANCE;
     }
 
-    public static GraphExampleFactory examples() {
+    public static GraphExampleGenerator examples() {
 
-        return GraphExampleFactory.INSTANCE;
+        return GraphExampleGenerator.INSTANCE;
     }
-
 
     public static PatternGraphFactory patterns() {
         return PatternGraphFactory.INSTANCE;

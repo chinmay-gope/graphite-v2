@@ -77,7 +77,7 @@ public final class RandomGraphBuilder {
         return this;
     }
 
-    public IGraph generate() {
+    public IGraph build() {
 
         return new RandomGraphGenerator<>(configuration)
                 .generate();

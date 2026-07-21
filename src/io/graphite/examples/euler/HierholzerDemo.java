@@ -10,7 +10,7 @@ import io.graphite.util.GraphPrinter;
 
 public class HierholzerDemo {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         // Demo 1: Simple cycle
         runDemo("Euler - 4-cycle",
                 Graphs.undirected()

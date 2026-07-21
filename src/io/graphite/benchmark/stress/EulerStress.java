@@ -1,4 +1,4 @@
-package io.graphite.benchmark.euler;
+package io.graphite.benchmark.stress;
 
 import io.graphite.algorithm.euler.EulerAlgorithm;
 import io.graphite.algorithm.euler.Hierholzer;
@@ -6,19 +6,24 @@ import io.graphite.benchmark.StressConfig;
 import io.graphite.benchmark.StressRunner;
 import io.graphite.exception.algorithm.GraphCycleException;
 import io.graphite.exception.graph.GraphDisconnectedException;
-import io.graphite.graph.GraphFactory;
+import io.graphite.generator.example.GraphExampleGenerator;
 import io.graphite.result.EulerResult;
 import io.graphite.validation.EulerValidator;
 
-public class EulerBenchmark {
-    public static void stressEulerPath() {
+public class EulerStress {
+
+    private EulerStress() {
+
+    }
+
+    private static void stressEulerPath() {
 
         EulerAlgorithm algorithm = Hierholzer.INSTANCE;
 
         StressRunner.run(
                 "Euler Path Stress Test",
                 StressConfig.DEFAULT_CONFIG,
-                GraphFactory::eulerPathGraph,
+                GraphExampleGenerator::eulerPathGraph,
                 graph -> {
 
                     EulerResult result =
@@ -29,14 +34,14 @@ public class EulerBenchmark {
         );
     }
 
-    public static void stressEulerCircuit() {
+    private static void stressEulerCircuit() {
 
         EulerAlgorithm algorithm = Hierholzer.INSTANCE;
 
         StressRunner.run(
                 "Euler Circuit Stress Test",
                 StressConfig.DEFAULT_CONFIG,
-                GraphFactory::eulerCircuitGraph,
+                GraphExampleGenerator::eulerCircuitGraph,
                 graph -> {
 
                     EulerResult result =
@@ -47,14 +52,14 @@ public class EulerBenchmark {
         );
     }
 
-    public static void stressInvalidEulerGraph() {
+    private static void stressInvalidEulerGraph() {
 
         EulerAlgorithm algorithm = Hierholzer.INSTANCE;
 
         StressRunner.run(
                 "Invalid Euler Graph",
                 StressConfig.DEFAULT_CONFIG,
-                GraphFactory::invalidEulerGraph,
+                GraphExampleGenerator::invalidEulerGraph,
                 graph -> {
 
                     try {
@@ -68,14 +73,14 @@ public class EulerBenchmark {
         );
     }
 
-    public static void stressDisconnectedEulerGraph() {
+    private static void stressDisconnectedEulerGraph() {
 
         EulerAlgorithm algorithm = Hierholzer.INSTANCE;
 
         StressRunner.run(
                 "Disconnected Euler Graph",
                 StressConfig.DEFAULT_CONFIG,
-                GraphFactory::disconnectedEulerGraph,
+                GraphExampleGenerator::disconnectedEulerGraph,
                 graph -> {
 
                     try {
@@ -89,4 +94,16 @@ public class EulerBenchmark {
                 }
         );
     }
+
+    public static void run() {
+        stressEulerPath();
+        stressEulerCircuit();
+        stressInvalidEulerGraph();
+        stressDisconnectedEulerGraph();
+    }
+
+    static void main(String[] args) {
+        run();
+    }
+
 }

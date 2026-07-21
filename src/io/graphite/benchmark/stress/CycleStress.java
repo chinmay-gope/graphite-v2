@@ -1,21 +1,25 @@
-package io.graphite.benchmark.cycle;
+package io.graphite.benchmark.stress;
 
 import io.graphite.algorithm.cycle.CycleDetectionAlgorithm;
 import io.graphite.algorithm.cycle.DirectedCycleDetector;
 import io.graphite.algorithm.cycle.UndirectedCycleDetector;
 import io.graphite.benchmark.StressConfig;
 import io.graphite.benchmark.StressRunner;
-import io.graphite.generator.preset.GraphPresetFactory;
+import io.graphite.generator.preset.GraphPresetGenerator;
 
-public class CycleBenchmark {
-    public static void stressCycleDetection() {
+public class CycleStress {
+
+    private CycleStress() {
+    }
+
+    private static void stressCycleDetection() {
 
         CycleDetectionAlgorithm cycleDetector = DirectedCycleDetector.INSTANCE;
 
         StressRunner.run(
                 "CycleDetection Stress Test (directed)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphPresetFactory::weightedGraph,
+                GraphPresetGenerator::weightedGraph,
                 cycleDetector::hasCycle
         );
 
@@ -23,8 +27,16 @@ public class CycleBenchmark {
         StressRunner.run(
                 "CycleDetection Stress Test (un-directed)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphPresetFactory::directedGraph,
+                GraphPresetGenerator::directedGraph,
                 cycleDetector::hasCycle
         );
+    }
+
+    public static void run() {
+        stressCycleDetection();
+    }
+
+    static void main(String[] args) {
+        stressCycleDetection();
     }
 }

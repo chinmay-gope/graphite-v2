@@ -1,131 +1,146 @@
-package io.graphite.benchmark.connectivity;
+package io.graphite.benchmark.stress;
 
 import io.graphite.algorithm.connectivity.*;
 import io.graphite.benchmark.StressConfig;
 import io.graphite.benchmark.StressRunner;
-import io.graphite.generator.preset.GraphPresetFactory;
+import io.graphite.generator.preset.GraphPresetGenerator;
 
-public class ConnectivityBenchmark {
-    public static void stressBiConnected() {
+public class ConnectivityStress {
+
+    private ConnectivityStress() {
+    }
+
+    private static void stressBiConnected() {
 
         BiconnectedAlgorithm components = BiconnectedComponents.INSTANCE;
 
         StressRunner.run(
                 "Biconnected Components Stress Test (sparse)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphPresetFactory::sparseGraph,
+                GraphPresetGenerator::sparseGraph,
                 components::findBiconnectedComponents
         );
 
         StressRunner.run(
                 "Biconnected Components Stress Test (traversal)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphPresetFactory::traversalGraph,
+                GraphPresetGenerator::traversalGraph,
                 components::findBiconnectedComponents
         );
 
         StressRunner.run(
                 "Biconnected Components Stress Test (mst)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphPresetFactory::mstGraph,
+                GraphPresetGenerator::mstGraph,
                 components::findBiconnectedComponents
         );
 
         StressRunner.run(
                 "Biconnected Components Stress Test (dense)",
-                StressConfig.WEIGHTED_CONFIG,
-                GraphPresetFactory::denseGraph,
+                StressConfig.DENSE_CONFIG,
+                GraphPresetGenerator::denseGraph,
                 components::findBiconnectedComponents
         );
     }
 
-    public static void stressAP() {
+    private static void stressAP() {
         APAlgorithm finder = APFinder.INSTANCE;
 
         StressRunner.run(
                 "ArticulationPoint Stress Test (sparse)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphPresetFactory::sparseGraph,
+                GraphPresetGenerator::sparseGraph,
                 finder::findArticulationPoints
         );
 
         StressRunner.run(
                 "ArticulationPoint Stress Test (traversal)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphPresetFactory::traversalGraph,
+                GraphPresetGenerator::traversalGraph,
                 finder::findArticulationPoints
         );
 
         StressRunner.run(
                 "ArticulationPoint Stress Test (mst)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphPresetFactory::mstGraph,
+                GraphPresetGenerator::mstGraph,
                 finder::findArticulationPoints
         );
 
         StressRunner.run(
                 "ArticulationPoint Stress Test (dense)",
-                StressConfig.WEIGHTED_CONFIG,
-                GraphPresetFactory::denseGraph,
+                StressConfig.DENSE_CONFIG,
+                GraphPresetGenerator::denseGraph,
                 finder::findArticulationPoints
         );
     }
 
-    public static void stressBridges() {
+    private static void stressBridges() {
         BridgeAlgorithm bridges = BridgeFinder.INSTANCE;
 
         StressRunner.run(
                 "Bridge Stress Test (sparse)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphPresetFactory::sparseGraph,
+                GraphPresetGenerator::sparseGraph,
                 bridges::findBridges
         );
 
         StressRunner.run(
                 "Bridge Stress Test (traversal)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphPresetFactory::traversalGraph,
+                GraphPresetGenerator::traversalGraph,
                 bridges::findBridges
         );
 
         StressRunner.run(
                 "Bridge Stress Test (mst)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphPresetFactory::mstGraph,
+                GraphPresetGenerator::mstGraph,
                 bridges::findBridges
         );
 
         StressRunner.run(
                 "Bridge Stress Test (dense)",
-                StressConfig.WEIGHTED_CONFIG,
-                GraphPresetFactory::denseGraph,
+                StressConfig.DENSE_CONFIG,
+                GraphPresetGenerator::denseGraph,
                 bridges::findBridges
         );
     }
 
-    public static void stressSCCs() {
+    private static void stressSCCs() {
 
         SCCAlgorithm scc = Kosaraju.INSTANCE;
 
         StressRunner.run(
                 "SCC Stress Test (sparse)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphPresetFactory::directedSparseGraph,
+                GraphPresetGenerator::directedSparseGraph,
                 scc::findSCCs
         );
 
         StressRunner.run(
                 "SCC Stress Test (dag)",
                 StressConfig.DEFAULT_CONFIG,
-                GraphPresetFactory::dag,
+                GraphPresetGenerator::dag,
                 scc::findSCCs
         );
 
         StressRunner.run(
                 "SCC Stress Test (dense)",
-                StressConfig.WEIGHTED_CONFIG,
-                GraphPresetFactory::directedDenseGraph,
+                StressConfig.DENSE_CONFIG,
+                GraphPresetGenerator::directedDenseGraph,
                 scc::findSCCs
         );
+    }
+
+    public static void run() {
+        stressBiConnected();
+        stressAP();
+        stressBridges();
+        stressSCCs();
+    }
+
+    static void main(String[] args) {
+        run();
     }
 }

@@ -4,18 +4,18 @@ import io.graphite.builder.Graphs;
 import io.graphite.generator.pattern.BipartiteGraphGenerator;
 import io.graphite.graph.IGraph;
 
-public class GraphPresetFactory {
+public class GraphPresetGenerator {
 
     private static final double DENSITY = 0.75;
 
-    public static final GraphPresetFactory INSTANCE = new GraphPresetFactory();
+    public static final GraphPresetGenerator INSTANCE = new GraphPresetGenerator();
 
-    private GraphPresetFactory() {
+    private GraphPresetGenerator() {
 
     }
 
-    public GraphPresetFactory presets() {
-        return new GraphPresetFactory();
+    public GraphPresetGenerator presets() {
+        return new GraphPresetGenerator();
     }
 
     public static IGraph traversalGraph(int vertices) {
@@ -26,7 +26,7 @@ public class GraphPresetFactory {
                 .vertices(vertices)
                 .edges(vertices * 2)
                 .connected()
-                .generate();
+                .build();
     }
 
     public static IGraph mstGraph(int vertices) {
@@ -37,7 +37,7 @@ public class GraphPresetFactory {
                 .edges(vertices * 3)
                 .weighted()
                 .connected()
-                .generate();
+                .build();
     }
 
     public static IGraph denseGraph(int vertices) {
@@ -57,7 +57,7 @@ public class GraphPresetFactory {
                 .vertices(vertices)
                 .edges(edges)
                 .connected()
-                .generate();
+                .build();
     }
 
     public static IGraph denseGraph(int vertices, double density) {
@@ -72,7 +72,7 @@ public class GraphPresetFactory {
                 .vertices(vertices)
                 .edges(edges)
                 .connected()
-                .generate();
+                .build();
     }
 
     public static IGraph denseWeightedGraph(int vertices) {
@@ -88,7 +88,7 @@ public class GraphPresetFactory {
                 .edges(edges)
                 .connected()
                 .weightRange(1, 50)
-                .generate();
+                .build();
     }
 
     public static IGraph weightedGraph(int vertices) {
@@ -100,7 +100,7 @@ public class GraphPresetFactory {
                 .edges(vertices * 2)
                 .connected()
                 .weightRange(1, 50)
-                .generate();
+                .build();
     }
 
     public static IGraph directedGraph(int vertices) {
@@ -110,7 +110,7 @@ public class GraphPresetFactory {
                 .directed()
                 .vertices(vertices)
                 .edges(vertices * 2)
-                .generate();
+                .build();
     }
 
     public static IGraph sparseGraph(int vertices) {
@@ -121,7 +121,7 @@ public class GraphPresetFactory {
                 .vertices(vertices)
                 .edges((int) (vertices * 1.3))
                 .connected()
-                .generate();
+                .build();
     }
 
     public static IGraph directedSparseGraph(int vertices) {
@@ -132,7 +132,7 @@ public class GraphPresetFactory {
                 .vertices(vertices)
                 .edges((int) (vertices * 1.3))
                 .connected()
-                .generate();
+                .build();
     }
 
     public static IGraph treeGraph(int vertices) {
@@ -143,7 +143,7 @@ public class GraphPresetFactory {
                 .vertices(vertices)
                 .edges(vertices - 1)
                 .connected()
-                .generate();
+                .build();
     }
 
     public static IGraph dag(int vertices) {

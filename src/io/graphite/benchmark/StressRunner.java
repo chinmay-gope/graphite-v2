@@ -25,9 +25,9 @@ public final class StressRunner {
 
                 long start = System.nanoTime();
 
-                for (int i = 0; i < config.iterations(); i++) {
+                IGraph graph = graphFactory.apply(vertices);
 
-                    IGraph graph = graphFactory.apply(vertices);
+                for (int i = 0; i < config.iterations(); i++) {
 
                     algorithm.accept(graph);
                 }
