@@ -1331,3 +1331,515 @@ Whether creating a small demonstration graph or generating a graph containing th
 5. Execute algorithms.
 
 This consistency is one of the core design goals of Graphite V2.
+
+# Graph Generation Framework
+
+Constructing graphs manually is ideal for small examples, but real-world applications often require graphs containing hundreds or thousands of vertices.
+
+Graphite's **Graph Generation Framework** provides a collection of specialized generators for different scenarios, including algorithm testing, benchmarking, demonstrations, and mathematical graph construction.
+
+Instead of relying on a single random generator, Graphite offers multiple generation strategies through a unified API.
+
+```
+Graphs.random();
+
+Graphs.presets();
+
+Graphs.patterns();
+
+Graphs.examples();
+```
+
+Each generator is designed for a specific purpose while sharing the same fluent, consistent design philosophy.
+
+---
+
+# Framework Overview
+
+```text
+                    Graphs
+                       │
+     ┌─────────────────┼─────────────────┐
+     │                 │                 │
+     ▼                 ▼                 ▼
+ Random Generator  Preset Generator  Pattern Generator
+                                           │
+                                           ▼
+                                  Example Generator
+```
+
+Each generator produces an `IGraph`, allowing every graph to work seamlessly with the rest of the Graphite ecosystem.
+
+---
+
+# Random Graph Generator
+
+The Random Graph Generator creates configurable graphs for testing, experimentation, and large-scale benchmarking.
+
+Developers control every important aspect of graph generation through a fluent builder API.
+
+```java
+IGraph graph = Graphs.random()
+        .undirected()
+        .vertices(1000)
+        .edges(2500)
+        .connected()
+        .immutable()
+        .build();
+```
+
+---
+
+## Features
+
+The random generator supports:
+
+* Directed graphs
+* Undirected graphs
+* Weighted graphs
+* Unweighted graphs
+* Connected graph generation
+* Immutable graph generation
+* Custom edge counts
+* Configurable weight ranges
+* Optional self-loops
+* Optional parallel edges
+
+Example:
+
+```java
+IGraph graph = Graphs.random()
+        .directed()
+        .vertices(500)
+        .edges(2000)
+        .weighted()
+        .weightRange(1, 100)
+        .immutable()
+        .build();
+```
+
+The fluent configuration keeps graph generation expressive while hiding implementation complexity.
+
+---
+
+# Preset Graph Generator
+
+Some algorithms perform best when evaluated against specific graph structures.
+
+The Preset Graph Generator provides ready-made graphs designed for algorithm development, testing, benchmarking, and demonstrations.
+
+```java
+IGraph graph =
+        Graphs.presets().traversalGraph(1000);
+```
+
+Unlike purely random graphs, preset graphs follow predefined characteristics that make them suitable for particular algorithm categories.
+
+---
+
+## Available Presets
+
+### Traversal Graph
+
+Optimized for BFS and DFS.
+
+```
+Graphs.presets().traversalGraph(1000);
+```
+
+---
+
+### Sparse Graph
+
+Contains relatively few edges.
+
+Ideal for algorithms whose complexity depends on edge count.
+
+```
+Graphs.presets().sparseGraph(1000);
+```
+
+---
+
+### Dense Graph
+
+Generates graphs with a high edge density.
+
+Useful for evaluating worst-case algorithm behavior.
+
+```
+Graphs.presets().denseGraph(1000);
+```
+
+---
+
+### Weighted Graph
+
+Creates connected weighted graphs suitable for shortest path and minimum spanning tree algorithms.
+
+```
+Graphs.presets().weightedGraph(1000);
+```
+
+---
+
+### MST Graph
+
+Specialized weighted graph for minimum spanning tree algorithms.
+
+```
+Graphs.presets().mstGraph(1000);
+```
+
+---
+
+### Directed Graph
+
+Generates a general directed graph.
+
+```
+Graphs.presets().directedGraph(1000);
+```
+
+---
+
+### Directed Sparse Graph
+
+Sparse directed graph optimized for connectivity algorithms.
+
+```
+Graphs.presets().directedSparseGraph(1000);
+```
+
+---
+
+### Directed Dense Graph
+
+Dense directed graph for large-scale testing.
+
+```
+Graphs.presets().directedDenseGraph(1000);
+```
+
+---
+
+### Tree
+
+Generates a connected acyclic graph.
+
+```
+Graphs.presets().treeGraph(1000);
+```
+
+---
+
+### Directed Acyclic Graph (DAG)
+
+Ideal for topological sorting and dependency analysis.
+
+```
+Graphs.presets().dag(1000);
+```
+
+---
+
+### Bipartite Graph
+
+Creates balanced bipartite graphs.
+
+```
+Graphs.presets().bipartiteGraph(1000);
+```
+
+---
+
+# Pattern Graph Generator
+
+The Pattern Graph Generator constructs well-known mathematical graph structures.
+
+These graphs are useful for education, demonstrations, visualization, and algorithm validation.
+
+Example:
+
+```java
+IGraph graph =
+        Graphs.patterns().wheel(10);
+```
+
+---
+
+## Available Patterns
+
+Graphite includes generators for classical graph families.
+
+Examples include:
+
+* Complete Graph
+* Complete Bipartite Graph
+* Star Graph
+* Wheel Graph
+* Tree
+* Grid
+* Directed Acyclic Graph (DAG)
+
+Each pattern guarantees the mathematical properties associated with that structure.
+
+---
+
+# Example Graph Generator
+
+Documentation and tutorials often require carefully designed graphs rather than randomly generated ones.
+
+The Example Graph Generator provides these predefined graphs.
+
+```java
+IGraph graph =
+        Graphs.examples().eulerCircuitGraph(8);
+```
+
+These graphs are intentionally constructed to demonstrate specific algorithm behavior.
+
+---
+
+## Available Examples
+
+Examples currently include:
+
+* Euler Path Graph
+* Euler Circuit Graph
+* Invalid Euler Graph
+* Disconnected Graph
+
+These graphs are used throughout Graphite's examples, benchmarks, and documentation.
+
+---
+
+# Unified API
+
+Despite serving different purposes, every generator follows the same entry-point philosophy.
+
+```
+Graphs.random()
+
+Graphs.presets()
+
+Graphs.patterns()
+
+Graphs.examples()
+```
+
+Every generator returns an `IGraph`, allowing algorithms, formatters, validators, benchmarks, and stress tests to operate without any special handling.
+
+---
+
+# Design Philosophy
+
+The Graph Generation Framework was designed around three principles.
+
+### Purpose-Built
+
+Each generator solves a specific problem instead of trying to be a universal solution.
+
+### Consistency
+
+Every generator integrates with the same fluent API and returns the same graph abstraction.
+
+### Extensibility
+
+New generators and graph families can be added without affecting existing APIs or implementations.
+
+This modular approach allows the framework to grow while maintaining a clean and predictable developer experience.
+
+---
+
+# Summary
+
+The Graph Generation Framework eliminates the need to manually construct graphs for every use case.
+
+Whether generating a random graph for benchmarking, a preset graph for algorithm evaluation, a mathematical graph pattern, or a carefully crafted demonstration graph, Graphite provides a consistent and intuitive solution through a unified API.
+
+# Algorithm Services
+
+Graphite organizes algorithms into dedicated services attached directly to a graph instance.
+
+Instead of exposing dozens of independent utility classes, algorithms are grouped by functionality and accessed through a fluent, discoverable API.
+
+```id="service-api"
+graph.traversal();
+
+graph.shortestPath();
+
+graph.mst();
+
+graph.connectivity();
+
+graph.topology();
+
+graph.cycle();
+
+graph.bipartite();
+
+graph.euler();
+```
+
+This service-oriented design keeps the public API intuitive while allowing the internal implementation to remain modular and extensible.
+
+---
+
+# Service Architecture
+
+```text id="service-architecture"
+                    IGraph
+                       │
+      ┌────────────────┼────────────────┐
+      │                │                │
+      ▼                ▼                ▼
+ Traversal      Shortest Path          MST
+      │                │                │
+      ▼                ▼                ▼
+ Connectivity     Topology          Cycle
+      │
+      ├─────────────┬─────────────┐
+      ▼             ▼             ▼
+ Bipartite      Euler       Formatting
+```
+
+Each service owns a related family of algorithms.
+
+This organization improves discoverability, keeps responsibilities focused, and makes future expansion straightforward.
+
+---
+
+# Why Services?
+
+Many graph libraries expose algorithms as static utility methods.
+
+```id="traditional-api"
+BreadthFirstSearch.traverse(graph, 0);
+
+Dijkstra.shortestPath(graph, 0);
+
+Prim.minimumSpanningTree(graph);
+```
+
+Graphite instead groups algorithms by capability.
+
+```id="graphite-api"
+graph.traversal().bfs(0);
+
+graph.shortestPath().dijkstra(0);
+
+graph.mst().prim();
+```
+
+This approach offers several advantages:
+
+* Better API discoverability
+* Cleaner code
+* Consistent naming
+* IDE-friendly auto-completion
+* Natural grouping of related algorithms
+* Easy extension with additional algorithms
+
+---
+
+# Available Services
+
+Graphite currently provides the following algorithm services.
+
+| Service       | Purpose                            |
+| ------------- | ---------------------------------- |
+| Traversal     | Graph exploration                  |
+| Cycle         | Cycle detection                    |
+| Shortest Path | Path finding                       |
+| MST           | Minimum spanning trees             |
+| Connectivity  | Graph connectivity analysis        |
+| Topology      | Topological ordering               |
+| Bipartite     | Bipartite graph validation         |
+| Euler         | Euler path and circuit computation |
+
+Each service exposes a focused collection of algorithms through a consistent interface.
+
+---
+
+# Stateless Algorithms
+
+Internally, every algorithm is implemented as a singleton.
+
+```id="singleton"
+BFS.INSTANCE
+
+DFS.INSTANCE
+
+Dijkstra.INSTANCE
+
+Prim.INSTANCE
+
+Kosaraju.INSTANCE
+```
+
+Algorithms do not retain graph state between executions.
+
+Instead, all execution state is created locally during each invocation, making implementations lightweight, reusable, and thread-friendly.
+
+---
+
+# Cached Services
+
+Service objects are created lazily and cached by the graph instance.
+
+```id="cached"
+graph.traversal();
+
+graph.traversal();
+
+graph.traversal();
+```
+
+Regardless of how many times a service is requested, the same lightweight instance is reused internally.
+
+This minimizes object allocation while keeping the public API clean.
+
+---
+
+# Result Objects
+
+Most algorithms return immutable result records instead of primitive arrays or raw collections.
+
+Examples include:
+
+* TraversalResult
+* ShortestPathResult
+* MSTResult
+* EulerResult
+
+This provides a consistent API across the entire library while making algorithm output easier to understand and extend.
+
+---
+
+# Validation
+
+Before execution, Graphite automatically validates algorithm preconditions.
+
+Examples include:
+
+* Directed graph requirements
+* Undirected graph requirements
+* Invalid vertices
+* Negative edge weights
+* Graph connectivity
+* Cycle constraints
+
+Validation is centralized so that algorithms remain focused solely on their core logic.
+
+---
+
+# Complexity
+
+Each service documents the time and space complexity of its algorithms, allowing developers to choose the most appropriate implementation for their use case.
+
+---
+
+# Service Overview
+
+The following sections describe every algorithm service in detail, including supported algorithms, API examples, complexity, requirements, and typical applications.
