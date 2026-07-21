@@ -1,5 +1,6 @@
 package io.graphite.benchmark;
 
+import io.graphite.graph.IGraph;
 import io.graphite.result.BenchmarkResult;
 
 public final class BenchmarkRunner {
@@ -9,6 +10,7 @@ public final class BenchmarkRunner {
 
     public static BenchmarkResult run(
             String name,
+            IGraph graph,
             BenchmarkTask task,
             BenchmarkConfig config
     ) {
@@ -55,13 +57,20 @@ public final class BenchmarkRunner {
         double operationsPerSecond =
                 config.iterations() / (totalNanos / 1_000_000_000.0);
 
-        double totalMillis = totalNanos / 1_000_000.0;
-
         return new BenchmarkResult(
                 name,
+
                 config.warmup(),
                 config.iterations(),
-                totalMillis,
+
+                graph.getVertices(),
+                graph.edgeCount(),
+                graph.isDirected(),
+                graph.isWeighted(),
+                graph.asImmutable().asImmutable(),
+
+                totalNanos,
+
                 average,
                 minimum,
                 maximum,

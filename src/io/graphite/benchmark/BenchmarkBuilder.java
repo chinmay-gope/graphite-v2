@@ -1,5 +1,7 @@
 package io.graphite.benchmark;
 
+import io.graphite.graph.IGraph;
+
 public final class BenchmarkBuilder {
 
     private String name = "Benchmark";
@@ -8,6 +10,13 @@ public final class BenchmarkBuilder {
     private int warmup = 5;
     private int iterations = 20;
     private boolean measureMemory = false;
+
+    private IGraph graph;
+
+    public BenchmarkBuilder graph(IGraph graph) {
+        this.graph = graph;
+        return this;
+    }
 
     public BenchmarkBuilder name(String name) {
         this.name = name;
@@ -45,6 +54,7 @@ public final class BenchmarkBuilder {
 
         return new Benchmark(
                 name,
+                graph,
                 task,
                 config
         );
