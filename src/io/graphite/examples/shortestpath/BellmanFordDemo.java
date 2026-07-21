@@ -23,7 +23,7 @@ public class BellmanFordDemo {
         GraphDemoPrinter.printHeader("BellmanFord Shortest Path", graph);
         GraphPrinter.printEdges(graph);
 
-        ShortestPathAlgorithm algorithm = new BellmanFord();
+        ShortestPathAlgorithm algorithm =  BellmanFord.INSTANCE;
 
         ShortestPathResult result = algorithm.shortestPath(graph, 0);
         System.out.println(result);

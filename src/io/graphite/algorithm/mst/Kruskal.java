@@ -7,6 +7,7 @@ import io.graphite.model.DSU;
 import io.graphite.model.Edge;
 import io.graphite.result.MSTEdge;
 import io.graphite.result.MSTResult;
+import io.graphite.validation.GraphPreconditions;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -14,12 +15,18 @@ import java.util.List;
 
 public class Kruskal extends GraphAlgorithm {
 
+    private Kruskal() {
+
+    }
+
+    public static final Kruskal INSTANCE = new Kruskal();
+
     public MSTResult findMST(IGraph graph) {
-        validate(graph);
-        requireUndirected(graph);
+        GraphPreconditions.requireGraph(graph);
+        GraphPreconditions.requireUndirected(graph);
 
         DSU dsu = new DSU(graph.getVertices());
-        List<Edge> edges = new ArrayList<>(graph.getEdges());
+        List<Edge> edges = new ArrayList<>(edges(graph));
         List<MSTEdge> mst = new ArrayList<>();
 
 //        mutable copy

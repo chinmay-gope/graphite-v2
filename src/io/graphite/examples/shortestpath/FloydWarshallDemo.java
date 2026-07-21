@@ -21,7 +21,7 @@ public class FloydWarshallDemo {
         GraphDemoPrinter.printHeader("FloydWarshall Algorithm", graph);
         GraphPrinter.print(graph);
 
-        AllPairsShortestPathAlgorithm algorithm = new FloydWarshall();
+        AllPairsShortestPathAlgorithm algorithm = FloydWarshall.INSTANCE;
         AllPairsShortestPathResult result = algorithm.shortestPaths(graph);
         System.out.println(result);
 

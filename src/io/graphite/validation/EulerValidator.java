@@ -7,8 +7,7 @@ import io.graphite.result.EulerResult;
 import java.util.List;
 
 public final class EulerValidator {
-    EulerValidator() {
-        throw new AssertionError("Uninstantiable class");
+    private EulerValidator() {
     }
 
     public static void validate(

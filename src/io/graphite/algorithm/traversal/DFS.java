@@ -4,16 +4,21 @@ import io.graphite.algorithm.GraphAlgorithm;
 import io.graphite.graph.IGraph;
 import io.graphite.model.Edge;
 import io.graphite.result.TraversalResult;
+import io.graphite.validation.GraphPreconditions;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DFS extends GraphAlgorithm implements TraversalAlgorithm {
+    public static final DFS INSTANCE = new DFS();
+
+    private DFS() {
+    }
 
     @Override
     public TraversalResult traverse(IGraph graph, int source) {
-        validate(graph);
-        validateVertex(graph, source);
+        GraphPreconditions.requireGraph(graph);
+        GraphPreconditions.requireVertex(graph, source);
 
         boolean[] visited = booleans(graph);
 

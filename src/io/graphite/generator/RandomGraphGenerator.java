@@ -7,8 +7,8 @@ import io.graphite.generator.internal.EdgeTracker;
 import io.graphite.generator.internal.RandomEdgeGenerator;
 import io.graphite.generator.internal.RandomWeightGenerator;
 import io.graphite.generator.internal.SpanningTreeGenerator;
-import io.graphite.generator.validation.RandomGraphValidator;
 import io.graphite.graph.IGraph;
+import io.graphite.validation.RandomGraphValidator;
 
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -56,7 +56,7 @@ public final class RandomGraphGenerator<G extends IGraph> {
         if (configuration.isWeighted()) {
             builder.addEdge(source, destination, weight);
         } else {
-            builder.addEdge(source, destination);
+            builder.addEdge(source, destination,1);
         }
 
         tracker.remember(source, destination);

@@ -3,12 +3,14 @@ package io.graphite.builder;
 import io.graphite.graph.Graph;
 import io.graphite.graph.IGraph;
 import io.graphite.model.Edge;
+import io.graphite.validation.BuilderValidator;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 public abstract class AbstractGraphBuilder<G extends Graph, SELF extends AbstractGraphBuilder<G, SELF>> {
+
     protected final GraphConfiguration configuration = new GraphConfiguration();
 
     protected final List<Edge> edges =
@@ -77,7 +79,15 @@ public abstract class AbstractGraphBuilder<G extends Graph, SELF extends Abstrac
         edges.add(new Edge(
                 source,
                 destination,
-                weight));
+                weight
+        ));
+
+        configuration.setVertices(
+                Math.max(
+                        configuration.getVertices(),
+                        Math.max(source, destination) + 1
+                )
+        );
 
         return self();
     }
@@ -86,12 +96,21 @@ public abstract class AbstractGraphBuilder<G extends Graph, SELF extends Abstrac
 
         edges.add(edge);
 
+        configuration.setVertices(
+                Math.max(
+                        configuration.getVertices(),
+                        Math.max(edge.source(), edge.destination()) + 1
+                )
+        );
+
         return self();
     }
 
     public SELF addEdges(Collection<Edge> edges) {
 
-        this.edges.addAll(edges);
+        for (Edge edge : edges) {
+            addEdge(edge);
+        }
 
         return self();
     }

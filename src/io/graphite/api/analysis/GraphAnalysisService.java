@@ -4,17 +4,16 @@ import io.graphite.algorithm.bipartite.BFSBipartiteChecker;
 import io.graphite.algorithm.cycle.DirectedCycleDetector;
 import io.graphite.algorithm.cycle.UndirectedCycleDetector;
 import io.graphite.algorithm.euler.Hierholzer;
+import io.graphite.api.internal.GraphAPI;
 import io.graphite.exception.GraphException;
 import io.graphite.graph.IGraph;
 import io.graphite.util.GraphUtils;
 
 
-public final class GraphAnalysisService implements GraphAnalysis {
-
-    private final IGraph graph;
+public final class GraphAnalysisService extends GraphAPI implements GraphAnalysis {
 
     public GraphAnalysisService(IGraph graph) {
-        this.graph = graph;
+        super(graph);
     }
 
     // ==========================================================
@@ -39,10 +38,10 @@ public final class GraphAnalysisService implements GraphAnalysis {
     @Override
     public boolean isCyclic() {
         if (graph.isDirected()) {
-            return new DirectedCycleDetector().hasCycle(graph);
+            return DirectedCycleDetector.INSTANCE.hasCycle(graph);
         }
 
-        return new UndirectedCycleDetector().hasCycle(graph);
+        return UndirectedCycleDetector.INSTANCE.hasCycle(graph);
     }
 
     // ==========================================================
@@ -51,13 +50,13 @@ public final class GraphAnalysisService implements GraphAnalysis {
 
     @Override
     public boolean isBipartite() {
-        return new BFSBipartiteChecker().isBipartite(graph);
+        return BFSBipartiteChecker.INSTANCE.isBipartite(graph);
     }
 
     @Override
     public boolean isEulerian() {
         try {
-            new Hierholzer().findEulerCircuit(graph);
+            Hierholzer.INSTANCE.findEulerCircuit(graph);
             return true;
         } catch (GraphException e) {
             return false;

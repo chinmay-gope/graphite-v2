@@ -9,66 +9,67 @@ import io.graphite.result.EulerResult;
 import io.graphite.util.GraphPrinter;
 
 public class HierholzerDemo {
-    static void main() {
-        IGraph graph = Graphs
-                .undirected()
-                .addEdge(0, 1)
-                .addEdge(1, 2)
-                .addEdge(2, 3)
-                .addEdge(3, 0)
-                .build();
 
-        GraphDemoPrinter.printHeader("Euler", graph);
+    static void main(String[] args) {
+        // Demo 1: Simple cycle
+        runDemo("Euler - 4-cycle",
+                Graphs.undirected()
+                        .vertices(5)
+                        .addEdge(0, 1)
+                        .addEdge(1, 2)
+                        .addEdge(2, 3)
+                        .addEdge(3, 0)
+                        .build());
+
+        // Demo 2: Empty graph
+        runDemo("Euler - empty",
+                Graphs.undirected()
+                        .vertices(5)
+                        .build());
+
+        // Demo 3: Path graph (no Euler circuit)
+        runDemoWithException("Euler - path graph",
+                Graphs.undirected()
+                        .vertices(5)
+                        .addEdge(0, 1)
+                        .addEdge(1, 2)
+                        .addEdge(2, 3)
+                        .build());
+
+        // Demo 4: Disconnected graph
+        runDemoWithException("Euler - disconnected",
+                Graphs.undirected()
+                        .vertices(5)
+                        .addEdge(0, 1)
+                        .addEdge(1, 2)
+                        .addEdge(3, 4)
+                        .build());
+    }
+
+    private static void runDemo(String title, IGraph graph) {
+        GraphDemoPrinter.printHeader(title, graph);
         GraphPrinter.print(graph);
-        EulerResult circuit = new Hierholzer().findEulerCircuit(graph);
-        EulerResult path = new Hierholzer().findEulerPath(graph);
 
-        System.out.println(circuit);
-        System.out.println(path);
+        EulerResult circuit = Hierholzer.INSTANCE.findEulerCircuit(graph);
+        EulerResult path = Hierholzer.INSTANCE.findEulerPath(graph);
 
-        graph = Graphs
-                .undirected()
-                .build();
-        GraphDemoPrinter.printHeader("Euler", graph);
+        System.out.println("Circuit: " + circuit);
+        System.out.println("Path: " + path);
+        System.out.println();
+    }
+
+    private static void runDemoWithException(String title, IGraph graph) {
+        GraphDemoPrinter.printHeader(title, graph);
         GraphPrinter.print(graph);
-        circuit = new Hierholzer().findEulerCircuit(graph);
-        path = new Hierholzer().findEulerPath(graph);
-        System.out.println(circuit);
-        System.out.println(path);
-
         try {
-            graph = Graphs
-                    .undirected()
-                    .addEdge(0, 1)
-                    .addEdge(1, 2)
-                    .addEdge(2, 3)
-                    .build();
+            EulerResult circuit = Hierholzer.INSTANCE.findEulerCircuit(graph);
+            EulerResult path = Hierholzer.INSTANCE.findEulerPath(graph);
 
-            System.out.println();
-            GraphPrinter.print(graph);
-            System.out.println("undirected graph - 4");
-
-            new Hierholzer().findEulerCircuit(graph);
-            new Hierholzer().findEulerCircuit(graph);
+            System.out.println("Circuit: " + circuit);
+            System.out.println("Path: " + path);
         } catch (GraphException e) {
-            System.err.println(e.getMessage());
+            System.err.println("Error: " + e.getMessage());
         }
-
-        try {
-            graph = Graphs
-                    .undirected()
-                    .addEdge(0, 1)
-                    .addEdge(1, 2)
-                    .addEdge(3, 4)
-                    .build();
-            System.out.println();
-            GraphPrinter.print(graph);
-            System.out.println("undirected graph - 6");
-
-            new Hierholzer().findEulerCircuit(graph);
-            new Hierholzer().findEulerPath(graph);
-        } catch (GraphException e) {
-            System.err.println(e.getMessage());
-        }
+        System.out.println();
     }
 }

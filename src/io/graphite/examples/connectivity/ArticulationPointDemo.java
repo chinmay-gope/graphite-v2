@@ -20,7 +20,7 @@ public class ArticulationPointDemo {
         GraphDemoPrinter.printHeader("Articulation Points Linear Graph", graph);
         GraphPrinter.print(graph);
 
-        APAlgorithm algorithm = new APFinder();
+        APAlgorithm algorithm = APFinder.INSTANCE;
 
         APResult result = algorithm.findArticulationPoints(graph);
         System.out.println(result);

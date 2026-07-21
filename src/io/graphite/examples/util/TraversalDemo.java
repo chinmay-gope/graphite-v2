@@ -20,7 +20,6 @@ public final class TraversalDemo {
                     .build();
 
     private TraversalDemo() {
-        throw new AssertionError("Utility class");
     }
 
     static void main() {
@@ -38,14 +37,14 @@ public final class TraversalDemo {
                 "Breadth First Search",
                 () -> DemoUtils.printTraversalsFromAllVertices(
                         GRAPH,
-                        new BFS())
+                        BFS.INSTANCE)
         );
 
         DemoUtils.run(
                 "Depth First Search",
                 () -> DemoUtils.printTraversalsFromAllVertices(
                         GRAPH,
-                        new DFS())
+                        DFS.INSTANCE)
         );
     }
 }

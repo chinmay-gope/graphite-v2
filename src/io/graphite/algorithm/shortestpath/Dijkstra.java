@@ -1,26 +1,30 @@
 package io.graphite.algorithm.shortestpath;
 
 import io.graphite.algorithm.GraphAlgorithm;
-import io.graphite.exception.algorithm.NegativeWeightException;
 import io.graphite.graph.IGraph;
 import io.graphite.model.Edge;
 import io.graphite.model.VertexCost;
 import io.graphite.result.ShortestPathResult;
-import io.graphite.validation.GraphValidator;
+import io.graphite.validation.GraphPreconditions;
 
 import java.util.PriorityQueue;
 
 public class Dijkstra extends GraphAlgorithm implements ShortestPathAlgorithm {
+
+    private Dijkstra() {
+    }
+
+    public static final Dijkstra INSTANCE = new Dijkstra();
+
     @Override
     public ShortestPathResult shortestPath(IGraph graph, int source) {
-        validate(graph);
-        validateVertex(graph, source);
-
-        if (GraphValidator.hasNegativeEdges(graph)) {
-            throw new NegativeWeightException("Dijkstra cannot be applied to graphs with negative edge weights.");
-        }
+        GraphPreconditions.requireGraph(graph);
+        GraphPreconditions.requireVertex(graph, source);
+        GraphPreconditions.requireNonNegative(graph);
 
         int[] distance = ints(graph, Integer.MAX_VALUE);
+        int[] parent = ints(graph, -1);
+
         distance[source] = 0;
 
         PriorityQueue<VertexCost> queue = new PriorityQueue<>();
@@ -47,12 +51,13 @@ public class Dijkstra extends GraphAlgorithm implements ShortestPathAlgorithm {
 
                 if (distance[u] != Integer.MAX_VALUE && distance[u] + wt < distance[v]) {
                     distance[v] = distance[u] + wt;
+                    parent[v] = u;
 
                     queue.offer(new VertexCost(v, distance[v]));
                 }
             }
         }
 
-        return new ShortestPathResult(source, distance);
+        return new ShortestPathResult(source, distance, parent);
     }
 }

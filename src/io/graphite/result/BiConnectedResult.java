@@ -4,10 +4,20 @@ import io.graphite.model.Edge;
 
 import java.util.List;
 
-public record BiConnectedResult(
-        List<List<Edge>> components,
-        int componentCount
-) implements Colors {
+public record BiConnectedResult(List<List<Edge>> components) implements Colors {
+
+    public int componentCount() {
+        return components.size();
+    }
+
+    public boolean isEmpty() {
+        return components.isEmpty();
+    }
+
+    public List<Edge> component(int index) {
+        return components.get(index);
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -19,7 +29,7 @@ public record BiConnectedResult(
 
         sb.append(GREEN)
                 .append("Total Components : ")
-                .append(componentCount)
+                .append(componentCount())
                 .append(RESET)
                 .append("\n\n");
 

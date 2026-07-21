@@ -18,7 +18,7 @@ public interface IGraph {
     void addEdge(int source, int destination, int weight);
 
     default void addEdge(int source, int destination) {
-        addEdge(source, destination, 1);
+        addEdge(source, destination,1);
     }
 
     void removeEdge(int source, int destination);
@@ -94,21 +94,21 @@ public interface IGraph {
 
     // ========= Services =========
 
-    BipartiteService bipartite();
+    Bipartite bipartite();
 
-    ConnectivityService connectivity();
+    Connectivity connectivity();
 
-    CycleService cycle();
+    Cycle cycle();
 
-    EulerService euler();
+    Euler euler();
 
-    ShortestPathService shortestPath();
+    ShortestPath shortestPath();
 
-    TopologyService topology();
+    Topology topology();
 
-    MSTService mst();
+    MST mst();
 
-    TraversalService traversal();
+    Traversal traversal();
 
     GraphAnalysis analysis();
 }

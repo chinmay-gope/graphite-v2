@@ -1,12 +1,23 @@
 package io.graphite.result;
 
+import io.graphite.exception.graph.InvalidGraphConfigurationException;
+
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Objects;
 
-public record ShortestPathResult(int source, int[] distance) {
+public record ShortestPathResult(int source, int[] distance, int[] parent) {
 
     public ShortestPathResult {
         Objects.requireNonNull(distance, "distances cannot be null");
+        Objects.requireNonNull(parent, "parent cannot be null");
+
         distance = distance.clone();
+        parent = parent.clone();
+
+        if (distance.length != parent.length) {
+            throw new InvalidGraphConfigurationException("distances and parents must have same length.");
+        }
     }
 
     @Override
@@ -15,28 +26,60 @@ public record ShortestPathResult(int source, int[] distance) {
     }
 
     @Override
-    public String toString() {
-//        return "ShortestPathResult{" + "source=" + source + ", distances=" + Arrays.toString(distances) + '}';
+    public int[] parent() {
+        return parent.clone();
+    }
 
+    public int distanceTo(int vertex) {
+        return distance[vertex];
+    }
+
+    public boolean isReachable(int vertex) {
+        return distance[vertex] != Integer.MAX_VALUE;
+    }
+
+    public int predecessorOf(int vertex) {
+        return parent[vertex];
+    }
+
+    public int vertexCount() {
+        return distance.length;
+    }
+
+    public List<Integer> pathTo(int destination) {
+
+        if (!isReachable(destination)) {
+            return List.of();
+        }
+
+        LinkedList<Integer> path = new LinkedList<>();
+
+        for (int i = destination; i != -1; i = parent[i]) {
+
+            path.addFirst(i);
+        }
+
+        return List.copyOf(path);
+    }
+
+    @Override
+    public String toString() {
         StringBuilder builder = new StringBuilder();
 
-        builder.append("Source Vertex: ")
-                .append(source)
-                .append(System.lineSeparator())
-                .append(System.lineSeparator());
+        builder.append("Source: ").append(source).append(System.lineSeparator()).append(System.lineSeparator());
+
+        // Header row
+        builder.append(String.format("%-8s %-10s %-10s%n", "Vertex", "Distance", "Parent"));
 
         for (int i = 0; i < distance.length; i++) {
-            builder.append(i)
-                    .append(" -> ");
 
-            if (distance[i] == Integer.MAX_VALUE) {
-                builder.append("INF");
-            } else {
-                builder.append(distance[i]);
-            }
+            String dist = (distance[i] == Integer.MAX_VALUE) ? "INF" : String.valueOf(distance[i]);
+            String parentStr = (parent[i] == -1) ? "-" : String.valueOf(parent[i]);
 
-            builder.append(System.lineSeparator());
+            builder.append(String.format("%-8d %-10s %-10s%n", i, dist, parentStr));
         }
+
         return builder.toString();
     }
+
 }

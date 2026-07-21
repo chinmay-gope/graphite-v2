@@ -5,7 +5,7 @@ import io.graphite.graph.GraphFactory;
 
 public final class DirectedGraphBuilder extends AbstractGraphBuilder<DirectedGraph, DirectedGraphBuilder> {
 
-    public DirectedGraphBuilder() {
+    DirectedGraphBuilder() {
         configuration.setDirected(true);
     }
 

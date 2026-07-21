@@ -4,6 +4,7 @@ import io.graphite.algorithm.GraphAlgorithm;
 import io.graphite.graph.IGraph;
 import io.graphite.model.Edge;
 import io.graphite.result.SCCResult;
+import io.graphite.validation.GraphPreconditions;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -11,10 +12,16 @@ import java.util.Deque;
 import java.util.List;
 
 public class Kosaraju extends GraphAlgorithm implements SCCAlgorithm {
+
+    private Kosaraju() {
+    }
+
+    public static final Kosaraju INSTANCE = new Kosaraju();
+
     @Override
     public SCCResult findSCCs(IGraph graph) {
-        validate(graph);
-        requireDirected(graph);
+        GraphPreconditions.requireGraph(graph);
+        GraphPreconditions.requireDirected(graph);
 
         boolean[] visited = booleans(graph);
         Deque<Integer> stack = new ArrayDeque<>();

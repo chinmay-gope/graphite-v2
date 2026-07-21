@@ -4,6 +4,10 @@ import io.graphite.builder.GraphConfiguration;
 import io.graphite.graph.IGraph;
 
 public final class RandomGraphBuilder {
+
+    public RandomGraphBuilder() {
+    }
+
     private final GraphConfiguration configuration =
             new GraphConfiguration();
 
@@ -73,7 +77,7 @@ public final class RandomGraphBuilder {
         return this;
     }
 
-    public IGraph generate() {
+    public IGraph build() {
 
         return new RandomGraphGenerator<>(configuration)
                 .generate();

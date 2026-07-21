@@ -5,16 +5,22 @@ import io.graphite.exception.algorithm.NegativeCycleException;
 import io.graphite.graph.IGraph;
 import io.graphite.model.Edge;
 import io.graphite.result.AllPairsShortestPathResult;
+import io.graphite.validation.GraphPreconditions;
 
 import java.util.Arrays;
 
 public class FloydWarshall extends GraphAlgorithm implements AllPairsShortestPathAlgorithm {
 
+    private FloydWarshall() {
+    }
+
+    public static final FloydWarshall INSTANCE = new FloydWarshall();
+
     public static final int INF = Integer.MAX_VALUE;
 
     @Override
     public AllPairsShortestPathResult shortestPaths(IGraph graph) {
-        validate(graph);
+        GraphPreconditions.requireGraph(graph);
         int vertices = graph.getVertices();
 
         int[][] distance = createDistanceMatrix(graph);

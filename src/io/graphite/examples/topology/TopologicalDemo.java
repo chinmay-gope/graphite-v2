@@ -22,7 +22,7 @@ public class TopologicalDemo {
         GraphDemoPrinter.printHeader("DFS Topological Sort", graph);
         GraphPrinter.print(graph);
 
-        DFSTopologicalSort algorithm = new DFSTopologicalSort();
+        DFSTopologicalSort algorithm = DFSTopologicalSort.INSTANCE;
         System.out.println(algorithm.sort(graph));
 
         try {

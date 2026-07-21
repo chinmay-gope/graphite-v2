@@ -4,6 +4,7 @@ import io.graphite.algorithm.GraphAlgorithm;
 import io.graphite.graph.IGraph;
 import io.graphite.model.Edge;
 import io.graphite.result.BiConnectedResult;
+import io.graphite.validation.GraphPreconditions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,10 +13,15 @@ import java.util.Stack;
 public class BiconnectedComponents extends GraphAlgorithm
         implements BiconnectedAlgorithm {
 
+    private BiconnectedComponents() {
+    }
+
+    public static final BiconnectedComponents INSTANCE = new BiconnectedComponents();
+
     @Override
     public BiConnectedResult findBiconnectedComponents(IGraph graph) {
-        validate(graph);
-        requireUndirected(graph);
+        GraphPreconditions.requireGraph(graph);
+        GraphPreconditions.requireUndirected(graph);
 
         boolean[] visited = booleans(graph);
         int[] disc = ints(graph, 0);
@@ -56,7 +62,7 @@ public class BiconnectedComponents extends GraphAlgorithm
             }
         }
 
-        return new BiConnectedResult(result, result.size());
+        return new BiConnectedResult(result);
     }
 
     private int dfs(

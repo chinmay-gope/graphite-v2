@@ -7,16 +7,21 @@ import io.graphite.model.Edge;
 import io.graphite.model.MSTNode;
 import io.graphite.result.MSTEdge;
 import io.graphite.result.MSTResult;
+import io.graphite.validation.GraphPreconditions;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 
 public class Prim extends GraphAlgorithm {
+    private Prim() {
+    }
+
+    public static final Prim INSTANCE = new Prim();
 
     public MSTResult findMST(IGraph graph, int source) {
-        validate(graph);
-        requireUndirected(graph);
+        GraphPreconditions.requireGraph(graph);
+        GraphPreconditions.requireUndirected(graph);
 
         boolean[] visited = booleans(graph);
 

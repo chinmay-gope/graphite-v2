@@ -9,7 +9,6 @@ public final class DemoPrinter implements Colors {
             "════════════════════════════════════════════════════════════════════════════════";
 
     private DemoPrinter() {
-        throw new AssertionError("Utility class");
     }
 
     public static void printHeader(String title, IGraph graph) {
@@ -50,16 +49,6 @@ public final class DemoPrinter implements Colors {
         );
 
         printLine();
-    }
-
-    public static void printSubSection(String title) {
-
-        System.out.printf(
-                "%s➜ %s%s%n",
-                CYAN,
-                title,
-                RESET
-        );
     }
 
     public static void printSuccess() {

@@ -5,16 +5,23 @@ import io.graphite.exception.algorithm.GraphCycleException;
 import io.graphite.graph.IGraph;
 import io.graphite.model.Edge;
 import io.graphite.result.TopologicalSortResult;
+import io.graphite.validation.GraphPreconditions;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
 public class KahnTopologicalSort extends GraphAlgorithm implements TopologicalAlgorithm {
+
+    private KahnTopologicalSort() {
+    }
+
+    public static final KahnTopologicalSort INSTANCE = new KahnTopologicalSort();
+
     @Override
     public TopologicalSortResult sort(IGraph graph) {
-        validate(graph);
-        requireDirected(graph);
+        GraphPreconditions.requireGraph(graph);
+        GraphPreconditions.requireDirected(graph);
 
         int vertices = graph.getVertices();
 

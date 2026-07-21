@@ -11,7 +11,6 @@ import java.util.Set;
 
 public final class GraphUtils {
     private GraphUtils() {
-        throw new AssertionError("No GraphUtils instances for you!");
     }
 
     public static boolean isConnected(IGraph graph) {
@@ -28,7 +27,7 @@ public final class GraphUtils {
             return true;
         }
 
-        TraversalResult result = new DFS().traverse(graph, start);
+        TraversalResult result = DFS.INSTANCE.traverse(graph, start);
 
         Set<Integer> visited = new HashSet<>(result.traversalOrder());
 

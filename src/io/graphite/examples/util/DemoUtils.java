@@ -9,7 +9,6 @@ import io.graphite.util.GraphPrinter;
 public final class DemoUtils implements Colors {
 
     private DemoUtils() {
-        throw new AssertionError("Utility class");
     }
 
     /**

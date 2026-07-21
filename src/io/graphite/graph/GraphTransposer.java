@@ -5,7 +5,6 @@ import io.graphite.model.Edge;
 public final class GraphTransposer {
 
     private GraphTransposer() {
-        throw new AssertionError("Utility class");
     }
 
     public static Graph transpose(Graph graph) {

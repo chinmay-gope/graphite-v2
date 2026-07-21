@@ -3,30 +3,22 @@ package io.graphite.graph;
 import io.graphite.api.*;
 import io.graphite.api.analysis.GraphAnalysis;
 import io.graphite.api.analysis.GraphAnalysisService;
+import io.graphite.api.internal.GraphAPI;
 import io.graphite.builder.GraphConfiguration;
 import io.graphite.exception.graph.InvalidVertexException;
+import io.graphite.graph.internal.GraphAPIType;
 import io.graphite.graph.internal.ImmutableGraph;
 import io.graphite.io.writer.GraphWriterService;
 import io.graphite.model.Edge;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.EnumMap;
 import java.util.List;
+import java.util.function.Supplier;
 
 
 public abstract class Graph implements IGraph {
-
-    private GraphWriterService writer;
-
-    @Override
-    public GraphWriterService write() {
-
-        if (writer == null) {
-            writer = new GraphWriterService(this);
-        }
-
-        return writer;
-    }
 
     // ==========================================================
     // Fields
@@ -233,95 +225,66 @@ public abstract class Graph implements IGraph {
     // Services
     // ==========================================================
 
-    private TraversalService traversal;
-    private MSTService mst;
-    private ShortestPathService shortestPath;
-    private ConnectivityService connectivity;
-    private CycleService cycle;
-    private EulerService euler;
-    private TopologyService topology;
-    private BipartiteService bipartite;
+    private final EnumMap<GraphAPIType, GraphAPI> cache =
+            new EnumMap<>(GraphAPIType.class);
 
-    private GraphAnalysis analysis;
-
-    @Override
-    public TraversalService traversal() {
-
-        if (traversal == null) {
-            traversal = new TraversalService(this);
-        }
-
-        return traversal;
+    /**
+     * Returns a lazily-created API module.
+     */
+    @SuppressWarnings("unchecked")
+    private <T extends GraphAPI> T service(
+            GraphAPIType type,
+            Supplier<T> factory
+    ) {
+        return (T) cache.computeIfAbsent(
+                type,
+                _ -> factory.get()
+        );
     }
 
     @Override
-    public MSTService mst() {
-
-        if (mst == null) {
-            mst = new MSTService(this);
-        }
-
-        return mst;
+    public GraphWriterService write() {
+        return service(GraphAPIType.WRITER, () -> new GraphWriterService(this));
     }
 
     @Override
-    public ShortestPathService shortestPath() {
-
-        if (shortestPath == null) {
-            shortestPath = new ShortestPathService(this);
-        }
-
-        return shortestPath;
+    public Traversal traversal() {
+        return service(GraphAPIType.TRAVERSAL, () -> new Traversal(this));
     }
 
     @Override
-    public ConnectivityService connectivity() {
-
-        if (connectivity == null) {
-            connectivity = new ConnectivityService(this);
-        }
-
-        return connectivity;
+    public MST mst() {
+        return service(GraphAPIType.MST, () -> new MST(this));
     }
 
     @Override
-    public CycleService cycle() {
-
-        if (cycle == null) {
-            cycle = new CycleService(this);
-        }
-
-        return cycle;
+    public ShortestPath shortestPath() {
+        return service(GraphAPIType.SHORTEST_PATH, () -> new ShortestPath(this));
     }
 
     @Override
-    public EulerService euler() {
-
-        if (euler == null) {
-            euler = new EulerService(this);
-        }
-
-        return euler;
+    public Connectivity connectivity() {
+        return service(GraphAPIType.CONNECTIVITY, () -> new Connectivity(this));
     }
 
     @Override
-    public TopologyService topology() {
-
-        if (topology == null) {
-            topology = new TopologyService(this);
-        }
-
-        return topology;
+    public Cycle cycle() {
+        return service(GraphAPIType.CYCLE, () -> new Cycle(this));
     }
 
     @Override
-    public BipartiteService bipartite() {
+    public Euler euler() {
+        return service(GraphAPIType.EULER, () -> new Euler(this));
+    }
 
-        if (bipartite == null) {
-            bipartite = new BipartiteService(this);
-        }
+    @Override
+    public Topology topology() {
+        return service(GraphAPIType.TOPOLOGY, () -> new Topology(this));
+    }
 
-        return bipartite;
+    @Override
+    public Bipartite bipartite() {
+        return service(GraphAPIType.BIPARTITE, () -> new Bipartite(this));
     }
 
     // ==========================================================
@@ -330,12 +293,7 @@ public abstract class Graph implements IGraph {
 
     @Override
     public GraphAnalysis analysis() {
-
-        if (analysis == null) {
-            analysis = new GraphAnalysisService(this);
-        }
-
-        return analysis;
+        return service(GraphAPIType.ANALYSIS, () -> new GraphAnalysisService(this));
     }
 
 }

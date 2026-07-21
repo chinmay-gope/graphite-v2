@@ -9,7 +9,7 @@ import io.graphite.graph.IGraph;
 public class UndirectedCycleDemo {
     static void main() {
         CycleDetectionAlgorithm detector =
-                new UndirectedCycleDetector();
+                UndirectedCycleDetector.INSTANCE;
         IGraph noCycleGraph = Graphs
                 .undirected()
                 .addEdge(0, 1)

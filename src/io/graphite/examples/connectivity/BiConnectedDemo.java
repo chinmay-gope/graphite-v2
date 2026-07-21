@@ -19,7 +19,7 @@ public class BiConnectedDemo {
         GraphDemoPrinter.printHeader("BiConnected Triangle", graph);
         GraphPrinter.print(graph);
 
-        BiconnectedAlgorithm algorithm = new BiconnectedComponents();
+        BiconnectedAlgorithm algorithm = BiconnectedComponents.INSTANCE;
 
         BiConnectedResult result = algorithm.findBiconnectedComponents(graph);
         System.out.println(result);

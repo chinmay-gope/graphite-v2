@@ -8,7 +8,6 @@ import java.util.concurrent.ThreadLocalRandom;
 public final class SpanningTreeGenerator {
 
     private SpanningTreeGenerator() {
-        throw new AssertionError("Utility class");
     }
 
     public static void generate(AbstractGraphBuilder<?, ?> builder,

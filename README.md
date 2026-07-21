@@ -421,8 +421,8 @@ System.out.println(result.getParents());
 
 ---
 
-## **visualizer** 
-![graphite_visualizer_v1.png](src/io/graphite/diagrams/graphite_visualizer_v1.png)
+## **Visualizer** 
+![graphite_v2.png](src/io/graphite/diagrams/graphite_v2.png)
 
 ## 📄 License
 

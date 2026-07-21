@@ -8,10 +8,10 @@ public class Main {
     static void main() {
         IGraph graph = Graphs
                 .random()
-                .vertices(6)
+                .vertices(3)
                 .edges(3)
                 .immutable()
-                .generate();
+                .build();
 
 //        graph.addEdge(0,4);
         System.out.println("Graph as mutable: " + graph.asImmutable().getClass()); // throws : This graph is immutable.
@@ -22,7 +22,5 @@ public class Main {
         GraphPrinter.statistics(graph);
         GraphPrinter.dot(graph);
         GraphPrinter.mermaid(graph);
-        GraphPrinter.json(graph);
-//        graph.write().json();
     }
 }

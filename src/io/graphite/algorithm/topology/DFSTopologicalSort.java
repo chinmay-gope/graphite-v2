@@ -7,6 +7,7 @@ import io.graphite.exception.algorithm.GraphCycleException;
 import io.graphite.graph.IGraph;
 import io.graphite.model.Edge;
 import io.graphite.result.TopologicalSortResult;
+import io.graphite.validation.GraphPreconditions;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -14,12 +15,17 @@ import java.util.Deque;
 import java.util.List;
 
 public class DFSTopologicalSort extends GraphAlgorithm implements TopologicalAlgorithm {
+
+    private DFSTopologicalSort() {
+    }
+
+    public static final DFSTopologicalSort INSTANCE = new DFSTopologicalSort();
+
     @Override
     public TopologicalSortResult sort(IGraph graph) {
-        validate(graph);
-        requireDirected(graph);
+        GraphPreconditions.requireDirected(graph);
 
-        CycleDetectionAlgorithm detector = new DirectedCycleDetector();
+        CycleDetectionAlgorithm detector = DirectedCycleDetector.INSTANCE;
 
         if (detector.hasCycle(graph)) {
             throw new GraphCycleException("Topological sort requires a Directed Acyclic Graph (DAG).");

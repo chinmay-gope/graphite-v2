@@ -1,0 +1,47 @@
+package io.graphite.graph;
+
+import io.graphite.generator.pattern.*;
+
+public final class PatternGraphFactory {
+
+    public static final PatternGraphFactory INSTANCE = new PatternGraphFactory();
+    private PatternGraphFactory() {
+    }
+
+    // Patterns
+    public IGraph complete(int vertices) {
+        return CompleteGraphGenerator.generate(vertices);
+    }
+
+    public IGraph cycle(int vertices) {
+        return CycleGraphGenerator.generate(vertices);
+    }
+
+    public IGraph dag(int vertices) {
+        return DAGGenerator.generate(vertices, vertices * 2);
+    }
+
+    public IGraph completeBipartite(int left, int right) {
+        return CompleteBipartiteGraphGenerator.generate(left, right);
+    }
+
+    public IGraph tree(int vertices) {
+        return TreeGraphGenerator.generate(vertices);
+    }
+
+    public IGraph star(int vertices) {
+        return StarGraphGenerator.generate(vertices);
+    }
+
+    public IGraph wheel(int vertices) {
+        return WheelGraphGenerator.generate(vertices);
+    }
+
+    public IGraph grid(int rows, int cols) {
+        return GridGraphGenerator.generate(rows, cols);
+    }
+
+    public IGraph bipartite(int left, int right) {
+        return BipartiteGraphGenerator.generate(left, right, left + right);
+    }
+}

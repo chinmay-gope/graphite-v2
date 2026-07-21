@@ -20,7 +20,7 @@ public class KosarajuDemo {
         GraphDemoPrinter.printHeader("Kosaraju SCC", graph);
         GraphPrinter.print(graph);
 
-        SCCAlgorithm algorithm = new Kosaraju();
+        SCCAlgorithm algorithm = Kosaraju.INSTANCE;
 
         SCCResult result = algorithm.findSCCs(graph);
         System.out.println(result);

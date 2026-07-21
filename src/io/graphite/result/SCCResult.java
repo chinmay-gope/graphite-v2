@@ -14,6 +14,24 @@ public record SCCResult(List<List<Integer>> components) implements Colors {
         return components.stream().map(List::copyOf).toList();
     }
 
+    public int size() {
+        return components.size();
+    }
+
+    public int largestComponentSize() {
+        return components.stream()
+                .mapToInt(List::size)
+                .max()
+                .orElse(0);
+    }
+
+    public int smallestComponentSize() {
+        return components.stream()
+                .mapToInt(List::size)
+                .min()
+                .orElse(0);
+    }
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();

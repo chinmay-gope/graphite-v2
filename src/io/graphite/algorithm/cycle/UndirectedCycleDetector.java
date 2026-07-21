@@ -3,11 +3,18 @@ package io.graphite.algorithm.cycle;
 import io.graphite.algorithm.GraphAlgorithm;
 import io.graphite.graph.IGraph;
 import io.graphite.model.Edge;
+import io.graphite.validation.GraphPreconditions;
 
 public class UndirectedCycleDetector extends GraphAlgorithm implements CycleDetectionAlgorithm {
+
+    private UndirectedCycleDetector() {
+    }
+
+    public static final UndirectedCycleDetector INSTANCE = new UndirectedCycleDetector();
+
     @Override
     public boolean hasCycle(IGraph graph) {
-        validate(graph);
+        GraphPreconditions.requireGraph(graph);
 
         boolean[] visited = booleans(graph);
 

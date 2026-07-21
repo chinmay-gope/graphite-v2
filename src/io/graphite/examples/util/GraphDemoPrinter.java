@@ -6,7 +6,6 @@ import io.graphite.result.Colors;
 public final class GraphDemoPrinter implements Colors {
 
     private GraphDemoPrinter() {
-        throw new AssertionError("No GraphDemoPrinter instances for you!");
     }
 
     public static void printHeader(String algorithm, IGraph graph) {

@@ -26,7 +26,7 @@ public class KruskalDemo {
         GraphDemoPrinter.printHeader("Kruskal MST", graph);
         GraphPrinter.print(graph);
 
-        Kruskal algorithm = new Kruskal();
+        Kruskal algorithm = Kruskal.INSTANCE;
 
         graph = Graphs
                 .undirected()

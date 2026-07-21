@@ -2,6 +2,7 @@ package io.graphite.graph.internal;
 
 import io.graphite.api.*;
 import io.graphite.api.analysis.GraphAnalysis;
+import io.graphite.exception.graph.ImmutableGraphException;
 import io.graphite.graph.IGraph;
 import io.graphite.io.writer.GraphWriterService;
 import io.graphite.model.Edge;
@@ -10,20 +11,19 @@ import java.util.List;
 
 public final class ImmutableGraph implements IGraph {
 
-    private final IGraph graph;
+    private final IGraph delegate;
 
-    public ImmutableGraph(IGraph graph) {
-        this.graph = graph;
+    public ImmutableGraph(IGraph delegate) {
+        this.delegate = delegate;
     }
 
-    private UnsupportedOperationException immutable() {
-        return new UnsupportedOperationException(
-                "This graph is immutable.");
+    private ImmutableGraphException immutable() {
+        return new ImmutableGraphException();
     }
 
     @Override
     public GraphWriterService write() {
-        return graph.write();
+        return delegate.write();
     }
 
     // ==========================================================
@@ -31,6 +31,11 @@ public final class ImmutableGraph implements IGraph {
     // ==========================================================
     @Override
     public void addEdge(int source, int destination, int weight) {
+        throw immutable();
+    }
+
+    @Override
+    public void addEdge(int source, int destination) {
         throw immutable();
     }
 
@@ -50,53 +55,53 @@ public final class ImmutableGraph implements IGraph {
 
     @Override
     public boolean hasEdge(int source, int destination) {
-        return graph.hasEdge(source, destination);
+        return delegate.hasEdge(source, destination);
     }
 
     @Override
     public boolean containsVertex(int vertex) {
-        return graph.containsVertex(vertex);
+        return delegate.containsVertex(vertex);
     }
 
     @Override
     public int degree(int vertex) {
-        return graph.degree(vertex);
+        return delegate.degree(vertex);
     }
 
     @Override
     public boolean isEmpty() {
-        return graph.isEmpty();
+        return delegate.isEmpty();
     }
 
     @Override
     public boolean isWeighted() {
-        return graph.isWeighted();
+        return delegate.isWeighted();
     }
 
     @Override
     public boolean isDirected() {
-        return graph.isDirected();
+        return delegate.isDirected();
     }
 
 
     @Override
     public boolean isUndirected() {
-        return graph.isUndirected();
+        return delegate.isUndirected();
     }
 
     @Override
     public List<Edge> getNeighbors(int vertex) {
-        return graph.getNeighbors(vertex);
+        return delegate.getNeighbors(vertex);
     }
 
     @Override
     public List<Edge> getEdges() {
-        return graph.getEdges();
+        return delegate.getEdges();
     }
 
     @Override
     public int getVertices() {
-        return graph.getVertices();
+        return delegate.getVertices();
     }
 
     // ==========================================================
@@ -105,12 +110,12 @@ public final class ImmutableGraph implements IGraph {
 
     @Override
     public int vertexCount() {
-        return graph.vertexCount();
+        return delegate.vertexCount();
     }
 
     @Override
     public int edgeCount() {
-        return graph.edgeCount();
+        return delegate.edgeCount();
     }
 
     // ==========================================================
@@ -119,59 +124,59 @@ public final class ImmutableGraph implements IGraph {
 
     @Override
     public IGraph copy() {
-        return graph.copy().asImmutable();
+        return delegate.copy().asImmutable();
     }
 
     @Override
     public IGraph transpose() {
-        return graph.transpose().asImmutable();
+        return delegate.transpose().asImmutable();
     }
 
 //    _____________________services______________________
 
     @Override
-    public BipartiteService bipartite() {
-        return graph.bipartite();
+    public Bipartite bipartite() {
+        return delegate.bipartite();
     }
 
     @Override
-    public ConnectivityService connectivity() {
-        return graph.connectivity();
+    public Connectivity connectivity() {
+        return delegate.connectivity();
     }
 
     @Override
-    public CycleService cycle() {
-        return graph.cycle();
+    public Cycle cycle() {
+        return delegate.cycle();
     }
 
     @Override
-    public EulerService euler() {
-        return graph.euler();
+    public Euler euler() {
+        return delegate.euler();
     }
 
     @Override
-    public ShortestPathService shortestPath() {
-        return graph.shortestPath();
+    public ShortestPath shortestPath() {
+        return delegate.shortestPath();
     }
 
     @Override
-    public TopologyService topology() {
-        return graph.topology();
+    public Topology topology() {
+        return delegate.topology();
     }
 
     @Override
-    public MSTService mst() {
-        return graph.mst();
+    public MST mst() {
+        return delegate.mst();
     }
 
     @Override
-    public TraversalService traversal() {
-        return graph.traversal();
+    public Traversal traversal() {
+        return delegate.traversal();
     }
 
     @Override
     public GraphAnalysis analysis() {
-        return graph.analysis();
+        return delegate.analysis();
     }
 
     @Override

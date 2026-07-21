@@ -24,7 +24,7 @@ public class PrimDemo {
         GraphDemoPrinter.printHeader("Prim MST", graph);
         GraphPrinter.print(graph);
 
-        Prim algorithm = new Prim();
+        Prim algorithm = Prim.INSTANCE;
 
         MSTResult result = algorithm.findMST(graph, 0);
 
