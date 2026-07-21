@@ -5,15 +5,18 @@ import io.graphite.examples.core.BasicExamples;
 import io.graphite.examples.core.BuilderExamples;
 import io.graphite.examples.core.GeneratorExamples;
 import io.graphite.examples.format.FormatterExamples;
+import io.graphite.examples.io.GraphIOExamples;
 import io.graphite.examples.performance.BenchmarkExamples;
 import io.graphite.examples.performance.StressExamples;
+
+import java.io.IOException;
 
 public final class ExampleRunner {
 
     private ExampleRunner() {
     }
 
-    static void main(String[] args) {
+    static void main(String[] args) throws IOException {
 
         TraversalExamples.run();
         BasicExamples.run();
@@ -29,6 +32,8 @@ public final class ExampleRunner {
         FormatterExamples.run();
         BenchmarkExamples.run();
         StressExamples.run();
+
+        GraphIOExamples.run();
 
     }
 }
