@@ -7,6 +7,7 @@ import io.graphite.exception.graph.InvalidGraphConfigurationException;
 import io.graphite.generator.internal.EdgeTracker;
 import io.graphite.generator.internal.SpanningTreeGenerator;
 import io.graphite.graph.IGraph;
+import io.graphite.graph.PatternGraphBuilder;
 
 /**
  * Generates tree graphs.
@@ -19,7 +20,7 @@ import io.graphite.graph.IGraph;
  * @since 2.0
  * @version 2.0
  *
- * @see io.graphite.graph.PatternGraphFactory
+ * @see PatternGraphBuilder
  */
 public final class TreeGraphGenerator {
 

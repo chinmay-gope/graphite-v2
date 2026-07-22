@@ -1,4 +1,6 @@
-package io.graphite.benchmark.algorithm;
+package io.graphite.examples;
+
+import io.graphite.benchmark.algorithm.*;
 
 public final class BenchmarkTestRunner {
     private BenchmarkTestRunner() {

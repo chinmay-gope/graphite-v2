@@ -52,6 +52,25 @@ public class BFSBipartiteChecker extends GraphAlgorithm implements BipartiteAlgo
 
     public static final BFSBipartiteChecker INSTANCE = new BFSBipartiteChecker();
 
+    /**
+     * Determines whether the graph is bipartite.
+     *
+     * <p>A graph is bipartite if its vertices can be divided into two
+     * disjoint sets such that every edge connects vertices from
+     * different sets.</p>
+     *
+     * <h2>Complexity</h2>
+     *
+     * <ul>
+     *     <li>Time: O(V + E)</li>
+     *     <li>Space: O(V)</li>
+     * </ul>
+     *
+     * @return {@code true} if the graph is bipartite;
+     * {@code false} otherwise
+     * @throws io.graphite.exception.algorithm.NullGraphException if the graph is {@code null}
+     * @since 2.0
+     */
     @Override
     public boolean isBipartite(IGraph graph) {
         GraphPreconditions.requireGraph(graph);

@@ -49,11 +49,62 @@ public final class MST extends GraphAPI {
         super(graph);
     }
 
+    /**
+     * Computes a Minimum Spanning Tree (MST) using Prim's algorithm.
+     *
+     * <p>Prim's algorithm grows the spanning tree by repeatedly selecting
+     * the minimum-weight edge that connects a visited vertex to an
+     * unvisited vertex.</p>
+     *
+     * <p>This algorithm requires a connected, weighted, undirected graph.</p>
+     *
+     * <h2>Complexity</h2>
+     *
+     * <ul>
+     *     <li>Time: O((V + E) log V)</li>
+     *     <li>Space: O(V)</li>
+     * </ul>
+     *
+     * @return the computed minimum spanning tree
+     * @throws io.graphite.exception.algorithm.NullGraphException        if the graph is {@code null}
+     * @throws io.graphite.exception.graph.UnsupportedGraphTypeException if the graph is directed
+     * @throws io.graphite.exception.graph.GraphDisconnectedException    if the graph is disconnected
+     * @see #kruskal()
+     * @since 2.0
+     */
     public MSTResult prim(int source) {
         return  Prim.INSTANCE.findMST(graph, source);
     }
 
+    /**
+     * Computes a Minimum Spanning Tree (MST) using Kruskal's algorithm.
+     *
+     * <p>Kruskal's algorithm constructs the spanning tree by processing
+     * edges in ascending order of weight while avoiding cycles using the
+     * Union-Find data structure.</p>
+     *
+     * <p>This algorithm requires a connected, weighted, undirected graph.</p>
+     *
+     * <h2>Complexity</h2>
+     *
+     * <ul>
+     *     <li>Time: O(E log E)</li>
+     *     <li>Space: O(V)</li>
+     * </ul>
+     *
+     * @return the computed minimum spanning tree
+     *
+     * @throws io.graphite.exception.algorithm.NullGraphException
+     *         if the graph is {@code null}
+     * @throws io.graphite.exception.graph.UnsupportedGraphTypeException
+     *         if the graph is directed
+     * @throws io.graphite.exception.graph.GraphDisconnectedException
+     *         if the graph is disconnected
+     *
+     * @see #prim(int)
+     * @since 2.0
+     */
     public MSTResult kruskal() {
-        return  Kruskal.INSTANCE.findMST(graph);
+        return Kruskal.INSTANCE.findMST(graph);
     }
 }

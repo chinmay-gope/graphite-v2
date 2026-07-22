@@ -3,6 +3,7 @@ package io.graphite.validation;
 
 import io.graphite.builder.GraphConfiguration;
 import io.graphite.exception.graph.InvalidGraphConfigurationException;
+import io.graphite.graph.PatternGraphBuilder;
 
 /**
  * Validates graph builder configurations before graph construction.
@@ -27,7 +28,7 @@ import io.graphite.exception.graph.InvalidGraphConfigurationException;
  * @version 2.0
  * @see GraphConfiguration
  * @see io.graphite.generator.RandomGraphBuilder
- * @see io.graphite.graph.PatternGraphFactory
+ * @see PatternGraphBuilder
  * @since 2.0
  */
 public final class BuilderValidator {

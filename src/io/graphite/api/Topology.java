@@ -44,10 +44,58 @@ public final class Topology extends GraphAPI {
         super(graph);
     }
 
+    /**
+     * Computes a topological ordering of a directed acyclic graph (DAG)
+     * using depth-first search.
+     *
+     * <p>A topological ordering arranges vertices so that every directed
+     * edge points from an earlier vertex to a later vertex.</p>
+     *
+     * <p>This algorithm is applicable only to directed acyclic graphs.</p>
+     *
+     * <h2>Complexity</h2>
+     *
+     * <ul>
+     *     <li>Time: O(V + E)</li>
+     *     <li>Space: O(V)</li>
+     * </ul>
+     *
+     * @return the topological ordering
+     * @throws io.graphite.exception.algorithm.NullGraphException        if the graph is {@code null}
+     * @throws io.graphite.exception.graph.UnsupportedGraphTypeException if the graph is undirected
+     * @throws io.graphite.exception.algorithm.GraphCycleException       if the graph contains a cycle
+     * @see #kahn()
+     * @since 2.0
+     */
     public TopologicalSortResult dfs() {
         return DFSTopologicalSort.INSTANCE.sort(graph);
     }
 
+    /**
+     * Computes a topological ordering using Kahn's algorithm.
+     *
+     * <p>Kahn's algorithm repeatedly removes vertices with zero
+     * incoming edges until all vertices have been processed.</p>
+     *
+     * <h2>Complexity</h2>
+     *
+     * <ul>
+     *     <li>Time: O(V + E)</li>
+     *     <li>Space: O(V)</li>
+     * </ul>
+     *
+     * @return the topological ordering
+     *
+     * @throws io.graphite.exception.algorithm.NullGraphException
+     *         if the graph is {@code null}
+     * @throws io.graphite.exception.graph.UnsupportedGraphTypeException
+     *         if the graph is undirected
+     * @throws io.graphite.exception.algorithm.GraphCycleException
+     *         if the graph contains a cycle
+     *
+     * @see #dfs()
+     * @since 2.0
+     */
     public TopologicalSortResult kahn() {
         return KahnTopologicalSort.INSTANCE.sort(graph);
     }

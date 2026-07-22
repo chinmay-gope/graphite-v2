@@ -41,7 +41,6 @@ public abstract class AbstractBenchmark {
                 .build()
                 .run();
 
-//        System.out.println(result);
         BenchmarkPrinter.print(result);
 
         return result;

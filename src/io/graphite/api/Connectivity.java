@@ -58,18 +58,86 @@ public final class Connectivity extends GraphAPI {
         super(graph);
     }
 
+
     public APResult articulationPoints() {
         return APFinder.INSTANCE.findArticulationPoints(graph);
     }
 
+    /**
+     * Identifies all bridges in the graph.
+     *
+     * <p>A bridge is an edge whose removal increases the number of connected
+     * components in the graph.</p>
+     *
+     * <p>This algorithm is applicable only to undirected graphs.</p>
+     *
+     * <h2>Complexity</h2>
+     *
+     * <ul>
+     *     <li>Time: O(V + E)</li>
+     *     <li>Space: O(V)</li>
+     * </ul>
+     *
+     * @return all bridge edges
+     * @throws io.graphite.exception.algorithm.NullGraphException        if the graph is {@code null}
+     * @throws io.graphite.exception.graph.UnsupportedGraphTypeException if the graph is directed
+     * @since 2.0
+     */
     public BridgeResult bridges() {
         return BridgeFinder.INSTANCE.findBridges(graph);
     }
 
+    /**
+     * Computes the connected components of an undirected graph.
+     *
+     * <p>A connected component is a maximal set of vertices in which every
+     * vertex is reachable from every other vertex.</p>
+     *
+     * <p>This algorithm is applicable only to undirected graphs.</p>
+     *
+     * <h2>Complexity</h2>
+     *
+     * <ul>
+     *     <li>Time: O(V + E)</li>
+     *     <li>Space: O(V)</li>
+     * </ul>
+     *
+     * @return the connected components of the graph
+     * @throws io.graphite.exception.algorithm.NullGraphException        if the graph is {@code null}
+     * @throws io.graphite.exception.graph.UnsupportedGraphTypeException if the graph is directed
+     * @see #stronglyConnectedComponents()
+     * @since 2.0
+     */
     public BiConnectedResult biconnectedComponents() {
         return BiconnectedComponents.INSTANCE.findBiconnectedComponents(graph);
     }
 
+    /**
+     * Computes the strongly connected components (SCCs) of a directed graph
+     * using Kosaraju's algorithm.
+     *
+     * <p>A strongly connected component is a maximal set of vertices in
+     * which every vertex is reachable from every other vertex.</p>
+     *
+     * <p>This algorithm is applicable only to directed graphs.</p>
+     *
+     * <h2>Complexity</h2>
+     *
+     * <ul>
+     *     <li>Time: O(V + E)</li>
+     *     <li>Space: O(V)</li>
+     * </ul>
+     *
+     * @return the strongly connected components
+     *
+     * @throws io.graphite.exception.algorithm.NullGraphException
+     *         if the graph is {@code null}
+     * @throws io.graphite.exception.graph.UnsupportedGraphTypeException
+     *         if the graph is undirected
+     *
+     * @see #biconnectedComponents()
+     * @since 2.0
+     */
     public SCCResult stronglyConnectedComponents() {
         return Kosaraju.INSTANCE.findSCCs(graph);
     }

@@ -3,6 +3,7 @@ package io.graphite.generator.preset;
 import io.graphite.builder.Graphs;
 import io.graphite.generator.pattern.BipartiteGraphGenerator;
 import io.graphite.graph.IGraph;
+import io.graphite.graph.PatternGraphBuilder;
 
 /**
  * Provides a collection of predefined graphs commonly used for testing,
@@ -39,7 +40,7 @@ import io.graphite.graph.IGraph;
  *
  * @see Graphs
  * @see io.graphite.generator.RandomGraphBuilder
- * @see io.graphite.graph.PatternGraphFactory
+ * @see PatternGraphBuilder
  */
 public class GraphPresetGenerator {
 

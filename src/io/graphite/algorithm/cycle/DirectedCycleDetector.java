@@ -1,6 +1,7 @@
 package io.graphite.algorithm.cycle;
 
 import io.graphite.algorithm.GraphAlgorithm;
+import io.graphite.api.Topology;
 import io.graphite.graph.IGraph;
 import io.graphite.model.Edge;
 import io.graphite.validation.GraphPreconditions;
@@ -55,6 +56,25 @@ public class DirectedCycleDetector extends GraphAlgorithm implements CycleDetect
 
     public static final DirectedCycleDetector INSTANCE = new DirectedCycleDetector();
 
+    /**
+     * Determines whether the graph contains a cycle.
+     *
+     * <p>The appropriate cycle detection algorithm is selected
+     * automatically based on the graph type.</p>
+     *
+     * <h2>Complexity</h2>
+     *
+     * <ul>
+     *     <li>Time: O(V + E)</li>
+     *     <li>Space: O(V)</li>
+     * </ul>
+     *
+     * @return {@code true} if the graph contains a cycle;
+     * {@code false} otherwise
+     * @throws io.graphite.exception.algorithm.NullGraphException if the graph is {@code null}
+     * @see Topology#dfs()
+     * @since 2.0
+     */
     @Override
     public boolean hasCycle(IGraph graph) {
         GraphPreconditions.requireGraph(graph);

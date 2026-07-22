@@ -1,4 +1,4 @@
-package io.graphite.benchmark;
+package io.graphite.examples;
 
 import io.graphite.benchmark.stress.*;
 

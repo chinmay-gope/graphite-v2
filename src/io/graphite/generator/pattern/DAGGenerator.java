@@ -3,6 +3,7 @@ package io.graphite.generator.pattern;
 import io.graphite.builder.Graphs;
 import io.graphite.exception.graph.InvalidGraphConfigurationException;
 import io.graphite.graph.IGraph;
+import io.graphite.graph.PatternGraphBuilder;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -28,7 +29,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * @since 2.0
  * @version 2.0
  *
- * @see io.graphite.graph.PatternGraphFactory
+ * @see PatternGraphBuilder
  */
 public final class DAGGenerator {
 

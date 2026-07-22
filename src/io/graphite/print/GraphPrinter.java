@@ -50,39 +50,131 @@ public final class GraphPrinter {
     private GraphPrinter() {
     }
 
+    /**
+     * Prints the graph using the compact formatter.
+     *
+     * <p>This is the default textual representation of a graph and
+     * is intended for debugging and console output.</p>
+     *
+     * @param graph the graph to print
+     * @throws io.graphite.exception.algorithm.NullGraphException if the graph is {@code null}
+     * @see CompactFormatter
+     * @since 2.0
+     */
     public static void compact(IGraph graph) {
         System.out.println(COMPACT.format(graph));
     }
 
+    /**
+     * Prints the graph using a tree-style representation.
+     *
+     * @param graph the graph to print
+     * @throws io.graphite.exception.algorithm.NullGraphException if the graph is {@code null}
+     * @see TreeFormatter
+     * @since 2.0
+     */
     public static void tree(IGraph graph) {
         System.out.println(TREE.format(graph));
     }
 
+    /**
+     * Prints the graph as an edge list.
+     *
+     * @param graph the graph to print
+     *
+     * @throws io.graphite.exception.algorithm.NullGraphException if the graph is {@code null}
+     *
+     * @see EdgeListFormatter
+     * @since 2.0
+     */
     public static void edgeList(IGraph graph) {
         System.out.println(EDGE_LIST.format(graph));
     }
 
+    /**
+     * Prints the graph as an adjacency matrix.
+     *
+     * @param graph the graph to print
+     *
+     * @throws io.graphite.exception.algorithm.NullGraphException if the graph is {@code null}
+     *
+     * @see MatrixFormatter
+     * @since 2.0
+     */
     public static void matrix(IGraph graph) {
         System.out.println(MATRIX.format(graph));
     }
 
+    /**
+     * Prints graph statistics and structural information.
+     *
+     * @param graph the graph to print
+     *
+     * @throws io.graphite.exception.algorithm.NullGraphException if the graph is {@code null}
+     *
+     * @see StatisticsFormatter
+     * @since 2.0
+     */
     public static void statistics(IGraph graph) {
         System.out.println(STATISTICS.format(graph));
     }
 
+
+    /**
+     * Prints the graph in Graphviz DOT format.
+     *
+     * @param graph the graph to print
+     *
+     * @throws io.graphite.exception.algorithm.NullGraphException if the graph is {@code null}
+     *
+     * @see DotFormatter
+     * @since 2.0
+     */
     public static void dot(IGraph graph) {
         System.out.println(DOT.format(graph));
     }
 
+    /**
+     * Prints the graph using Mermaid diagram syntax.
+     *
+     * @param graph the graph to print
+     *
+     * @throws io.graphite.exception.algorithm.NullGraphException if the graph is {@code null}
+     *
+     * @see MermaidFormatter
+     * @since 2.0
+     */
     public static void mermaid(IGraph graph) {
         System.out.println(MERMAID.format(graph));
     }
 
+    /**
+     * Prints the graph as a JSON document.
+     *
+     * @param graph the graph to print
+     *
+     * @throws io.graphite.exception.algorithm.NullGraphException if the graph is {@code null}
+     *
+     * @see JsonFormatter
+     * @since 2.0
+     */
     public static void json(IGraph graph) {
         System.out.println(JSON.format(graph));
     }
 
-    // preserve compatibility
+    /**
+     * Prints the graph using the default compact formatter.
+     *
+     * <p>This method is retained for backward compatibility and is
+     * equivalent to calling {@link #compact(IGraph)}.</p>
+     *
+     * @param graph the graph to print
+     *
+     * @throws io.graphite.exception.algorithm.NullGraphException if the graph is {@code null}
+     *
+     * @see #compact(IGraph)
+     * @since 2.0
+     */
     public static void println(IGraph graph) {
         compact(graph);
     }

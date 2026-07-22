@@ -37,10 +37,60 @@ public final class Euler extends GraphAPI {
         super(graph);
     }
 
+    /**
+     * Determines whether the graph contains an Euler path.
+     *
+     * <p>An Euler path visits every edge exactly once.</p>
+     *
+     * <p>
+     * Computes an Euler path using Hierholzer's algorithm.
+     * </p>
+     *
+     * <p>If an Euler path exists, the returned traversal visits every
+     * edge exactly once.</p>
+     *
+     * <h2>Complexity</h2>
+     *
+     * <ul>
+     *     <li>Time: O(V + E)</li>
+     *     <li>Space: O(V)</li>
+     * </ul>
+     *
+     * @return {@code true} if an Euler path exists;
+     * {@code false} otherwise
+     * @throws io.graphite.exception.algorithm.NullGraphException if the graph is {@code null}
+     * @see #circuit()
+     * @since 2.0
+     */
     public EulerResult path() {
         return  Hierholzer.INSTANCE.findEulerPath(graph);
     }
 
+    /**
+     * Determines whether the graph contains an Euler circuit.
+     * <p>
+     * Computes an Euler circuit using Hierholzer's algorithm.
+     * <p>
+     * <p>
+     * If an Euler circuit exists, the returned traversal starts and
+     * ends at the same vertex while visiting every edge exactly once.</p>
+     *
+     * <p>An Euler circuit is an Euler path that starts and ends at the
+     * same vertex.</p>
+     *
+     * <h2>Complexity</h2>
+     *
+     * <ul>
+     *     <li>Time: O(V + E)</li>
+     *     <li>Space: O(V)</li>
+     * </ul>
+     *
+     * @return {@code true} if an Euler circuit exists;
+     * {@code false} otherwise
+     * @throws io.graphite.exception.algorithm.NullGraphException if the graph is {@code null}
+     * @see #path()
+     * @since 2.0
+     */
     public EulerResult circuit() {
         return  Hierholzer.INSTANCE.findEulerCircuit(graph);
     }

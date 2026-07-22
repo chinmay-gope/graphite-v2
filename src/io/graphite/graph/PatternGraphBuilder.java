@@ -5,7 +5,7 @@ import io.graphite.generator.pattern.*;
 /**
  * Builds predefined graph structures using a fluent API.
  *
- * <p>The {@code PatternGraphFactory} creates commonly used graph topologies
+ * <p>The {@code PatternGraphBuilder} creates commonly used graph topologies
  * such as complete graphs, trees, stars, wheels, grids, bipartite graphs,
  * and directed acyclic graphs.</p>
  *
@@ -32,10 +32,10 @@ import io.graphite.generator.pattern.*;
  * @see io.graphite.generator.preset.GraphPresetGenerator
  * @since 2.0
  */
-public final class PatternGraphFactory {
+public final class PatternGraphBuilder {
 
-    public static final PatternGraphFactory INSTANCE = new PatternGraphFactory();
-    private PatternGraphFactory() {
+    public static final PatternGraphBuilder INSTANCE = new PatternGraphBuilder();
+    private PatternGraphBuilder() {
     }
 
     // Patterns
