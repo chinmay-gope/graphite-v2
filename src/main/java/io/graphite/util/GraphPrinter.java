@@ -10,13 +10,13 @@ final class GraphPrinter implements Colors {
 
     public static void print(IGraph graph) {
         for (int i = 0; i < graph.getVertices(); i++) {
-            IO.print(CYAN + i + WHITE + " -> ");
+            System.out.print(CYAN + i + WHITE + " -> ");
 
             for (Edge edge : graph.neighbors(i)) {
-                IO.print(YELLOW + edge + RESET + " ");
+                System.out.print(YELLOW + edge + RESET + " ");
             }
 
-            IO.println();
+            System.out.println();
         }
     }
 

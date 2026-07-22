@@ -288,7 +288,7 @@ public abstract class Graph implements IGraph {
     ) {
         return (T) cache.computeIfAbsent(
                 type,
-                _ -> factory.get()
+                key -> factory.get()
         );
     }
 
