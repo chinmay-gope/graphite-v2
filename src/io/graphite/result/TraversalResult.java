@@ -26,12 +26,11 @@ import java.util.List;
  * }</pre>
  *
  * @author Chinmay
- * @since 2.0
  * @version 2.0
- *
  * @see io.graphite.api.Traversal
  * @see io.graphite.algorithm.traversal.BFS
  * @see io.graphite.algorithm.traversal.DFS
+ * @since 2.0
  */
 public record TraversalResult(int source, List<Integer> traversalOrder) implements Colors {
     public TraversalResult {

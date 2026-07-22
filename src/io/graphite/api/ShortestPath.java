@@ -53,11 +53,11 @@ public final class ShortestPath extends GraphAPI {
      * <p>Time Complexity:
      * O((V + E) log V)</p>
      *
-     * @throws io.graphite.exception.graph.InvalidVertexException if the source vertex is invalid
+     * @throws io.graphite.exception.graph.InvalidVertexException      if the source vertex is invalid
      * @throws io.graphite.exception.algorithm.NegativeWeightException if the graph contains negative edge weights
-     *  @see #bellmanFord(int)
-     *  @see #floydWarshall()
-     *  @since 2.0
+     * @see #bellmanFord(int)
+     * @see #floydWarshall()
+     * @since 2.0
      */
     public ShortestPathResult dijkstra(int source) {
         return Dijkstra.INSTANCE.shortestPath(graph, source);

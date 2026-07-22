@@ -26,10 +26,9 @@ import java.util.concurrent.ThreadLocalRandom;
  * </ul>
  *
  * @author Chinmay
- * @since 2.0
  * @version 2.0
- *
  * @see PatternGraphBuilder
+ * @since 2.0
  */
 public final class DAGGenerator {
 

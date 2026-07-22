@@ -56,7 +56,7 @@ public final class RandomGraphGenerator<G extends IGraph> {
         if (configuration.isWeighted()) {
             builder.addEdge(source, destination, weight);
         } else {
-            builder.addEdge(source, destination,1);
+            builder.addEdge(source, destination, 1);
         }
 
         tracker.remember(source, destination);

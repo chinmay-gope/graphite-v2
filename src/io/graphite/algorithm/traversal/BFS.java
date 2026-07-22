@@ -55,12 +55,11 @@ import java.util.Queue;
  * {@code INSTANCE}.</p>
  *
  * @author Chinmay
- * @since 2.0
  * @version 2.0
- *
  * @see DFS
  * @see io.graphite.api.Traversal
  * @see TraversalResult
+ * @since 2.0
  */
 public class BFS extends GraphAlgorithm implements TraversalAlgorithm {
 

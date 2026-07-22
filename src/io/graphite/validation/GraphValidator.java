@@ -24,10 +24,9 @@ import io.graphite.model.Edge;
  * properties without enforcing algorithm-specific requirements.</p>
  *
  * @author Chinmay
- * @since 2.0
  * @version 2.0
- *
  * @see GraphPreconditions
+ * @since 2.0
  */
 public final class GraphValidator {
     private GraphValidator() {

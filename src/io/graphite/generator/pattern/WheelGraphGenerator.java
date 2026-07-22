@@ -12,10 +12,9 @@ import io.graphite.graph.PatternGraphBuilder;
  * connected to every vertex on the cycle.</p>
  *
  * @author Chinmay
- * @since 2.0
  * @version 2.0
- *
  * @see PatternGraphBuilder
+ * @since 2.0
  */
 public final class WheelGraphGenerator {
 

@@ -129,12 +129,8 @@ public final class Connectivity extends GraphAPI {
      * </ul>
      *
      * @return the strongly connected components
-     *
-     * @throws io.graphite.exception.algorithm.NullGraphException
-     *         if the graph is {@code null}
-     * @throws io.graphite.exception.graph.UnsupportedGraphTypeException
-     *         if the graph is undirected
-     *
+     * @throws io.graphite.exception.algorithm.NullGraphException        if the graph is {@code null}
+     * @throws io.graphite.exception.graph.UnsupportedGraphTypeException if the graph is undirected
      * @see #biconnectedComponents()
      * @since 2.0
      */

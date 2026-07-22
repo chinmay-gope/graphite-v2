@@ -19,11 +19,10 @@ import io.graphite.result.BenchmarkResult;
  * </ul>
  *
  * @author Chinmay
- * @since 2.0
  * @version 2.0
- *
  * @see Benchmark
  * @see BenchmarkStatistics
+ * @since 2.0
  */
 public final class BenchmarkRunner {
 

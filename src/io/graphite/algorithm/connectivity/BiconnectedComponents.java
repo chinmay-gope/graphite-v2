@@ -53,10 +53,10 @@ import java.util.Stack;
 public class BiconnectedComponents extends GraphAlgorithm
         implements BiconnectedAlgorithm {
 
+    public static final BiconnectedComponents INSTANCE = new BiconnectedComponents();
+
     private BiconnectedComponents() {
     }
-
-    public static final BiconnectedComponents INSTANCE = new BiconnectedComponents();
 
     @Override
     public BiConnectedResult findBiconnectedComponents(IGraph graph) {

@@ -56,10 +56,10 @@ import java.util.List;
  */
 public class Kosaraju extends GraphAlgorithm implements SCCAlgorithm {
 
+    public static final Kosaraju INSTANCE = new Kosaraju();
+
     private Kosaraju() {
     }
-
-    public static final Kosaraju INSTANCE = new Kosaraju();
 
     @Override
     public SCCResult findSCCs(IGraph graph) {

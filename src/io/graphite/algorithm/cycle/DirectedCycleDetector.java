@@ -51,10 +51,10 @@ import io.graphite.validation.GraphPreconditions;
  */
 public class DirectedCycleDetector extends GraphAlgorithm implements CycleDetectionAlgorithm {
 
+    public static final DirectedCycleDetector INSTANCE = new DirectedCycleDetector();
+
     private DirectedCycleDetector() {
     }
-
-    public static final DirectedCycleDetector INSTANCE = new DirectedCycleDetector();
 
     /**
      * Determines whether the graph contains a cycle.

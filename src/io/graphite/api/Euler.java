@@ -63,7 +63,7 @@ public final class Euler extends GraphAPI {
      * @since 2.0
      */
     public EulerResult path() {
-        return  Hierholzer.INSTANCE.findEulerPath(graph);
+        return Hierholzer.INSTANCE.findEulerPath(graph);
     }
 
     /**
@@ -92,6 +92,6 @@ public final class Euler extends GraphAPI {
      * @since 2.0
      */
     public EulerResult circuit() {
-        return  Hierholzer.INSTANCE.findEulerCircuit(graph);
+        return Hierholzer.INSTANCE.findEulerCircuit(graph);
     }
 }

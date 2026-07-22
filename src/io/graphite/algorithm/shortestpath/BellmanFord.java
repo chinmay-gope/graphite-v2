@@ -68,10 +68,10 @@ import java.util.List;
  */
 public class BellmanFord extends GraphAlgorithm implements ShortestPathAlgorithm {
 
+    public static final BellmanFord INSTANCE = new BellmanFord();
+
     private BellmanFord() {
     }
-
-    public static final BellmanFord INSTANCE = new BellmanFord();
 
     @Override
     public ShortestPathResult shortestPath(IGraph graph, int source) {

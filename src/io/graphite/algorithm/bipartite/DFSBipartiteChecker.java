@@ -44,10 +44,10 @@ public class DFSBipartiteChecker
         extends GraphAlgorithm
         implements BipartiteAlgorithm {
 
+    public static final DFSBipartiteChecker INSTANCE = new DFSBipartiteChecker();
+
     private DFSBipartiteChecker() {
     }
-
-    public static final DFSBipartiteChecker INSTANCE = new DFSBipartiteChecker();
 
     @Override
     public boolean isBipartite(IGraph graph) {

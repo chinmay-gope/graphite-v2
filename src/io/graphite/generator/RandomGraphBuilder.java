@@ -48,11 +48,11 @@ import io.graphite.graph.IGraph;
  * @since 2.0
  */
 public final class RandomGraphBuilder {
-    public RandomGraphBuilder() {
-    }
-
     private final GraphConfiguration configuration =
             new GraphConfiguration();
+
+    public RandomGraphBuilder() {
+    }
 
     public RandomGraphBuilder directed() {
         configuration.setDirected(true);

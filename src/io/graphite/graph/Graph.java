@@ -76,14 +76,18 @@ public abstract class Graph implements IGraph {
     // Fields
     // ==========================================================
 
-    protected int edgeCount;
-
     protected final List<List<Edge>> adjacencyList;
-
     protected final GraphConfiguration configuration;
+    private final EnumMap<GraphAPIType, GraphAPI> cache =
+            new EnumMap<>(GraphAPIType.class);
 
     // ==========================================================
     // Constructor
+    // ==========================================================
+    protected int edgeCount;
+
+    // ==========================================================
+    // Internal Helpers
     // ==========================================================
 
     protected Graph(GraphConfiguration configuration) {
@@ -97,7 +101,7 @@ public abstract class Graph implements IGraph {
     }
 
     // ==========================================================
-    // Internal Helpers
+    // Validation
     // ==========================================================
 
     protected GraphConfiguration configuration() {
@@ -105,7 +109,7 @@ public abstract class Graph implements IGraph {
     }
 
     // ==========================================================
-    // Validation
+    // Queries
     // ==========================================================
 
     protected void validateVertex(int vertex) {
@@ -114,10 +118,6 @@ public abstract class Graph implements IGraph {
             throw new InvalidVertexException(vertex);
         }
     }
-
-    // ==========================================================
-    // Queries
-    // ==========================================================
 
     @Override
     public boolean containsVertex(int vertex) {
@@ -132,6 +132,10 @@ public abstract class Graph implements IGraph {
         return adjacencyList.get(vertex).size();
     }
 
+    // ==========================================================
+    // Views
+    // ==========================================================
+
     @Override
     public boolean hasEdge(int source, int destination) {
 
@@ -141,10 +145,6 @@ public abstract class Graph implements IGraph {
         return adjacencyList.get(source).stream().anyMatch(edge -> edge.destination() == destination);
     }
 
-    // ==========================================================
-    // Views
-    // ==========================================================
-
     @Override
     public List<Edge> getNeighbors(int vertex) {
 
@@ -152,6 +152,10 @@ public abstract class Graph implements IGraph {
 
         return Collections.unmodifiableList(adjacencyList.get(vertex));
     }
+
+    // ==========================================================
+    // Metadata
+    // ==========================================================
 
     @Override
     public List<Edge> getEdges() {
@@ -164,10 +168,6 @@ public abstract class Graph implements IGraph {
 
         return List.copyOf(edges);
     }
-
-    // ==========================================================
-    // Metadata
-    // ==========================================================
 
     @Override
     public int getVertices() {
@@ -194,15 +194,15 @@ public abstract class Graph implements IGraph {
         return configuration.isDirected();
     }
 
-    @Override
-    public boolean isUndirected() {
-        return configuration.isUndirected();
-    }
-
 
     // ==========================================================
     // Mutation
     // ==========================================================
+
+    @Override
+    public boolean isUndirected() {
+        return configuration.isUndirected();
+    }
 
     @Override
     public void clear() {
@@ -212,14 +212,14 @@ public abstract class Graph implements IGraph {
         edgeCount = 0;
     }
 
+    // ==========================================================
+    // Abstract
+    // ==========================================================
+
     @Override
     public IGraph asImmutable() {
         return new ImmutableGraph(this);
     }
-
-    // ==========================================================
-    // Abstract
-    // ==========================================================
 
     @Override
     public abstract void addEdge(int source, int destination, int weight);
@@ -232,14 +232,14 @@ public abstract class Graph implements IGraph {
         return GraphCopier.copy(this);
     }
 
+    // ==========================================================
+    // Aliases
+    // ==========================================================
+
     @Override
     public IGraph transpose() {
         return GraphTransposer.transpose(this);
     }
-
-    // ==========================================================
-    // Aliases
-    // ==========================================================
 
     @Override
     public List<Edge> neighbors(int vertex) {
@@ -261,6 +261,10 @@ public abstract class Graph implements IGraph {
         return containsVertex(vertex);
     }
 
+    // ==========================================================
+    // Services
+    // ==========================================================
+
     @Override
     public Iterable<Integer> vertices() {
 
@@ -272,13 +276,6 @@ public abstract class Graph implements IGraph {
 
         return Collections.unmodifiableList(vertices);
     }
-
-    // ==========================================================
-    // Services
-    // ==========================================================
-
-    private final EnumMap<GraphAPIType, GraphAPI> cache =
-            new EnumMap<>(GraphAPIType.class);
 
     /**
      * Returns a lazily-created API module.

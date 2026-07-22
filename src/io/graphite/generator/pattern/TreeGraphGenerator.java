@@ -17,10 +17,9 @@ import io.graphite.graph.PatternGraphBuilder;
  * simple path.</p>
  *
  * @author Chinmay
- * @since 2.0
  * @version 2.0
- *
  * @see PatternGraphBuilder
+ * @since 2.0
  */
 public final class TreeGraphGenerator {
 
@@ -40,7 +39,7 @@ public final class TreeGraphGenerator {
             throw new InvalidGraphConfigurationException(
                     "Tree requires at least one vertex.");
         }
-        
+
         GraphConfiguration configuration =
                 new GraphConfiguration();
 

@@ -13,10 +13,6 @@ public class GraphExampleGenerator {
 
     }
 
-    public GraphExampleGenerator examples() {
-        return new GraphExampleGenerator();
-    }
-
     public static IGraph eulerCircuitGraph(int vertices) {
 
         if (vertices < 3) {
@@ -83,5 +79,9 @@ public class GraphExampleGenerator {
         }
 
         return builder.build();
+    }
+
+    public GraphExampleGenerator examples() {
+        return new GraphExampleGenerator();
     }
 }

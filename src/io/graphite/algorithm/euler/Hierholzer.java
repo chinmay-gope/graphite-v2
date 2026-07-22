@@ -56,11 +56,10 @@ import java.util.*;
  */
 public class Hierholzer extends GraphAlgorithm implements EulerAlgorithm {
 
-    private Hierholzer() {
-    }
-
     public static final Hierholzer INSTANCE = new Hierholzer();
 
+    private Hierholzer() {
+    }
 
     @Override
     public EulerResult findEulerPath(IGraph graph) {

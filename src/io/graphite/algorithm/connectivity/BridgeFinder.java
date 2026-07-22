@@ -47,19 +47,17 @@ import java.util.List;
  * </ul>
  *
  * @author Chinmay
- * @since 2.0
  * @version 2.0
- *
  * @see io.graphite.api.Connectivity
  * @see io.graphite.algorithm.traversal.DFS
+ * @since 2.0
  */
 public class BridgeFinder extends GraphAlgorithm implements BridgeAlgorithm {
+    public static final BridgeFinder INSTANCE = new BridgeFinder();
     private int time;
 
     private BridgeFinder() {
     }
-
-    public static final BridgeFinder INSTANCE = new BridgeFinder();
 
     @Override
     public BridgeResult findBridges(IGraph graph) {

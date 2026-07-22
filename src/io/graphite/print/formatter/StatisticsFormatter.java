@@ -16,13 +16,24 @@ import java.util.function.BooleanSupplier;
  * and weight characteristics.</p>
  *
  * @author Chinmay
- * @since 2.0
  * @version 2.0
- *
  * @see io.graphite.print.GraphPrinter
+ * @since 2.0
  */
 public final class StatisticsFormatter implements GraphFormatter, Colors {
 
+
+    private static void append(StringBuilder out, String key, Object value, String color) {
+        out.append(BOLD).append(WHITE)
+                .append(String.format("%-15s", key))
+                .append(RESET).append(" : ")
+                .append(color).append(value).append(RESET)
+                .append('\n');
+    }
+
+    private static String yesNo(boolean value) {
+        return value ? GREEN + "Yes" + RESET : RED + "No" + RESET;
+    }
 
     @Override
     public String format(IGraph graph) {
@@ -65,18 +76,6 @@ public final class StatisticsFormatter implements GraphFormatter, Colors {
         append(out, "Density", String.format("%.4f", analysis.density()), CYAN);
 
         return out.toString();
-    }
-
-    private static void append(StringBuilder out, String key, Object value, String color) {
-        out.append(BOLD).append(WHITE)
-                .append(String.format("%-15s", key))
-                .append(RESET).append(" : ")
-                .append(color).append(value).append(RESET)
-                .append('\n');
-    }
-
-    private static String yesNo(boolean value) {
-        return value ? GREEN + "Yes" + RESET : RED + "No" + RESET;
     }
 
     private String safe(BooleanSupplier property) {

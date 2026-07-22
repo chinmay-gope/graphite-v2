@@ -35,25 +35,19 @@ import io.graphite.graph.PatternGraphBuilder;
  * or pattern generator while applying sensible default parameters.</p>
  *
  * @author Chinmay
- * @since 2.0
  * @version 2.0
- *
  * @see Graphs
  * @see io.graphite.generator.RandomGraphBuilder
  * @see PatternGraphBuilder
+ * @since 2.0
  */
 public class GraphPresetGenerator {
 
-    private static final double DENSITY = 0.75;
-
     public static final GraphPresetGenerator INSTANCE = new GraphPresetGenerator();
+    private static final double DENSITY = 0.75;
 
     private GraphPresetGenerator() {
 
-    }
-
-    public GraphPresetGenerator presets() {
-        return new GraphPresetGenerator();
     }
 
     public static IGraph traversalGraph(int vertices) {
@@ -217,6 +211,10 @@ public class GraphPresetGenerator {
                 right,
                 edges
         );
+    }
+
+    public GraphPresetGenerator presets() {
+        return new GraphPresetGenerator();
     }
 
 }

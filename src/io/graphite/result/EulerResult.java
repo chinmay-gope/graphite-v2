@@ -17,11 +17,10 @@ import java.util.List;
  * </ul>
  *
  * @author Chinmay
- * @since 2.0
  * @version 2.0
- *
  * @see io.graphite.api.Euler
  * @see io.graphite.algorithm.euler.Hierholzer
+ * @since 2.0
  */
 public record EulerResult(
         EulerType type,

@@ -73,10 +73,10 @@ import java.util.PriorityQueue;
  * @since 2.0
  */
 public class Prim extends GraphAlgorithm {
+    public static final Prim INSTANCE = new Prim();
+
     private Prim() {
     }
-
-    public static final Prim INSTANCE = new Prim();
 
     public MSTResult findMST(IGraph graph, int source) {
         GraphPreconditions.requireGraph(graph);

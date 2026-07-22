@@ -18,11 +18,10 @@ package io.graphite.result;
  * </ul>
  *
  * @author Chinmay
- * @since 2.0
  * @version 2.0
- *
  * @see io.graphite.benchmark.Benchmark
  * @see io.graphite.benchmark.BenchmarkRunner
+ * @since 2.0
  */
 public record BenchmarkResult(
         // ---------------------------------------------------------

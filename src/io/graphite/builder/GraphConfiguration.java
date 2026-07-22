@@ -13,12 +13,11 @@ package io.graphite.builder;
  * consumed by graph generators during graph construction.</p>
  *
  * @author Chinmay
- * @since 2.0
  * @version 2.0
- *
  * @see io.graphite.generator.RandomGraphBuilder
  * @see io.graphite.generator.RandomGraphGenerator
  * @see io.graphite.graph.GraphFactory
+ * @since 2.0
  */
 public final class GraphConfiguration {
     private int edges;
@@ -54,12 +53,12 @@ public final class GraphConfiguration {
         return directed;
     }
 
-    public boolean isUndirected() {
-        return !directed;
-    }
-
     public void setDirected(boolean directed) {
         this.directed = directed;
+    }
+
+    public boolean isUndirected() {
+        return !directed;
     }
 
     public void setUndirected(boolean undirected) {

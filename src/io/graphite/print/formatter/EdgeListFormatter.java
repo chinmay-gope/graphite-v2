@@ -13,11 +13,10 @@ import io.graphite.result.Colors;
  * debugging, and comparing graph structures.</p>
  *
  * @author Chinmay
- * @since 2.0
  * @version 2.0
- *
  * @see io.graphite.print.GraphPrinter
  * @see GraphFormatter
+ * @since 2.0
  */
 public final class EdgeListFormatter implements GraphFormatter, Colors {
 

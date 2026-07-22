@@ -35,15 +35,15 @@ public final class Benchmark {
         this.configuration = configuration;
     }
 
+    public static BenchmarkBuilder builder() {
+        return new BenchmarkBuilder();
+    }
+
     public BenchmarkResult run() {
         return BenchmarkRunner.run(
                 name,
                 task,
                 configuration
         );
-    }
-
-    public static BenchmarkBuilder builder() {
-        return new BenchmarkBuilder();
     }
 }

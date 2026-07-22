@@ -9,10 +9,9 @@ import io.graphite.exception.GraphException;
  * attempts to access a vertex that does not exist.</p>
  *
  * @author Chinmay
- * @since 2.0
  * @version 2.0
- *
  * @see io.graphite.validation.GraphPreconditions
+ * @since 2.0
  */
 public class InvalidVertexException extends GraphException {
     public InvalidVertexException(int vertex) {

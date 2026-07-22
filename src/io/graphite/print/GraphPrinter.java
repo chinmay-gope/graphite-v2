@@ -81,9 +81,7 @@ public final class GraphPrinter {
      * Prints the graph as an edge list.
      *
      * @param graph the graph to print
-     *
      * @throws io.graphite.exception.algorithm.NullGraphException if the graph is {@code null}
-     *
      * @see EdgeListFormatter
      * @since 2.0
      */
@@ -95,9 +93,7 @@ public final class GraphPrinter {
      * Prints the graph as an adjacency matrix.
      *
      * @param graph the graph to print
-     *
      * @throws io.graphite.exception.algorithm.NullGraphException if the graph is {@code null}
-     *
      * @see MatrixFormatter
      * @since 2.0
      */
@@ -109,9 +105,7 @@ public final class GraphPrinter {
      * Prints graph statistics and structural information.
      *
      * @param graph the graph to print
-     *
      * @throws io.graphite.exception.algorithm.NullGraphException if the graph is {@code null}
-     *
      * @see StatisticsFormatter
      * @since 2.0
      */
@@ -124,9 +118,7 @@ public final class GraphPrinter {
      * Prints the graph in Graphviz DOT format.
      *
      * @param graph the graph to print
-     *
      * @throws io.graphite.exception.algorithm.NullGraphException if the graph is {@code null}
-     *
      * @see DotFormatter
      * @since 2.0
      */
@@ -138,9 +130,7 @@ public final class GraphPrinter {
      * Prints the graph using Mermaid diagram syntax.
      *
      * @param graph the graph to print
-     *
      * @throws io.graphite.exception.algorithm.NullGraphException if the graph is {@code null}
-     *
      * @see MermaidFormatter
      * @since 2.0
      */
@@ -152,9 +142,7 @@ public final class GraphPrinter {
      * Prints the graph as a JSON document.
      *
      * @param graph the graph to print
-     *
      * @throws io.graphite.exception.algorithm.NullGraphException if the graph is {@code null}
-     *
      * @see JsonFormatter
      * @since 2.0
      */
@@ -169,9 +157,7 @@ public final class GraphPrinter {
      * equivalent to calling {@link #compact(IGraph)}.</p>
      *
      * @param graph the graph to print
-     *
      * @throws io.graphite.exception.algorithm.NullGraphException if the graph is {@code null}
-     *
      * @see #compact(IGraph)
      * @since 2.0
      */

@@ -9,10 +9,9 @@ import io.graphite.exception.GraphException;
  * or an undirected graph but receives the opposite graph type.</p>
  *
  * @author Chinmay
- * @since 2.0
  * @version 2.0
- *
  * @see io.graphite.validation.GraphPreconditions
+ * @since 2.0
  */
 public class UnsupportedWeightedGraphException extends GraphException {
     public UnsupportedWeightedGraphException() {

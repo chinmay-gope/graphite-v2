@@ -49,12 +49,11 @@ import java.util.List;
  */
 public class APFinder extends GraphAlgorithm implements APAlgorithm {
 
+    public static final APFinder INSTANCE = new APFinder();
+    private int time;
+
     private APFinder() {
     }
-
-    public static final APFinder INSTANCE = new APFinder();
-
-    private int time;
 
     @Override
     public APResult findArticulationPoints(IGraph graph) {

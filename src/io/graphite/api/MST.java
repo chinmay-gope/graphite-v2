@@ -73,7 +73,7 @@ public final class MST extends GraphAPI {
      * @since 2.0
      */
     public MSTResult prim(int source) {
-        return  Prim.INSTANCE.findMST(graph, source);
+        return Prim.INSTANCE.findMST(graph, source);
     }
 
     /**
@@ -93,14 +93,9 @@ public final class MST extends GraphAPI {
      * </ul>
      *
      * @return the computed minimum spanning tree
-     *
-     * @throws io.graphite.exception.algorithm.NullGraphException
-     *         if the graph is {@code null}
-     * @throws io.graphite.exception.graph.UnsupportedGraphTypeException
-     *         if the graph is directed
-     * @throws io.graphite.exception.graph.GraphDisconnectedException
-     *         if the graph is disconnected
-     *
+     * @throws io.graphite.exception.algorithm.NullGraphException        if the graph is {@code null}
+     * @throws io.graphite.exception.graph.UnsupportedGraphTypeException if the graph is directed
+     * @throws io.graphite.exception.graph.GraphDisconnectedException    if the graph is disconnected
      * @see #prim(int)
      * @since 2.0
      */

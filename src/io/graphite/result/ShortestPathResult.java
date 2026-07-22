@@ -25,13 +25,12 @@ import java.util.Objects;
  * <p>All internal arrays are defensively copied to preserve immutability.</p>
  *
  * @author Chinmay
- * @since 2.0
  * @version 2.0
- *
  * @see io.graphite.api.ShortestPath
  * @see io.graphite.algorithm.shortestpath.Dijkstra
  * @see io.graphite.algorithm.shortestpath.BellmanFord
  * @see io.graphite.algorithm.shortestpath.FloydWarshall
+ * @since 2.0
  */
 public record ShortestPathResult(int source, int[] distance, int[] parent) {
 

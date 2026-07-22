@@ -7,11 +7,10 @@ package io.graphite.benchmark;
  * statistics including average, minimum, maximum, and standard deviation.</p>
  *
  * @author Chinmay
- * @since 2.0
  * @version 2.0
- *
  * @see io.graphite.result.BenchmarkResult
  * @see BenchmarkRunner
+ * @since 2.0
  */
 public final class BenchmarkStatistics {
 

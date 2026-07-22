@@ -20,41 +20,6 @@ public final class MainExamples {
         writeToFile();
     }
 
-
-    void executeThemAll() {
-        builderDemo();
-        immutableDemo();
-        copyDemo();
-        transposeDemo();
-
-        directedDemo();
-        undirectedDemo();
-
-        servicesDemo();
-
-        randomGeneratorDemo();
-
-        treeGeneratorDemo();
-        starGeneratorDemo();
-        wheelGeneratorDemo();
-        gridGeneratorDemo();
-        cycleGeneratorDemo();
-        completeGeneratorDemo();
-        completeBipartiteGeneratorDemo();
-        bipartiteGeneratorDemo();
-
-        graphTransformDemo();
-
-        generatorStressDemo();
-
-        graphFactoryDemo();
-
-        analysisDemo();
-
-        printerDemo();
-
-    }
-
     private static void writeToFile() throws IOException {
         IGraph graph = Graphs.undirected().vertices(6).addEdge(0, 1).addEdge(1, 2).addEdge(2, 3).addEdge(3, 4).addEdge(4, 5).build();
 
@@ -299,10 +264,6 @@ public final class MainExamples {
         }
     }
 
-    // ---------------------------------------------------------
-    // Builder
-    // ---------------------------------------------------------
-
     private static void builderDemo() {
 
         header("Builder Demo");
@@ -329,6 +290,9 @@ public final class MainExamples {
         print(rebuilt);
     }
 
+    // ---------------------------------------------------------
+    // Builder
+    // ---------------------------------------------------------
 
     // ---------------------------------------------------------
     // Copy
@@ -354,10 +318,6 @@ public final class MainExamples {
         print(copy);
     }
 
-    // ---------------------------------------------------------
-    // Transpose
-    // ---------------------------------------------------------
-
     private static void transposeDemo() {
 
         header("Transpose Demo");
@@ -376,7 +336,7 @@ public final class MainExamples {
     }
 
     // ---------------------------------------------------------
-    // Directed
+    // Transpose
     // ---------------------------------------------------------
 
     private static void directedDemo() {
@@ -387,8 +347,9 @@ public final class MainExamples {
 
         print(graph);
     }
+
     // ---------------------------------------------------------
-    // Undirected
+    // Directed
     // ---------------------------------------------------------
 
     private static void undirectedDemo() {
@@ -400,7 +361,7 @@ public final class MainExamples {
         print(graph);
     }
     // ---------------------------------------------------------
-    // Random Generator
+    // Undirected
     // ---------------------------------------------------------
 
     private static void randomGeneratorDemo() {
@@ -421,11 +382,9 @@ public final class MainExamples {
 
         ExamplePrinter.execute("Weighted Connected Graph", () -> Graphs.random().undirected().vertices(10).edges(18).weightRange(5, 50).connected().build());
     }
-
-
-// ---------------------------------------------------------
-// Pattern Generators
-// ---------------------------------------------------------
+    // ---------------------------------------------------------
+    // Random Generator
+    // ---------------------------------------------------------
 
     private static void treeGeneratorDemo() {
 
@@ -439,6 +398,11 @@ public final class MainExamples {
         System.out.println("Connected  : " + graph.analysis().isConnected());
         System.out.println("Cycle      : " + graph.analysis().isCyclic());
     }
+
+
+// ---------------------------------------------------------
+// Pattern Generators
+// ---------------------------------------------------------
 
     private static void starGeneratorDemo() {
 
@@ -555,10 +519,6 @@ public final class MainExamples {
         print(Graphs.patterns().grid(5, 5));
     }
 
-// ---------------------------------------------------------
-// Graph Factory
-// ---------------------------------------------------------
-
     private static void graphFactoryDemo() {
 
         header("Graph Factory");
@@ -581,7 +541,7 @@ public final class MainExamples {
     }
 
 // ---------------------------------------------------------
-// Analysis
+// Graph Factory
 // ---------------------------------------------------------
 
     private static void analysisDemo() {
@@ -615,7 +575,7 @@ public final class MainExamples {
     }
 
 // ---------------------------------------------------------
-// Printer
+// Analysis
 // ---------------------------------------------------------
 
     private static void printerDemo() {
@@ -638,7 +598,7 @@ public final class MainExamples {
     }
 
 // ---------------------------------------------------------
-// Helpers
+// Printer
 // ---------------------------------------------------------
 
     private static void header(String title) {
@@ -648,6 +608,10 @@ public final class MainExamples {
         System.out.println(title);
         System.out.println("==================================================");
     }
+
+// ---------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------
 
     private static void print(IGraph graph) {
 
@@ -659,5 +623,39 @@ public final class MainExamples {
         System.out.println("Directed : " + graph.isDirected());
         System.out.println("Weighted : " + graph.isWeighted());
         System.out.println("Immutable: " + graph.getClass());
+    }
+
+    void executeThemAll() {
+        builderDemo();
+        immutableDemo();
+        copyDemo();
+        transposeDemo();
+
+        directedDemo();
+        undirectedDemo();
+
+        servicesDemo();
+
+        randomGeneratorDemo();
+
+        treeGeneratorDemo();
+        starGeneratorDemo();
+        wheelGeneratorDemo();
+        gridGeneratorDemo();
+        cycleGeneratorDemo();
+        completeGeneratorDemo();
+        completeBipartiteGeneratorDemo();
+        bipartiteGeneratorDemo();
+
+        graphTransformDemo();
+
+        generatorStressDemo();
+
+        graphFactoryDemo();
+
+        analysisDemo();
+
+        printerDemo();
+
     }
 }

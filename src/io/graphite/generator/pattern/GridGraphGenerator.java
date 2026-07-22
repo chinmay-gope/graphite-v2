@@ -21,10 +21,9 @@ import io.graphite.graph.PatternGraphBuilder;
  * </ul>
  *
  * @author Chinmay
- * @since 2.0
  * @version 2.0
- *
  * @see PatternGraphBuilder
+ * @since 2.0
  */
 public final class GridGraphGenerator {
 

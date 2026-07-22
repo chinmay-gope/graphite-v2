@@ -53,10 +53,10 @@ import java.util.Queue;
  */
 public class KahnTopologicalSort extends GraphAlgorithm implements TopologicalAlgorithm {
 
+    public static final KahnTopologicalSort INSTANCE = new KahnTopologicalSort();
+
     private KahnTopologicalSort() {
     }
-
-    public static final KahnTopologicalSort INSTANCE = new KahnTopologicalSort();
 
     @Override
     public TopologicalSortResult sort(IGraph graph) {

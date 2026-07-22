@@ -85,14 +85,9 @@ public final class Topology extends GraphAPI {
      * </ul>
      *
      * @return the topological ordering
-     *
-     * @throws io.graphite.exception.algorithm.NullGraphException
-     *         if the graph is {@code null}
-     * @throws io.graphite.exception.graph.UnsupportedGraphTypeException
-     *         if the graph is undirected
-     * @throws io.graphite.exception.algorithm.GraphCycleException
-     *         if the graph contains a cycle
-     *
+     * @throws io.graphite.exception.algorithm.NullGraphException        if the graph is {@code null}
+     * @throws io.graphite.exception.graph.UnsupportedGraphTypeException if the graph is undirected
+     * @throws io.graphite.exception.algorithm.GraphCycleException       if the graph contains a cycle
      * @see #dfs()
      * @since 2.0
      */

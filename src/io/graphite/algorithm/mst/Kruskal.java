@@ -73,11 +73,11 @@ import java.util.List;
  */
 public class Kruskal extends GraphAlgorithm {
 
+    public static final Kruskal INSTANCE = new Kruskal();
+
     private Kruskal() {
 
     }
-
-    public static final Kruskal INSTANCE = new Kruskal();
 
     public MSTResult findMST(IGraph graph) {
         GraphPreconditions.requireGraph(graph);

@@ -18,10 +18,9 @@ import java.util.function.Supplier;
  * interoperability with external applications.</p>
  *
  * @author Chinmay
- * @since 2.0
  * @version 2.0
- *
  * @see io.graphite.print.GraphPrinter
+ * @since 2.0
  */
 public final class JsonFormatter
         implements GraphFormatter, Colors {

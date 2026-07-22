@@ -3,6 +3,7 @@ package io.graphite.examples.core;
 
 import io.graphite.builder.Graphs;
 import io.graphite.examples.ExamplePrinter;
+import io.graphite.generator.preset.GraphPresetGenerator;
 import io.graphite.graph.IGraph;
 
 public final class GeneratorExamples {
@@ -35,7 +36,7 @@ public final class GeneratorExamples {
 
     private static void traversalPreset() {
 
-        IGraph graph = Graphs.presets()
+        IGraph graph = GraphPresetGenerator
                 .traversalGraph(10);
 
         ExamplePrinter.feature("Traversal Preset");

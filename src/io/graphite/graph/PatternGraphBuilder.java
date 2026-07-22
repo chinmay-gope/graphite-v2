@@ -35,6 +35,7 @@ import io.graphite.generator.pattern.*;
 public final class PatternGraphBuilder {
 
     public static final PatternGraphBuilder INSTANCE = new PatternGraphBuilder();
+
     private PatternGraphBuilder() {
     }
 

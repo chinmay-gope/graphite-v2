@@ -72,10 +72,10 @@ import java.util.PriorityQueue;
  */
 public class Dijkstra extends GraphAlgorithm implements ShortestPathAlgorithm {
 
+    public static final Dijkstra INSTANCE = new Dijkstra();
+
     private Dijkstra() {
     }
-
-    public static final Dijkstra INSTANCE = new Dijkstra();
 
     /**
      * Computes shortest paths using Dijkstra's algorithm.

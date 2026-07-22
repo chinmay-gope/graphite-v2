@@ -13,10 +13,9 @@ import io.graphite.result.Colors;
  * platforms.</p>
  *
  * @author Chinmay
- * @since 2.0
  * @version 2.0
- *
  * @see io.graphite.print.GraphPrinter
+ * @since 2.0
  */
 public final class MermaidFormatter
         implements GraphFormatter, Colors {

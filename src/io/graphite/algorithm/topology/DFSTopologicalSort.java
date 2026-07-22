@@ -57,10 +57,10 @@ import java.util.List;
  */
 public class DFSTopologicalSort extends GraphAlgorithm implements TopologicalAlgorithm {
 
+    public static final DFSTopologicalSort INSTANCE = new DFSTopologicalSort();
+
     private DFSTopologicalSort() {
     }
-
-    public static final DFSTopologicalSort INSTANCE = new DFSTopologicalSort();
 
     @Override
     public TopologicalSortResult sort(IGraph graph) {

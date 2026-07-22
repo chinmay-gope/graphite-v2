@@ -46,11 +46,11 @@ import java.util.Queue;
  */
 public class BFSBipartiteChecker extends GraphAlgorithm implements BipartiteAlgorithm {
 
+    public static final BFSBipartiteChecker INSTANCE = new BFSBipartiteChecker();
+
     private BFSBipartiteChecker() {
 
     }
-
-    public static final BFSBipartiteChecker INSTANCE = new BFSBipartiteChecker();
 
     /**
      * Determines whether the graph is bipartite.
