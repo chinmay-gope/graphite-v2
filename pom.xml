@@ -1,0 +1,78 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="
+         http://maven.apache.org/POM/4.0.0
+         https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <scm>
+        <url>https://github.com/chinmay-gope/graphite-v2</url>
+        <connection>scm:git:https://github.com/chinmay-gope/graphite-v2.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:chinmay-gope/graphite-v2.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <organization>
+        <name>Graphite</name>
+        <url>https://github.com/chinmay-gope/graphite-v2</url>
+    </organization>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>25</maven.compiler.release>
+    </properties>
+
+    <groupId>io.graphite</groupId>
+
+    <artifactId>graphite</artifactId>
+
+    <version>2.0.1-SNAPSHOT</version>
+
+    <name>Graphite</name>
+
+    <description>
+        A modern Java graph library featuring fluent builders,
+        graph generators, algorithms, formatting utilities,
+        graph I/O, benchmarking, and immutable graph support.
+    </description>
+
+    <url>https://github.com/chinmay-gope/graphite-v2</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/chinmay-gope/graphite-v2/issues</url>
+    </issueManagement>
+
+    <developers>
+        <developer>
+            <id>chinmay-gope</id>
+            <name>Chinmay Gope</name>
+            <email>chinmaygope69@gmail.com</email>
+        </developer>
+    </developers>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.15.0</version>
+                <configuration>
+                    <release>${maven.compiler.release}</release>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <packaging>jar</packaging>
+
+</project>
