@@ -1,7 +1,7 @@
-package main.java.io.graphite.generator.pattern;
+package io.graphite.generator.pattern;
 
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.graph.PatternGraphBuilder;
+import io.graphite.graph.IGraph;
+import io.graphite.graph.PatternGraphBuilder;
 
 /**
  * Generates complete bipartite graphs.

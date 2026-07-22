@@ -1,7 +1,7 @@
-package main.java.io.graphite.benchmark;
+package io.graphite.benchmark;
 
-import main.java.io.graphite.examples.ExamplePrinter;
-import main.java.io.graphite.graph.IGraph;
+import io.graphite.examples.ExamplePrinter;
+import io.graphite.graph.IGraph;
 
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Consumer;

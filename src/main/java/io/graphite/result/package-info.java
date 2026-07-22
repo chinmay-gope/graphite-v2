@@ -9,4 +9,4 @@
  * @since 2.0
  */
 
-package main.java.io.graphite.result;
+package io.graphite.result;

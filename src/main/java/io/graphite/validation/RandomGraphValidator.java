@@ -1,7 +1,7 @@
-package main.java.io.graphite.validation;
+package io.graphite.validation;
 
-import main.java.io.graphite.builder.GraphConfiguration;
-import main.java.io.graphite.exception.graph.InvalidGraphConfigurationException;
+import io.graphite.builder.GraphConfiguration;
+import io.graphite.exception.graph.InvalidGraphConfigurationException;
 
 public final class RandomGraphValidator {
     private RandomGraphValidator() {

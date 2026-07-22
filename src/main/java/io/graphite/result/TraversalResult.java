@@ -1,8 +1,8 @@
-package main.java.io.graphite.result;
+package io.graphite.result;
 
-import main.java.io.graphite.algorithm.traversal.BFS;
-import main.java.io.graphite.algorithm.traversal.DFS;
-import main.java.io.graphite.api.Traversal;
+import io.graphite.algorithm.traversal.BFS;
+import io.graphite.algorithm.traversal.DFS;
+import io.graphite.api.Traversal;
 
 import java.util.List;
 

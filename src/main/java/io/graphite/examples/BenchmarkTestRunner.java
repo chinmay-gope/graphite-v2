@@ -1,7 +1,6 @@
-package main.java.io.graphite.examples;
+package io.graphite.examples;
 
-import main.java.graphite.benchmark.algorithm.*;
-import main.java.io.graphite.benchmark.algorithm.*;
+import io.graphite.benchmark.algorithm.*;
 
 public final class BenchmarkTestRunner {
     private BenchmarkTestRunner() {

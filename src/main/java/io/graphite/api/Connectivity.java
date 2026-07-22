@@ -1,17 +1,17 @@
-package main.java.io.graphite.api;
+package io.graphite.api;
 
-import main.java.io.graphite.algorithm.connectivity.APFinder;
-import main.java.io.graphite.algorithm.connectivity.BiconnectedComponents;
-import main.java.io.graphite.algorithm.connectivity.BridgeFinder;
-import main.java.io.graphite.algorithm.connectivity.Kosaraju;
-import main.java.io.graphite.api.internal.GraphAPI;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.result.APResult;
-import main.java.io.graphite.result.BiConnectedResult;
-import main.java.io.graphite.result.BridgeResult;
-import main.java.io.graphite.result.SCCResult;
-import main.java.io.graphite.exception.algorithm.NullGraphException;
-import main.java.io.graphite.exception.graph.UnsupportedGraphTypeException;
+import io.graphite.algorithm.connectivity.APFinder;
+import io.graphite.algorithm.connectivity.BiconnectedComponents;
+import io.graphite.algorithm.connectivity.BridgeFinder;
+import io.graphite.algorithm.connectivity.Kosaraju;
+import io.graphite.api.internal.GraphAPI;
+import io.graphite.exception.algorithm.NullGraphException;
+import io.graphite.exception.graph.UnsupportedGraphTypeException;
+import io.graphite.graph.IGraph;
+import io.graphite.result.APResult;
+import io.graphite.result.BiConnectedResult;
+import io.graphite.result.BridgeResult;
+import io.graphite.result.SCCResult;
 
 /**
  * Provides graph connectivity algorithms.

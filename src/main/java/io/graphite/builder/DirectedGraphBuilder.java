@@ -1,8 +1,8 @@
-package main.java.io.graphite.builder;
+package io.graphite.builder;
 
-import main.java.io.graphite.graph.DirectedGraph;
-import main.java.io.graphite.graph.GraphFactory;
-import main.java.io.graphite.generator.RandomGraphBuilder;
+import io.graphite.generator.RandomGraphBuilder;
+import io.graphite.graph.DirectedGraph;
+import io.graphite.graph.GraphFactory;
 
 /**
  * Builds mutable or immutable directed graphs using a fluent API.

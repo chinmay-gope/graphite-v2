@@ -1,12 +1,12 @@
-package main.java.io.graphite.algorithm.shortestpath;
+package io.graphite.algorithm.shortestpath;
 
-import main.java.io.graphite.algorithm.GraphAlgorithm;
-import main.java.io.graphite.api.ShortestPath;
-import main.java.io.graphite.exception.algorithm.NegativeCycleException;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.model.Edge;
-import main.java.io.graphite.result.ShortestPathResult;
-import main.java.io.graphite.validation.GraphPreconditions;
+import io.graphite.algorithm.GraphAlgorithm;
+import io.graphite.api.ShortestPath;
+import io.graphite.exception.algorithm.NegativeCycleException;
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
+import io.graphite.result.ShortestPathResult;
+import io.graphite.validation.GraphPreconditions;
 
 import java.util.List;
 

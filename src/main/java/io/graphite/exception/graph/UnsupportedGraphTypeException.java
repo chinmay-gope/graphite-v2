@@ -1,7 +1,7 @@
-package main.java.io.graphite.exception.graph;
+package io.graphite.exception.graph;
 
-import main.java.io.graphite.exception.GraphException;
-import main.java.io.graphite.validation.GraphPreconditions;
+import io.graphite.exception.GraphException;
+import io.graphite.validation.GraphPreconditions;
 
 /**
  * Thrown when an operation is not supported for the supplied graph type.

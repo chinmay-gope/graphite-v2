@@ -8,4 +8,4 @@
  * @since 2.0
  */
 
-package main.java.io.graphite.io;
+package io.graphite.io;

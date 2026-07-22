@@ -1,9 +1,9 @@
-package main.java.io.graphite.benchmark.algorithm;
+package io.graphite.benchmark.algorithm;
 
-import main.java.io.graphite.algorithm.cycle.DirectedCycleDetector;
-import main.java.io.graphite.algorithm.cycle.UndirectedCycleDetector;
-import main.java.io.graphite.generator.preset.GraphPresetGenerator;
-import main.java.io.graphite.graph.IGraph;
+import io.graphite.algorithm.cycle.DirectedCycleDetector;
+import io.graphite.algorithm.cycle.UndirectedCycleDetector;
+import io.graphite.generator.preset.GraphPresetGenerator;
+import io.graphite.graph.IGraph;
 
 public final class CycleBenchmark extends AbstractBenchmark {
 

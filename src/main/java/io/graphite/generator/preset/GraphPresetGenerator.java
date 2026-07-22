@@ -1,10 +1,10 @@
-package main.java.io.graphite.generator.preset;
+package io.graphite.generator.preset;
 
-import main.java.io.graphite.builder.Graphs;
-import main.java.io.graphite.generator.RandomGraphBuilder;
-import main.java.io.graphite.generator.pattern.BipartiteGraphGenerator;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.graph.PatternGraphBuilder;
+import io.graphite.builder.Graphs;
+import io.graphite.generator.RandomGraphBuilder;
+import io.graphite.generator.pattern.BipartiteGraphGenerator;
+import io.graphite.graph.IGraph;
+import io.graphite.graph.PatternGraphBuilder;
 
 /**
  * Provides a collection of predefined graphs commonly used for testing,

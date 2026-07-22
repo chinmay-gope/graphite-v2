@@ -1,9 +1,9 @@
-package main.java.io.graphite.examples.format;
+package io.graphite.examples.format;
 
-import main.java.io.graphite.builder.Graphs;
-import main.java.io.graphite.examples.ExamplePrinter;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.print.GraphPrinter;
+import io.graphite.builder.Graphs;
+import io.graphite.examples.ExamplePrinter;
+import io.graphite.graph.IGraph;
+import io.graphite.print.GraphPrinter;
 
 public class FormatterExamples {
     private static final IGraph GRAPH =

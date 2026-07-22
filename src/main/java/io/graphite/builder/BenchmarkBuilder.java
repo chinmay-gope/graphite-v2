@@ -1,9 +1,9 @@
-package main.java.io.graphite.builder;
+package io.graphite.builder;
 
-import main.java.io.graphite.benchmark.Benchmark;
-import main.java.io.graphite.benchmark.BenchmarkConfig;
-import main.java.io.graphite.benchmark.BenchmarkTask;
-import main.java.io.graphite.graph.IGraph;
+import io.graphite.benchmark.Benchmark;
+import io.graphite.benchmark.BenchmarkConfig;
+import io.graphite.benchmark.BenchmarkTask;
+import io.graphite.graph.IGraph;
 
 public final class BenchmarkBuilder {
 

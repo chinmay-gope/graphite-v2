@@ -1,11 +1,11 @@
-package main.java.io.graphite.algorithm.cycle;
+package io.graphite.algorithm.cycle;
 
-import main.java.io.graphite.algorithm.GraphAlgorithm;
-import main.java.io.graphite.api.Cycle;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.model.Edge;
-import main.java.io.graphite.validation.GraphPreconditions;
-import main.java.io.graphite.algorithm.traversal.DFS;
+import io.graphite.algorithm.GraphAlgorithm;
+import io.graphite.algorithm.traversal.DFS;
+import io.graphite.api.Cycle;
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
+import io.graphite.validation.GraphPreconditions;
 
 /**
  * Detects cycles in undirected graphs.

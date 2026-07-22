@@ -8,4 +8,4 @@
  * @since 2.0
  */
 
-package main.java.io.graphite.validation;
+package io.graphite.validation;

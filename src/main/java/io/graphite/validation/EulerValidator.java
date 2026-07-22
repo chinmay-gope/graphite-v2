@@ -1,8 +1,8 @@
-package main.java.io.graphite.validation;
+package io.graphite.validation;
 
-import main.java.io.graphite.exception.graph.InvalidGraphConfigurationException;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.result.EulerResult;
+import io.graphite.exception.graph.InvalidGraphConfigurationException;
+import io.graphite.graph.IGraph;
+import io.graphite.result.EulerResult;
 
 import java.util.List;
 

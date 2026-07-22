@@ -1,11 +1,11 @@
-package main.java.io.graphite.benchmark.stress;
+package io.graphite.benchmark.stress;
 
-import main.java.io.graphite.algorithm.topology.DFSTopologicalSort;
-import main.java.io.graphite.algorithm.topology.KahnTopologicalSort;
-import main.java.io.graphite.algorithm.topology.TopologicalAlgorithm;
-import main.java.io.graphite.benchmark.StressConfig;
-import main.java.io.graphite.benchmark.StressRunner;
-import main.java.io.graphite.generator.preset.GraphPresetGenerator;
+import io.graphite.algorithm.topology.DFSTopologicalSort;
+import io.graphite.algorithm.topology.KahnTopologicalSort;
+import io.graphite.algorithm.topology.TopologicalAlgorithm;
+import io.graphite.benchmark.StressConfig;
+import io.graphite.benchmark.StressRunner;
+import io.graphite.generator.preset.GraphPresetGenerator;
 
 public class TopologyStress {
 

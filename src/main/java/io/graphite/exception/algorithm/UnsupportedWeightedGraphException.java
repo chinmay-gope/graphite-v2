@@ -1,7 +1,7 @@
-package main.java.io.graphite.exception.algorithm;
+package io.graphite.exception.algorithm;
 
-import main.java.io.graphite.exception.GraphException;
-import main.java.io.graphite.validation.GraphPreconditions;
+import io.graphite.exception.GraphException;
+import io.graphite.validation.GraphPreconditions;
 
 /**
  * Thrown when an algorithm is executed on an incompatible graph type.

@@ -1,4 +1,4 @@
-package main.java.io.graphite.result;
+package io.graphite.result;
 
 public interface Colors {
     String RESET = "\u001B[0m";

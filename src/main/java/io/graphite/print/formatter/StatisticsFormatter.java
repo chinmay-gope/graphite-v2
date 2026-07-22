@@ -1,11 +1,11 @@
-package main.java.io.graphite.print.formatter;
+package io.graphite.print.formatter;
 
-import main.java.io.graphite.api.analysis.GraphAnalysis;
-import main.java.io.graphite.exception.GraphException;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.print.GraphFormatter;
-import main.java.io.graphite.print.GraphPrinter;
-import main.java.io.graphite.result.Colors;
+import io.graphite.api.analysis.GraphAnalysis;
+import io.graphite.exception.GraphException;
+import io.graphite.graph.IGraph;
+import io.graphite.print.GraphFormatter;
+import io.graphite.print.GraphPrinter;
+import io.graphite.result.Colors;
 
 import java.util.function.BooleanSupplier;
 

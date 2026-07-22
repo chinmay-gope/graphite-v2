@@ -1,9 +1,9 @@
-package main.java.io.graphite.examples.algorithm;
+package io.graphite.examples.algorithm;
 
-import main.java.io.graphite.examples.ExamplePrinter;
-import main.java.io.graphite.exception.GraphException;
-import main.java.io.graphite.generator.example.GraphExampleGenerator;
-import main.java.io.graphite.graph.IGraph;
+import io.graphite.examples.ExamplePrinter;
+import io.graphite.exception.GraphException;
+import io.graphite.generator.example.GraphExampleGenerator;
+import io.graphite.graph.IGraph;
 
 public final class EulerExamples {
 

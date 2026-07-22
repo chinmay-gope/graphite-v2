@@ -1,7 +1,7 @@
-package main.java.io.graphite.benchmark.algorithm;
+package io.graphite.benchmark.algorithm;
 
-import main.java.io.graphite.generator.preset.GraphPresetGenerator;
-import main.java.io.graphite.graph.IGraph;
+import io.graphite.generator.preset.GraphPresetGenerator;
+import io.graphite.graph.IGraph;
 
 public final class MSTBenchmark extends AbstractBenchmark {
 

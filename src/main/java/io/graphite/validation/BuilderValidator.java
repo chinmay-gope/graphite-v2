@@ -1,10 +1,10 @@
-package main.java.io.graphite.validation;
+package io.graphite.validation;
 
 
-import main.java.io.graphite.builder.GraphConfiguration;
-import main.java.io.graphite.exception.graph.InvalidGraphConfigurationException;
-import main.java.io.graphite.graph.PatternGraphBuilder;
-import main.java.io.graphite.generator.RandomGraphBuilder;
+import io.graphite.builder.GraphConfiguration;
+import io.graphite.exception.graph.InvalidGraphConfigurationException;
+import io.graphite.generator.RandomGraphBuilder;
+import io.graphite.graph.PatternGraphBuilder;
 
 /**
  * Validates graph builder configurations before graph construction.

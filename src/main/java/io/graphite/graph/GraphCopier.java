@@ -1,6 +1,6 @@
-package main.java.io.graphite.graph;
+package io.graphite.graph;
 
-import main.java.io.graphite.model.Edge;
+import io.graphite.model.Edge;
 
 public final class GraphCopier {
     private GraphCopier() {

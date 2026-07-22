@@ -1,8 +1,7 @@
-package main.java.io.graphite.api.internal;
+package io.graphite.api.internal;
 
-import main.java.graphite.api.*;
-import main.java.io.graphite.api.*;
-import main.java.io.graphite.graph.IGraph;
+import io.graphite.api.*;
+import io.graphite.graph.IGraph;
 
 /**
  * Base class for all Graphite API services.

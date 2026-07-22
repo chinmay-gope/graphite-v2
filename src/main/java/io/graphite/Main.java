@@ -1,8 +1,8 @@
-package main.java.io.graphite;
+package io.graphite;
 
-import main.java.io.graphite.builder.Graphs;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.print.GraphPrinter;
+import io.graphite.builder.Graphs;
+import io.graphite.graph.IGraph;
+import io.graphite.print.GraphPrinter;
 
 public class Main {
     static void main() {

@@ -1,8 +1,8 @@
-package main.java.io.graphite.result;
+package io.graphite.result;
 
-import main.java.io.graphite.algorithm.mst.Kruskal;
-import main.java.io.graphite.algorithm.mst.Prim;
-import main.java.io.graphite.api.MST;
+import io.graphite.algorithm.mst.Kruskal;
+import io.graphite.algorithm.mst.Prim;
+import io.graphite.api.MST;
 
 import java.util.List;
 

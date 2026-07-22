@@ -1,7 +1,7 @@
-package main.java.io.graphite.graph;
+package io.graphite.graph;
 
-import main.java.io.graphite.builder.GraphConfiguration;
-import main.java.io.graphite.builder.Graphs;
+import io.graphite.builder.GraphConfiguration;
+import io.graphite.builder.Graphs;
 
 /**
  * Factory responsible for creating concrete graph implementations.

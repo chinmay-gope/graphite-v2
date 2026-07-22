@@ -1,8 +1,8 @@
-package main.java.io.graphite.benchmark;
+package io.graphite.benchmark;
 
-import main.java.io.graphite.result.BenchmarkResult;
+import io.graphite.result.BenchmarkResult;
 
-import static main.java.io.graphite.result.Colors.*;
+import static io.graphite.result.Colors.*;
 
 public final class BenchmarkPrinter {
 

@@ -1,10 +1,10 @@
-package main.java.io.graphite.result;
+package io.graphite.result;
 
-import main.java.io.graphite.api.ShortestPath;
-import main.java.io.graphite.exception.graph.InvalidGraphConfigurationException;
-import main.java.io.graphite.algorithm.shortestpath.BellmanFord;
-import main.java.io.graphite.algorithm.shortestpath.Dijkstra;
-import main.java.io.graphite.algorithm.shortestpath.FloydWarshall;
+import io.graphite.algorithm.shortestpath.BellmanFord;
+import io.graphite.algorithm.shortestpath.Dijkstra;
+import io.graphite.algorithm.shortestpath.FloydWarshall;
+import io.graphite.api.ShortestPath;
+import io.graphite.exception.graph.InvalidGraphConfigurationException;
 
 import java.util.LinkedList;
 import java.util.List;

@@ -1,6 +1,6 @@
-package main.java.io.graphite.api.analysis;
+package io.graphite.api.analysis;
 
-import main.java.io.graphite.result.Colors;
+import io.graphite.result.Colors;
 
 public record GraphAnalysisResult(
 

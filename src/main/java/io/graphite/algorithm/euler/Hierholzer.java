@@ -1,14 +1,14 @@
-package main.java.io.graphite.algorithm.euler;
+package io.graphite.algorithm.euler;
 
-import main.java.io.graphite.algorithm.GraphAlgorithm;
-import main.java.io.graphite.api.Euler;
-import main.java.io.graphite.exception.algorithm.GraphCycleException;
-import main.java.io.graphite.exception.graph.GraphDisconnectedException;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.model.Edge;
-import main.java.io.graphite.result.EulerResult;
-import main.java.io.graphite.util.GraphUtils;
-import main.java.io.graphite.validation.GraphPreconditions;
+import io.graphite.algorithm.GraphAlgorithm;
+import io.graphite.api.Euler;
+import io.graphite.exception.algorithm.GraphCycleException;
+import io.graphite.exception.graph.GraphDisconnectedException;
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
+import io.graphite.result.EulerResult;
+import io.graphite.util.GraphUtils;
+import io.graphite.validation.GraphPreconditions;
 
 import java.util.*;
 

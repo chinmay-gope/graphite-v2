@@ -1,7 +1,7 @@
-package main.java.io.graphite.exception.algorithm;
+package io.graphite.exception.algorithm;
 
-import main.java.io.graphite.exception.GraphException;
-import main.java.io.graphite.algorithm.shortestpath.BellmanFord;
+import io.graphite.algorithm.shortestpath.BellmanFord;
+import io.graphite.exception.GraphException;
 
 /**
  * Thrown when a graph contains a reachable negative-weight cycle.

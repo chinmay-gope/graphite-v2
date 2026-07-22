@@ -1,8 +1,7 @@
-package main.java.io.graphite.examples.performance;
+package io.graphite.examples.performance;
 
-import main.java.graphite.benchmark.stress.*;
-import main.java.io.graphite.benchmark.stress.*;
-import main.java.io.graphite.examples.ExamplePrinter;
+import io.graphite.benchmark.stress.*;
+import io.graphite.examples.ExamplePrinter;
 
 public final class StressExamples {
 

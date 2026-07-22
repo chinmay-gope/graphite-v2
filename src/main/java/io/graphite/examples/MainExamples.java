@@ -1,11 +1,11 @@
-package main.java.io.graphite.examples;
+package io.graphite.examples;
 
-import main.java.io.graphite.api.analysis.GraphAnalysisResult;
-import main.java.io.graphite.builder.Graphs;
-import main.java.io.graphite.exception.GraphException;
-import main.java.io.graphite.generator.preset.GraphPresetGenerator;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.print.GraphPrinter;
+import io.graphite.api.analysis.GraphAnalysisResult;
+import io.graphite.builder.Graphs;
+import io.graphite.exception.GraphException;
+import io.graphite.generator.preset.GraphPresetGenerator;
+import io.graphite.graph.IGraph;
+import io.graphite.print.GraphPrinter;
 
 import java.io.IOException;
 import java.nio.file.Path;

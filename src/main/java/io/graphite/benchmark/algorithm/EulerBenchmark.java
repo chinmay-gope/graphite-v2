@@ -1,8 +1,8 @@
-package main.java.io.graphite.benchmark.algorithm;
+package io.graphite.benchmark.algorithm;
 
-import main.java.io.graphite.algorithm.euler.Hierholzer;
-import main.java.io.graphite.generator.example.GraphExampleGenerator;
-import main.java.io.graphite.graph.IGraph;
+import io.graphite.algorithm.euler.Hierholzer;
+import io.graphite.generator.example.GraphExampleGenerator;
+import io.graphite.graph.IGraph;
 
 public final class EulerBenchmark extends AbstractBenchmark {
 

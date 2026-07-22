@@ -1,9 +1,9 @@
-package main.java.io.graphite.builder;
+package io.graphite.builder;
 
 
-import main.java.io.graphite.generator.RandomGraphBuilder;
-import main.java.io.graphite.generator.RandomGraphGenerator;
-import main.java.io.graphite.graph.GraphFactory;
+import io.graphite.generator.RandomGraphBuilder;
+import io.graphite.generator.RandomGraphGenerator;
+import io.graphite.graph.GraphFactory;
 
 /**
  * Stores configuration options used during graph generation.

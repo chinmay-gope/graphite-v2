@@ -1,7 +1,7 @@
-package main.java.io.graphite.result;
+package io.graphite.result;
 
-import main.java.io.graphite.benchmark.Benchmark;
-import main.java.io.graphite.benchmark.BenchmarkRunner;
+import io.graphite.benchmark.Benchmark;
+import io.graphite.benchmark.BenchmarkRunner;
 
 /**
  * Represents the outcome of a benchmark execution.

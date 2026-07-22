@@ -1,13 +1,13 @@
-package main.java.io.graphite.algorithm.bipartite;
+package io.graphite.algorithm.bipartite;
 
-import main.java.io.graphite.algorithm.GraphAlgorithm;
-import main.java.io.graphite.api.Bipartite;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.model.Edge;
-import main.java.io.graphite.validation.GraphPreconditions;
-import main.java.io.graphite.validation.GraphValidator;
-import main.java.io.graphite.algorithm.traversal.BFS;
-import main.java.io.graphite.exception.algorithm.NullGraphException;
+import io.graphite.algorithm.GraphAlgorithm;
+import io.graphite.algorithm.traversal.BFS;
+import io.graphite.api.Bipartite;
+import io.graphite.exception.algorithm.NullGraphException;
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
+import io.graphite.validation.GraphPreconditions;
+import io.graphite.validation.GraphValidator;
 
 import java.util.ArrayDeque;
 import java.util.Queue;

@@ -1,7 +1,7 @@
-package main.java.io.graphite.exception.graph;
+package io.graphite.exception.graph;
 
-import main.java.io.graphite.exception.GraphException;
-import main.java.io.graphite.graph.IGraph;
+import io.graphite.exception.GraphException;
+import io.graphite.graph.IGraph;
 
 /**
  * Thrown when an attempt is made to modify an immutable graph.

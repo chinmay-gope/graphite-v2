@@ -11,4 +11,4 @@
  * @since 2.0
  */
 
-package main.java.io.graphite.print.formatter;
+package io.graphite.print.formatter;

@@ -1,8 +1,8 @@
-package main.java.io.graphite.examples.algorithm;
+package io.graphite.examples.algorithm;
 
-import main.java.io.graphite.examples.ExamplePrinter;
-import main.java.io.graphite.generator.preset.GraphPresetGenerator;
-import main.java.io.graphite.graph.IGraph;
+import io.graphite.examples.ExamplePrinter;
+import io.graphite.generator.preset.GraphPresetGenerator;
+import io.graphite.graph.IGraph;
 
 public final class BipartiteExamples {
 

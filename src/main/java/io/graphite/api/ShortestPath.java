@@ -1,16 +1,16 @@
-package main.java.io.graphite.api;
+package io.graphite.api;
 
-import main.java.io.graphite.algorithm.shortestpath.BellmanFord;
-import main.java.io.graphite.algorithm.shortestpath.Dijkstra;
-import main.java.io.graphite.algorithm.shortestpath.FloydWarshall;
-import main.java.io.graphite.api.internal.GraphAPI;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.result.AllPairsShortestPathResult;
-import main.java.io.graphite.result.ShortestPathResult;
-import main.java.io.graphite.exception.algorithm.NegativeCycleException;
-import main.java.io.graphite.exception.algorithm.NegativeWeightException;
-import main.java.io.graphite.exception.algorithm.NullGraphException;
-import main.java.io.graphite.exception.graph.InvalidVertexException;
+import io.graphite.algorithm.shortestpath.BellmanFord;
+import io.graphite.algorithm.shortestpath.Dijkstra;
+import io.graphite.algorithm.shortestpath.FloydWarshall;
+import io.graphite.api.internal.GraphAPI;
+import io.graphite.exception.algorithm.NegativeCycleException;
+import io.graphite.exception.algorithm.NegativeWeightException;
+import io.graphite.exception.algorithm.NullGraphException;
+import io.graphite.exception.graph.InvalidVertexException;
+import io.graphite.graph.IGraph;
+import io.graphite.result.AllPairsShortestPathResult;
+import io.graphite.result.ShortestPathResult;
 
 /**
  * Provides shortest path algorithms.

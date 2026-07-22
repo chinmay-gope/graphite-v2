@@ -1,6 +1,6 @@
-package main.java.io.graphite.result;
+package io.graphite.result;
 
-import main.java.io.graphite.model.Edge;
+import io.graphite.model.Edge;
 
 import java.util.List;
 

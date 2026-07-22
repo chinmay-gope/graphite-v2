@@ -1,9 +1,9 @@
-package main.java.io.graphite.graph.transform;
+package io.graphite.graph.transform;
 
-import main.java.io.graphite.builder.GraphConfiguration;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.model.Edge;
-import main.java.io.graphite.validation.GraphPreconditions;
+import io.graphite.builder.GraphConfiguration;
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
+import io.graphite.validation.GraphPreconditions;
 
 import java.util.function.Predicate;
 

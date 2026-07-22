@@ -1,9 +1,9 @@
 /**
  * Topology algorithms.
  *
- * <p>Includes {@link main.java.io.graphite.algorithm.topology.DFSTopologicalSort}, {@link main.java.io.graphite.algorithm.topology.KahnTopologicalSort} graphs.
+ * <p>Includes {@link io.graphite.algorithm.topology.DFSTopologicalSort}, {@link io.graphite.algorithm.topology.KahnTopologicalSort} graphs.
  *
  * @since 2.0
  */
 
-package main.java.io.graphite.algorithm.topology;
+package io.graphite.algorithm.topology;

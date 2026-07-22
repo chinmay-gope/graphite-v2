@@ -1,8 +1,8 @@
-package main.java.io.graphite.exception.graph;
+package io.graphite.exception.graph;
 
-import main.java.io.graphite.builder.GraphConfiguration;
-import main.java.io.graphite.exception.GraphException;
-import main.java.io.graphite.validation.BuilderValidator;
+import io.graphite.builder.GraphConfiguration;
+import io.graphite.exception.GraphException;
+import io.graphite.validation.BuilderValidator;
 
 /**
  * Thrown when a graph configuration contains invalid or inconsistent

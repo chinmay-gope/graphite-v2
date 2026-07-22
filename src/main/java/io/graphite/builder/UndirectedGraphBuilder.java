@@ -1,7 +1,7 @@
-package main.java.io.graphite.builder;
+package io.graphite.builder;
 
-import main.java.io.graphite.graph.GraphFactory;
-import main.java.io.graphite.graph.UndirectedGraph;
+import io.graphite.graph.GraphFactory;
+import io.graphite.graph.UndirectedGraph;
 
 /**
  * Builds mutable or immutable undirected graphs using a fluent API.

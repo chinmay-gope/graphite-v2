@@ -1,11 +1,11 @@
-package main.java.io.graphite.validation;
+package io.graphite.validation;
 
-import main.java.io.graphite.exception.algorithm.NegativeWeightException;
-import main.java.io.graphite.exception.algorithm.NullGraphException;
-import main.java.io.graphite.exception.algorithm.UnsupportedWeightedGraphException;
-import main.java.io.graphite.exception.graph.InvalidVertexException;
-import main.java.io.graphite.exception.graph.UnsupportedGraphTypeException;
-import main.java.io.graphite.graph.IGraph;
+import io.graphite.exception.algorithm.NegativeWeightException;
+import io.graphite.exception.algorithm.NullGraphException;
+import io.graphite.exception.algorithm.UnsupportedWeightedGraphException;
+import io.graphite.exception.graph.InvalidVertexException;
+import io.graphite.exception.graph.UnsupportedGraphTypeException;
+import io.graphite.graph.IGraph;
 
 /**
  * Provides reusable precondition checks for graph algorithms.

@@ -1,17 +1,16 @@
-package main.java.io.graphite.graph;
+package io.graphite.graph;
 
-import main.java.graphite.api.*;
-import main.java.io.graphite.api.*;
-import main.java.io.graphite.api.analysis.GraphAnalysis;
-import main.java.io.graphite.api.analysis.GraphAnalysisService;
-import main.java.io.graphite.api.internal.GraphAPI;
-import main.java.io.graphite.builder.GraphConfiguration;
-import main.java.io.graphite.builder.Graphs;
-import main.java.io.graphite.exception.graph.InvalidVertexException;
-import main.java.io.graphite.graph.internal.GraphAPIType;
-import main.java.io.graphite.graph.internal.ImmutableGraph;
-import main.java.io.graphite.io.writer.GraphWriterService;
-import main.java.io.graphite.model.Edge;
+import io.graphite.api.*;
+import io.graphite.api.analysis.GraphAnalysis;
+import io.graphite.api.analysis.GraphAnalysisService;
+import io.graphite.api.internal.GraphAPI;
+import io.graphite.builder.GraphConfiguration;
+import io.graphite.builder.Graphs;
+import io.graphite.exception.graph.InvalidVertexException;
+import io.graphite.graph.internal.GraphAPIType;
+import io.graphite.graph.internal.ImmutableGraph;
+import io.graphite.io.writer.GraphWriterService;
+import io.graphite.model.Edge;
 
 import java.util.ArrayList;
 import java.util.Collections;

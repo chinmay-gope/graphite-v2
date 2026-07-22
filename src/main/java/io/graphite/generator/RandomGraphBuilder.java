@@ -1,8 +1,8 @@
-package main.java.io.graphite.generator;
+package io.graphite.generator;
 
-import main.java.io.graphite.builder.GraphConfiguration;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.builder.Graphs;
+import io.graphite.builder.GraphConfiguration;
+import io.graphite.builder.Graphs;
+import io.graphite.graph.IGraph;
 
 /**
  * Fluent builder for generating configurable random graphs.

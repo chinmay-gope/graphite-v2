@@ -5,10 +5,10 @@
  * graph algorithms.
  *
  * <p>Applications should normally invoke algorithms through the
- * service APIs in {@code main.java.graphite.api} instead of interacting
+ * service APIs in {@code graphite.api} instead of interacting
  * with these classes directly.
  *
  * @since 2.0
  */
 
-package main.java.io.graphite.algorithm;
+package io.graphite.algorithm;

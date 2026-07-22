@@ -1,11 +1,11 @@
-package main.java.io.graphite.api;
+package io.graphite.api;
 
-import main.java.io.graphite.algorithm.traversal.BFS;
-import main.java.io.graphite.algorithm.traversal.DFS;
-import main.java.io.graphite.api.internal.GraphAPI;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.result.TraversalResult;
-import main.java.io.graphite.exception.graph.InvalidVertexException;
+import io.graphite.algorithm.traversal.BFS;
+import io.graphite.algorithm.traversal.DFS;
+import io.graphite.api.internal.GraphAPI;
+import io.graphite.exception.graph.InvalidVertexException;
+import io.graphite.graph.IGraph;
+import io.graphite.result.TraversalResult;
 
 /**
  * Provides graph traversal algorithms.

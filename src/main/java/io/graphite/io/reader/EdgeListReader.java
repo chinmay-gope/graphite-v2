@@ -1,10 +1,10 @@
-package main.java.io.graphite.io.reader;
+package io.graphite.io.reader;
 
-import main.java.io.graphite.builder.AbstractGraphBuilder;
-import main.java.io.graphite.builder.Graphs;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.io.GraphReader;
-import main.java.io.graphite.io.writer.PrettyEdgeListWriter;
+import io.graphite.builder.AbstractGraphBuilder;
+import io.graphite.builder.Graphs;
+import io.graphite.graph.IGraph;
+import io.graphite.io.GraphReader;
+import io.graphite.io.writer.PrettyEdgeListWriter;
 
 import java.io.IOException;
 import java.nio.file.Files;

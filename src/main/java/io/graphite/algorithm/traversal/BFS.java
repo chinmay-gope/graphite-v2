@@ -1,11 +1,11 @@
-package main.java.io.graphite.algorithm.traversal;
+package io.graphite.algorithm.traversal;
 
-import main.java.io.graphite.algorithm.GraphAlgorithm;
-import main.java.io.graphite.api.Traversal;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.model.Edge;
-import main.java.io.graphite.result.TraversalResult;
-import main.java.io.graphite.validation.GraphPreconditions;
+import io.graphite.algorithm.GraphAlgorithm;
+import io.graphite.api.Traversal;
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
+import io.graphite.result.TraversalResult;
+import io.graphite.validation.GraphPreconditions;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

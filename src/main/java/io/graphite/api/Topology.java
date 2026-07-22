@@ -1,13 +1,13 @@
-package main.java.io.graphite.api;
+package io.graphite.api;
 
-import main.java.io.graphite.algorithm.topology.DFSTopologicalSort;
-import main.java.io.graphite.algorithm.topology.KahnTopologicalSort;
-import main.java.io.graphite.api.internal.GraphAPI;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.result.TopologicalSortResult;
-import main.java.io.graphite.exception.algorithm.GraphCycleException;
-import main.java.io.graphite.exception.algorithm.NullGraphException;
-import main.java.io.graphite.exception.graph.UnsupportedGraphTypeException;
+import io.graphite.algorithm.topology.DFSTopologicalSort;
+import io.graphite.algorithm.topology.KahnTopologicalSort;
+import io.graphite.api.internal.GraphAPI;
+import io.graphite.exception.algorithm.GraphCycleException;
+import io.graphite.exception.algorithm.NullGraphException;
+import io.graphite.exception.graph.UnsupportedGraphTypeException;
+import io.graphite.graph.IGraph;
+import io.graphite.result.TopologicalSortResult;
 
 /**
  * Provides topological ordering algorithms.

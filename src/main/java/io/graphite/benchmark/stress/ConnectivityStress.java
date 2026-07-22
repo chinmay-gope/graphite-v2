@@ -1,10 +1,9 @@
-package main.java.io.graphite.benchmark.stress;
+package io.graphite.benchmark.stress;
 
-import main.java.graphite.algorithm.connectivity.*;
-import main.java.io.graphite.algorithm.connectivity.*;
-import main.java.io.graphite.benchmark.StressConfig;
-import main.java.io.graphite.benchmark.StressRunner;
-import main.java.io.graphite.generator.preset.GraphPresetGenerator;
+import io.graphite.algorithm.connectivity.*;
+import io.graphite.benchmark.StressConfig;
+import io.graphite.benchmark.StressRunner;
+import io.graphite.generator.preset.GraphPresetGenerator;
 
 public class ConnectivityStress {
 

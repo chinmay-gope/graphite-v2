@@ -1,4 +1,4 @@
-package main.java.io.graphite.graph.transform;
+package io.graphite.graph.transform;
 
 class StrassenMatrix {
 

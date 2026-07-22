@@ -1,13 +1,13 @@
-package main.java.io.graphite.api.analysis;
+package io.graphite.api.analysis;
 
-import main.java.io.graphite.algorithm.bipartite.BFSBipartiteChecker;
-import main.java.io.graphite.algorithm.cycle.DirectedCycleDetector;
-import main.java.io.graphite.algorithm.cycle.UndirectedCycleDetector;
-import main.java.io.graphite.algorithm.euler.Hierholzer;
-import main.java.io.graphite.api.internal.GraphAPI;
-import main.java.io.graphite.exception.GraphException;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.util.GraphUtils;
+import io.graphite.algorithm.bipartite.BFSBipartiteChecker;
+import io.graphite.algorithm.cycle.DirectedCycleDetector;
+import io.graphite.algorithm.cycle.UndirectedCycleDetector;
+import io.graphite.algorithm.euler.Hierholzer;
+import io.graphite.api.internal.GraphAPI;
+import io.graphite.exception.GraphException;
+import io.graphite.graph.IGraph;
+import io.graphite.util.GraphUtils;
 
 
 public final class GraphAnalysisService extends GraphAPI implements GraphAnalysis {

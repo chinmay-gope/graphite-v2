@@ -1,7 +1,7 @@
-package main.java.io.graphite.algorithm;
+package io.graphite.algorithm;
 
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.model.Edge;
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
 
 import java.util.Arrays;
 import java.util.List;

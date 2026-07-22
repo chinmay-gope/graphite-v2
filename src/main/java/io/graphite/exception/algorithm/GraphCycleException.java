@@ -1,8 +1,8 @@
-package main.java.io.graphite.exception.algorithm;
+package io.graphite.exception.algorithm;
 
-import main.java.io.graphite.exception.GraphException;
-import main.java.io.graphite.algorithm.topology.DFSTopologicalSort;
-import main.java.io.graphite.algorithm.topology.KahnTopologicalSort;
+import io.graphite.algorithm.topology.DFSTopologicalSort;
+import io.graphite.algorithm.topology.KahnTopologicalSort;
+import io.graphite.exception.GraphException;
 
 /**
  * Thrown when an unexpected graph cycle is encountered.

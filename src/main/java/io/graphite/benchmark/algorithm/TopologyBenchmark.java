@@ -1,9 +1,9 @@
-package main.java.io.graphite.benchmark.algorithm;
+package io.graphite.benchmark.algorithm;
 
-import main.java.io.graphite.algorithm.topology.DFSTopologicalSort;
-import main.java.io.graphite.algorithm.topology.KahnTopologicalSort;
-import main.java.io.graphite.generator.preset.GraphPresetGenerator;
-import main.java.io.graphite.graph.IGraph;
+import io.graphite.algorithm.topology.DFSTopologicalSort;
+import io.graphite.algorithm.topology.KahnTopologicalSort;
+import io.graphite.generator.preset.GraphPresetGenerator;
+import io.graphite.graph.IGraph;
 
 public final class TopologyBenchmark extends AbstractBenchmark {
 

@@ -1,10 +1,10 @@
-package main.java.io.graphite.benchmark.algorithm;
+package io.graphite.benchmark.algorithm;
 
-import main.java.io.graphite.benchmark.Benchmark;
-import main.java.io.graphite.benchmark.BenchmarkPrinter;
-import main.java.io.graphite.benchmark.BenchmarkTask;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.result.BenchmarkResult;
+import io.graphite.benchmark.Benchmark;
+import io.graphite.benchmark.BenchmarkPrinter;
+import io.graphite.benchmark.BenchmarkTask;
+import io.graphite.graph.IGraph;
+import io.graphite.result.BenchmarkResult;
 
 /**
  * Provides common functionality for Graphite benchmark examples.

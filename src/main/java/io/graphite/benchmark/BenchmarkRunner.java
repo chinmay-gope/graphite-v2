@@ -1,6 +1,6 @@
-package main.java.io.graphite.benchmark;
+package io.graphite.benchmark;
 
-import main.java.io.graphite.result.BenchmarkResult;
+import io.graphite.result.BenchmarkResult;
 
 /**
  * Executes benchmark tasks and collects execution statistics.

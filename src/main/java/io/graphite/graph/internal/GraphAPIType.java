@@ -1,4 +1,4 @@
-package main.java.io.graphite.graph.internal;
+package io.graphite.graph.internal;
 
 public enum GraphAPIType {
     TRAVERSAL,

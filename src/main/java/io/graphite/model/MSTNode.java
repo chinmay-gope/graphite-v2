@@ -1,4 +1,4 @@
-package main.java.io.graphite.model;
+package io.graphite.model;
 
 public record MSTNode(
         int parent,

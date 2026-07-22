@@ -1,9 +1,8 @@
-package main.java.io.graphite.graph;
+package io.graphite.graph;
 
-import main.java.graphite.generator.pattern.*;
-import main.java.io.graphite.builder.Graphs;
-import main.java.io.graphite.generator.pattern.*;
-import main.java.io.graphite.generator.preset.GraphPresetGenerator;
+import io.graphite.builder.Graphs;
+import io.graphite.generator.pattern.*;
+import io.graphite.generator.preset.GraphPresetGenerator;
 
 /**
  * Builds predefined graph structures using a fluent API.

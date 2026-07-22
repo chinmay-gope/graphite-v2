@@ -1,8 +1,8 @@
-package main.java.io.graphite.examples.core;
+package io.graphite.examples.core;
 
-import main.java.io.graphite.builder.Graphs;
-import main.java.io.graphite.examples.ExamplePrinter;
-import main.java.io.graphite.graph.IGraph;
+import io.graphite.builder.Graphs;
+import io.graphite.examples.ExamplePrinter;
+import io.graphite.graph.IGraph;
 
 public final class BuilderExamples {
 

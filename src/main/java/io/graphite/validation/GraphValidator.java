@@ -1,7 +1,7 @@
-package main.java.io.graphite.validation;
+package io.graphite.validation;
 
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.model.Edge;
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
 
 /**
  * Provides utility methods for inspecting graph properties.

@@ -11,4 +11,4 @@
  * @since 2.0
  */
 
-package main.java.io.graphite.exception;
+package io.graphite.exception;

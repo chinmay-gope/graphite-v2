@@ -1,13 +1,13 @@
-package main.java.io.graphite.api;
+package io.graphite.api;
 
-import main.java.io.graphite.algorithm.mst.Kruskal;
-import main.java.io.graphite.algorithm.mst.Prim;
-import main.java.io.graphite.api.internal.GraphAPI;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.result.MSTResult;
-import main.java.io.graphite.exception.algorithm.NullGraphException;
-import main.java.io.graphite.exception.graph.GraphDisconnectedException;
-import main.java.io.graphite.exception.graph.UnsupportedGraphTypeException;
+import io.graphite.algorithm.mst.Kruskal;
+import io.graphite.algorithm.mst.Prim;
+import io.graphite.api.internal.GraphAPI;
+import io.graphite.exception.algorithm.NullGraphException;
+import io.graphite.exception.graph.GraphDisconnectedException;
+import io.graphite.exception.graph.UnsupportedGraphTypeException;
+import io.graphite.graph.IGraph;
+import io.graphite.result.MSTResult;
 
 /**
  * Provides Minimum Spanning Tree (MST) algorithms.

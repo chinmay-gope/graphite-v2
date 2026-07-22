@@ -1,10 +1,10 @@
-package main.java.io.graphite.api;
+package io.graphite.api;
 
-import main.java.io.graphite.algorithm.euler.Hierholzer;
-import main.java.io.graphite.api.internal.GraphAPI;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.result.EulerResult;
-import main.java.io.graphite.exception.algorithm.NullGraphException;
+import io.graphite.algorithm.euler.Hierholzer;
+import io.graphite.api.internal.GraphAPI;
+import io.graphite.exception.algorithm.NullGraphException;
+import io.graphite.graph.IGraph;
+import io.graphite.result.EulerResult;
 
 /**
  * Provides Euler path and circuit algorithms.

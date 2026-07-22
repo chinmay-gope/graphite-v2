@@ -1,9 +1,9 @@
-package main.java.io.graphite.io.writer;
+package io.graphite.io.writer;
 
-import main.java.io.graphite.api.analysis.GraphAnalysis;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.io.GraphWriter;
-import main.java.io.graphite.model.Edge;
+import io.graphite.api.analysis.GraphAnalysis;
+import io.graphite.graph.IGraph;
+import io.graphite.io.GraphWriter;
+import io.graphite.model.Edge;
 
 import java.io.BufferedWriter;
 import java.io.IOException;

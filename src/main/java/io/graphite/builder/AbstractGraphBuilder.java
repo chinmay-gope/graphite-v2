@@ -1,9 +1,9 @@
-package main.java.io.graphite.builder;
+package io.graphite.builder;
 
-import main.java.io.graphite.graph.Graph;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.model.Edge;
-import main.java.io.graphite.validation.BuilderValidator;
+import io.graphite.graph.Graph;
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
+import io.graphite.validation.BuilderValidator;
 
 import java.util.ArrayList;
 import java.util.Collection;

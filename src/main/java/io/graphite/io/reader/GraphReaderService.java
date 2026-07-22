@@ -1,6 +1,6 @@
-package main.java.io.graphite.io.reader;
+package io.graphite.io.reader;
 
-import main.java.io.graphite.graph.IGraph;
+import io.graphite.graph.IGraph;
 
 import java.io.IOException;
 import java.nio.file.Path;

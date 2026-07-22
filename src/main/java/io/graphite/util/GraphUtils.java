@@ -1,9 +1,9 @@
-package main.java.io.graphite.util;
+package io.graphite.util;
 
-import main.java.io.graphite.algorithm.traversal.DFS;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.model.Edge;
-import main.java.io.graphite.result.TraversalResult;
+import io.graphite.algorithm.traversal.DFS;
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
+import io.graphite.result.TraversalResult;
 
 import java.util.HashSet;
 import java.util.List;

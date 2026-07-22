@@ -1,7 +1,7 @@
-package main.java.io.graphite.benchmark;
+package io.graphite.benchmark;
 
-import main.java.io.graphite.builder.BenchmarkBuilder;
-import main.java.io.graphite.result.BenchmarkResult;
+import io.graphite.builder.BenchmarkBuilder;
+import io.graphite.result.BenchmarkResult;
 
 /**
  * Entry point for Graphite's benchmarking framework.

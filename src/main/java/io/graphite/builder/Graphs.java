@@ -1,11 +1,11 @@
-package main.java.io.graphite.builder;
+package io.graphite.builder;
 
-import main.java.io.graphite.generator.RandomGraphBuilder;
-import main.java.io.graphite.generator.example.GraphExampleGenerator;
-import main.java.io.graphite.generator.preset.GraphPresetGenerator;
-import main.java.io.graphite.graph.PatternGraphBuilder;
-import main.java.io.graphite.graph.transform.GraphTransformFactory;
-import main.java.io.graphite.io.reader.GraphReaderService;
+import io.graphite.generator.RandomGraphBuilder;
+import io.graphite.generator.example.GraphExampleGenerator;
+import io.graphite.generator.preset.GraphPresetGenerator;
+import io.graphite.graph.PatternGraphBuilder;
+import io.graphite.graph.transform.GraphTransformFactory;
+import io.graphite.io.reader.GraphReaderService;
 
 
 /**

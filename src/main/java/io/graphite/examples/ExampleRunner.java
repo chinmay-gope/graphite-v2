@@ -1,14 +1,13 @@
-package main.java.io.graphite.examples;
+package io.graphite.examples;
 
-import main.java.graphite.examples.algorithm.*;
-import main.java.io.graphite.examples.algorithm.*;
-import main.java.io.graphite.examples.core.BasicExamples;
-import main.java.io.graphite.examples.core.BuilderExamples;
-import main.java.io.graphite.examples.core.GeneratorExamples;
-import main.java.io.graphite.examples.format.FormatterExamples;
-import main.java.io.graphite.examples.io.GraphIOExamples;
-import main.java.io.graphite.examples.performance.BenchmarkExamples;
-import main.java.io.graphite.examples.performance.StressExamples;
+import io.graphite.examples.algorithm.*;
+import io.graphite.examples.core.BasicExamples;
+import io.graphite.examples.core.BuilderExamples;
+import io.graphite.examples.core.GeneratorExamples;
+import io.graphite.examples.format.FormatterExamples;
+import io.graphite.examples.io.GraphIOExamples;
+import io.graphite.examples.performance.BenchmarkExamples;
+import io.graphite.examples.performance.StressExamples;
 
 import java.io.IOException;
 

@@ -1,9 +1,9 @@
-package main.java.io.graphite.api;
+package io.graphite.api;
 
-import main.java.io.graphite.algorithm.bipartite.BFSBipartiteChecker;
-import main.java.io.graphite.algorithm.bipartite.DFSBipartiteChecker;
-import main.java.io.graphite.api.internal.GraphAPI;
-import main.java.io.graphite.graph.IGraph;
+import io.graphite.algorithm.bipartite.BFSBipartiteChecker;
+import io.graphite.algorithm.bipartite.DFSBipartiteChecker;
+import io.graphite.api.internal.GraphAPI;
+import io.graphite.graph.IGraph;
 
 /**
  * Provides bipartite graph algorithms.

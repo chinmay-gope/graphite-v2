@@ -1,14 +1,14 @@
-package main.java.io.graphite.generator;
+package io.graphite.generator;
 
-import main.java.io.graphite.builder.AbstractGraphBuilder;
-import main.java.io.graphite.builder.GraphConfiguration;
-import main.java.io.graphite.builder.Graphs;
-import main.java.io.graphite.generator.internal.EdgeTracker;
-import main.java.io.graphite.generator.internal.RandomEdgeGenerator;
-import main.java.io.graphite.generator.internal.RandomWeightGenerator;
-import main.java.io.graphite.generator.internal.SpanningTreeGenerator;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.validation.RandomGraphValidator;
+import io.graphite.builder.AbstractGraphBuilder;
+import io.graphite.builder.GraphConfiguration;
+import io.graphite.builder.Graphs;
+import io.graphite.generator.internal.EdgeTracker;
+import io.graphite.generator.internal.RandomEdgeGenerator;
+import io.graphite.generator.internal.RandomWeightGenerator;
+import io.graphite.generator.internal.SpanningTreeGenerator;
+import io.graphite.graph.IGraph;
+import io.graphite.validation.RandomGraphValidator;
 
 import java.util.concurrent.ThreadLocalRandom;
 

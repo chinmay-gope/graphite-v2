@@ -1,15 +1,15 @@
-package main.java.io.graphite.algorithm.topology;
+package io.graphite.algorithm.topology;
 
-import main.java.io.graphite.algorithm.GraphAlgorithm;
-import main.java.io.graphite.algorithm.cycle.CycleDetectionAlgorithm;
-import main.java.io.graphite.algorithm.cycle.DirectedCycleDetector;
-import main.java.io.graphite.algorithm.traversal.DFS;
-import main.java.io.graphite.api.Topology;
-import main.java.io.graphite.exception.algorithm.GraphCycleException;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.model.Edge;
-import main.java.io.graphite.result.TopologicalSortResult;
-import main.java.io.graphite.validation.GraphPreconditions;
+import io.graphite.algorithm.GraphAlgorithm;
+import io.graphite.algorithm.cycle.CycleDetectionAlgorithm;
+import io.graphite.algorithm.cycle.DirectedCycleDetector;
+import io.graphite.algorithm.traversal.DFS;
+import io.graphite.api.Topology;
+import io.graphite.exception.algorithm.GraphCycleException;
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
+import io.graphite.result.TopologicalSortResult;
+import io.graphite.validation.GraphPreconditions;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

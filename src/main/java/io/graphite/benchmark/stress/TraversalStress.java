@@ -1,13 +1,13 @@
-package main.java.io.graphite.benchmark.stress;
+package io.graphite.benchmark.stress;
 
-import main.java.io.graphite.algorithm.traversal.BFS;
-import main.java.io.graphite.algorithm.traversal.DFS;
-import main.java.io.graphite.algorithm.traversal.TraversalAlgorithm;
-import main.java.io.graphite.benchmark.StressConfig;
-import main.java.io.graphite.benchmark.StressRunner;
-import main.java.io.graphite.generator.preset.GraphPresetGenerator;
+import io.graphite.algorithm.traversal.BFS;
+import io.graphite.algorithm.traversal.DFS;
+import io.graphite.algorithm.traversal.TraversalAlgorithm;
+import io.graphite.benchmark.StressConfig;
+import io.graphite.benchmark.StressRunner;
+import io.graphite.generator.preset.GraphPresetGenerator;
 
-import static main.java.io.graphite.benchmark.StressRunner.randomSource;
+import static io.graphite.benchmark.StressRunner.randomSource;
 
 
 public class TraversalStress {

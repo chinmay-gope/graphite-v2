@@ -1,8 +1,8 @@
-package main.java.io.graphite.examples;
+package io.graphite.examples;
 
-import main.java.io.graphite.exception.GraphException;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.result.Colors;
+import io.graphite.exception.GraphException;
+import io.graphite.graph.IGraph;
+import io.graphite.result.Colors;
 
 public final class ExamplePrinter implements Colors {
 

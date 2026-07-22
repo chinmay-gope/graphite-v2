@@ -1,6 +1,6 @@
-package main.java.io.graphite.benchmark;
+package io.graphite.benchmark;
 
-import main.java.io.graphite.builder.BenchmarkBuilder;
+import io.graphite.builder.BenchmarkBuilder;
 
 /**
  * Represents a benchmarkable unit of work.

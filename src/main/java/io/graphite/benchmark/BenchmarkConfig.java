@@ -1,4 +1,4 @@
-package main.java.io.graphite.benchmark;
+package io.graphite.benchmark;
 
 public record BenchmarkConfig(int warmup, int iterations, boolean measureMemory) {
     public static BenchmarkConfig defaults() {

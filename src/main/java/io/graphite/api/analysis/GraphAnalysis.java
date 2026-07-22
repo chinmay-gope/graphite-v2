@@ -1,4 +1,4 @@
-package main.java.io.graphite.api.analysis;
+package io.graphite.api.analysis;
 
 public interface GraphAnalysis {
 

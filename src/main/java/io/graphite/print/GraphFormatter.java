@@ -1,6 +1,6 @@
-package main.java.io.graphite.print;
+package io.graphite.print;
 
-import main.java.io.graphite.graph.IGraph;
+import io.graphite.graph.IGraph;
 
 // Strategy
 public interface GraphFormatter {

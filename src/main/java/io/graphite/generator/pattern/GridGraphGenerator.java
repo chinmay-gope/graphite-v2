@@ -1,9 +1,9 @@
-package main.java.io.graphite.generator.pattern;
+package io.graphite.generator.pattern;
 
-import main.java.io.graphite.builder.Graphs;
-import main.java.io.graphite.exception.graph.InvalidGraphConfigurationException;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.graph.PatternGraphBuilder;
+import io.graphite.builder.Graphs;
+import io.graphite.exception.graph.InvalidGraphConfigurationException;
+import io.graphite.graph.IGraph;
+import io.graphite.graph.PatternGraphBuilder;
 
 /**
  * Generates two-dimensional grid graphs.

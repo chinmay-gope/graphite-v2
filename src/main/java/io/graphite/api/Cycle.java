@@ -1,9 +1,9 @@
-package main.java.io.graphite.api;
+package io.graphite.api;
 
-import main.java.io.graphite.algorithm.cycle.DirectedCycleDetector;
-import main.java.io.graphite.algorithm.cycle.UndirectedCycleDetector;
-import main.java.io.graphite.api.internal.GraphAPI;
-import main.java.io.graphite.graph.IGraph;
+import io.graphite.algorithm.cycle.DirectedCycleDetector;
+import io.graphite.algorithm.cycle.UndirectedCycleDetector;
+import io.graphite.api.internal.GraphAPI;
+import io.graphite.graph.IGraph;
 
 /**
  * Provides graph cycle detection algorithms.

@@ -1,13 +1,13 @@
-package main.java.io.graphite.generator.pattern;
+package io.graphite.generator.pattern;
 
-import main.java.io.graphite.builder.AbstractGraphBuilder;
-import main.java.io.graphite.builder.GraphConfiguration;
-import main.java.io.graphite.builder.Graphs;
-import main.java.io.graphite.exception.graph.InvalidGraphConfigurationException;
-import main.java.io.graphite.generator.internal.EdgeTracker;
-import main.java.io.graphite.generator.internal.SpanningTreeGenerator;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.graph.PatternGraphBuilder;
+import io.graphite.builder.AbstractGraphBuilder;
+import io.graphite.builder.GraphConfiguration;
+import io.graphite.builder.Graphs;
+import io.graphite.exception.graph.InvalidGraphConfigurationException;
+import io.graphite.generator.internal.EdgeTracker;
+import io.graphite.generator.internal.SpanningTreeGenerator;
+import io.graphite.graph.IGraph;
+import io.graphite.graph.PatternGraphBuilder;
 
 /**
  * Generates tree graphs.

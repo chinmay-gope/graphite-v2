@@ -1,14 +1,14 @@
-package main.java.io.graphite.benchmark.stress;
+package io.graphite.benchmark.stress;
 
-import main.java.io.graphite.algorithm.euler.EulerAlgorithm;
-import main.java.io.graphite.algorithm.euler.Hierholzer;
-import main.java.io.graphite.benchmark.StressConfig;
-import main.java.io.graphite.benchmark.StressRunner;
-import main.java.io.graphite.exception.algorithm.GraphCycleException;
-import main.java.io.graphite.exception.graph.GraphDisconnectedException;
-import main.java.io.graphite.generator.example.GraphExampleGenerator;
-import main.java.io.graphite.result.EulerResult;
-import main.java.io.graphite.validation.EulerValidator;
+import io.graphite.algorithm.euler.EulerAlgorithm;
+import io.graphite.algorithm.euler.Hierholzer;
+import io.graphite.benchmark.StressConfig;
+import io.graphite.benchmark.StressRunner;
+import io.graphite.exception.algorithm.GraphCycleException;
+import io.graphite.exception.graph.GraphDisconnectedException;
+import io.graphite.generator.example.GraphExampleGenerator;
+import io.graphite.result.EulerResult;
+import io.graphite.validation.EulerValidator;
 
 public class EulerStress {
 

@@ -1,9 +1,8 @@
-package main.java.io.graphite.print;
+package io.graphite.print;
 
-import main.java.io.graphite.graph.IGraph;
-import main.java.graphite.print.formatter.*;
-import main.java.io.graphite.exception.algorithm.NullGraphException;
-import main.java.io.graphite.print.formatter.*;
+import io.graphite.exception.algorithm.NullGraphException;
+import io.graphite.graph.IGraph;
+import io.graphite.print.formatter.*;
 
 /**
  * Utility class for rendering graphs in multiple textual formats.

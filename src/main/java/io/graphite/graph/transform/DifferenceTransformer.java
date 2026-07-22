@@ -1,8 +1,8 @@
-package main.java.io.graphite.graph.transform;
+package io.graphite.graph.transform;
 
-import main.java.io.graphite.builder.GraphConfiguration;
-import main.java.io.graphite.graph.GraphFactory;
-import main.java.io.graphite.graph.IGraph;
+import io.graphite.builder.GraphConfiguration;
+import io.graphite.graph.GraphFactory;
+import io.graphite.graph.IGraph;
 
 public final class DifferenceTransformer extends GraphTransformer {
 

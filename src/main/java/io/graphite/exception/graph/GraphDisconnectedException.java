@@ -1,8 +1,8 @@
-package main.java.io.graphite.exception.graph;
+package io.graphite.exception.graph;
 
-import main.java.io.graphite.exception.GraphException;
-import main.java.io.graphite.algorithm.mst.Kruskal;
-import main.java.io.graphite.algorithm.mst.Prim;
+import io.graphite.algorithm.mst.Kruskal;
+import io.graphite.algorithm.mst.Prim;
+import io.graphite.exception.GraphException;
 
 /**
  * Thrown when an algorithm requires a connected graph but the supplied

@@ -1,4 +1,4 @@
-package main.java.io.graphite.exception;
+package io.graphite.exception;
 
 /**
  * Base class for all Graphite runtime exceptions.

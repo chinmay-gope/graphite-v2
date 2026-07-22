@@ -1,6 +1,6 @@
-package main.java.io.graphite.graph.transform;
+package io.graphite.graph.transform;
 
-import main.java.io.graphite.graph.IGraph;
+import io.graphite.graph.IGraph;
 
 public final class GraphTransformFactory {
 

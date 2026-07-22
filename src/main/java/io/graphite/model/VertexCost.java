@@ -1,7 +1,7 @@
-package main.java.io.graphite.model;
+package io.graphite.model;
 
-import main.java.io.graphite.algorithm.mst.Prim;
-import main.java.io.graphite.algorithm.shortestpath.Dijkstra;
+import io.graphite.algorithm.mst.Prim;
+import io.graphite.algorithm.shortestpath.Dijkstra;
 
 /**
  * Represents a vertex together with its associated cost.

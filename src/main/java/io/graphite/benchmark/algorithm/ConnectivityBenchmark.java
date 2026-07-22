@@ -1,11 +1,11 @@
-package main.java.io.graphite.benchmark.algorithm;
+package io.graphite.benchmark.algorithm;
 
-import main.java.io.graphite.algorithm.connectivity.APFinder;
-import main.java.io.graphite.algorithm.connectivity.BiconnectedComponents;
-import main.java.io.graphite.algorithm.connectivity.BridgeFinder;
-import main.java.io.graphite.algorithm.connectivity.Kosaraju;
-import main.java.io.graphite.generator.preset.GraphPresetGenerator;
-import main.java.io.graphite.graph.IGraph;
+import io.graphite.algorithm.connectivity.APFinder;
+import io.graphite.algorithm.connectivity.BiconnectedComponents;
+import io.graphite.algorithm.connectivity.BridgeFinder;
+import io.graphite.algorithm.connectivity.Kosaraju;
+import io.graphite.generator.preset.GraphPresetGenerator;
+import io.graphite.graph.IGraph;
 
 public final class ConnectivityBenchmark extends AbstractBenchmark {
 

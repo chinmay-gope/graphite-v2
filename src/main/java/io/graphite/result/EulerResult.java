@@ -1,8 +1,8 @@
-package main.java.io.graphite.result;
+package io.graphite.result;
 
-import main.java.io.graphite.algorithm.euler.EulerType;
-import main.java.io.graphite.algorithm.euler.Hierholzer;
-import main.java.io.graphite.api.Euler;
+import io.graphite.algorithm.euler.EulerType;
+import io.graphite.algorithm.euler.Hierholzer;
+import io.graphite.api.Euler;
 
 import java.util.List;
 

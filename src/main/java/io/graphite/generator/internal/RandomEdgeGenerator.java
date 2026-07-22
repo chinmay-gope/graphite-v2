@@ -1,7 +1,7 @@
-package main.java.io.graphite.generator.internal;
+package io.graphite.generator.internal;
 
-import main.java.io.graphite.builder.AbstractGraphBuilder;
-import main.java.io.graphite.builder.GraphConfiguration;
+import io.graphite.builder.AbstractGraphBuilder;
+import io.graphite.builder.GraphConfiguration;
 
 import java.util.concurrent.ThreadLocalRandom;
 

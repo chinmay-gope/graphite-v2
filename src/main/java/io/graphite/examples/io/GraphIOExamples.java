@@ -1,9 +1,9 @@
-package main.java.io.graphite.examples.io;
+package io.graphite.examples.io;
 
-import main.java.io.graphite.builder.Graphs;
-import main.java.io.graphite.examples.ExamplePrinter;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.print.GraphPrinter;
+import io.graphite.builder.Graphs;
+import io.graphite.examples.ExamplePrinter;
+import io.graphite.graph.IGraph;
+import io.graphite.print.GraphPrinter;
 
 import java.io.IOException;
 import java.nio.file.Path;

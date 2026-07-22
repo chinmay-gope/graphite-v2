@@ -1,14 +1,14 @@
-package main.java.io.graphite.algorithm.mst;
+package io.graphite.algorithm.mst;
 
-import main.java.io.graphite.algorithm.GraphAlgorithm;
-import main.java.io.graphite.api.MST;
-import main.java.io.graphite.exception.graph.GraphDisconnectedException;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.model.Edge;
-import main.java.io.graphite.model.MSTNode;
-import main.java.io.graphite.result.MSTEdge;
-import main.java.io.graphite.result.MSTResult;
-import main.java.io.graphite.validation.GraphPreconditions;
+import io.graphite.algorithm.GraphAlgorithm;
+import io.graphite.api.MST;
+import io.graphite.exception.graph.GraphDisconnectedException;
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
+import io.graphite.model.MSTNode;
+import io.graphite.result.MSTEdge;
+import io.graphite.result.MSTResult;
+import io.graphite.validation.GraphPreconditions;
 
 import java.util.ArrayList;
 import java.util.List;

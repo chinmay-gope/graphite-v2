@@ -1,7 +1,6 @@
-package main.java.io.graphite.examples;
+package io.graphite.examples;
 
-import main.java.graphite.benchmark.stress.*;
-import main.java.io.graphite.benchmark.stress.*;
+import io.graphite.benchmark.stress.*;
 
 public class StressTestRunner {
 

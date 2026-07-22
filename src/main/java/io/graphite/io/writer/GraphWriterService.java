@@ -1,7 +1,7 @@
-package main.java.io.graphite.io.writer;
+package io.graphite.io.writer;
 
-import main.java.io.graphite.api.internal.GraphAPI;
-import main.java.io.graphite.graph.IGraph;
+import io.graphite.api.internal.GraphAPI;
+import io.graphite.graph.IGraph;
 
 import java.io.IOException;
 import java.nio.file.Path;

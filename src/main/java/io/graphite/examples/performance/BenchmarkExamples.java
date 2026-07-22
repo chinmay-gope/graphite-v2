@@ -1,11 +1,11 @@
-package main.java.io.graphite.examples.performance;
+package io.graphite.examples.performance;
 
-import main.java.io.graphite.benchmark.Benchmark;
-import main.java.io.graphite.benchmark.BenchmarkPrinter;
-import main.java.io.graphite.examples.ExamplePrinter;
-import main.java.io.graphite.generator.preset.GraphPresetGenerator;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.result.BenchmarkResult;
+import io.graphite.benchmark.Benchmark;
+import io.graphite.benchmark.BenchmarkPrinter;
+import io.graphite.examples.ExamplePrinter;
+import io.graphite.generator.preset.GraphPresetGenerator;
+import io.graphite.graph.IGraph;
+import io.graphite.result.BenchmarkResult;
 
 public final class BenchmarkExamples {
 

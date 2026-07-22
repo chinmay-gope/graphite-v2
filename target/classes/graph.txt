@@ -1,0 +1,25 @@
+=== Graphite Edge Printer V2 ===
+
+Graph Summary
+
+  Vertices     : 4
+  Edges        : 3
+  Directed     : No
+  Weighted     : No
+  Connected    : Yes
+  Cyclic       : No
+  Tree         : Yes
+  Forest       : Yes
+  Bipartite    : Yes
+  Eulerian     : No
+  Density      : 0.5000
+  Avg Degree   : 1.50
+  Max Degree   : 2
+  Min Degree   : 1
+
+-----------------------------------------------
+Index  Source          Destination               
+-----------------------------------------------
+[001]   0               1              
+[002]   0               2              
+[003]   1               3              

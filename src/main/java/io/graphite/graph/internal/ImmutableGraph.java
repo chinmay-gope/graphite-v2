@@ -1,13 +1,12 @@
-package main.java.io.graphite.graph.internal;
+package io.graphite.graph.internal;
 
-import main.java.graphite.api.*;
-import main.java.io.graphite.api.*;
-import main.java.io.graphite.api.analysis.GraphAnalysis;
-import main.java.io.graphite.exception.graph.ImmutableGraphException;
-import main.java.io.graphite.graph.Graph;
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.io.writer.GraphWriterService;
-import main.java.io.graphite.model.Edge;
+import io.graphite.api.*;
+import io.graphite.api.analysis.GraphAnalysis;
+import io.graphite.exception.graph.ImmutableGraphException;
+import io.graphite.graph.Graph;
+import io.graphite.graph.IGraph;
+import io.graphite.io.writer.GraphWriterService;
+import io.graphite.model.Edge;
 
 import java.util.List;
 

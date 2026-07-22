@@ -19,4 +19,4 @@
  * @since 2.0
  */
 
-package main.java.io.graphite.api;
+package io.graphite.api;

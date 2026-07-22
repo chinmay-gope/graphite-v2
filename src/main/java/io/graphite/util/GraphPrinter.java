@@ -1,8 +1,8 @@
-package main.java.io.graphite.util;
+package io.graphite.util;
 
-import main.java.io.graphite.graph.IGraph;
-import main.java.io.graphite.model.Edge;
-import main.java.io.graphite.result.Colors;
+import io.graphite.graph.IGraph;
+import io.graphite.model.Edge;
+import io.graphite.result.Colors;
 
 final class GraphPrinter implements Colors {
     private GraphPrinter() {
