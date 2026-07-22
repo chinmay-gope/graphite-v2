@@ -11,6 +11,49 @@ import io.graphite.validation.GraphPreconditions;
 
 import java.util.*;
 
+/**
+ * Implements Hierholzer's algorithm for finding Euler paths and Euler
+ * circuits.
+ *
+ * <p>Hierholzer's algorithm constructs a Eulerian traversal by repeatedly
+ * following unused edges and merging cycles until every edge has been
+ * visited exactly once.</p>
+ *
+ * <h2>Requirements</h2>
+ *
+ * <ul>
+ *     <li>The graph must satisfy the conditions for an Euler path or
+ *     Euler circuit.</li>
+ * </ul>
+ *
+ * <h2>Algorithm Overview</h2>
+ *
+ * <p>The algorithm incrementally builds the Eulerian traversal using a
+ * stack, removing edges as they are traversed and backtracking whenever no
+ * unused edges remain.</p>
+ *
+ * <h2>Complexity</h2>
+ *
+ * <ul>
+ *     <li>Time: O(V + E)</li>
+ *     <li>Space: O(V + E)</li>
+ * </ul>
+ *
+ * <h2>Applications</h2>
+ *
+ * <ul>
+ *     <li>Route inspection</li>
+ *     <li>Chinese Postman Problem</li>
+ *     <li>Circuit traversal</li>
+ *     <li>Genome assembly</li>
+ * </ul>
+ *
+ * @author Chinmay
+ * @version 2.0
+ * @see io.graphite.api.Euler
+ * @see EulerResult
+ * @since 2.0
+ */
 public class Hierholzer extends GraphAlgorithm implements EulerAlgorithm {
 
     private Hierholzer() {

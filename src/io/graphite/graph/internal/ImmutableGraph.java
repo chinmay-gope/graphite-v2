@@ -9,6 +9,33 @@ import io.graphite.model.Edge;
 
 import java.util.List;
 
+/**
+ * Immutable implementation of {@link IGraph}.
+ *
+ * <p>An immutable graph cannot be structurally modified after creation.
+ * Any attempt to add or remove vertices or edges results in an
+ * {@link ImmutableGraphException}.</p>
+ *
+ * <p>Immutable graphs are ideal for sharing graph instances safely between
+ * algorithms, threads, or application components without the risk of
+ * accidental modification.</p>
+ *
+ * <p>Instances are typically created through the builder API using
+ * {@code immutable()} or by calling {@link IGraph#asImmutable()}.</p>
+ *
+ * <h2>Characteristics</h2>
+ *
+ * <ul>
+ *     <li>Read-only graph structure.</li>
+ *     <li>Supports all graph algorithms.</li>
+ *     <li>Safe for concurrent read operations.</li>
+ *     <li>Shares the same service-oriented API as mutable graphs.</li>
+ * </ul>
+ *
+ * @see io.graphite.graph.Graph
+ * @see IGraph
+ * @since 2.0
+ */
 public final class ImmutableGraph implements IGraph {
 
     private final IGraph delegate;

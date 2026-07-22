@@ -9,6 +9,41 @@ import io.graphite.validation.GraphValidator;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
+/**
+ * Determines whether a graph is bipartite using Breadth-First Search.
+ *
+ * <p>The algorithm colors vertices using two colors while performing BFS.
+ * If two adjacent vertices receive the same color, the graph is not
+ * bipartite.</p>
+ *
+ * <h2>Requirements</h2>
+ *
+ * <ul>
+ *     <li>Supports directed and undirected graphs.</li>
+ * </ul>
+ *
+ * <h2>Complexity</h2>
+ *
+ * <ul>
+ *     <li>Time: O(V + E)</li>
+ *     <li>Space: O(V)</li>
+ * </ul>
+ *
+ * <h2>Applications</h2>
+ *
+ * <ul>
+ *     <li>Matching problems</li>
+ *     <li>Scheduling</li>
+ *     <li>Graph coloring</li>
+ * </ul>
+ *
+ * @author Chinmay
+ * @version 2.0
+ * @see DFSBipartiteChecker
+ * @see io.graphite.api.Bipartite
+ * @see io.graphite.algorithm.traversal.BFS
+ * @since 2.0
+ */
 public class BFSBipartiteChecker extends GraphAlgorithm implements BipartiteAlgorithm {
 
     private BFSBipartiteChecker() {

@@ -13,6 +13,65 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 
+/**
+ * Implements Prim's Minimum Spanning Tree (MST) algorithm.
+ *
+ * <p>Prim's algorithm constructs a minimum spanning tree by repeatedly
+ * selecting the minimum-weight edge that connects a visited vertex to an
+ * unvisited vertex. Starting from an arbitrary source, the tree grows until
+ * all vertices have been included.</p>
+ *
+ * <h2>Requirements</h2>
+ *
+ * <ul>
+ *     <li>The graph must be undirected.</li>
+ *     <li>The graph must be connected.</li>
+ *     <li>Edge weights are required.</li>
+ * </ul>
+ *
+ * <h2>Algorithm Overview</h2>
+ *
+ * <p>This implementation uses a priority queue to efficiently select the
+ * minimum-weight candidate edge at each step. Vertices already included in
+ * the spanning tree are skipped to avoid cycles.</p>
+ *
+ * <h2>Complexity</h2>
+ *
+ * <ul>
+ *     <li>Time: O(E log V)</li>
+ *     <li>Space: O(V)</li>
+ * </ul>
+ *
+ * <h2>When to Use</h2>
+ *
+ * <ul>
+ *     <li>When the graph is connected and weighted.</li>
+ *     <li>For sparse graphs using an adjacency-list representation.</li>
+ *     <li>When building an MST from a chosen starting vertex.</li>
+ * </ul>
+ *
+ * <h2>Applications</h2>
+ *
+ * <ul>
+ *     <li>Communication network design</li>
+ *     <li>Power distribution networks</li>
+ *     <li>Road and railway planning</li>
+ *     <li>Approximation algorithms</li>
+ * </ul>
+ *
+ * <h2>Implementation Notes</h2>
+ *
+ * <p>This implementation validates that the graph is connected,
+ * undirected, and weighted before execution.</p>
+ *
+ * @author Chinmay
+ * @version 2.0
+ * @see Kruskal
+ * @see io.graphite.api.MST
+ * @see MSTResult
+ * @see MSTEdge
+ * @since 2.0
+ */
 public class Prim extends GraphAlgorithm {
     private Prim() {
     }

@@ -5,6 +5,19 @@ import io.graphite.model.Edge;
 import io.graphite.print.GraphFormatter;
 import io.graphite.result.Colors;
 
+/**
+ * Formats a graph using the Graphviz DOT language.
+ *
+ * <p>The generated output can be rendered with Graphviz to produce
+ * diagrams of graph structure. Both directed and undirected graphs are
+ * supported.</p>
+ *
+ * @author Chinmay
+ * @since 2.0
+ * @version 2.0
+ *
+ * @see io.graphite.print.GraphPrinter
+ */
 public final class DotFormatter
         implements GraphFormatter, Colors {
 

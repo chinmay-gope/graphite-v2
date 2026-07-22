@@ -8,6 +8,19 @@ import io.graphite.generator.internal.EdgeTracker;
 import io.graphite.generator.internal.SpanningTreeGenerator;
 import io.graphite.graph.IGraph;
 
+/**
+ * Generates tree graphs.
+ *
+ * <p>A tree is a connected, acyclic, undirected graph containing exactly
+ * {@code V - 1} edges. Every pair of vertices is connected by exactly one
+ * simple path.</p>
+ *
+ * @author Chinmay
+ * @since 2.0
+ * @version 2.0
+ *
+ * @see io.graphite.graph.PatternGraphFactory
+ */
 public final class TreeGraphGenerator {
 
     private TreeGraphGenerator() {

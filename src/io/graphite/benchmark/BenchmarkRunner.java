@@ -2,6 +2,29 @@ package io.graphite.benchmark;
 
 import io.graphite.result.BenchmarkResult;
 
+/**
+ * Executes benchmark tasks and collects execution statistics.
+ *
+ * <p>{@code BenchmarkRunner} performs the warm-up and measurement phases
+ * of a benchmark before producing a {@link BenchmarkResult} containing
+ * timing statistics.</p>
+ *
+ * <h2>Responsibilities</h2>
+ *
+ * <ul>
+ *     <li>Warm-up execution</li>
+ *     <li>Timed iterations</li>
+ *     <li>Result aggregation</li>
+ *     <li>Statistical computation</li>
+ * </ul>
+ *
+ * @author Chinmay
+ * @since 2.0
+ * @version 2.0
+ *
+ * @see Benchmark
+ * @see BenchmarkStatistics
+ */
 public final class BenchmarkRunner {
 
     private BenchmarkRunner() {

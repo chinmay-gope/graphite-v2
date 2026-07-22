@@ -2,6 +2,31 @@ package io.graphite.result;
 
 import java.util.List;
 
+/**
+ * Represents the result of a Minimum Spanning Tree computation.
+ *
+ * <p>An {@code MSTResult} contains every edge included in the spanning tree
+ * together with its total weight.</p>
+ *
+ * <h2>Contents</h2>
+ *
+ * <ul>
+ *     <li>MST edges</li>
+ *     <li>Total weight</li>
+ * </ul>
+ *
+ * <h2>Immutability</h2>
+ *
+ * <p>This result object is immutable.</p>
+ *
+ * @author Chinmay
+ * @version 2.0
+ * @see io.graphite.api.MST
+ * @see io.graphite.algorithm.mst.Prim
+ * @see io.graphite.algorithm.mst.Kruskal
+ * @see MSTEdge
+ * @since 2.0
+ */
 public record MSTResult(int cost, List<MSTEdge> edges) implements Colors {
     public MSTResult {
         edges = List.copyOf(edges);

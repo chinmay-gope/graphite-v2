@@ -4,8 +4,7 @@ import io.graphite.graph.IGraph;
 import io.graphite.model.Edge;
 import io.graphite.result.Colors;
 
-public final class GraphPrinter implements Colors {
-
+final class GraphPrinter implements Colors {
     private GraphPrinter() {
     }
 

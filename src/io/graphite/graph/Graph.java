@@ -18,6 +18,58 @@ import java.util.List;
 import java.util.function.Supplier;
 
 
+/**
+ * Default mutable implementation of {@link IGraph}.
+ *
+ * <p>{@code Graph} provides the core implementation used throughout the
+ * Graphite framework. It stores the graph structure, manages graph metadata,
+ * and acts as the gateway to all algorithm services.</p>
+ *
+ * <p>Rather than exposing algorithms directly, this class follows a
+ * service-oriented architecture. Each algorithm category is accessed through
+ * a dedicated service that is created lazily and cached for reuse.</p>
+ *
+ * <pre>{@code
+ * IGraph graph = Graphs.undirected()
+ *         .addEdge(0, 1)
+ *         .addEdge(1, 2)
+ *         .build();
+ *
+ * graph.traversal().bfs(0);
+ * graph.shortestPath().dijkstra(0);
+ * graph.mst().prim();
+ * }</pre>
+ *
+ * <h2>Features</h2>
+ *
+ * <ul>
+ *     <li>Mutable graph implementation.</li>
+ *     <li>Adjacency-list based storage.</li>
+ *     <li>Lazy initialization of algorithm services.</li>
+ *     <li>Cached service instances.</li>
+ *     <li>Supports graph transformation and formatting.</li>
+ * </ul>
+ *
+ * <h2>Service Delegation</h2>
+ *
+ * <p>Algorithm execution is delegated to specialized service objects such as
+ * {@code Traversal}, {@code ShortestPath}, and {@code MST}. Services are
+ * created on first access and reused for the lifetime of the graph,
+ * minimizing object allocation while keeping the public API clean.</p>
+ *
+ * <h2>Thread Safety</h2>
+ *
+ * <p>This implementation is mutable and therefore not inherently
+ * thread-safe. Concurrent modifications should be externally synchronized.</p>
+ *
+ * <p>For read-only usage, consider converting the graph to an immutable
+ * instance using {@link #asImmutable()}.</p>
+ *
+ * @see IGraph
+ * @see ImmutableGraph
+ * @see io.graphite.builder.Graphs
+ * @since 2.0
+ */
 public abstract class Graph implements IGraph {
 
     // ==========================================================

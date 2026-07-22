@@ -6,6 +6,33 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Represents the result of a shortest path computation.
+ *
+ * <p>A {@code ShortestPathResult} contains the computed shortest distances
+ * from a source vertex and, when available, predecessor information for
+ * path reconstruction.</p>
+ *
+ * <h2>Contents</h2>
+ *
+ * <ul>
+ *     <li>Distance array</li>
+ *     <li>Parent / predecessor array</li>
+ * </ul>
+ *
+ * <h2>Immutability</h2>
+ *
+ * <p>All internal arrays are defensively copied to preserve immutability.</p>
+ *
+ * @author Chinmay
+ * @since 2.0
+ * @version 2.0
+ *
+ * @see io.graphite.api.ShortestPath
+ * @see io.graphite.algorithm.shortestpath.Dijkstra
+ * @see io.graphite.algorithm.shortestpath.BellmanFord
+ * @see io.graphite.algorithm.shortestpath.FloydWarshall
+ */
 public record ShortestPathResult(int source, int[] distance, int[] parent) {
 
     public ShortestPathResult {

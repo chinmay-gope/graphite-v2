@@ -2,6 +2,39 @@ package io.graphite.graph;
 
 import io.graphite.builder.GraphConfiguration;
 
+/**
+ * Factory responsible for creating concrete graph implementations.
+ *
+ * <p>{@code GraphFactory} centralizes graph instantiation, ensuring that
+ * graph construction remains consistent throughout the framework.
+ * Instead of exposing constructors directly, builders and generators
+ * delegate object creation to this factory.</p>
+ *
+ * <p>The factory selects the appropriate graph implementation based on
+ * the supplied {@link GraphConfiguration}, including directed,
+ * undirected, mutable, and immutable variants.</p>
+ *
+ * <pre>{@code
+ * Graph graph = GraphFactory.undirected(configuration);
+ * }</pre>
+ *
+ * <h2>Design</h2>
+ *
+ * <ul>
+ *     <li>Centralizes graph creation.</li>
+ *     <li>Encapsulates implementation selection.</li>
+ *     <li>Supports the Factory design pattern.</li>
+ *     <li>Used internally by builders and generators.</li>
+ * </ul>
+ *
+ * <p>This class is intended primarily for internal framework use.
+ * Applications should create graphs through {@link io.graphite.builder.Graphs}.</p>
+ *
+ * @see io.graphite.builder.Graphs
+ * @see GraphConfiguration
+ * @see Graph
+ * @since 2.0
+ */
 public final class GraphFactory {
 
     public final GraphFactory INSTANCE = new GraphFactory();

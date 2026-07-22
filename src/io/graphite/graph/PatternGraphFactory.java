@@ -2,6 +2,36 @@ package io.graphite.graph;
 
 import io.graphite.generator.pattern.*;
 
+/**
+ * Builds predefined graph structures using a fluent API.
+ *
+ * <p>The {@code PatternGraphFactory} creates commonly used graph topologies
+ * such as complete graphs, trees, stars, wheels, grids, bipartite graphs,
+ * and directed acyclic graphs.</p>
+ *
+ * <pre>{@code
+ * IGraph graph = Graphs.patterns()
+ *         .completeGraph(20);
+ * }</pre>
+ *
+ * <h2>Available Patterns</h2>
+ *
+ * <ul>
+ *     <li>Complete Graph</li>
+ *     <li>Complete Bipartite Graph</li>
+ *     <li>Tree</li>
+ *     <li>Grid</li>
+ *     <li>Wheel</li>
+ *     <li>Star</li>
+ *     <li>Directed Acyclic Graph (DAG)</li>
+ * </ul>
+ *
+ * @author Chinmay
+ * @version 2.0
+ * @see io.graphite.builder.Graphs
+ * @see io.graphite.generator.preset.GraphPresetGenerator
+ * @since 2.0
+ */
 public final class PatternGraphFactory {
 
     public static final PatternGraphFactory INSTANCE = new PatternGraphFactory();

@@ -5,6 +5,19 @@ import io.graphite.model.Edge;
 import io.graphite.print.GraphFormatter;
 import io.graphite.result.Colors;
 
+/**
+ * Formats a graph using Mermaid diagram syntax.
+ *
+ * <p>The generated representation can be embedded directly into Markdown
+ * documents and rendered by Mermaid-compatible editors and documentation
+ * platforms.</p>
+ *
+ * @author Chinmay
+ * @since 2.0
+ * @version 2.0
+ *
+ * @see io.graphite.print.GraphPrinter
+ */
 public final class MermaidFormatter
         implements GraphFormatter, Colors {
 

@@ -9,6 +9,67 @@ import io.graphite.validation.GraphPreconditions;
 
 import java.util.PriorityQueue;
 
+/**
+ * Implements Dijkstra's shortest path algorithm.
+ *
+ * <p>Dijkstra's algorithm computes the shortest paths from a single source
+ * vertex to every reachable vertex in a weighted graph with non-negative
+ * edge weights. It repeatedly selects the unvisited vertex with the smallest
+ * known distance and relaxes its outgoing edges until all reachable vertices
+ * have been processed.</p>
+ *
+ * <h2>Requirements</h2>
+ *
+ * <ul>
+ *     <li>Supports directed and undirected graphs.</li>
+ *     <li>All edge weights must be non-negative.</li>
+ *     <li>The source vertex must exist.</li>
+ * </ul>
+ *
+ * <h2>Algorithm Overview</h2>
+ *
+ * <p>This implementation uses a priority queue (min-heap) to efficiently
+ * select the next closest vertex. Whenever a shorter path is discovered,
+ * the corresponding distance is updated through edge relaxation.</p>
+ *
+ * <h2>Complexity</h2>
+ *
+ * <ul>
+ *     <li>Time: O((V + E) log V)</li>
+ *     <li>Space: O(V)</li>
+ * </ul>
+ *
+ * <h2>Applications</h2>
+ *
+ * <ul>
+ *     <li>GPS and navigation systems</li>
+ *     <li>Network routing</li>
+ *     <li>Game pathfinding</li>
+ *     <li>Transportation planning</li>
+ * </ul>
+ *
+ * <h2>When to Use</h2>
+ *
+ * <ul>
+ *     <li>When all edge weights are non-negative.</li>
+ *     <li>When shortest paths are required from a single source.</li>
+ *     <li>When performance is important on sparse graphs.</li>
+ * </ul>
+ *
+ * <h2>Implementation Notes</h2>
+ *
+ * <p>This implementation validates that the graph contains no negative edge
+ * weights before execution. If a negative edge is detected, a
+ * {@link io.graphite.exception.algorithm.NegativeWeightException} is thrown.</p>
+ *
+ * @author Chinmay
+ * @version 2.0
+ * @see BellmanFord
+ * @see FloydWarshall
+ * @see io.graphite.api.ShortestPath
+ * @see ShortestPathResult
+ * @since 2.0
+ */
 public class Dijkstra extends GraphAlgorithm implements ShortestPathAlgorithm {
 
     private Dijkstra() {
@@ -16,6 +77,16 @@ public class Dijkstra extends GraphAlgorithm implements ShortestPathAlgorithm {
 
     public static final Dijkstra INSTANCE = new Dijkstra();
 
+    /**
+     * Computes shortest paths using Dijkstra's algorithm.
+     *
+     * <p>This algorithm requires all edge weights to be non-negative.</p>
+     *
+     * <p>Time Complexity:
+     * O((V + E) log V)</p>
+     *
+     * @throws io.graphite.exception.algorithm.NegativeWeightException if the graph contains negative edge weights
+     */
     @Override
     public ShortestPathResult shortestPath(IGraph graph, int source) {
         GraphPreconditions.requireGraph(graph);

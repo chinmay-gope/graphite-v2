@@ -3,7 +3,39 @@ package io.graphite.print;
 import io.graphite.graph.IGraph;
 import io.graphite.print.formatter.*;
 
-// Facade
+/**
+ * Utility class for rendering graphs in multiple textual formats.
+ *
+ * <p>{@code GraphPrinter} provides a unified entry point for Graphite's
+ * formatting framework, allowing graphs to be displayed in compact,
+ * tabular, visualization, and structured data formats.</p>
+ *
+ * <pre>{@code
+ * GraphPrinter.compact(graph);
+ * GraphPrinter.matrix(graph);
+ * GraphPrinter.statistics(graph);
+ * GraphPrinter.dot(graph);
+ * GraphPrinter.mermaid(graph);
+ * GraphPrinter.json(graph);
+ * }</pre>
+ *
+ * <h2>Supported Formats</h2>
+ *
+ * <ul>
+ *     <li>Compact</li>
+ *     <li>Edge List</li>
+ *     <li>Adjacency Matrix</li>
+ *     <li>Statistics</li>
+ *     <li>DOT (Graphviz)</li>
+ *     <li>Mermaid</li>
+ *     <li>JSON</li>
+ * </ul>
+ *
+ * <p>All formatting implementations are stateless singleton instances,
+ * allowing them to be reused without additional allocation.</p>
+ *
+ * @since 2.0
+ */
 public final class GraphPrinter {
 
     private static final GraphFormatter COMPACT = new CompactFormatter();

@@ -9,6 +9,56 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Represents the primary graph abstraction in the Graphite framework.
+ *
+ * <p>{@code IGraph} defines the common contract implemented by all graph
+ * representations, regardless of whether they are directed, undirected,
+ * mutable, immutable, weighted, or unweighted.</p>
+ *
+ * <p>Beyond basic graph operations, this interface serves as the central
+ * entry point to Graphite's service-oriented architecture. Algorithms are
+ * organized into dedicated services that can be accessed directly from a
+ * graph instance, providing a fluent and discoverable API.</p>
+ *
+ * <pre>{@code
+ * IGraph graph = Graphs.undirected()
+ *         .addEdge(0, 1)
+ *         .addEdge(1, 2)
+ *         .addEdge(2, 3)
+ *         .build();
+ *
+ * graph.traversal().bfs(0);
+ * graph.shortestPath().dijkstra(0);
+ * graph.mst().prim();
+ * }</pre>
+ *
+ * <h2>Characteristics</h2>
+ *
+ * <ul>
+ *     <li>Supports directed and undirected graphs.</li>
+ *     <li>Supports weighted and unweighted edges.</li>
+ *     <li>Provides mutable and immutable implementations.</li>
+ *     <li>Exposes graph algorithms through dedicated service APIs.</li>
+ *     <li>Supports graph formatting, transformation, validation, and analysis.</li>
+ * </ul>
+ *
+ * <h2>Implementation Notes</h2>
+ *
+ * <p>Implementations are expected to maintain a valid graph state and perform
+ * necessary validation before structural modifications or algorithm execution.
+ * Individual implementations may choose different internal storage strategies,
+ * but all must preserve the behavior defined by this interface.</p>
+ *
+ * <p>The preferred way to create graph instances is through the
+ * {@link io.graphite.builder.Graphs} builder and generator APIs rather than implementing this
+ * interface directly.</p>
+ *
+ * @see Graph
+ * @see io.graphite.graph.internal.ImmutableGraph
+ * @see io.graphite.builder.Graphs
+ * @since 2.0
+ */
 public interface IGraph {
 
     GraphWriterService write();
@@ -25,6 +75,14 @@ public interface IGraph {
 
     void clear();
 
+    /**
+     * Returns an immutable view of this graph.
+     *
+     * <p>If this graph is already immutable, implementations may simply return
+     * the current instance.</p>
+     *
+     * @return an immutable graph
+     */
     IGraph asImmutable();
 
     // ========= Queries =========
@@ -37,21 +95,57 @@ public interface IGraph {
 
     boolean isEmpty();
 
+    /**
+     * Returns whether this graph contains weighted edges.
+     *
+     * @return {@code true} if edge weights are significant;
+     * {@code false} otherwise
+     */
     boolean isWeighted();
 
+    /**
+     * Returns whether this graph is directed.
+     *
+     * @return {@code true} if the graph is directed;
+     * {@code false} otherwise
+     */
     boolean isDirected();
 
+    /**
+     * Returns whether this graph is undirected.
+     *
+     * @return {@code true} if the graph is undirected;
+     * {@code false} otherwise
+     */
     boolean isUndirected();
 
 
     // ========= Views =========
 
+    /**
+     * Returns the neighboring vertices adjacent to the specified vertex.
+     *
+     * <p>For directed graphs, this method returns the outgoing neighbors of the
+     * supplied vertex.</p>
+     *
+     * @param vertex the source vertex
+     * @return the neighboring vertices
+     * @throws io.graphite.exception.graph.InvalidVertexException if the vertex does not exist
+     */
     List<Edge> getNeighbors(int vertex);
 
     default List<Edge> neighbors(int vertex) {
         return getNeighbors(vertex);
     }
 
+    /**
+     * Returns all edges contained in this graph.
+     *
+     * <p>The returned collection represents the current edge set of the graph.
+     * The iteration order is implementation dependent.</p>
+     *
+     * @return an immutable view or snapshot of the graph edges
+     */
     List<Edge> getEdges();
 
     default List<Edge> edges() {
@@ -60,6 +154,14 @@ public interface IGraph {
 
     // ========= Metadata =========
 
+    /**
+     * Returns the total number of vertices contained in this graph.
+     *
+     * <p>Vertices are identified by zero-based integer indices ranging from
+     * {@code 0} to {@code getVertices() - 1}.</p>
+     *
+     * @return the number of vertices in this graph
+     */
     int getVertices();
 
     default int vertexCount() {

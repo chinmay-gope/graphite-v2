@@ -6,6 +6,40 @@ import io.graphite.model.Edge;
 import io.graphite.validation.GraphPreconditions;
 import io.graphite.validation.GraphValidator;
 
+/**
+ * Determines whether a graph is bipartite using Depth-First Search.
+ *
+ * <p>The algorithm recursively colors vertices while traversing the graph.
+ * Adjacent vertices must always receive opposite colors.</p>
+ *
+ * <h2>Requirements</h2>
+ *
+ * <ul>
+ *     <li>Supports directed and undirected graphs.</li>
+ * </ul>
+ *
+ * <h2>Complexity</h2>
+ *
+ * <ul>
+ *     <li>Time: O(V + E)</li>
+ *     <li>Space: O(V)</li>
+ * </ul>
+ *
+ * <h2>Applications</h2>
+ *
+ * <ul>
+ *     <li>Graph coloring</li>
+ *     <li>Matching problems</li>
+ *     <li>Constraint satisfaction</li>
+ * </ul>
+ *
+ * @author Chinmay
+ * @version 2.0
+ * @see BFSBipartiteChecker
+ * @see io.graphite.api.Bipartite
+ * @see io.graphite.algorithm.traversal.DFS
+ * @since 2.0
+ */
 public class DFSBipartiteChecker
         extends GraphAlgorithm
         implements BipartiteAlgorithm {

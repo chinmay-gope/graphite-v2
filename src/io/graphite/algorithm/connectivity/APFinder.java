@@ -9,6 +9,44 @@ import io.graphite.validation.GraphPreconditions;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Finds all articulation points (cut vertices) in an undirected graph.
+ *
+ * <p>An articulation point is a vertex whose removal disconnects the graph
+ * or increases the number of connected components.</p>
+ *
+ * <h2>Requirements</h2>
+ *
+ * <ul>
+ *     <li>The graph must be undirected.</li>
+ * </ul>
+ *
+ * <h2>Algorithm Overview</h2>
+ *
+ * <p>This implementation applies Tarjan's low-link algorithm during
+ * depth-first traversal to determine critical vertices.</p>
+ *
+ * <h2>Complexity</h2>
+ *
+ * <ul>
+ *     <li>Time: O(V + E)</li>
+ *     <li>Space: O(V)</li>
+ * </ul>
+ *
+ * <h2>Applications</h2>
+ *
+ * <ul>
+ *     <li>Fault tolerance analysis.</li>
+ *     <li>Network resilience.</li>
+ *     <li>Infrastructure planning.</li>
+ * </ul>
+ *
+ * @author Chinmay
+ * @version 2.0
+ * @see BridgeFinder
+ * @see io.graphite.api.Connectivity
+ * @since 2.0
+ */
 public class APFinder extends GraphAlgorithm implements APAlgorithm {
 
     private APFinder() {

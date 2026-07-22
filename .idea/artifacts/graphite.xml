@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="graphite">
+    <output-path>$PROJECT_DIR$/out/artifacts/graphite</output-path>
+    <root id="archive" name="graphite.jar" />
+  </artifact>
+</component>

@@ -9,6 +9,50 @@ import io.graphite.validation.GraphPreconditions;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implements Kosaraju's algorithm for finding Strongly Connected Components
+ * (SCCs) in directed graphs.
+ *
+ * <p>Kosaraju's algorithm identifies maximal groups of vertices where every
+ * vertex is reachable from every other vertex in the same group. The
+ * algorithm performs two depth-first searches: one to compute vertex finish
+ * times and another on the transposed graph to discover strongly connected
+ * components.</p>
+ *
+ * <h2>Requirements</h2>
+ *
+ * <ul>
+ *     <li>The graph must be directed.</li>
+ * </ul>
+ *
+ * <h2>Algorithm Overview</h2>
+ *
+ * <p>The algorithm performs a DFS to compute finishing order, reverses all
+ * graph edges, and performs a second DFS in decreasing finish-time order to
+ * identify each strongly connected component.</p>
+ *
+ * <h2>Complexity</h2>
+ *
+ * <ul>
+ *     <li>Time: O(V + E)</li>
+ *     <li>Space: O(V)</li>
+ * </ul>
+ *
+ * <h2>When to Use</h2>
+ *
+ * <ul>
+ *     <li>Finding strongly connected components.</li>
+ *     <li>Analyzing dependency graphs.</li>
+ *     <li>Compiler optimization.</li>
+ * </ul>
+ *
+ * @author Chinmay
+ * @since 2.0
+ * @version 2.0
+ *
+ * @see io.graphite.api.Connectivity
+ * @see io.graphite.algorithm.traversal.DFS
+ */
 public class BridgeFinder extends GraphAlgorithm implements BridgeAlgorithm {
     private int time;
 

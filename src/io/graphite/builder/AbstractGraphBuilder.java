@@ -9,6 +9,40 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * Base implementation for all fluent graph builders.
+ *
+ * <p>{@code AbstractGraphBuilder} provides the common infrastructure
+ * shared by Graphite's graph builders. It manages graph configuration,
+ * edge collection, validation, and graph construction while allowing
+ * concrete builders to specialize graph creation.</p>
+ *
+ * <p>Builders follow the Fluent Builder pattern, enabling expressive
+ * graph construction through method chaining.</p>
+ *
+ * <pre>{@code
+ * Graphs.undirected()
+ *       .vertices(5)
+ *       .addEdge(0,1)
+ *       .addEdge(1,2)
+ *       .build();
+ * }</pre>
+ *
+ * <h2>Responsibilities</h2>
+ *
+ * <ul>
+ *     <li>Stores graph configuration.</li>
+ *     <li>Collects edge definitions.</li>
+ *     <li>Performs builder validation.</li>
+ *     <li>Delegates graph creation.</li>
+ * </ul>
+ *
+ * <p>Concrete subclasses determine the specific graph type being built.</p>
+ *
+ * @param <G>    graph implementation produced by this builder
+ * @param <SELF> concrete builder type used for fluent chaining
+ * @since 2.0
+ */
 public abstract class AbstractGraphBuilder<G extends Graph, SELF extends AbstractGraphBuilder<G, SELF>> {
 
     protected final GraphConfiguration configuration = new GraphConfiguration();

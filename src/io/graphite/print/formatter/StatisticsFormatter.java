@@ -8,6 +8,19 @@ import io.graphite.result.Colors;
 
 import java.util.function.BooleanSupplier;
 
+/**
+ * Formats graph metadata and structural statistics.
+ *
+ * <p>The statistics formatter summarizes key graph properties including
+ * graph type, vertex count, edge count, density, degree information,
+ * and weight characteristics.</p>
+ *
+ * @author Chinmay
+ * @since 2.0
+ * @version 2.0
+ *
+ * @see io.graphite.print.GraphPrinter
+ */
 public final class StatisticsFormatter implements GraphFormatter, Colors {
 
 

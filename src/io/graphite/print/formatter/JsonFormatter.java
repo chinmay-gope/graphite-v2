@@ -10,6 +10,19 @@ import io.graphite.result.*;
 import java.util.List;
 import java.util.function.Supplier;
 
+/**
+ * Formats a graph as a JSON document.
+ *
+ * <p>The JSON representation preserves graph structure, vertices, edges,
+ * and associated metadata, making it suitable for data exchange and
+ * interoperability with external applications.</p>
+ *
+ * @author Chinmay
+ * @since 2.0
+ * @version 2.0
+ *
+ * @see io.graphite.print.GraphPrinter
+ */
 public final class JsonFormatter
         implements GraphFormatter, Colors {
 

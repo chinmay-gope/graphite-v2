@@ -7,6 +7,27 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+/**
+ * Executes large-scale stress tests for graph algorithms.
+ *
+ * <p>{@code StressRunner} repeatedly executes graph algorithms over graphs
+ * of varying sizes to evaluate scalability, stability, and performance
+ * under increasing workloads.</p>
+ *
+ * <h2>Typical Uses</h2>
+ *
+ * <ul>
+ *     <li>Algorithm scalability testing</li>
+ *     <li>Performance regression detection</li>
+ *     <li>Benchmark comparison</li>
+ * </ul>
+ *
+ * @author Chinmay
+ * @version 2.0
+ * @see Benchmark
+ * @see BenchmarkRunner
+ * @since 2.0
+ */
 public final class StressRunner {
 
     private StressRunner() {

@@ -14,6 +14,47 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
+/**
+ * Implements topological sorting using Depth-First Search.
+ *
+ * <p>This algorithm produces a valid topological ordering of a directed
+ * acyclic graph (DAG) by recording vertices in reverse order of their DFS
+ * finishing times.</p>
+ *
+ * <h2>Requirements</h2>
+ *
+ * <ul>
+ *     <li>The graph must be directed.</li>
+ *     <li>The graph must be acyclic.</li>
+ * </ul>
+ *
+ * <h2>Algorithm Overview</h2>
+ *
+ * <p>Vertices are explored using DFS. Each vertex is added to the ordering
+ * after all of its outgoing neighbors have been processed.</p>
+ *
+ * <h2>Complexity</h2>
+ *
+ * <ul>
+ *     <li>Time: O(V + E)</li>
+ *     <li>Space: O(V)</li>
+ * </ul>
+ *
+ * <h2>Applications</h2>
+ *
+ * <ul>
+ *     <li>Task scheduling</li>
+ *     <li>Build systems</li>
+ *     <li>Dependency resolution</li>
+ * </ul>
+ *
+ * @author Chinmay
+ * @version 2.0
+ * @see KahnTopologicalSort
+ * @see io.graphite.api.Topology
+ * @see io.graphite.algorithm.traversal.DFS
+ * @since 2.0
+ */
 public class DFSTopologicalSort extends GraphAlgorithm implements TopologicalAlgorithm {
 
     private DFSTopologicalSort() {

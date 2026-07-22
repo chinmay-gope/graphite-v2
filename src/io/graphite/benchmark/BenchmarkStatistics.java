@@ -1,5 +1,18 @@
 package io.graphite.benchmark;
 
+/**
+ * Computes statistical metrics for benchmark executions.
+ *
+ * <p>This class aggregates timing measurements and calculates summary
+ * statistics including average, minimum, maximum, and standard deviation.</p>
+ *
+ * @author Chinmay
+ * @since 2.0
+ * @version 2.0
+ *
+ * @see io.graphite.result.BenchmarkResult
+ * @see BenchmarkRunner
+ */
 public final class BenchmarkStatistics {
 
     private BenchmarkStatistics() {

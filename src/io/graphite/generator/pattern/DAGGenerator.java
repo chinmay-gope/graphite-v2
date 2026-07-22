@@ -8,6 +8,28 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * Generates Directed Acyclic Graphs (DAGs).
+ *
+ * <p>A Directed Acyclic Graph contains directed edges without forming any
+ * directed cycles. DAGs are widely used to model dependency relationships,
+ * scheduling problems, and compilation pipelines.</p>
+ *
+ * <h2>Applications</h2>
+ *
+ * <ul>
+ *     <li>Task scheduling</li>
+ *     <li>Dependency management</li>
+ *     <li>Build systems</li>
+ *     <li>Workflow modeling</li>
+ * </ul>
+ *
+ * @author Chinmay
+ * @since 2.0
+ * @version 2.0
+ *
+ * @see io.graphite.graph.PatternGraphFactory
+ */
 public final class DAGGenerator {
 
     private DAGGenerator() {

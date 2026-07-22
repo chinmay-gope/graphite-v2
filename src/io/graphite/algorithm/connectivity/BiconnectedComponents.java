@@ -10,6 +10,46 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+/**
+ * Finds all biconnected components in an undirected graph.
+ *
+ * <p>A biconnected component is a maximal subgraph that remains connected
+ * after the removal of any single vertex.</p>
+ *
+ * <h2>Requirements</h2>
+ *
+ * <ul>
+ *     <li>The graph must be undirected.</li>
+ * </ul>
+ *
+ * <h2>Algorithm Overview</h2>
+ *
+ * <p>This implementation uses a depth-first search together with Tarjan's
+ * low-link values and an edge stack to identify each biconnected
+ * component.</p>
+ *
+ * <h2>Complexity</h2>
+ *
+ * <ul>
+ *     <li>Time: O(V + E)</li>
+ *     <li>Space: O(V + E)</li>
+ * </ul>
+ *
+ * <h2>Applications</h2>
+ *
+ * <ul>
+ *     <li>Network decomposition.</li>
+ *     <li>Reliability analysis.</li>
+ *     <li>Graph connectivity studies.</li>
+ * </ul>
+ *
+ * @author Chinmay
+ * @version 2.0
+ * @see APFinder
+ * @see BridgeFinder
+ * @see io.graphite.api.Connectivity
+ * @since 2.0
+ */
 public class BiconnectedComponents extends GraphAlgorithm
         implements BiconnectedAlgorithm {
 

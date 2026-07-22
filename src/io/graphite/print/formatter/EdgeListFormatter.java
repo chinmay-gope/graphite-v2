@@ -5,6 +5,20 @@ import io.graphite.model.Edge;
 import io.graphite.print.GraphFormatter;
 import io.graphite.result.Colors;
 
+/**
+ * Formats a graph as an edge list.
+ *
+ * <p>Each edge is represented as a single entry containing its source,
+ * destination, and optional weight. This format is useful for exporting,
+ * debugging, and comparing graph structures.</p>
+ *
+ * @author Chinmay
+ * @since 2.0
+ * @version 2.0
+ *
+ * @see io.graphite.print.GraphPrinter
+ * @see GraphFormatter
+ */
 public final class EdgeListFormatter implements GraphFormatter, Colors {
 
     @Override

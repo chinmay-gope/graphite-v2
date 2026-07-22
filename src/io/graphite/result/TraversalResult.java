@@ -2,6 +2,37 @@ package io.graphite.result;
 
 import java.util.List;
 
+/**
+ * Represents the result of a graph traversal.
+ *
+ * <p>A {@code TraversalResult} stores the order in which vertices were
+ * visited during algorithms such as Breadth-First Search (BFS),
+ * Depth-First Search (DFS), and Topological Sort.</p>
+ *
+ * <h2>Contents</h2>
+ *
+ * <ul>
+ *     <li>Traversal order</li>
+ * </ul>
+ *
+ * <h2>Immutability</h2>
+ *
+ * <p>This result object is immutable and safely shareable between threads.</p>
+ *
+ * <h2>Usage</h2>
+ *
+ * <pre>{@code
+ * TraversalResult result = graph.traversal().bfs(0);
+ * }</pre>
+ *
+ * @author Chinmay
+ * @since 2.0
+ * @version 2.0
+ *
+ * @see io.graphite.api.Traversal
+ * @see io.graphite.algorithm.traversal.BFS
+ * @see io.graphite.algorithm.traversal.DFS
+ */
 public record TraversalResult(int source, List<Integer> traversalOrder) implements Colors {
     public TraversalResult {
         traversalOrder = List.copyOf(traversalOrder);

@@ -4,6 +4,43 @@ import io.graphite.builder.Graphs;
 import io.graphite.generator.pattern.BipartiteGraphGenerator;
 import io.graphite.graph.IGraph;
 
+/**
+ * Provides a collection of predefined graphs commonly used for testing,
+ * benchmarking, demonstrations, and algorithm evaluation.
+ *
+ * <p>{@code GraphPresetGenerator} offers factory methods for constructing
+ * frequently used graph configurations such as sparse graphs, dense graphs,
+ * weighted graphs, trees, directed acyclic graphs (DAGs), and bipartite
+ * graphs. These presets provide consistent graph structures suitable for
+ * examples, benchmarks, and automated testing.</p>
+ *
+ * <h2>Available Presets</h2>
+ *
+ * <ul>
+ *     <li>Traversal graphs</li>
+ *     <li>Shortest path graphs</li>
+ *     <li>Minimum spanning tree graphs</li>
+ *     <li>Dense and sparse graphs</li>
+ *     <li>Weighted graphs</li>
+ *     <li>Directed graphs</li>
+ *     <li>Tree graphs</li>
+ *     <li>Directed acyclic graphs</li>
+ *     <li>Bipartite graphs</li>
+ * </ul>
+ *
+ * <h2>Implementation Notes</h2>
+ *
+ * <p>Each preset delegates graph construction to the appropriate builder
+ * or pattern generator while applying sensible default parameters.</p>
+ *
+ * @author Chinmay
+ * @since 2.0
+ * @version 2.0
+ *
+ * @see Graphs
+ * @see io.graphite.generator.RandomGraphBuilder
+ * @see io.graphite.graph.PatternGraphFactory
+ */
 public class GraphPresetGenerator {
 
     private static final double DENSITY = 0.75;

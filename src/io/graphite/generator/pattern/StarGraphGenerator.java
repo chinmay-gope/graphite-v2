@@ -4,6 +4,18 @@ import io.graphite.builder.Graphs;
 import io.graphite.exception.graph.InvalidGraphConfigurationException;
 import io.graphite.graph.IGraph;
 
+/**
+ * Generates star graphs.
+ *
+ * <p>A star graph consists of one central vertex connected directly to all
+ * remaining vertices, which have no connections between themselves.</p>
+ *
+ * @author Chinmay
+ * @since 2.0
+ * @version 2.0
+ *
+ * @see io.graphite.graph.PatternGraphFactory
+ */
 public final class StarGraphGenerator {
 
     private StarGraphGenerator() {

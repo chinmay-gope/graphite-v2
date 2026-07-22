@@ -4,6 +4,26 @@ import io.graphite.builder.Graphs;
 import io.graphite.exception.graph.InvalidGraphConfigurationException;
 import io.graphite.graph.IGraph;
 
+/**
+ * Generates complete graphs.
+ *
+ * <p>A complete graph contains an edge between every pair of distinct
+ * vertices. Complete graphs represent the maximum possible connectivity
+ * for a graph of a given size.</p>
+ *
+ * <h2>Characteristics</h2>
+ *
+ * <ul>
+ *     <li>Every vertex is adjacent to every other vertex.</li>
+ *     <li>Contains n(n-1)/2 edges for undirected graphs.</li>
+ * </ul>
+ *
+ * @author Chinmay
+ * @since 2.0
+ * @version 2.0
+ *
+ * @see io.graphite.graph.PatternGraphFactory
+ */
 public final class CompleteGraphGenerator {
     private CompleteGraphGenerator() {
     }

@@ -1,5 +1,25 @@
 package io.graphite.builder;
 
+
+/**
+ * Stores configuration options used during graph generation.
+ *
+ * <p>{@code GraphConfiguration} centralizes all generation parameters used
+ * by graph builders and generators, including graph type, vertex count,
+ * edge count, weight configuration, connectivity requirements, and graph
+ * constraints.</p>
+ *
+ * <p>Instances of this class are populated by builder implementations and
+ * consumed by graph generators during graph construction.</p>
+ *
+ * @author Chinmay
+ * @since 2.0
+ * @version 2.0
+ *
+ * @see io.graphite.generator.RandomGraphBuilder
+ * @see io.graphite.generator.RandomGraphGenerator
+ * @see io.graphite.graph.GraphFactory
+ */
 public final class GraphConfiguration {
     private int edges;
     private int vertices;

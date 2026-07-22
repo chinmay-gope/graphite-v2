@@ -3,8 +3,51 @@ package io.graphite.generator;
 import io.graphite.builder.GraphConfiguration;
 import io.graphite.graph.IGraph;
 
+/**
+ * Fluent builder for generating configurable random graphs.
+ *
+ * <p>The random graph builder supports construction of directed,
+ * undirected, weighted, connected, immutable, and custom-density
+ * graphs through a fluent configuration API.</p>
+ *
+ * <pre>{@code
+ * IGraph graph = Graphs.random()
+ *         .undirected()
+ *         .vertices(1000)
+ *         .edges(3000)
+ *         .connected()
+ *         .weighted()
+ *         .weightRange(1, 50)
+ *         .immutable()
+ *         .build();
+ * }</pre>
+ *
+ * <h2>Supported Configuration</h2>
+ *
+ * <ul>
+ *     <li>Directed or undirected graphs.</li>
+ *     <li>Weighted or unweighted edges.</li>
+ *     <li>Connected graph generation.</li>
+ *     <li>Immutable graph creation.</li>
+ *     <li>Configurable edge count.</li>
+ *     <li>Custom weight ranges.</li>
+ *     <li>Optional self-loops.</li>
+ *     <li>Optional parallel edges.</li>
+ * </ul>
+ * <p>
+ *  * <h2>Implementation Notes</h2>
+ * <p>
+ *  * <p>The builder delegates graph generation to the internal random graph
+ *  * generation framework.</p>
+ *
+ * @author Chinmay
+ * @version 2.0
+ * @see RandomGraphGenerator
+ * @see GraphConfiguration
+ * @see io.graphite.builder.Graphs
+ * @since 2.0
+ */
 public final class RandomGraphBuilder {
-
     public RandomGraphBuilder() {
     }
 

@@ -10,6 +10,38 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
+/**
+ * Reads graphs from an edge list representation.
+ *
+ * <p>{@code EdgeListReader} constructs graph instances by parsing edge list
+ * data from supported input sources. Each record describes a connection
+ * between two vertices and may optionally include an edge weight.</p>
+ *
+ * <p>The reader supports both directed and undirected graphs and performs
+ * validation while constructing the resulting graph.</p>
+ *
+ * <h2>Supported Features</h2>
+ *
+ * <ul>
+ *     <li>Directed and undirected graphs</li>
+ *     <li>Weighted and unweighted edges</li>
+ *     <li>Automatic graph construction</li>
+ *     <li>Input validation</li>
+ * </ul>
+ *
+ * <h2>Input Format</h2>
+ *
+ * <pre>
+ * source destination
+ * source  weight
+ * </pre>
+ *
+ * @author Chinmay
+ * @version 2.0
+ * @see io.graphite.io.writer.PrettyEdgeListWriter
+ * @see IGraph
+ * @since 2.0
+ */
 public final class EdgeListReader implements GraphReader {
 
     @Override

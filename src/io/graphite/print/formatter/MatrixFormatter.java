@@ -5,6 +5,27 @@ import io.graphite.model.Edge;
 import io.graphite.print.GraphFormatter;
 import io.graphite.result.Colors;
 
+/**
+ * Formats a graph as an adjacency matrix.
+ *
+ * <p>The adjacency matrix represents graph connectivity using rows and
+ * columns corresponding to vertices. Matrix entries indicate whether an
+ * edge exists and may include edge weights for weighted graphs.</p>
+ *
+ * <h2>Applications</h2>
+ *
+ * <ul>
+ *     <li>Dense graph visualization</li>
+ *     <li>Matrix-based algorithms</li>
+ *     <li>Educational examples</li>
+ * </ul>
+ *
+ * @author Chinmay
+ * @since 2.0
+ * @version 2.0
+ *
+ * @see io.graphite.print.GraphPrinter
+ */
 public final class MatrixFormatter implements GraphFormatter, Colors {
 
     @Override

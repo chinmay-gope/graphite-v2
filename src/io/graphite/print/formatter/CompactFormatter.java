@@ -5,6 +5,29 @@ import io.graphite.model.Edge;
 import io.graphite.print.GraphFormatter;
 import io.graphite.result.Colors;
 
+/**
+ * Formats a graph using Graphite's default compact representation.
+ *
+ * <p>The compact formatter produces a concise, human-readable view of a
+ * graph by displaying each vertex together with its adjacent vertices. It is
+ * intended for console output, debugging, examples, and general inspection
+ * of graph structure.</p>
+ *
+ * <h2>Output Characteristics</h2>
+ *
+ * <ul>
+ *     <li>Readable adjacency-list layout</li>
+ *     <li>Supports directed and undirected graphs</li>
+ *     <li>Displays edge weights when available</li>
+ * </ul>
+ *
+ * @author Chinmay
+ * @since 2.0
+ * @version 2.0
+ *
+ * @see io.graphite.print.GraphPrinter
+ * @see GraphFormatter
+ */
 public final class CompactFormatter implements GraphFormatter, Colors {
 
     @Override

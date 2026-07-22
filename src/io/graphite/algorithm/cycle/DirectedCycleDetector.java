@@ -5,6 +5,49 @@ import io.graphite.graph.IGraph;
 import io.graphite.model.Edge;
 import io.graphite.validation.GraphPreconditions;
 
+/**
+ * Detects cycles in directed graphs.
+ *
+ * <p>This implementation performs a depth-first search while maintaining
+ * a recursion stack. A cycle is detected whenever a back edge points to a
+ * vertex that is currently on the recursion stack.</p>
+ *
+ * <h2>Requirements</h2>
+ *
+ * <ul>
+ *     <li>The graph must be directed.</li>
+ * </ul>
+ *
+ * <h2>Algorithm Overview</h2>
+ *
+ * <p>The algorithm traverses each unvisited vertex using DFS. During
+ * traversal, vertices currently being explored are tracked in a recursion
+ * stack. Encountering a vertex already on the stack indicates a directed
+ * cycle.</p>
+ *
+ * <h2>Complexity</h2>
+ *
+ * <ul>
+ *     <li>Time: O(V + E)</li>
+ *     <li>Space: O(V)</li>
+ * </ul>
+ *
+ * <h2>Applications</h2>
+ *
+ * <ul>
+ *     <li>Dependency validation</li>
+ *     <li>Deadlock detection</li>
+ *     <li>Build systems</li>
+ *     <li>Topological sort validation</li>
+ * </ul>
+ *
+ * @author Chinmay
+ * @version 2.0
+ * @see UndirectedCycleDetector
+ * @see io.graphite.api.Cycle
+ * @see io.graphite.algorithm.traversal.DFS
+ * @since 2.0
+ */
 public class DirectedCycleDetector extends GraphAlgorithm implements CycleDetectionAlgorithm {
 
     private DirectedCycleDetector() {

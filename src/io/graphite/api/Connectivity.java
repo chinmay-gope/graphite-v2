@@ -11,6 +11,47 @@ import io.graphite.result.BiConnectedResult;
 import io.graphite.result.BridgeResult;
 import io.graphite.result.SCCResult;
 
+/**
+ * Provides graph connectivity algorithms.
+ *
+ * <p>The {@code Connectivity} service analyzes the structural connectivity
+ * of graphs, including connected components, strongly connected components,
+ * bridges, articulation points, and biconnected components.</p>
+ *
+ * <pre>{@code
+ * graph.connectivity().connectedComponents();
+ *
+ * graph.connectivity().stronglyConnectedComponents();
+ *
+ * graph.connectivity().bridges();
+ * }</pre>
+ *
+ * <h2>Available Algorithms</h2>
+ * <ul>
+ *     <li>Connected Components</li>
+ *     <li>Strongly Connected Components (Kosaraju)</li>
+ *     <li>Bridge Detection</li>
+ *     <li>Articulation Points</li>
+ *     <li>Biconnected Components</li>
+ * </ul>
+ *
+ * <h2>Typical Applications</h2>
+ * <ul>
+ *     <li>Network reliability</li>
+ *     <li>Critical infrastructure analysis</li>
+ *     <li>Dependency analysis</li>
+ *     <li>Social network analysis</li>
+ * </ul>
+ *
+ * @author Chinmay
+ * @version 2.0
+ * @see Kosaraju
+ * @see BridgeFinder
+ * @see APFinder
+ * @see BiconnectedComponents
+ * @see IGraph#connectivity()
+ * @since 2.0
+ */
 public final class Connectivity extends GraphAPI {
 
     public Connectivity(IGraph graph) {

@@ -7,6 +7,36 @@ import io.graphite.exception.graph.InvalidVertexException;
 import io.graphite.exception.graph.UnsupportedGraphTypeException;
 import io.graphite.graph.IGraph;
 
+/**
+ * Provides reusable precondition checks for graph algorithms.
+ *
+ * <p>{@code GraphPreconditions} centralizes validation logic that verifies
+ * algorithm requirements before execution. These checks ensure that graphs
+ * satisfy the structural constraints expected by individual algorithms,
+ * resulting in consistent error reporting throughout the library.</p>
+ *
+ * <h2>Supported Validations</h2>
+ *
+ * <ul>
+ *     <li>Null graph validation</li>
+ *     <li>Directed and undirected graph requirements</li>
+ *     <li>Connected graph verification</li>
+ *     <li>Weighted graph verification</li>
+ *     <li>Negative edge detection</li>
+ *     <li>Vertex index validation</li>
+ * </ul>
+ *
+ * <h2>Implementation Notes</h2>
+ *
+ * <p>This class contains only static utility methods and cannot be
+ * instantiated.</p>
+ *
+ * @author Chinmay
+ * @version 2.0
+ * @see GraphValidator
+ * @see BuilderValidator
+ * @since 2.0
+ */
 public final class GraphPreconditions {
 
     private GraphPreconditions() {

@@ -11,6 +11,46 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+/**
+ * Implements Kahn's algorithm for topological sorting.
+ *
+ * <p>Kahn's algorithm repeatedly removes vertices with zero incoming edges,
+ * producing a valid topological ordering of a directed acyclic graph.</p>
+ *
+ * <h2>Requirements</h2>
+ *
+ * <ul>
+ *     <li>The graph must be directed.</li>
+ *     <li>The graph must be acyclic.</li>
+ * </ul>
+ *
+ * <h2>Algorithm Overview</h2>
+ *
+ * <p>The algorithm maintains the in-degree of every vertex and processes
+ * vertices whose in-degree becomes zero until all vertices have been
+ * ordered.</p>
+ *
+ * <h2>Complexity</h2>
+ *
+ * <ul>
+ *     <li>Time: O(V + E)</li>
+ *     <li>Space: O(V)</li>
+ * </ul>
+ *
+ * <h2>Applications</h2>
+ *
+ * <ul>
+ *     <li>Dependency management</li>
+ *     <li>Compilation order</li>
+ *     <li>Course scheduling</li>
+ * </ul>
+ *
+ * @author Chinmay
+ * @version 2.0
+ * @see DFSTopologicalSort
+ * @see io.graphite.api.Topology
+ * @since 2.0
+ */
 public class KahnTopologicalSort extends GraphAlgorithm implements TopologicalAlgorithm {
 
     private KahnTopologicalSort() {

@@ -4,6 +4,25 @@ import io.graphite.algorithm.euler.EulerType;
 
 import java.util.List;
 
+/**
+ * Represents the result of an Euler path or Euler circuit computation.
+ *
+ * <p>An {@code EulerResult} stores the Eulerian traversal produced by the
+ * algorithm together with information describing its validity.</p>
+ *
+ * <h2>Contents</h2>
+ *
+ * <ul>
+ *     <li>Euler path or circuit</li>
+ * </ul>
+ *
+ * @author Chinmay
+ * @since 2.0
+ * @version 2.0
+ *
+ * @see io.graphite.api.Euler
+ * @see io.graphite.algorithm.euler.Hierholzer
+ */
 public record EulerResult(
         EulerType type,
         List<Integer> traversal) {

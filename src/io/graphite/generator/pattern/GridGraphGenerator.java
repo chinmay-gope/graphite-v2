@@ -4,6 +4,27 @@ import io.graphite.builder.Graphs;
 import io.graphite.exception.graph.InvalidGraphConfigurationException;
 import io.graphite.graph.IGraph;
 
+/**
+ * Generates two-dimensional grid graphs.
+ *
+ * <p>Grid graphs arrange vertices in a rectangular lattice where each
+ * vertex is connected to its adjacent horizontal and vertical neighbors.</p>
+ *
+ * <h2>Applications</h2>
+ *
+ * <ul>
+ *     <li>Pathfinding</li>
+ *     <li>Maze generation</li>
+ *     <li>Robotics</li>
+ *     <li>Game development</li>
+ * </ul>
+ *
+ * @author Chinmay
+ * @since 2.0
+ * @version 2.0
+ *
+ * @see io.graphite.graph.PatternGraphFactory
+ */
 public final class GridGraphGenerator {
 
     private GridGraphGenerator() {
